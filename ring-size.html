@@ -6,7 +6,7 @@
 <title>Ring Size Chart &amp; Converter — US, UK, EU, India, Japan | CaratBase</title>
 <meta name="description" content="Free ring size converter and chart. Convert between US, UK, EU, India and Japan sizes, measure a ring you already own, or size your finger with a piece of string. Includes a true-to-scale on-screen sizer.">
 <link rel="canonical" href="https://caratbase.com/ring-size.html">
-<link rel="stylesheet" href="assets/style.css?v=3dd23da1">
+<link rel="stylesheet" href="assets/style.css?v=91411786">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -22,6 +22,8 @@
 </div></header>
 
 <main class="wrap section">
+  <div class="shared-card hide" id="sharedCard"></div>
+
   <div class="narrow">
     <div class="eyebrow">Ring sizer</div>
     <h1>Find your ring size</h1>
@@ -138,9 +140,35 @@
       <div class="result-big"><span id="outUS">6</span><small>US ring size</small></div>
       <p class="small center" id="outFit" style="margin-top:12px"></p>
       <div class="grid" style="grid-template-columns:repeat(5,1fr);gap:10px;margin-top:22px" id="outGrid"></div>
-      <div style="display:flex;gap:10px;margin-top:22px;justify-content:center;flex-wrap:wrap" class="noprint">
-        <button class="btn btn-ghost" id="printBtn">Print a paper sizer</button>
-        <a href="value.html" class="btn btn-gold">Value a diamond</a>
+      <div class="noprint" style="margin-top:26px;border-top:1px solid var(--line);padding-top:24px">
+        <h3 style="font-size:19px;margin-bottom:6px">Save it and send it on</h3>
+        <p class="small" style="margin-bottom:16px;max-width:64ch">
+          Whoever is buying the ring usually is not the person wearing it. Save the size here,
+          then send a link that shows every sizing system at once — so it works with any
+          jeweller, anywhere.</p>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:18px">
+          <div class="field" style="flex:1;min-width:190px;margin-bottom:0">
+            <label for="saveName">Whose size is this?</label>
+            <input id="saveName" placeholder="e.g. Priya — left ring finger" maxlength="60">
+          </div>
+          <button class="btn btn-gold" id="saveSizeBtn">Save this size</button>
+        </div>
+
+        <div id="savedList" style="margin-bottom:18px"></div>
+
+        <div class="share-grid">
+          <button class="share-btn" id="shShare">Share…</button>
+          <button class="share-btn" id="shCopy">Copy link</button>
+          <a class="share-btn" id="shWhats" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a class="share-btn" id="shMail">Email a jeweller</a>
+        </div>
+        <p class="small" id="shareMsg" style="margin-top:12px;min-height:20px"></p>
+
+        <div style="display:flex;gap:10px;margin-top:20px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-ghost" id="printBtn">Print a paper sizer</button>
+          <a href="value.html" class="btn btn-gold">Value a diamond</a>
+        </div>
       </div>
     </div>
   </div>
@@ -215,8 +243,8 @@
   expensive ring, confirm in person before ordering.
 </p></div></footer>
 
-<script src="assets/ringdata.js?v=3dd23da1"></script>
-<script src="assets/analytics.js?v=3dd23da1"></script>
-<script src="assets/nav.js?v=3dd23da1"></script>
-<script src="assets/ringsize.js?v=3dd23da1"></script>
+<script src="assets/ringdata.js?v=91411786"></script>
+<script src="assets/analytics.js?v=91411786"></script>
+<script src="assets/nav.js?v=91411786"></script>
+<script src="assets/ringsize.js?v=91411786"></script>
 </body></html>

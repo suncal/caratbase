@@ -4,10 +4,14 @@
   if(!$('cvSystem')) return;
 
   let current = RING_SIZES.find(r=>r.us===6);
+  // Read this now: the default paint during init overwrites cb_ring_last before
+  // the restore step would otherwise get to look at it.
+  const LAST_US = parseFloat(localStorage.getItem('cb_ring_last'));
 
   /* ---------- shared result panel ---------- */
   function paint(row, note){
     current = row;
+    try{ localStorage.setItem('cb_ring_last', String(row.us)); }catch{}
     $('outUS').textContent = row.us;
     $('outFit').innerHTML = note || '';
     $('outGrid').innerHTML = [
@@ -169,11 +173,128 @@
     window.print();
   });
 
+  /* ---------- saved sizes ---------- */
+  const SAVED_KEY='cb_ring_sizes';
+  const saved = {
+    all(){ try{ return JSON.parse(localStorage.getItem(SAVED_KEY)||'[]') }catch{ return [] } },
+    put(list){ try{ localStorage.setItem(SAVED_KEY,JSON.stringify(list.slice(0,20))) }catch{} },
+    add(name,us){ const l=this.all().filter(x=>x.name!==name);
+      l.unshift({name,us,at:Date.now()}); this.put(l); },
+    remove(name){ this.put(this.all().filter(x=>x.name!==name)); }
+  };
+
+  function renderSaved(){
+    const l=saved.all(), box=$('savedList');
+    box.innerHTML = l.length ? l.map(x=>{
+      const row=RING_SIZES.find(r=>r.us===x.us)||{};
+      return `<div class="saved-row">
+        <span class="who">${escapeHtml(x.name)}</span>
+        <span class="small">${row.uk||''} · ${row.dia?row.dia.toFixed(2)+' mm':''}</span>
+        <span class="sz">US ${x.us}</span>
+        <button class="btn btn-ghost btn-sm" data-load="${escapeAttr(x.name)}">Open</button>
+        <button class="btn btn-ghost btn-sm" data-drop="${escapeAttr(x.name)}">×</button>
+      </div>`;
+    }).join('') : '';
+    box.querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{
+      const rec=saved.all().find(x=>x.name===b.dataset.load); if(!rec) return;
+      const row=RING_SIZES.find(r=>r.us===rec.us);
+      if(row){ $('saveName').value=rec.name; paint(row,`Saved size for ${escapeHtml(rec.name)}.`); }
+    });
+    box.querySelectorAll('[data-drop]').forEach(b=>b.onclick=()=>{
+      saved.remove(b.dataset.drop); renderSaved();
+    });
+  }
+  const escapeHtml=t=>String(t).replace(/[&<>"']/g,c=>
+    ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const escapeAttr=t=>escapeHtml(t);
+
+  $('saveSizeBtn').addEventListener('click',()=>{
+    const name=($('saveName').value.trim())||'My ring size';
+    saved.add(name,current.us); renderSaved();
+    $('shareMsg').innerHTML='<span style="color:var(--good)">Saved. It will be here next time '+
+      'you open this page on this device.</span>';
+    if(window.cbTrack) cbTrack('tool_use',{tool:'ring_size',mode:'save',us:current.us});
+  });
+
+  /* ---------- sharing ----------
+     Everything a jeweller needs travels in the message itself, so the recipient never
+     has to trust a conversion or even open the link. */
+  function shareUrl(){
+    const name=$('saveName').value.trim();
+    const u=new URL(location.href.split('?')[0]);
+    u.searchParams.set('size',current.us);
+    if(name) u.searchParams.set('name',name);
+    return u.toString();
+  }
+  function shareText(){
+    const r=current, name=$('saveName').value.trim();
+    return `${name?name+"'s ring size":'Ring size'}\n\n`+
+      `US / Canada:      ${r.us}\n`+
+      `UK / Australia:   ${r.uk}\n`+
+      `Europe (ISO):     ${r.eu}\n`+
+      `India / Japan:    ${r.jp ?? '—'}\n`+
+      `Inside diameter:  ${r.dia.toFixed(2)} mm\n`+
+      `Circumference:    ${r.circ.toFixed(1)} mm\n\n`+
+      `Measured at ${shareUrl()}`;
+  }
+  function refreshShareLinks(){
+    const t=shareText();
+    $('shWhats').href='https://wa.me/?text='+encodeURIComponent(t);
+    $('shMail').href='mailto:?subject='+encodeURIComponent(
+      ($('saveName').value.trim()||'Ring')+' size')+'&body='+encodeURIComponent(t);
+  }
+  $('saveName').addEventListener('input',refreshShareLinks);
+
+  $('shShare').addEventListener('click',async()=>{
+    refreshShareLinks();
+    const data={title:'Ring size',text:shareText(),url:shareUrl()};
+    if(navigator.share){ try{ await navigator.share(data); }catch{} }
+    else { copy(shareText()); }
+    if(window.cbTrack) cbTrack('tool_use',{tool:'ring_size',mode:'share',us:current.us});
+  });
+  $('shCopy').addEventListener('click',()=>copy(shareUrl()));
+  function copy(text){
+    navigator.clipboard?.writeText(text).then(()=>{
+      $('shareMsg').innerHTML='<span style="color:var(--good)">Copied to your clipboard.</span>';
+    }).catch(()=>{ $('shareMsg').textContent=text; });
+  }
+
+  /* ---------- arriving on a shared link ---------- */
+  function readSharedLink(){
+    const q=new URLSearchParams(location.search);
+    const sz=parseFloat(q.get('size')); if(!isFinite(sz)) return false;
+    const row=RING_SIZES.find(r=>r.us===sz); if(!row) return false;
+    const name=(q.get('name')||'').slice(0,60);
+    $('sharedCard').classList.remove('hide');
+    $('sharedCard').innerHTML=`
+      <div class="eyebrow" style="margin-bottom:8px">Shared with you</div>
+      <h2 style="font-size:30px">${name?escapeHtml(name)+"'s ring size is":'The ring size is'}
+        <span style="color:var(--gold-2)">US ${row.us}</span></h2>
+      <div class="grid" style="grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px">
+        ${[['US / Canada',row.us],['UK / AU',row.uk],['Europe (ISO)',row.eu],
+           ['India / Japan',row.jp ?? '—'],['Diameter',row.dia.toFixed(2)+' mm']]
+          .map(([k,v])=>`<div class="stat"><div class="k">${k}</div>
+            <div class="v" style="font-size:22px">${v}</div></div>`).join('')}
+      </div>
+      <p class="small" style="margin-top:16px">Every system is shown so any jeweller,
+        anywhere, can use it. Measure your own below.</p>`;
+    paint(row,'');
+    if(name) $('saveName').value=name;
+    if(window.cbTrack) cbTrack('tool_use',{tool:'ring_size',mode:'shared_link_opened'});
+    return true;
+  }
+
   /* ---------- init ---------- */
   buildChart();
   fillValues();
   applyCal(pxPerMm());
   $('calRange').value = pxPerMm();
   setCalCollapsed(localStorage.getItem(CAL_DONE)==='1');
+  renderSaved();
+  if(!readSharedLink()){
+    const lastRow=RING_SIZES.find(r=>r.us===LAST_US);
+    if(lastRow && lastRow.us!==6) paint(lastRow,'Picking up where you left off.');
+  }
+  refreshShareLinks();
 })();
 document.getElementById('yr').textContent=new Date().getFullYear();
