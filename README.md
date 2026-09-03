@@ -1,4 +1,26 @@
-# CaratBase — Phase 1
+# CaratBase — Phase 1  ·  LIVE
+
+- **Site:** https://suncal.github.io/caratbase/  (moves to caratbase.com once DNS is pointed)
+- **Analytics Worker:** https://caratbase-analytics.sunnyatlanta20.workers.dev
+- **Dashboard:** /dashboard.html — open it, paste the Worker URL and the key from `.dashkey`
+- **Repo:** https://github.com/suncal/caratbase
+
+`.dashkey` holds the dashboard key and is gitignored. It is a Cloudflare **secret**, not a
+var — do not put it back in `wrangler.toml`, the repo is public and lead emails sit behind it.
+
+## Pointing caratbase.com here
+
+At your DNS provider, for the apex:
+
+    A     @   185.199.108.153
+    A     @   185.199.109.153
+    A     @   185.199.110.153
+    A     @   185.199.111.153
+    CNAME www suncal.github.io
+
+Then add a `CNAME` file containing `caratbase.com` and push. Do that **after** DNS resolves —
+adding it early takes the github.io URL offline while you wait.
+
 
 Static site + free realtime analytics. No build step, no framework, no hosting cost.
 
