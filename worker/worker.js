@@ -17,10 +17,11 @@ function cors(env, request) {
   const allowed = (env.ALLOWED_ORIGINS || '').split(',').map(s => s.trim());
   const ok      = allowed.includes(origin) || allowed.includes('*');
   return {
-    'Access-Control-Allow-Origin':  ok ? origin : allowed[0] || '',
-    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'content-type',
-    'Access-Control-Max-Age':       '86400'
+    'Access-Control-Allow-Origin':      ok ? origin : allowed[0] || '',
+    'Access-Control-Allow-Methods':     'GET,POST,OPTIONS',
+    'Access-Control-Allow-Headers':     'content-type',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Max-Age':           '86400'
   };
 }
 

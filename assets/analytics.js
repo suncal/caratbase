@@ -56,12 +56,15 @@
     if (!ENDPOINT) return;
     const body = JSON.stringify(payload);
     try {
+      // text/plain keeps this a CORS "simple request" — no preflight, no blocked beacon.
+      // The Worker parses the body as JSON regardless of the declared type.
       if (navigator.sendBeacon) {
-        navigator.sendBeacon(ENDPOINT + '/collect', new Blob([body], { type: 'application/json' }));
-      } else {
-        fetch(ENDPOINT + '/collect', { method: 'POST', body, keepalive: true,
-          headers: { 'content-type': 'application/json' } }).catch(() => {});
+        const sent = navigator.sendBeacon(ENDPOINT + '/collect',
+          new Blob([body], { type: 'text/plain;charset=UTF-8' }));
+        if (sent) return;
       }
+      fetch(ENDPOINT + '/collect', { method: 'POST', body, keepalive: true, mode: 'cors',
+        headers: { 'content-type': 'text/plain;charset=UTF-8' } }).catch(() => {});
     } catch {}
   }
 
