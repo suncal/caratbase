@@ -4,6 +4,7 @@
     ['index.html',   'Daily'],
     ['value.html',   'Value my diamond'],
     ['vault.html',   'My vault'],
+    ['ring-size.html','Ring size'],
     ['stamp.html',   'Hallmarks'],
     ['metals.html',  'Metal prices'],
     ['size.html',    'Size chart']

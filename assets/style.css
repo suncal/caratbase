@@ -207,3 +207,42 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .disclaimer{font-size:12.5px;color:var(--ink-3);line-height:1.55;
   border-top:1px solid var(--line);padding-top:16px;margin-top:24px}
 .hide{display:none!important}
+
+/* ---------- tabs ---------- */
+.tabs{display:flex;gap:6px;border-bottom:1px solid var(--line);margin-bottom:24px;flex-wrap:wrap}
+.tab{padding:11px 18px;border:0;background:none;font-family:var(--sans);font-size:14.5px;
+  font-weight:600;color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;
+  margin-bottom:-1px;transition:.15s;border-radius:0}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--gold-2);border-bottom-color:var(--gold)}
+.tabpane{display:none}
+.tabpane.on{display:block;animation:fade .3s ease}
+
+/* ---------- true-scale sizer ---------- */
+.card-cal{background:linear-gradient(135deg,#2E3440,#4A5568);border-radius:3.2mm;
+  position:relative;box-shadow:var(--shadow-lg);margin:0 auto}
+.card-cal::after{content:'';position:absolute;left:8%;top:38%;width:22%;height:16%;
+  border-radius:2px;background:linear-gradient(135deg,#D4AF6A,#B8923F)}
+.gauge-wrap{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;padding:16px 0}
+.gauge{text-align:center}
+.gauge .ring{border:2px solid var(--ink);border-radius:50%;margin:0 auto 8px;
+  background:repeating-conic-gradient(var(--panel-2) 0 25%, var(--panel) 0 50%)}
+.gauge .lbl{font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.gauge .sub{font-size:11px;color:var(--ink-3)}
+
+.result-big{font-family:var(--serif);font-size:64px;font-weight:700;color:var(--gold-2);
+  line-height:1;text-align:center;font-variant-numeric:tabular-nums}
+.result-big small{display:block;font-family:var(--sans);font-size:13px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+
+/* ---------- print sizer ---------- */
+.printonly{display:none}
+@media print{
+  body{background:#fff!important;background-image:none!important}
+  .site-head,.site-foot,.noprint{display:none!important}
+  .printonly{display:block!important}
+  .print-ring{border:1.5px solid #000;border-radius:50%;display:inline-block;margin:4mm 5mm;
+    position:relative;page-break-inside:avoid}
+  .print-cal{width:50mm;height:6mm;border:1.5px solid #000;position:relative}
+  @page{margin:12mm}
+}
