@@ -9,6 +9,17 @@
   fill($('fClarity'),Object.keys(CLARITY_MULT), 'VS2');
   fill($('fCut'),    Object.keys(CUT_MULT),     'Very Good');
   fill($('fKarat'),  Object.keys(KARAT_PURITY), 'None / not sure');
+  $('fSetting').innerHTML = SETTINGS.map(x=>
+    `<option value="${x.key}">${x.label}</option>`).join('');
+
+  /* Picking a style fills in a typical count and size; the fields stay editable. */
+  $('fSetting').addEventListener('change',()=>{
+    const cfg = SETTINGS.find(x=>x.key===$('fSetting').value);
+    if(!cfg || cfg.key==='custom') return;
+    $('fSideCount').value = cfg.count;
+    if(cfg.mm) $('fSideMm').value = cfg.mm;
+    calc();
+  });
 
   /* ---------- certificate number ----------
      Neither GIA nor IGI publishes a free lookup API, so we do the two useful things
@@ -59,30 +70,67 @@
     return {carat:$('fCarat').value, shape:$('fShape').value, color:$('fColor').value,
       clarity:$('fClarity').value, cut:$('fCut').value, origin:$('fOrigin').value,
       cert:$('fCert').value, certNo:$('fCertNo').value.trim().replace(/[^A-Za-z0-9]/g,''),
-      karat:$('fKarat').value, grams:$('fGrams').value};
+      karat:$('fKarat').value, grams:$('fGrams').value,
+      sideCount:$('fSideCount').value, sideMm:$('fSideMm').value};
   }
 
   function calc(){
     const o=read(), v=valueDiamond(o);
     if(!v){ $('oRetail').textContent='—'; return; }
-    const metal=valueMetal(o.karat,o.grams);
-    const retailHi=v.retailHigh+metal, resaleHi=v.resaleHigh+metal;
-    const keep=retailHi?Math.round(resaleHi/retailHi*100):0;
+    const metal = valueMetal(o.karat,o.grams);
+    const side  = valueMelee(o.sideCount,o.sideMm,o.origin);
 
-    $('oRetail').textContent=fmt(v.retailLow+metal)+' – '+fmt(retailHi);
-    $('oResale').textContent=fmt(v.resaleLow+metal)+' – '+fmt(resaleHi);
-    $('oMetal').textContent =metal?fmt(metal):'—';
-    $('oKeep').textContent  =keep+'%';
+    const sideRL = side?side.retailLow:0,  sideRH = side?side.retailHigh:0;
+    const sideSL = side?side.resaleLow:0,  sideSH = side?side.resaleHigh:0;
+
+    const retailLo = v.retailLow  + sideRL + metal;
+    const retailHi = v.retailHigh + sideRH + metal;
+    const resaleLo = v.resaleLow  + sideSL + metal;
+    const resaleHi = v.resaleHigh + sideSH + metal;
+    const keep = retailHi ? Math.round(resaleHi/retailHi*100) : 0;
+
+    $('oRetail').textContent = fmt(retailLo)+' – '+fmt(retailHi);
+    $('oResale').textContent = fmt(resaleLo)+' – '+fmt(resaleHi);
+    $('oMetal').textContent  = metal?fmt(metal):'—';
+    $('oKeep').textContent   = keep+'%';
+
+    /* Where the money actually is. Almost nobody guesses this correctly. */
+    const rows = [[`Centre stone — ${o.carat} ct ${o.origin.toLowerCase()}`,
+                   v.retailLow, v.retailHigh, v.resaleLow, v.resaleHigh]];
+    if(side) rows.push([`Side stones — ${side.count} × ${o.sideMm} mm (${side.totalCt} ct total)`,
+                        sideRL, sideRH, sideSL, sideSH]);
+    if(metal) rows.push([`Setting metal — ${o.grams} g ${o.karat}`, metal, metal, metal, metal]);
+    document.querySelector('#breakdown tbody').innerHTML = rows.map(([lab,rl,rh,sl,sh])=>
+      `<tr><td>${lab}</td><td class="num">${fmt(rl)}–${fmt(rh)}</td>
+       <td class="num" style="color:var(--bad)">${fmt(sl)}–${fmt(sh)}</td></tr>`).join('')
+      + `<tr style="background:var(--gold-dim)"><td><strong>Whole piece</strong></td>
+         <td class="num"><strong>${fmt(retailLo)}–${fmt(retailHi)}</strong></td>
+         <td class="num"><strong style="color:var(--bad)">${fmt(resaleLo)}–${fmt(resaleHi)}</strong></td></tr>`;
+
+    $('sideVerdict').innerHTML = side
+      ? `Those ${side.count} side stones come to ${side.totalCt} ct all together, but each one is
+         priced at its own tiny per-carat rate rather than as one big stone — so they add about
+         <strong style="color:var(--ink)">${fmt(sideRH)}</strong>, roughly
+         <strong style="color:var(--ink)">${Math.round(sideRH/retailHi*100)}%</strong> of the ring.
+         Most of what a halo or pavé costs is the setting and the labour of fitting them, not the
+         diamonds.`
+      : '';
 
     $('oNote').innerHTML = v.isLab
       ? 'Lab-grown stones have very little secondary market at present. The metal in the setting may be worth more than the diamond.'
-      : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} colour, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}${o.certNo?' #'+o.certNo:''}.`;
+      : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} colour, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}${o.certNo?' #'+o.certNo:''}. Materials only — it excludes the jeweller's making and setting charges.`;
 
-    last={...o, est_low:v.resaleLow+metal, est_high:v.resaleHigh+metal};
-    if(!counted && window.cbTrack){counted=true;cbTrack('valuation',{carat:o.carat,origin:o.origin,shape:o.shape});}
+    $('sideHint').textContent = side
+      ? `Each stone is about ${side.ctEach} ct. Typical pavé is 1.0–1.5 mm, a halo 1.2–1.8 mm.`
+      : 'Typical pavé stones are 1.0–1.5 mm across, halo stones 1.2–1.8 mm.';
+
+    last={...o, est_low:resaleLo, est_high:resaleHi};
+    if(!counted && window.cbTrack){counted=true;cbTrack('valuation',
+      {carat:o.carat,origin:o.origin,shape:o.shape,sideStones:side?side.count:0});}
   }
 
-  ['fCarat','fShape','fColor','fClarity','fCut','fOrigin','fCert','fKarat','fGrams']
+  ['fCarat','fShape','fColor','fClarity','fCut','fOrigin','fCert','fKarat','fGrams',
+   'fSideCount','fSideMm']
     .forEach(id=>{$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
   $('fCertNo').addEventListener('input',()=>{certCheck();calc()});
   $('fCert').addEventListener('change',certCheck);

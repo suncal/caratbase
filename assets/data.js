@@ -103,8 +103,14 @@ const STAMPS = [
    Very Good cut. All figures are estimates in USD.
    --------------------------------------------------------------- */
 
-/* Price per carat rises sharply at each "magic size" threshold */
+/* Price per carat rises sharply at each "magic size" threshold.
+   The bottom of this curve matters more than it looks: melee is priced per carat far
+   below whole stones, so a 40-stone halo must be valued at melee rates on each
+   individual stone, never as one 0.4 ct lump. Getting that wrong inflates a halo
+   by roughly an order of magnitude. */
 const PPC_BRACKETS = [
+  {max:0.008,ppc:800},{max:0.015,ppc:950},{max:0.03, ppc:1100},
+  {max:0.05, ppc:1200},{max:0.10, ppc:1300},{max:0.18, ppc:1350},
   {max:0.29, ppc:1400},{max:0.49, ppc:1900},{max:0.69, ppc:2700},
   {max:0.89, ppc:3400},{max:0.99, ppc:4000},{max:1.49, ppc:5200},
   {max:1.99, ppc:6500},{max:2.99, ppc:8500},{max:3.99, ppc:11500},
@@ -157,6 +163,47 @@ function valueMetal(karat, grams){
   if(karat === 'Platinum')   return Math.round(g * METAL_SPOT.platinum * 0.95);
   if(karat === 'Silver 925') return Math.round(g * METAL_SPOT.silver  * 0.925);
   return Math.round(g * METAL_SPOT.gold * (KARAT_PURITY[karat]||0));
+}
+
+/* ---------------------------------------------------------------
+   2b. SIDE STONES / MELEE
+   Weight scales with the cube of the diameter, and a 1 ct round is 6.5 mm, so
+   ct = (mm/6.5)^3. Checked against the size table: 5.1 mm -> 0.483 ct (0.50 actual),
+   4.1 mm -> 0.251 ct (0.25 actual).
+   --------------------------------------------------------------- */
+function caratForMm(mm){
+  const d = parseFloat(mm) || 0;
+  return d > 0 ? +Math.pow(d / 6.5, 3).toFixed(4) : 0;
+}
+
+/* Typical settings, so nobody has to count 38 stones with a loupe to get a number. */
+const SETTINGS = [
+  {key:'solitaire',  label:'Solitaire — no side stones', count:0,  mm:0},
+  {key:'halo',       label:'Halo',                        count:18, mm:1.2},
+  {key:'halo_pave',  label:'Halo with pavé band',         count:38, mm:1.3},
+  {key:'pave',       label:'Pavé band',                   count:20, mm:1.5},
+  {key:'three',      label:'Three-stone',                 count:2,  mm:4.5},
+  {key:'cluster',    label:'Cluster',                     count:12, mm:2.0},
+  {key:'eternity',   label:'Eternity band',               count:30, mm:2.0},
+  {key:'custom',     label:'Something else — I will count',count:0, mm:1.5}
+];
+
+/* Each stone is priced at its OWN per-carat rate, then multiplied by the count. */
+function valueMelee(count, mm, origin){
+  const n = parseInt(count) || 0;
+  const ctEach = caratForMm(mm);
+  if(!n || !ctEach) return null;
+  let each = ctEach * ppcFor(ctEach);
+  if(origin === 'Lab-grown') each *= 0.10;      /* lab melee is cheaper still than lab solitaires */
+  const retail = each * n;
+  return {
+    count:n, ctEach, totalCt:+(ctEach*n).toFixed(3),
+    retailLow:  Math.round(retail*0.85/5)*5,
+    retailHigh: Math.round(retail*1.15/5)*5,
+    /* Nobody buys used melee on its own — it rides along with the setting. */
+    resaleLow:  Math.round(retail*0.05/5)*5,
+    resaleHigh: Math.round(retail*0.15/5)*5
+  };
 }
 
 /* ---------------------------------------------------------------
