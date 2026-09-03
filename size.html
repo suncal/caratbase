@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Diamond Carat Size Chart — Actual MM Sizes Drawn to Scale | CaratBase</title>
-<meta name="description" content="Diamond carat size chart showing true millimetre sizes from 0.25 to 5 carats, drawn to scale on a real finger, with typical retail and resale prices for each weight.">
+<title>Diamond Size Chart by Shape — Actual MM Sizes to Scale | CaratBase</title>
+<meta name="description" content="Diamond size chart in true millimetres for every carat weight and all ten shapes — round, oval, pear, marquise, emerald, princess and more — drawn to scale with retail and resale prices.">
 <link rel="canonical" href="https://caratbase.com/size.html">
-<link rel="stylesheet" href="assets/style.css?v=e4895a2e">
+<link rel="stylesheet" href="assets/style.css?v=e7130df5">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 </head>
 <body>
 <header class="site-head"><div class="wrap head-in">
-  <a href="index.html" class="logo">Carat<b>Base</b></a>
+  <a href="index.html" class="logo"></a>
   <nav class="nav"></nav>
 </div></header>
 
@@ -27,6 +27,37 @@
   </div>
 
   <div class="grid g3" id="sizeGrid" style="margin-top:40px"></div>
+
+  <!-- ============ SHAPES AT THE SAME WEIGHT ============ -->
+  <section style="margin-top:70px">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Shape changes everything</div>
+        <h2>The same carat, ten different sizes</h2>
+      </div>
+      <div class="field" style="margin-bottom:0;min-width:190px">
+        <label for="shapeCt">Carat weight</label>
+        <select id="shapeCt"></select>
+      </div>
+    </div>
+    <p class="lede" style="margin-bottom:26px">
+      Carat is weight, not size. Elongated cuts carry less of that weight hidden in the
+      pavilion and spread wider across the finger, so they look considerably bigger than a
+      round of identical weight — and cost the same or less.
+    </p>
+    <div class="grid g3" id="shapeGrid"></div>
+    <div class="table-scroll" style="margin-top:28px">
+      <table id="shapeTable">
+        <thead><tr><th>Shape</th><th class="num">Length</th><th class="num">Width</th>
+          <th class="num">Against a round</th><th>What to know</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">
+      Dimensions assume well-cut stones of standard proportions. Individual stones vary, and
+      two diamonds of the same shape and weight can differ by half a millimetre or more.
+    </p>
+  </section>
 
   <section class="narrow" style="margin-top:64px">
     <h2>Carat to millimetre table</h2>
@@ -63,12 +94,50 @@
     <a href="value.html">Valuation</a><a href="stamp.html">Hallmarks</a><a href="size.html">Size chart</a></div>
 </div></footer>
 
-<script src="assets/data.js?v=e4895a2e"></script>
+<script src="assets/data.js?v=e7130df5"></script>
 <script>window.CB_ANALYTICS_ENDPOINT="https://caratbase-analytics.sunnyatlanta20.workers.dev"</script>
-<script src="assets/analytics.js?v=e4895a2e"></script>
-<script src="assets/nav.js?v=e4895a2e"></script>
-<script src="assets/game.js?v=e4895a2e"></script>
+<script src="assets/analytics.js?v=e7130df5"></script>
+<script src="assets/logo.js?v=e7130df5"></script>
+<script src="assets/nav.js?v=e7130df5"></script>
+<script src="assets/shapes.js?v=e7130df5"></script>
+<script src="assets/game.js?v=e7130df5"></script>
 <script>
+/* ---- shapes at a chosen weight ---- */
+(function(){
+  const sel=document.getElementById('shapeCt');
+  const CTS=[0.30,0.50,0.75,1.00,1.25,1.50,2.00,2.50,3.00];
+  sel.innerHTML=CTS.map(c=>`<option value="${c}"${c===1?' selected':''}>${c.toFixed(2)} ct</option>`).join('');
+
+  function draw(){
+    const ct=parseFloat(sel.value);
+    const round=shapeDims('Round',ct);
+    document.getElementById('shapeGrid').innerHTML=Object.keys(SHAPE_MM).map(sh=>{
+      const d=shapeDims(sh,ct);
+      const pct=Math.round((d.l/round.l-1)*100);
+      return `<div class="panel" style="text-align:center">
+        <div class="stage" style="min-height:240px;padding:12px">${shapeOnFinger(sh,ct)}</div>
+        <div style="font-family:var(--serif);font-size:24px;font-weight:600;margin-top:12px">${sh}</div>
+        <div class="small" style="margin-top:3px">${d.l} × ${d.w} mm</div>
+        <div class="small" style="margin-top:8px;color:${pct>0?'var(--good)':pct<0?'var(--bad)':'var(--ink-3)'};font-weight:600">
+          ${pct>0?'+':''}${pct}% length vs round</div>
+      </div>`;
+    }).join('');
+
+    document.querySelector('#shapeTable tbody').innerHTML=Object.keys(SHAPE_MM).map(sh=>{
+      const d=shapeDims(sh,ct);
+      const pct=Math.round((d.l/round.l-1)*100);
+      return `<tr><td><strong>${sh}</strong></td><td class="num">${d.l} mm</td>
+        <td class="num">${d.w} mm</td>
+        <td class="num" style="color:${pct>0?'var(--good)':pct<0?'var(--bad)':'var(--ink-3)'};font-weight:600">
+          ${pct>0?'+':''}${pct}%</td>
+        <td class="small" style="max-width:34ch">${d.note}</td></tr>`;
+    }).join('');
+    if(window.cbTrack) cbTrack('tool_use',{tool:'shape_sizes',carat:ct});
+  }
+  sel.addEventListener('change',draw);
+  draw();
+})();
+
 (function(){
   const show=[0.25,0.50,0.75,1.00,1.50,2.00,3.00,4.00,5.00];
   document.getElementById('sizeGrid').innerHTML = show.map(ct=>{
