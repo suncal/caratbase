@@ -197,6 +197,7 @@
       b.classList.add('btn-gold');b.classList.remove('btn-ghost');
       $('intentCopy').textContent=COPY[intent];
       $('intentFollow').classList.remove('hide');
+      showPartners(intent);
       if(window.cbTrack) cbTrack('tool_use',{tool:'intent_select',intent});
     });
   });
@@ -288,6 +289,32 @@
     window.print();
     if(window.cbTrack) cbTrack('tool_use',{tool:'report_download',intent,carat:last.carat});
   });
+
+  /* Route to whoever is actually useful for what they said they want to do. Someone
+     insuring should not be shown buyers, and someone selling should be shown several
+     buyers rather than one — the spread between them is the advice. */
+  function showPartners(intent){
+    const box=$('pIntent'); if(!box || typeof Partners==='undefined') return;
+    const est = last ? `${fmt(last.est_low)}–${fmt(last.est_high)}` : 'this range';
+    if(intent==='insure'){
+      Partners.mount(box,'insurance',{
+        title:'Insuring it',
+        intro:`Most household contents policies cap jewellery well below ${est}, and many exclude loss away from home entirely. Specialist cover typically runs 1–2% of the insured value per year.`,
+        footer:'Both will want a documented value. Download the report above as a starting point — for an expensive piece they will also want a certified appraisal.'});
+    } else if(intent==='sell'){
+      Partners.mount(box,'buyers',{
+        title:'Getting real offers',
+        intro:'Approach all three rather than one. The spread between buyers on an identical stone is routinely thousands of dollars, and the first offer is almost never the best.',
+        footer:'When you have an offer, come back and tell us what it was — it goes into the resale data behind every valuation on this site, and we will show you how it compares.'});
+    } else if(intent==='appraise'){
+      Partners.mount(box,'appraisers',{
+        title:'Finding an appraiser',
+        intro:'Use an independent appraiser rather than the shop selling or buying the piece — the conflict is obvious. Expect $50–300 per item, and insist on a written report.',
+        footer:'These are professional bodies, not partners. We earn nothing from either, and the directories are free to search.'});
+    } else {
+      box.innerHTML='';
+    }
+  }
 
   $('leadForm').addEventListener('submit',e=>{
     e.preventDefault();

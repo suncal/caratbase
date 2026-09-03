@@ -526,3 +526,20 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   .grid[style*="repeat(5"]{grid-template-columns:repeat(2,1fr)!important}
   .kpi{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ---------- partner blocks ---------- */
+.partner-block{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px;box-shadow:var(--shadow)}
+.partner{display:flex;align-items:center;gap:16px;padding:15px 16px;border:1px solid var(--line);
+  border-radius:11px;margin-bottom:9px;text-decoration:none;color:inherit;transition:.16s;
+  background:var(--panel-2)}
+.partner:hover{text-decoration:none;border-color:var(--gold);background:var(--gold-dim);
+  transform:translateX(2px)}
+.partner-body{flex:1;min-width:0}
+.partner-name{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--ink)}
+.partner-note{font-size:13px;color:var(--ink-3);line-height:1.5;margin-top:3px}
+.partner-go{font-size:13.5px;font-weight:600;color:var(--gold-2);white-space:nowrap}
+@media(max-width:560px){
+  .partner{flex-direction:column;align-items:flex-start;gap:8px}
+  .partner-go{align-self:flex-end}
+}

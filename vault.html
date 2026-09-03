@@ -6,7 +6,7 @@
 <title>My Jewellery Vault — Track What Your Collection Is Worth | CaratBase</title>
 <meta name="description" content="Save every piece you value and track what your jewellery collection is worth over time. Free, private, and stored only on your own device.">
 <link rel="canonical" href="https://caratbase.com/vault.html">
-<link rel="stylesheet" href="assets/style.css?v=a2232b5b">
+<link rel="stylesheet" href="assets/style.css?v=65c37b0e">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 </head>
 <body>
@@ -30,6 +30,7 @@
   <div id="vaultList" style="margin-top:24px"></div>
 
   <section class="narrow" style="margin-top:50px" id="vaultCta"></section>
+  <section style="margin-top:24px"><div id="pVault"></div></section>
 </main>
 
 <footer class="site-foot"><div class="wrap foot-in">
@@ -41,12 +42,18 @@
   private window will empty it. Values are estimates, not a formal appraisal.
 </p></div></footer>
 
-<script src="assets/data.js?v=a2232b5b"></script>
-<script src="assets/analytics.js?v=a2232b5b"></script>
-<script src="assets/spot.js?v=a2232b5b"></script>
-<script src="assets/ticker.js?v=a2232b5b"></script>
-<script src="assets/logo.js?v=a2232b5b"></script>
-<script src="assets/nav.js?v=a2232b5b"></script>
-<script src="assets/game.js?v=a2232b5b"></script>
-<script src="assets/vault.js?v=a2232b5b"></script>
+<script src="assets/data.js?v=65c37b0e"></script>
+<script src="assets/analytics.js?v=65c37b0e"></script>
+<script src="assets/spot.js?v=65c37b0e"></script>
+<script src="assets/ticker.js?v=65c37b0e"></script>
+<script src="assets/logo.js?v=65c37b0e"></script>
+<script src="assets/nav.js?v=65c37b0e"></script>
+<script src="assets/partners.js?v=65c37b0e"></script>
+<script src="assets/game.js?v=65c37b0e"></script>
+<script src="assets/vault.js?v=65c37b0e"></script>
+<script>Partners.mount('pVault','insurance',{
+  title:'Insuring what is in your vault',
+  intro:'Most household contents policies cap jewellery well below what a single ring is worth, and many exclude loss outside the home entirely. Specialist cover is usually 1\u20132% of value per year.',
+  footer:'Both will want a documented value. The report from our valuation tool is a reasonable starting point, though for an expensive piece they will ask for a certified appraisal.'
+});</script>
 </body></html>
