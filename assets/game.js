@@ -234,7 +234,9 @@ const Hist={
     if(!email) return;
     if(window.cbTrack) cbTrack('email',{email,where:'home'});
     document.getElementById('emailMsg').innerHTML=
-      '<span style="color:var(--good)">Saved. Value a stone and your report will be sent to '+email+'.</span>';
+      '<span style="color:var(--good)">Saved — we will let you know when metal prices move '+
+      'meaningfully. To get a report now, <a href="value.html">value your piece</a> and '+
+      'download it there.</span>';
     f.reset();
   });
 })();

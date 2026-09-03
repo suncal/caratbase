@@ -6,7 +6,7 @@
 <title>Diamond Value Calculator — Retail vs Real Resale Price | CaratBase</title>
 <meta name="description" content="Free diamond value calculator. Enter your carat, colour, clarity and cut to get both the retail price and the honest resale value — the number jewellers don't quote.">
 <link rel="canonical" href="https://caratbase.com/value.html">
-<link rel="stylesheet" href="assets/style.css?v=e7130df5">
+<link rel="stylesheet" href="assets/style.css?v=633dcb75">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 </head>
 <body>
@@ -142,12 +142,26 @@
 
         <div id="intentFollow" class="hide" style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line)">
           <p id="intentCopy" style="font-size:15px;color:var(--ink-2);margin-bottom:16px"></p>
-          <form id="leadForm" style="display:flex;gap:10px;flex-wrap:wrap">
-            <input type="email" id="leadEmail" placeholder="you@email.com" required style="flex:1;min-width:200px">
-            <button class="btn btn-gold" type="submit" id="leadBtn">Send my report</button>
-          </form>
-          <p class="small" id="leadMsg" style="margin-top:12px;min-height:20px"></p>
-        </div>
+
+          <button class="btn btn-gold btn-lg" id="dlReport" style="width:100%">
+            Download my valuation report</button>
+          <p class="small" style="margin-top:10px">
+            Opens your print dialog — choose <strong>Save as PDF</strong> to keep a copy.
+            It lists every specification, both value ranges and how they were worked out,
+            which is what an insurer or a buyer will ask you for.</p>
+
+          <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--line)">
+            <label for="leadEmail">Tell me when this piece changes in value</label>
+            <p class="small" style="margin:-2px 0 10px">
+              Metal prices move daily and diamond resale shifts with the market. Leave your
+              email and we will let you know when this piece is worth meaningfully more or
+              less. Nothing else, and nothing now.</p>
+            <form id="leadForm" style="display:flex;gap:10px;flex-wrap:wrap">
+              <input type="email" id="leadEmail" placeholder="you@email.com" required style="flex:1;min-width:200px">
+              <button class="btn btn-ghost" type="submit" id="leadBtn">Keep me posted</button>
+            </form>
+            <p class="small" id="leadMsg" style="margin-top:12px;min-height:20px"></p>
+          </div>
       </div>
     </div>
   </div>
@@ -176,6 +190,10 @@
   </section>
 </main>
 
+<!-- printable valuation report, hidden on screen -->
+<div id="reportArea"></div>
+
+
 <footer class="site-foot"><div class="wrap foot-in">
   <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
   <div style="display:flex;gap:20px;flex-wrap:wrap">
@@ -187,12 +205,12 @@
   obtain a certified appraisal from a qualified professional.
 </p></div></footer>
 
-<script src="assets/data.js?v=e7130df5"></script>
+<script src="assets/data.js?v=633dcb75"></script>
 <script>window.CB_ANALYTICS_ENDPOINT="https://caratbase-analytics.sunnyatlanta20.workers.dev"</script>
-<script src="assets/spot.js?v=e7130df5"></script>
-<script src="assets/analytics.js?v=e7130df5"></script>
-<script src="assets/logo.js?v=e7130df5"></script>
-<script src="assets/nav.js?v=e7130df5"></script>
-<script src="assets/vault.js?v=e7130df5"></script>
-<script src="assets/value.js?v=e7130df5"></script>
+<script src="assets/spot.js?v=633dcb75"></script>
+<script src="assets/analytics.js?v=633dcb75"></script>
+<script src="assets/logo.js?v=633dcb75"></script>
+<script src="assets/nav.js?v=633dcb75"></script>
+<script src="assets/vault.js?v=633dcb75"></script>
+<script src="assets/value.js?v=633dcb75"></script>
 </body></html>

@@ -45,3 +45,27 @@ automatically. What the field does do:
 
 That last point is the commercial reason it exists. A certified stone can be graded and priced
 without anyone handling it, which is exactly what makes a lead sellable to a dealer.
+
+
+## Turning email on
+
+The report downloads instantly today, so nothing is blocked. To also send it by email:
+
+1. **You:** create a free Resend account (3,000 emails/month) and generate an API key.
+2. **You or me:** add Resend's domain-verification DNS records to GoDaddy for caratbase.com.
+3. **Then:**
+
+```bash
+cd worker
+npx wrangler secret put RESEND_API_KEY     # paste the key when prompted
+npx wrangler secret put MAIL_FROM          # e.g. reports@caratbase.com
+```
+
+Check it took effect:
+
+```bash
+curl https://caratbase-analytics.sunnyatlanta20.workers.dev/api/capabilities
+```
+
+`{"email":true}` means sending is live. Only then should the UI offer to email a report —
+`/api/capabilities` exists precisely so the page can ask before it promises.

@@ -151,6 +151,46 @@ async function stats(env) {
   }), { headers: JSON_HEADERS });
 }
 
+/**
+ * Email delivery via Resend.
+ * Requires two secrets that are NOT in this repo:
+ *   npx wrangler secret put RESEND_API_KEY
+ *   npx wrangler secret put MAIL_FROM        e.g. reports@caratbase.com
+ * Until both exist this returns a clear "not configured" rather than pretending to send.
+ */
+async function sendReport(request, env) {
+  if (!env.RESEND_API_KEY || !env.MAIL_FROM) {
+    return new Response(JSON.stringify({ ok: false, reason: 'not_configured' }),
+      { status: 503, headers: JSON_HEADERS });
+  }
+  let b;
+  try { b = await request.json(); } catch { return new Response('bad json', { status: 400 }); }
+  const to = String(b.email || '').trim();
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(to)) {
+    return new Response(JSON.stringify({ ok: false, reason: 'bad_email' }),
+      { status: 400, headers: JSON_HEADERS });
+  }
+
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json',
+               authorization: `Bearer ${env.RESEND_API_KEY}` },
+    body: JSON.stringify({
+      from: env.MAIL_FROM,
+      to: [to],
+      subject: b.subject || 'Your CaratBase valuation report',
+      html: String(b.html || '').slice(0, 400000)
+    })
+  });
+
+  if (!r.ok) {
+    const detail = await r.text();
+    return new Response(JSON.stringify({ ok: false, reason: 'provider_error', detail: detail.slice(0, 300) }),
+      { status: 502, headers: JSON_HEADERS });
+  }
+  return new Response(JSON.stringify({ ok: true }), { headers: JSON_HEADERS });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -161,6 +201,17 @@ export default {
       if (url.pathname === '/collect' && request.method === 'POST') {
         const r = await collect(request, env);
         return new Response(r.body, { status: r.status, headers: ch });
+      }
+
+      if (url.pathname === '/api/send-report' && request.method === 'POST') {
+        const r = await sendReport(request, env);
+        return new Response(r.body, { status: r.status, headers: { ...JSON_HEADERS, ...ch } });
+      }
+
+      // Lets the page ask whether emailing actually works before it offers to email.
+      if (url.pathname === '/api/capabilities') {
+        return new Response(JSON.stringify({ email: !!(env.RESEND_API_KEY && env.MAIL_FROM) }),
+          { headers: { ...JSON_HEADERS, ...ch } });
       }
 
       const authed = url.searchParams.get('key') === env.DASH_KEY;

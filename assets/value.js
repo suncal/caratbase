@@ -182,10 +182,10 @@
 
   /* ---------- intent = the lead ---------- */
   const COPY={
-    insure:'Most jewellery is under-insured or not insured at all, because insurers need a documented value and getting one usually means paying for an appraisal. We will email your valuation report as a PDF you can send straight to an insurer.',
-    sell:'Never accept the first offer — the spread between buyers on the same stone is often thousands of dollars. We will email your report plus a breakdown of what each type of buyer typically pays.',
-    appraise:'A certified appraisal usually runs $50–300 per item and is required for scheduled insurance coverage. We will email your estimate so you know what to expect before you book one.',
-    curious:'No problem. We will email the report so you have the numbers on file.'
+    insure:'Insurers need a documented value, and getting one normally means paying $50–300 for an appraisal. The report below gives you the specifications and both value ranges in a form you can send to an insurer — though for a high-value piece most insurers will still want a certified appraisal on top.',
+    sell:'Never accept the first offer. The spread between buyers on the same stone is routinely thousands of dollars, so get at least three written quotes. Take the report below with you — a buyer who knows you have the numbers will not lowball as easily.',
+    appraise:'A certified appraisal usually runs $50–300 per item and is required for scheduled insurance coverage. The report below tells you what to expect before you book one, so you can tell whether an appraisal comes back sensible.',
+    curious:'Fair enough. The report below has the numbers on file whenever you want them.'
   };
   let intent=null;
 
@@ -201,6 +201,94 @@
     });
   });
 
+  /* ---------- the valuation report ----------
+     Printing is the one PDF route that needs no library and no server: every desktop and
+     mobile browser offers "Save as PDF" from the print dialog. */
+  function buildReport(){
+    if(!last) return;
+    const o=last, v=valueDiamond(o), metal=valueMetal(o.karat,o.grams),
+          side=valueMelee(o.sideCount,o.sideMm,o.origin);
+    const sRL=side?side.retailLow:0, sRH=side?side.retailHigh:0;
+    const sSL=side?side.resaleLow:0, sSH=side?side.resaleHigh:0;
+    const rLo=v.retailLow+sRL+metal, rHi=v.retailHigh+sRH+metal;
+    const kLo=v.resaleLow+sSL+metal, kHi=v.resaleHigh+sSH+metal;
+    const now=new Date();
+    const ref='CB-'+now.toISOString().slice(0,10).replace(/-/g,'')+'-'+
+      Math.abs(Math.round(parseFloat(o.carat)*1000)).toString(36).toUpperCase();
+
+    const kv=(k,val)=>`<div><div class="k">${k}</div><div class="v">${val}</div></div>`;
+    const rows=[[`Centre stone — ${o.carat} ct ${o.shape.toLowerCase()}`,v.retailLow,v.retailHigh,v.resaleLow,v.resaleHigh]];
+    if(side) rows.push([`Side stones — ${side.count} × ${o.sideMm} mm (${side.totalCt} ct)`,sRL,sRH,sSL,sSH]);
+    if(metal) rows.push([`Setting — ${o.grams} g ${o.karat}`,metal,metal,metal,metal]);
+
+    document.getElementById('reportArea').innerHTML=`
+      <div class="rep-head">
+        <div><h1 class="rep-title">Valuation Report</h1>
+          <div class="rep-sub">CaratBase · caratbase.com</div></div>
+        <div style="text-align:right" class="rep-sub">
+          <div><strong>${ref}</strong></div>
+          <div>${now.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</div></div>
+      </div>
+
+      <div class="rep-sec"><h3>The piece</h3><div class="rep-kv">
+        ${kv('Carat weight',o.carat+' ct')}${kv('Shape',o.shape)}${kv('Colour',o.color)}
+        ${kv('Clarity',o.clarity)}${kv('Cut',o.cut)}${kv('Origin',o.origin)}
+        ${kv('Certificate',o.cert)}${o.certNo?kv('Report number',o.certNo):''}
+        ${o.karat&&o.karat!=='None / not sure'?kv('Setting metal',o.karat):''}
+        ${o.grams?kv('Metal weight',o.grams+' g'):''}
+        ${side?kv('Side stones',side.count+' × '+o.sideMm+' mm'):''}
+      </div></div>
+
+      <div class="rep-sec"><h3>Estimated value</h3>
+        <div class="rep-big">
+          <div><div class="k">Retail replacement</div><div class="v">${fmt(rLo)} – ${fmt(rHi)}</div></div>
+          <div><div class="k">Realistic resale</div><div class="v">${fmt(kLo)} – ${fmt(kHi)}</div></div>
+        </div>
+        <table><thead><tr><th>Component</th><th class="num">Retail</th><th class="num">Resale</th></tr></thead>
+        <tbody>${rows.map(([l,a,b,c,d])=>
+          `<tr><td>${l}</td><td class="num">${fmt(a)}–${fmt(b)}</td>
+           <td class="num">${fmt(c)}–${fmt(d)}</td></tr>`).join('')}
+          <tr><td><strong>Whole piece</strong></td>
+            <td class="num"><strong>${fmt(rLo)}–${fmt(rHi)}</strong></td>
+            <td class="num"><strong>${fmt(kLo)}–${fmt(kHi)}</strong></td></tr>
+        </tbody></table>
+      </div>
+
+      <div class="rep-sec"><h3>How these figures were reached</h3>
+        <p class="rep-note">
+          Retail is modelled from published market prices for the stated specification, using
+          per-carat rates that step at each recognised size threshold, adjusted for colour,
+          clarity, cut and shape. Side stones are priced individually at melee rates rather
+          than as a combined weight, which is why they contribute far less than their total
+          carat suggests. Metal is valued at the spot price on the date above
+          (gold ${fmt(METAL_SPOT.gold)}/g), less an allowance for refining.
+          Resale reflects the secondary market, where a natural diamond typically recovers
+          25–40% of retail and a lab-grown stone considerably less.
+        </p></div>
+
+      <div class="rep-sec"><h3>Important</h3>
+        <p class="rep-note">
+          This is an estimate produced from a price model, not a physical inspection.
+          CaratBase is not a licensed appraiser, does not buy or sell jewellery, and this
+          document is not a formal appraisal, an offer, a guarantee of value, or financial
+          advice. Insurers and courts will normally require a certified appraisal from a
+          qualified professional. Figures are in US dollars.
+        </p></div>
+
+      <p class="rep-note" style="margin-top:10mm;border-top:1px solid #ddd;padding-top:3mm">
+        Produced free at caratbase.com — ${ref}</p>`;
+  }
+
+  $('dlReport').addEventListener('click',()=>{
+    buildReport();
+    document.body.classList.add('printing-report');
+    const restore=()=>document.body.classList.remove('printing-report');
+    window.addEventListener('afterprint',restore,{once:true});
+    setTimeout(restore,60000);           // belt and braces if afterprint never fires
+    window.print();
+    if(window.cbTrack) cbTrack('tool_use',{tool:'report_download',intent,carat:last.carat});
+  });
+
   $('leadForm').addEventListener('submit',e=>{
     e.preventDefault();
     const email=$('leadEmail').value.trim();
@@ -209,7 +297,8 @@
       color:last.color,clarity:last.clarity,origin:last.origin,
       cert:last.cert,cert_no:last.certNo||'',
       est_low:last.est_low,est_high:last.est_high});
-    $('leadMsg').innerHTML='<span style="color:var(--good)">Report on its way to '+email+'.</span>';
+    $('leadMsg').innerHTML='<span style="color:var(--good)">Saved. We will only write to '+
+      email+' if this piece changes meaningfully in value.</span>';
     $('leadForm').reset();
     $('leadBtn').disabled=true;
   });

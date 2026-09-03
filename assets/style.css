@@ -335,3 +335,33 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;
   flex-wrap:wrap;margin-bottom:26px}
 .sec-head p{max-width:56ch}
+
+/* ---------- valuation report (screen + print) ---------- */
+#reportArea{display:none}
+@media print{
+  body.printing-report > *:not(#reportArea){display:none!important}
+  body.printing-report #reportArea{display:block!important}
+  #reportArea{font-family:Georgia,'Times New Roman',serif;color:#111}
+  .rep-head{display:flex;justify-content:space-between;align-items:flex-start;
+    border-bottom:2px solid #A97C2C;padding-bottom:8mm;margin-bottom:8mm}
+  .rep-title{font-size:22pt;font-weight:700;margin:0}
+  .rep-sub{font-size:9pt;color:#555;margin-top:2mm}
+  .rep-sec{margin-bottom:7mm;page-break-inside:avoid}
+  .rep-sec h3{font-size:11pt;text-transform:uppercase;letter-spacing:.08em;color:#A97C2C;
+    border-bottom:1px solid #ddd;padding-bottom:2mm;margin-bottom:3mm}
+  .rep-kv{display:flex;flex-wrap:wrap;gap:3mm 10mm}
+  .rep-kv div{min-width:38mm}
+  .rep-kv .k{font-size:8pt;text-transform:uppercase;letter-spacing:.06em;color:#666}
+  .rep-kv .v{font-size:12pt;font-weight:600}
+  .rep-big{display:flex;gap:8mm;margin:4mm 0}
+  .rep-big div{flex:1;border:1px solid #ddd;padding:4mm}
+  .rep-big .k{font-size:8pt;text-transform:uppercase;letter-spacing:.06em;color:#666}
+  .rep-big .v{font-size:17pt;font-weight:700;margin-top:1mm}
+  #reportArea table{width:100%;border-collapse:collapse;font-size:10pt}
+  #reportArea th{text-align:left;font-size:8pt;text-transform:uppercase;letter-spacing:.06em;
+    color:#666;border-bottom:1px solid #999;padding:2mm}
+  #reportArea td{padding:2mm;border-bottom:1px solid #eee}
+  #reportArea td.num{text-align:right}
+  .rep-note{font-size:8.5pt;color:#555;line-height:1.5}
+  @page{margin:16mm}
+}
