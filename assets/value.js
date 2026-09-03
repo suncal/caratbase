@@ -87,6 +87,7 @@
   $('fCertNo').addEventListener('input',()=>{certCheck();calc()});
   $('fCert').addEventListener('change',certCheck);
   certCheck(); calc();
+  document.addEventListener('cb:spot', calc);   // live metal prices arrived
 
   /* ---------- save to vault ---------- */
   $('saveVaultBtn').addEventListener('click',()=>{

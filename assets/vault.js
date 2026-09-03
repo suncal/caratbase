@@ -85,5 +85,6 @@ const Vault = {
   }
 
   render();
+  document.addEventListener('cb:spot', render);  // live metal prices arrived
   if(window.cbTrack) cbTrack('tool_use',{tool:'vault_view',pieces:Vault.count()});
 })();

@@ -15,31 +15,65 @@ jobs:
       - name: Fetch spot prices and rewrite metals.json
         run: |
           python3 - <<'PY'
-          import json, urllib.request, datetime, pathlib
-          # stooq serves free, keyless CSV quotes. Prices are per troy ounce.
+          import json, urllib.request, datetime, pathlib, sys
+
           OZ_TO_G = 31.1034768
-          SYMS = {'gold':'xauusd','silver':'xagusd','platinum':'xptusd','palladium':'xpdusd'}
-          def spot(sym):
-              url = f'https://stooq.com/q/l/?s={sym}&f=sd2t2ohlc&h&e=csv'
-              rows = urllib.request.urlopen(url, timeout=30).read().decode().strip().splitlines()
-              close = rows[1].split(',')[6]
-              return round(float(close) / OZ_TO_G, 4)
+          UA = {'User-Agent': 'Mozilla/5.0 (compatible; caratbase-bot/1.0)'}
+
+          def get(url):
+              return json.loads(urllib.request.urlopen(
+                  urllib.request.Request(url, headers=UA), timeout=30).read())
+
+          def gold_api(sym):
+              return float(get(f'https://api.gold-api.com/price/{sym}')['price'])
+
+          def yahoo(sym):
+              d = get(f'https://query1.finance.yahoo.com/v8/finance/chart/{sym}?interval=1d&range=5d')
+              return float(d['chart']['result'][0]['meta']['regularMarketPrice'])
+
+          # (gold-api symbol, yahoo futures fallback)
+          SYMS = {
+              'gold':      ('XAU', 'GC=F'),
+              'silver':    ('XAG', 'SI=F'),
+              'platinum':  ('XPT', 'PL=F'),
+              'palladium': ('XPD', 'PA=F'),
+          }
+          # sanity ranges per troy ounce — catches a source returning garbage
+          SANE = {'gold': (500, 20000), 'silver': (5, 500),
+                  'platinum': (200, 10000), 'palladium': (200, 10000)}
 
           p = pathlib.Path('assets/metals.json')
           old = json.loads(p.read_text())
-          new = {}
-          for name, sym in SYMS.items():
-              try:
-                  new[name] = spot(sym)
-              except Exception as e:
-                  print(f'{name}: kept previous ({e})')
+          new, failed = {}, []
+
+          for name, (gsym, ysym) in SYMS.items():
+              oz = None
+              for label, fn, arg in (('gold-api', gold_api, gsym), ('yahoo', yahoo, ysym)):
+                  try:
+                      v = fn(arg)
+                      lo, hi = SANE[name]
+                      if not (lo <= v <= hi):
+                          print(f'{name}: {label} returned {v}/oz, outside sane range'); continue
+                      oz = v; print(f'{name}: {label} ${v:.2f}/oz'); break
+                  except Exception as e:
+                      print(f'{name}: {label} failed ({e})')
+              if oz is None:
+                  failed.append(name)
                   new[name] = old['perGram'].get(name)
+              else:
+                  new[name] = round(oz / OZ_TO_G, 4)
+
+          # Gold is the whole point of the page — never ship a silently stale figure.
+          if 'gold' in failed:
+              sys.exit('FATAL: could not fetch a gold price from any source')
+          if failed:
+              print(f'WARNING: kept previous values for {failed}')
 
           p.write_text(json.dumps({
-              'updated': datetime.datetime.now(datetime.timezone.utc).isoformat(),
-              'source': 'stooq.com spot, converted per gram',
+              'updated': datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
+              'source': 'api.gold-api.com spot, Yahoo Finance futures fallback; converted per gram',
               'perGram': new,
-              'prevPerGram': old['perGram']
+              'prevPerGram': old['perGram'],
           }, indent=2) + '\n')
           print(json.dumps(new, indent=2))
           PY
