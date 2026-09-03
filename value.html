@@ -6,7 +6,7 @@
 <title>Diamond Value Calculator — Retail vs Real Resale Price | CaratBase</title>
 <meta name="description" content="Free diamond value calculator. Enter your carat, colour, clarity and cut to get both the retail price and the honest resale value — the number jewellers don't quote.">
 <link rel="canonical" href="https://caratbase.com/value.html">
-<link rel="stylesheet" href="assets/style.css?v=9667448c">
+<link rel="stylesheet" href="assets/style.css?v=e4895a2e">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 </head>
 <body>
@@ -107,6 +107,27 @@
         <p class="small" id="vaultMsg" style="margin-top:10px;min-height:18px"></p>
       </div>
 
+      <!-- ---------------- offer capture — the dataset nobody else has ---------------- -->
+      <div class="panel" style="margin-top:18px" id="offerPanel">
+        <h3 style="margin-bottom:8px">Been offered a price for it?</h3>
+        <p class="small" style="margin-bottom:16px">
+          Tell us what you were offered and we will show you how it compares. Real offers are
+          the only way anyone can know what jewellery is truly worth secondhand — the trade
+          does not publish it. Nothing identifying is stored.</p>
+        <div class="grid g2" style="gap:12px;align-items:end">
+          <div class="field" style="margin-bottom:0"><label for="ofAmount">You were offered</label>
+            <input type="number" id="ofAmount" placeholder="e.g. 1800" min="0" step="1"></div>
+          <div class="field" style="margin-bottom:0"><label for="ofWho">By whom</label>
+            <select id="ofWho">
+              <option>Local jeweller</option><option>Pawn shop</option>
+              <option>Online buyer</option><option>Auction house</option>
+              <option>Private buyer</option><option>Not sure</option>
+            </select></div>
+        </div>
+        <button class="btn btn-ghost" id="ofSubmit" style="margin-top:14px">Compare this offer</button>
+        <div id="ofResult" class="hide" style="margin-top:16px"></div>
+      </div>
+
       <!-- ---------------- intent capture — this is the product ---------------- -->
       <div class="panel" style="margin-top:18px" id="intentPanel">
         <h3 style="margin-bottom:8px">What do you want to do with it?</h3>
@@ -166,11 +187,11 @@
   obtain a certified appraisal from a qualified professional.
 </p></div></footer>
 
-<script src="assets/data.js?v=9667448c"></script>
+<script src="assets/data.js?v=e4895a2e"></script>
 <script>window.CB_ANALYTICS_ENDPOINT="https://caratbase-analytics.sunnyatlanta20.workers.dev"</script>
-<script src="assets/spot.js?v=9667448c"></script>
-<script src="assets/analytics.js?v=9667448c"></script>
-<script src="assets/nav.js?v=9667448c"></script>
-<script src="assets/vault.js?v=9667448c"></script>
-<script src="assets/value.js?v=9667448c"></script>
+<script src="assets/spot.js?v=e4895a2e"></script>
+<script src="assets/analytics.js?v=e4895a2e"></script>
+<script src="assets/nav.js?v=e4895a2e"></script>
+<script src="assets/vault.js?v=e4895a2e"></script>
+<script src="assets/value.js?v=e4895a2e"></script>
 </body></html>

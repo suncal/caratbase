@@ -69,6 +69,22 @@ async function collect(request, env) {
     b.meta ? JSON.stringify(b.meta).slice(0, 1000) : null
   ).run();
 
+  // Reported offers are the resale dataset — keep them out of the analytics churn.
+  if (b.name === 'offer_report' && b.meta) {
+    const m = b.meta;
+    await env.DB.prepare(
+      `INSERT INTO offers (ts,amount,offered_by,pct_of_est,carat,shape,color,clarity,cut,
+         origin,cert,est_low,est_high,country)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
+    ).bind(
+      Date.now(), parseFloat(m.amount) || null, (m.offeredBy || '').slice(0, 30),
+      parseInt(m.pctOfEstimate) || null, parseFloat(m.carat) || null,
+      m.shape || null, m.color || null, m.clarity || null, m.cut || null,
+      m.origin || null, m.cert || null,
+      parseInt(m.est_low) || null, parseInt(m.est_high) || null, cf.country || 'ZZ'
+    ).run();
+  }
+
   // A lead is the thing we actually sell — mirror it into its own table.
   if (b.name === 'lead' && b.meta) {
     const m = b.meta;
@@ -153,6 +169,13 @@ export default {
         if (!authed) return new Response('unauthorized', { status: 401, headers: ch });
         const r = await stats(env);
         return new Response(r.body, { headers: { ...JSON_HEADERS, ...ch } });
+      }
+
+      if (url.pathname === '/api/offers') {
+        if (!authed) return new Response('unauthorized', { status: 401, headers: ch });
+        const { results } = await env.DB.prepare(
+          `SELECT * FROM offers ORDER BY ts DESC LIMIT 500`).all();
+        return new Response(JSON.stringify(results || []), { headers: { ...JSON_HEADERS, ...ch } });
       }
 
       if (url.pathname === '/api/leads') {

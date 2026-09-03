@@ -39,3 +39,27 @@ CREATE TABLE leads (
 );
 CREATE INDEX idx_leads_ts     ON leads(ts);
 CREATE INDEX idx_leads_intent ON leads(intent);
+
+-- Reported real-world offers. This is the dataset the trade does not publish and the
+-- reason the valuations can eventually be better than anyone else's.
+DROP TABLE IF EXISTS offers;
+CREATE TABLE offers (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts         INTEGER NOT NULL,
+  amount     REAL,
+  offered_by TEXT,
+  pct_of_est INTEGER,
+  carat      REAL,
+  shape      TEXT,
+  color      TEXT,
+  clarity    TEXT,
+  cut        TEXT,
+  origin     TEXT,
+  cert       TEXT,
+  est_low    INTEGER,
+  est_high   INTEGER,
+  country    TEXT
+);
+CREATE INDEX idx_offers_ts     ON offers(ts);
+CREATE INDEX idx_offers_carat  ON offers(carat);
+CREATE INDEX idx_offers_origin ON offers(origin);

@@ -148,6 +148,38 @@
     if(window.cbTrack) cbTrack('tool_use',{tool:'vault_add',pieces:n,certified:!!last.certNo});
   });
 
+  /* ---------- offer capture ----------
+     Gives the user something immediately useful (how their offer compares) in exchange
+     for the one number nobody publishes. Every submission makes the resale estimate
+     better, which is the only data moat available here without capital. */
+  $('ofSubmit').addEventListener('click',()=>{
+    const amt=parseFloat($('ofAmount').value);
+    if(!isFinite(amt)||amt<=0||!last) return;
+    const mid=(last.est_low+last.est_high)/2;
+    const pct=Math.round(amt/mid*100);
+    let verdict,cls;
+    if(pct>=110){verdict='That is above what we would expect for this piece. Worth taking seriously.';cls='pill-good'}
+    else if(pct>=85){verdict='That is in the normal range for a genuine offer on this piece.';cls='pill-good'}
+    else if(pct>=60){verdict='That is on the low side. Getting two more quotes would be worth the effort.';cls=''}
+    else {verdict='That is well below what this piece should fetch. Do not accept it without other quotes.';cls='pill-bad'}
+
+    $('ofResult').classList.remove('hide');
+    $('ofResult').innerHTML=
+      `<div class="stat"><div class="k">Their offer versus our resale estimate</div>
+         <div class="v ${pct>=85?'good':'bad'}">${pct}%</div></div>
+       <p class="small" style="margin-top:10px"><span class="pill ${cls}">${pct}% of estimate</span>
+         ${verdict}</p>
+       <p class="small" style="margin-top:8px;color:var(--good)">Thank you — that figure goes
+         into the resale data behind every valuation on this site.</p>`;
+
+    if(window.cbTrack) cbTrack('offer_report',{
+      amount:amt, offeredBy:$('ofWho').value, pctOfEstimate:pct,
+      carat:last.carat, shape:last.shape, color:last.color, clarity:last.clarity,
+      cut:last.cut, origin:last.origin, cert:last.cert,
+      est_low:last.est_low, est_high:last.est_high});
+    $('ofSubmit').disabled=true;
+  });
+
   /* ---------- intent = the lead ---------- */
   const COPY={
     insure:'Most jewellery is under-insured or not insured at all, because insurers need a documented value and getting one usually means paying for an appraisal. We will email your valuation report as a PDF you can send straight to an insurer.',
