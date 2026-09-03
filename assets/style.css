@@ -241,12 +241,17 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   margin:0 auto 10px}
 .gauge .seat{position:absolute;border:1.5px dashed var(--line-2);border-radius:50%;
   inset:0;pointer-events:none}
+/* Fluorescent magenta: no metal, gemstone or skin tone is anywhere near this hue,
+   so a sliver of it peeking out can only ever mean "band has not covered it". */
 .gauge .collar{border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:#1A1714;box-shadow:0 1px 5px rgba(26,23,20,.28);transition:.15s}
-.gauge .core{border-radius:50%;
+  background:#FF1F8F;box-shadow:0 0 0 1px #C1006A,0 0 12px rgba(255,31,143,.55);
+  transition:.15s}
+/* White hairline so the core edge stays crisp even against a gold or rose-gold band. */
+.gauge .core{border-radius:50%;box-shadow:0 0 0 1.5px #fff;
   background:radial-gradient(circle at 34% 30%,#E8D19A,#C9A961 72%,#A97C2C);transition:.15s}
-.gauge:hover .collar{background:#B0413B}
-.gauge.picked .collar{background:#2C7A57}
+.gauge:hover .collar{background:#FF4FA6;box-shadow:0 0 0 1px #C1006A,0 0 18px rgba(255,31,143,.8)}
+.gauge.picked .collar{background:#00C853;
+  box-shadow:0 0 0 1px #00913B,0 0 16px rgba(0,200,83,.6)}
 .gauge.picked .seat{border-color:var(--good);border-style:solid}
 .gauge .lbl{font-size:13.5px;font-weight:700;color:var(--ink)}
 .gauge .sub{font-size:11px;color:var(--ink-3)}

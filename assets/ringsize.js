@@ -110,7 +110,9 @@
     $('cardCal').scrollIntoView({behavior:'smooth',block:'center'});
   });
 
-  const COLLAR_MM = 1.5;   // dark band just outside true diameter
+  // 1.2mm, not more: this must be fully covered by even a narrow 2mm band, or a
+  // correctly sized ring would wrongly read as too small.
+  const COLLAR_MM = 1.2;   // fluorescent band just outside true diameter
   const SEAT_MM    = 9;    // dashed placement guide, comfortably past a wide band
 
   function drawGauges(){
