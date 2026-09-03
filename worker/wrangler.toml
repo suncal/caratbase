@@ -5,10 +5,9 @@ compatibility_date = "2026-01-01"
 [[d1_databases]]
 binding       = "DB"
 database_name = "caratbase"
-database_id   = "REPLACE_WITH_YOUR_D1_ID"
+database_id   = "8ed35877-6092-4701-89e9-4378f5ed71ba"
 
 [vars]
 # Comma separated origins allowed to POST events.
-ALLOWED_ORIGINS = "https://caratbase.com,https://www.caratbase.com,http://localhost:4500"
-# Change this. Required as ?key= on every /api/stats and /api/leads call.
-DASH_KEY = "CHANGE_ME_BEFORE_DEPLOY"
+ALLOWED_ORIGINS = "https://caratbase.com,https://www.caratbase.com,https://suncal.github.io,http://localhost:4500"
+# DASH_KEY is a secret, NOT a var — set with:  npx wrangler secret put DASH_KEY
