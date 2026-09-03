@@ -74,7 +74,7 @@
   /* ---------- 4. true-scale on-screen sizer ----------
      Calibrated against an ISO/IEC 7810 ID-1 card (85.60 mm wide), which every bank
      card on earth conforms to. Once we know px-per-mm we can draw real sizes. */
-  const CAL_KEY='cb_pxpermm';
+  const CAL_KEY='cb_pxpermm', CAL_DONE='cb_pxpermm_done';
   function pxPerMm(){ return parseFloat(localStorage.getItem(CAL_KEY)) || 3.78; }
 
   function applyCal(v){
@@ -82,22 +82,43 @@
     const el=$('cardCal');
     el.style.width  = (CARD_MM.w*v)+'px';
     el.style.height = (CARD_MM.h*v)+'px';
-    $('calNote').textContent = 'screen: '+v.toFixed(2)+' px per mm';
+    const note='screen: '+v.toFixed(2)+' px per mm';
+    $('calNote').textContent=note;
+    $('calMiniNote').textContent=note;
     drawGauges();
   }
   $('calRange').addEventListener('input',e=>applyCal(parseFloat(e.target.value)));
+
+  /* Collapse the calibration once it is done so the circles are the first thing you see. */
+  function setCalCollapsed(on){
+    $('calFull').classList.toggle('hide',on);
+    $('calMini').classList.toggle('hide',!on);
+    $('calBox').classList.toggle('done',on);
+    try{ localStorage.setItem(CAL_DONE,on?'1':'0'); }catch{}
+  }
+  $('calDone').addEventListener('click',()=>{
+    setCalCollapsed(true);
+    $('gaugeWrap').scrollIntoView({behavior:'smooth',block:'center'});
+    if(window.cbTrack) cbTrack('tool_use',{tool:'ring_size',mode:'calibrated'});
+  });
+  $('calRedo').addEventListener('click',()=>{
+    setCalCollapsed(false);
+    $('cardCal').scrollIntoView({behavior:'smooth',block:'center'});
+  });
 
   function drawGauges(){
     const v=pxPerMm();
     const picks=RING_SIZES.filter(r=>Number.isInteger(r.us)&&r.us>=4&&r.us<=13);
     $('gaugeWrap').innerHTML=picks.map(r=>{
       const px=r.dia*v;
-      return `<div class="gauge" data-us="${r.us}" style="cursor:pointer">
+      return `<div class="gauge" data-us="${r.us}">
         <div class="ring" style="width:${px}px;height:${px}px"></div>
         <div class="lbl">US ${r.us}</div>
         <div class="sub">${r.dia.toFixed(1)} mm</div></div>`;
     }).join('');
     $('gaugeWrap').querySelectorAll('.gauge').forEach(g=>g.addEventListener('click',()=>{
+      $('gaugeWrap').querySelectorAll('.gauge').forEach(x=>x.classList.remove('picked'));
+      g.classList.add('picked');
       const row=RING_SIZES.find(r=>r.us===parseFloat(g.dataset.us));
       if(row) paint(row,'Measured on screen — worth confirming with a jeweller before you buy.');
     }));
@@ -143,5 +164,6 @@
   fillValues();
   applyCal(pxPerMm());
   $('calRange').value = pxPerMm();
+  setCalCollapsed(localStorage.getItem(CAL_DONE)==='1');
 })();
 document.getElementById('yr').textContent=new Date().getFullYear();

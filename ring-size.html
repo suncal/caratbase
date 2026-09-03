@@ -6,7 +6,7 @@
 <title>Ring Size Chart &amp; Converter — US, UK, EU, India, Japan | CaratBase</title>
 <meta name="description" content="Free ring size converter and chart. Convert between US, UK, EU, India and Japan sizes, measure a ring you already own, or size your finger with a piece of string. Includes a true-to-scale on-screen sizer.">
 <link rel="canonical" href="https://caratbase.com/ring-size.html">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=67f7205">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -85,20 +85,36 @@
 
     <!-- on-screen -->
     <div class="tabpane" id="p-screen">
-      <p class="small" style="margin-bottom:14px;max-width:64ch">
-        Screens differ, so calibrate first. Hold any bank card against the rectangle and drag
-        until they match exactly — every credit and debit card in the world is the same
-        85.60 × 53.98 mm, which makes it a free and perfectly accurate ruler.
-      </p>
-      <div class="card-cal" id="cardCal"></div>
-      <div class="slider-wrap" style="max-width:460px;margin:20px auto 4px">
-        <input type="range" id="calRange" min="1.4" max="7" step="0.005" value="3.78">
-        <div style="display:flex;justify-content:space-between;margin-top:8px" class="small">
-          <span>smaller</span><span id="calNote">drag to match your card</span><span>larger</span>
+      <div class="cal-box" id="calBox">
+        <div id="calFull">
+          <h3 style="font-size:18px;margin-bottom:8px">First, calibrate your screen</h3>
+          <p class="small" style="margin-bottom:16px;max-width:64ch">
+            Every screen is a different size, so the circles below can only be true-to-life once
+            we know yours. Hold any bank card flat against the rectangle and drag the slider
+            until they match exactly — every credit and debit card in the world is the same
+            85.60 × 53.98 mm, which makes it a free and perfectly accurate ruler.
+          </p>
+          <div class="card-cal" id="cardCal"></div>
+          <div class="slider-wrap" style="max-width:460px;margin:18px auto 4px">
+            <input type="range" id="calRange" min="1.4" max="7" step="0.005" value="3.78">
+            <div style="display:flex;justify-content:space-between;margin-top:8px" class="small">
+              <span>smaller</span><span id="calNote"></span><span>larger</span>
+            </div>
+          </div>
+          <div class="center" style="margin-top:14px">
+            <button class="btn btn-gold btn-sm" id="calDone">That matches — show my circles</button>
+          </div>
+        </div>
+        <div class="cal-done-row hide" id="calMini">
+          <span class="small"><strong style="color:var(--good)">✓ Screen calibrated</strong>
+            — <span id="calMiniNote"></span></span>
+          <button class="btn btn-ghost btn-sm" id="calRedo">Recalibrate</button>
         </div>
       </div>
-      <p class="small center" style="margin-bottom:18px">
-        Now place a ring on the screen and find the circle its <em>inside</em> edge matches.</p>
+
+      <p class="small" style="margin-bottom:10px">
+        <strong style="color:var(--ink)">Lay a ring flat on the screen.</strong> The right size is
+        the circle that just disappears inside the band. Tap it to select.</p>
       <div class="gauge-wrap" id="gaugeWrap"></div>
     </div>
 
@@ -184,8 +200,8 @@
   expensive ring, confirm in person before ordering.
 </p></div></footer>
 
-<script src="assets/ringdata.js"></script>
-<script src="assets/analytics.js"></script>
-<script src="assets/nav.js"></script>
-<script src="assets/ringsize.js"></script>
+<script src="assets/ringdata.js?v=67f7205"></script>
+<script src="assets/analytics.js?v=67f7205"></script>
+<script src="assets/nav.js?v=67f7205"></script>
+<script src="assets/ringsize.js?v=67f7205"></script>
 </body></html>
