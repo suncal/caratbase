@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemstone Value Calculator — Ruby, Sapphire, Emerald &amp; Pearls | CaratBase</title>
+<meta name="description" content="Free coloured stone valuation. Work out what a ruby, sapphire, emerald, tanzanite or pearl is worth — and see how treatment and origin change the value more than anything else.">
+<link rel="canonical" href="https://caratbase.com/gemstone.html">
+<link rel="stylesheet" href="assets/style.css?v=a2232b5b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much is a ruby worth?","acceptedAnswer":{"@type":"Answer","text":"It depends far more on treatment than on size. A 2 carat lead-glass filled ruby may be worth under $100, while an untreated Burmese ruby of the same size and appearance can be worth six figures. Treatment is the single biggest factor in coloured stone value."}},
+{"@type":"Question","name":"Does heating reduce the value of a sapphire?","acceptedAnswer":{"@type":"Answer","text":"Heating is routine, permanent and accepted throughout the trade, and is assumed unless a laboratory report says otherwise. Genuinely unheated stones of good colour are scarce and carry a substantial premium, but only when a recognised lab has certified it."}},
+{"@type":"Question","name":"Why does the origin of a sapphire matter?","acceptedAnswer":{"@type":"Answer","text":"Certain sources are historically associated with the finest material — Kashmir for sapphire, Mogok in Myanmar for ruby, Colombia for emerald. A certified Kashmir sapphire can be worth several times an identical stone from elsewhere. Claimed origin without a lab report carries no premium."}},
+{"@type":"Question","name":"How much are pearls worth?","acceptedAnswer":{"@type":"Answer","text":"Pearls are priced by type, diameter and quality rather than by carat. A freshwater strand may be under $100 while a fine large South Sea strand can reach five figures. Value rises steeply with diameter because large round pearls are disproportionately rare."}}]}
+</script>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Coloured stones &amp; pearls</div>
+    <h1>What is your gemstone worth?</h1>
+    <p class="lede">
+      Coloured stones do not price like diamonds. There is no universal grading standard,
+      and <strong>treatment usually matters more than size</strong> — two rubies that look
+      identical can differ in value by thousands of times.
+    </p>
+  </div>
+
+  <section class="console">
+    <div class="console-head">
+      <span class="name"><span class="dot"></span> Coloured stone valuation</span>
+      <span class="status">21 stone types · treatment · origin</span>
+    </div>
+    <div class="console-body">
+      <div class="console-in">
+        <h3>Your stone</h3>
+        <div class="grid g2" style="gap:14px">
+          <div class="field"><label for="gType">Stone</label><select id="gType"></select></div>
+          <div class="field"><label for="gCarat">Carat weight</label>
+            <input type="number" id="gCarat" value="2" min="0.05" max="200" step="0.01"></div>
+        </div>
+        <div class="field"><label for="gTier">Quality</label><select id="gTier"></select>
+          <p class="small" id="gTierHelp" style="margin-top:8px"></p></div>
+        <div class="field"><label for="gTreat">Treatment</label><select id="gTreat"></select></div>
+        <div class="field"><label for="gOrigin">Origin</label><select id="gOrigin"></select>
+          <p class="small" style="margin-top:8px">Origin only adds value when a recognised
+            laboratory has certified it. A seller's claim on its own is worth nothing.</p></div>
+      </div>
+      <div class="console-out">
+        <div>
+          <div class="lab">Retail — what a jeweller charges</div>
+          <div class="big" id="gRetail">—</div>
+        </div>
+        <div>
+          <div class="lab">Resale — what you would be offered</div>
+          <div class="big" id="gResale" style="font-size:clamp(26px,4.2vw,34px);color:#F0928E">—</div>
+        </div>
+        <div class="split">
+          <div><div class="lab">Per carat</div><div class="v" id="gPpc">—</div></div>
+          <div><div class="lab">You keep</div><div class="v" id="gKeep" style="color:#E8D19A">—</div></div>
+        </div>
+        <div class="note" id="gNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="panel" id="gWarn" style="margin-top:18px;display:none"></div>
+
+  <!-- ============ PEARLS ============ -->
+  <section class="section" style="padding-bottom:20px">
+    <div class="sec-head">
+      <div><div class="eyebrow">Pearls</div><h2>Priced by size, not by carat</h2></div>
+      <p class="small">Value climbs steeply with diameter — large round pearls are disproportionately rare.</p>
+    </div>
+    <section class="console">
+      <div class="console-head">
+        <span class="name"><span class="dot"></span> Pearl valuation</span>
+        <span class="status">freshwater · Akoya · Tahitian · South Sea</span>
+      </div>
+      <div class="console-body">
+        <div class="console-in">
+          <h3>Your pearls</h3>
+          <div class="grid g2" style="gap:14px">
+            <div class="field"><label for="pType">Type</label><select id="pType"></select></div>
+            <div class="field"><label for="pQual">Quality</label><select id="pQual"></select></div>
+          </div>
+          <div class="field"><label for="pMm">Diameter in millimetres</label>
+            <input type="number" id="pMm" value="8" min="2" max="22" step="0.5"></div>
+          <p class="small">Measure across a single pearl. Quality is mostly lustre — a fine
+            pearl reflects a sharp image, a poor one looks chalky.</p>
+        </div>
+        <div class="console-out">
+          <div>
+            <div class="lab">A strand (16–18 inches)</div>
+            <div class="big" id="pStrand">—</div>
+          </div>
+          <div class="split">
+            <div><div class="lab">A single pearl</div><div class="v" id="pSingle">—</div></div>
+            <div><div class="lab">Type</div><div class="v" id="pTypeOut" style="font-size:18px">—</div></div>
+          </div>
+          <div class="note" id="pNote"></div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ KNOWLEDGE ============ -->
+  <section class="narrow section" style="padding-top:20px">
+    <h2>Treatment matters more than anything else</h2>
+    <p class="lede" style="margin-top:16px">
+      This is the single most important thing to understand about coloured stones, and the
+      thing most owners do not know about their own. A lead-glass filled ruby and an
+      untreated Burmese one can look alike across a counter and differ in value by a factor
+      of thousands. Glass filling is not a minor enhancement — such a stone is substantially
+      glass by volume, and ordinary jeweller's heat during a repair can destroy it.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      Heating, by contrast, is routine, permanent and accepted. Assume any ruby or sapphire
+      is heated unless a laboratory report says otherwise. Nearly every emerald is oiled;
+      minor oil is normal, and only moderate or significant filling meaningfully reduces value.
+    </p>
+
+    <h2 style="margin-top:40px">Why these ranges are wider than a diamond's</h2>
+    <p class="lede" style="margin-top:16px">
+      Diamonds have the 4Cs and a single dominant grading authority. Coloured stones have
+      neither. Colour quality — the thing that drives most of the value — is judged by eye,
+      and two respected labs can describe the same stone differently. Any honest coloured
+      stone estimate is therefore a broader range than a diamond estimate, and ours are.
+    </p>
+
+    <h2 style="margin-top:40px">When a report is worth paying for</h2>
+    <p class="lede" style="margin-top:16px">
+      If the calculator suggests your stone might be worth more than roughly $2,000, a
+      laboratory report on treatment and origin will usually pay for itself several times
+      over. Without one a buyer must assume the least favourable case and will price for
+      that risk. <a href="methodology.html">How we work these figures out.</a>
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="value.html">Diamonds</a><a href="metals.html">Metal prices</a><a href="methodology.html">How we value</a></div>
+</div><div class="wrap"><p class="disclaimer">
+  Coloured stone valuation is far less standardised than diamond valuation and these ranges
+  are correspondingly wide. Not an appraisal, an offer, or financial advice. For a valuable
+  stone, obtain a laboratory report and a specialist appraisal.
+</p></div></footer>
+
+<script src="assets/data.js?v=a2232b5b"></script>
+<script src="assets/gems.js?v=a2232b5b"></script>
+<script src="assets/analytics.js?v=a2232b5b"></script>
+<script src="assets/spot.js?v=a2232b5b"></script>
+<script src="assets/ticker.js?v=a2232b5b"></script>
+<script src="assets/logo.js?v=a2232b5b"></script>
+<script src="assets/nav.js?v=a2232b5b"></script>
+<script src="assets/gemui.js?v=a2232b5b"></script>
+</body></html>

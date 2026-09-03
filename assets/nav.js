@@ -4,6 +4,7 @@
     ['index.html',   'Daily'],
     ['value.html',   'Value my diamond'],
     ['vault.html',   'My vault'],
+    ['gemstone.html','Gemstones'],
     ['budget.html',  'Budget'],
     ['ring-size.html','Ring size'],
     ['stamp.html',   'Hallmarks'],
