@@ -415,3 +415,30 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 
 .tool-hero{padding:56px 0 28px}
 .tool-hero h1{font-size:clamp(34px,5.2vw,52px);margin-bottom:14px}
+
+/* ---------- price ticker ---------- */
+.ticker{position:relative;overflow:hidden;background:linear-gradient(180deg,#1E1B17,#161311);
+  border-bottom:1px solid rgba(232,209,154,.18)}
+.ticker::before,.ticker::after{content:'';position:absolute;top:0;bottom:0;width:56px;z-index:2;
+  pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,#1B1815,transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,#1B1815,transparent)}
+.ticker-track{display:flex;width:max-content;animation:tickscroll 64s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes tickscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track{animation:none}
+  .ticker{overflow-x:auto}
+}
+.tick{display:inline-flex;align-items:baseline;gap:8px;padding:11px 22px;white-space:nowrap;
+  font-family:var(--sans);font-size:13px;color:rgba(246,241,230,.62);
+  border-right:1px solid rgba(246,241,230,.09)}
+.tick .sym{font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(246,241,230,.9);
+  font-size:11.5px}
+.tick .px{font-family:var(--serif);font-size:16px;font-weight:600;color:#E8D19A;
+  font-variant-numeric:tabular-nums}
+.tick .dl{font-size:12px;font-weight:600}
+.tick .up{color:#7FD9A8}.tick .dn{color:#F0928E}
+.tick .tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(246,241,230,.38);border:1px solid rgba(246,241,230,.18);border-radius:4px;
+  padding:1px 5px}
