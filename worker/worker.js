@@ -72,12 +72,13 @@ async function collect(request, env) {
   if (b.name === 'lead' && b.meta) {
     const m = b.meta;
     await env.DB.prepare(
-      `INSERT INTO leads (ts,email,intent,carat,shape,color,clarity,origin,est_low,est_high,country,source)
-       VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`
+      `INSERT INTO leads (ts,email,intent,carat,shape,color,clarity,origin,cert,cert_no,est_low,est_high,country,source)
+       VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
     ).bind(
       Date.now(), (m.email || '').slice(0, 160), (m.intent || '').slice(0, 20),
       parseFloat(m.carat) || null, m.shape || null, m.color || null, m.clarity || null,
-      m.origin || null, parseInt(m.est_low) || null, parseInt(m.est_high) || null,
+      m.origin || null, m.cert || null, (m.cert_no || '').slice(0, 30) || null,
+      parseInt(m.est_low) || null, parseInt(m.est_high) || null,
       cf.country || 'ZZ', source
     ).run();
   }

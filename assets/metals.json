@@ -1,0 +1,6 @@
+{
+  "updated": "2026-09-03T00:00:00Z",
+  "source": "seed values — replaced daily by .github/workflows/metals.yml",
+  "perGram": { "gold": 78.00, "silver": 0.95, "platinum": 33.00, "palladium": 30.00 },
+  "prevPerGram": { "gold": 77.40, "silver": 0.94, "platinum": 32.60, "palladium": 30.40 }
+}

@@ -12,8 +12,7 @@
 <body>
 <header class="site-head"><div class="wrap head-in">
   <a href="/" class="logo">Carat<b>Base</b></a>
-  <nav class="nav"><a href="/">Daily</a><a href="value.html" class="on">Value my diamond</a>
-  <a href="stamp.html">Hallmark lookup</a><a href="size.html">Carat size chart</a></nav>
+  <nav class="nav"></nav>
 </div></header>
 
 <main class="wrap section">
@@ -45,6 +44,15 @@
           <select id="fCert"><option>GIA</option><option>IGI</option><option>Other</option><option>None</option></select></div>
       </div>
 
+      <div class="field" id="certNoWrap">
+        <label for="fCertNo">Report number <span style="text-transform:none;letter-spacing:0;font-weight:400">— optional, but worth adding</span></label>
+        <input id="fCertNo" placeholder="e.g. 2141438171" autocomplete="off" inputmode="numeric">
+        <p class="small" id="certHint" style="margin-top:8px">
+          Laser-inscribed on the girdle of most modern stones, and printed on the report.
+          A certified stone can be graded and priced without anyone handling it, which is why
+          it is worth far more to a buyer than an unpapered one.</p>
+      </div>
+
       <h3 style="margin:22px 0 16px">The setting <span class="small" style="font-weight:400">— optional</span></h3>
       <div class="grid g2" style="gap:14px">
         <div class="field"><label for="fKarat">Metal</label><select id="fKarat"></select></div>
@@ -70,6 +78,11 @@
           </div>
         </div>
         <p class="small" id="oNote" style="margin-top:16px"></p>
+        <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+          <button class="btn btn-ghost" id="saveVaultBtn" style="flex:1;min-width:170px">Save to my vault</button>
+          <a href="vault.html" class="btn btn-ghost btn-sm" id="openVaultLink">Open vault</a>
+        </div>
+        <p class="small" id="vaultMsg" style="margin-top:10px;min-height:18px"></p>
       </div>
 
       <!-- ---------------- intent capture — this is the product ---------------- -->
@@ -133,5 +146,7 @@
 
 <script src="assets/data.js"></script>
 <script src="assets/analytics.js"></script>
+<script src="assets/nav.js"></script>
+<script src="assets/vault.js"></script>
 <script src="assets/value.js"></script>
 </body></html>

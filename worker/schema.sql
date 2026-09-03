@@ -29,6 +29,8 @@ CREATE TABLE leads (
   color     TEXT,
   clarity   TEXT,
   origin    TEXT,
+  cert      TEXT,
+  cert_no   TEXT,
   est_low   INTEGER,
   est_high  INTEGER,
   country   TEXT,

@@ -1,4 +1,4 @@
-/* CaratBase — valuation tool + intent capture */
+/* CaratBase — valuation tool, certificate lookup, vault save, intent capture */
 (function(){
   const $=id=>document.getElementById(id);
   if(!$('fCarat')) return;
@@ -10,12 +10,56 @@
   fill($('fCut'),    Object.keys(CUT_MULT),     'Very Good');
   fill($('fKarat'),  Object.keys(KARAT_PURITY), 'None / not sure');
 
+  /* ---------- certificate number ----------
+     Neither GIA nor IGI publishes a free lookup API, so we do the two useful things
+     that need no API: sanity-check the format, and send the user to the official
+     verification page. The number itself is what makes a lead worth anything. */
+  const LABS={
+    GIA:{name:'GIA', url:'https://www.gia.edu/report-check',
+         test:n=>/^\d{7,10}$/.test(n)},
+    IGI:{name:'IGI', url:'https://www.igi.org/verify-your-report',
+         test:n=>/^(LG)?\d{8,12}$/i.test(n)}
+  };
+
+  function certCheck(){
+    const raw=$('fCertNo').value.trim();
+    const n=raw.replace(/[^A-Za-z0-9]/g,'');
+    const lab=$('fCert').value;
+    const hint=$('certHint');
+    $('certNoWrap').classList.toggle('hide', lab==='None');
+    if(!n){
+      hint.innerHTML='Laser-inscribed on the girdle of most modern stones, and printed on the report. '+
+        'A certified stone can be graded and priced without anyone handling it, which is why it is '+
+        'worth far more to a buyer than an unpapered one.';
+      return null;
+    }
+    // An LG prefix is an IGI convention for lab-grown stones — follow it.
+    if(/^LG/i.test(n)){
+      if($('fOrigin').value!=='Lab-grown'){
+        $('fOrigin').value='Lab-grown'; $('fOrigin').dispatchEvent(new Event('change'));
+      }
+      if($('fCert').value!=='IGI'){ $('fCert').value='IGI'; }
+    }
+    const L=LABS[$('fCert').value]||LABS.GIA;
+    const ok=L.test(n);
+    hint.innerHTML = ok
+      ? `<span style="color:var(--good);font-weight:600">Format looks like a valid ${L.name} number.</span>
+         Confirm the grades against the official record at
+         <a href="${L.url}" target="_blank" rel="noopener noreferrer">${L.name} report check</a>
+         and enter them above — a verified stone is what buyers actually bid on.`
+      : `<span style="color:var(--warn);font-weight:600">That does not match the usual ${L.name} format.</span>
+         Check the number on the report itself. ${L.name} numbers are typically
+         ${lab==='IGI'?'8 to 12 digits, sometimes with an LG prefix on lab-grown stones':'7 to 10 digits'}.`;
+    return n;
+  }
+
   let last=null, counted=false;
 
   function read(){
     return {carat:$('fCarat').value, shape:$('fShape').value, color:$('fColor').value,
       clarity:$('fClarity').value, cut:$('fCut').value, origin:$('fOrigin').value,
-      cert:$('fCert').value, karat:$('fKarat').value, grams:$('fGrams').value};
+      cert:$('fCert').value, certNo:$('fCertNo').value.trim().replace(/[^A-Za-z0-9]/g,''),
+      karat:$('fKarat').value, grams:$('fGrams').value};
   }
 
   function calc(){
@@ -32,7 +76,7 @@
 
     $('oNote').innerHTML = v.isLab
       ? 'Lab-grown stones have very little secondary market at present. The metal in the setting may be worth more than the diamond.'
-      : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} colour, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}.`;
+      : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} colour, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}${o.certNo?' #'+o.certNo:''}.`;
 
     last={...o, est_low:v.resaleLow+metal, est_high:v.resaleHigh+metal};
     if(!counted && window.cbTrack){counted=true;cbTrack('valuation',{carat:o.carat,origin:o.origin,shape:o.shape});}
@@ -40,7 +84,20 @@
 
   ['fCarat','fShape','fColor','fClarity','fCut','fOrigin','fCert','fKarat','fGrams']
     .forEach(id=>{$(id).addEventListener('input',calc);$(id).addEventListener('change',calc)});
-  calc();
+  $('fCertNo').addEventListener('input',()=>{certCheck();calc()});
+  $('fCert').addEventListener('change',certCheck);
+  certCheck(); calc();
+
+  /* ---------- save to vault ---------- */
+  $('saveVaultBtn').addEventListener('click',()=>{
+    if(!last) return;
+    const n=Vault.add(last);
+    $('vaultMsg').innerHTML=`<span style="color:var(--good)">Saved. Your vault now holds
+      ${n} piece${n>1?'s':''}. <a href="vault.html">See what it is all worth.</a></span>`;
+    $('saveVaultBtn').textContent='Saved to vault';
+    setTimeout(()=>{$('saveVaultBtn').textContent='Save another'},2200);
+    if(window.cbTrack) cbTrack('tool_use',{tool:'vault_add',pieces:n,certified:!!last.certNo});
+  });
 
   /* ---------- intent = the lead ---------- */
   const COPY={
@@ -69,6 +126,7 @@
     if(!email||!intent||!last) return;
     if(window.cbTrack) cbTrack('lead',{email,intent,carat:last.carat,shape:last.shape,
       color:last.color,clarity:last.clarity,origin:last.origin,
+      cert:last.cert,cert_no:last.certNo||'',
       est_low:last.est_low,est_high:last.est_high});
     $('leadMsg').innerHTML='<span style="color:var(--good)">Report on its way to '+email+'.</span>';
     $('leadForm').reset();

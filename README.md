@@ -3,13 +3,16 @@
 Static site + free realtime analytics. No build step, no framework, no hosting cost.
 
 ```
-index.html      Home + "Guess the Carat" daily game
-value.html      Diamond valuation calculator → intent/lead capture   ← the money page
+index.html      Home + "Guess the Carat" daily game, streaks, stats, playable archive
+value.html      Valuation calculator + certificate number → vault + lead   ← the money page
+vault.html      My vault — saved pieces, collection total          ← return hook
+metals.html     Gold price today, per karat, refreshed daily       ← return hook
 stamp.html      Gold & silver hallmark lookup (27 marks)
 size.html       Carat size chart, drawn to true mm scale
 dashboard.html  Realtime traffic dashboard (noindex)
-assets/         style.css, data.js (hallmarks + pricing engine), game.js, value.js, stamp.js, analytics.js
+assets/         style.css, data.js, game.js, value.js, vault.js, metals.js, stamp.js, nav.js, analytics.js
 worker/         Cloudflare Worker + D1 schema for analytics & lead storage
+.github/        Daily workflow refreshing assets/metals.json from free stooq quotes
 ```
 
 ## Deploy the site (5 minutes, free)
@@ -73,3 +76,30 @@ resale bands. Verified against real market anchors:
 
 Resale bands: natural 25–40% of retail, lab-grown 5–12%. These are the numbers nobody
 else publishes and they are the reason to visit the site.
+
+
+## Return hooks
+
+Three reasons to come back, none of which need social:
+
+1. **Daily game** — a new stone every day, streaks, accuracy stats, and a 14-day playable
+   archive so a missed day is a reason to return rather than a lost user.
+2. **My vault** — every valued piece saved on-device, with a running collection total.
+   Turns a one-time valuation into something the user owns. A vault with five pieces in it
+   is also a far richer lead than a single anonymous valuation.
+3. **Metal prices** — refreshed daily by GitHub Action, so the vault total moves on its own.
+   `metals.html` also targets "gold price today per gram", which is high, habitual search volume.
+
+## Certificate numbers
+
+`value.html` takes a GIA or IGI report number. **Neither lab offers a free public lookup API** —
+GIA Report Check is a web form and their data API is a partner agreement, so nothing is fetched
+automatically. What the field does do:
+
+- validates the number against each lab's usual format
+- detects an `LG` prefix and switches both origin and lab accordingly
+- links to the official verification page
+- stores the number on the vault entry and on the lead
+
+That last point is the commercial reason it exists. A certified stone can be graded and priced
+without anyone handling it, which is exactly what makes a lead sellable to a dealer.

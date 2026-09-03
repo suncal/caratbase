@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gold Price Today Per Gram — 24K, 22K, 18K, 14K Scrap Value | CaratBase</title>
+<meta name="description" content="Today's gold, silver and platinum prices per gram, with what each karat is actually worth as scrap. Updated daily. Work out what your jewellery is worth by weight.">
+<link rel="canonical" href="https://caratbase.com/metals.html">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="/" class="logo">Carat<b>Base</b></a><nav class="nav"></nav>
+</div></header>
+
+<main class="wrap section">
+  <div class="narrow">
+    <div class="eyebrow">Updated daily</div>
+    <h1>Gold price today</h1>
+    <p class="lede" style="margin-top:18px">
+      Spot prices per gram, and — more usefully — what each karat is actually worth if you
+      weighed your jewellery and sold it for scrap today.
+    </p>
+    <p class="small" id="updated" style="margin-top:12px"></p>
+  </div>
+
+  <div class="grid g2" style="margin-top:34px;align-items:start">
+    <div class="panel">
+      <h3 style="margin-bottom:8px">Spot price per gram</h3>
+      <div id="spotList" style="margin-top:6px"></div>
+    </div>
+
+    <div class="panel">
+      <h3 style="margin-bottom:8px">What your gold is worth</h3>
+      <p class="small" style="margin-bottom:14px">Scrap value per gram by karat. Buyers typically
+        pay 70–90% of these figures to cover refining and their margin.</p>
+      <div class="table-scroll"><table id="karatTable">
+        <thead><tr><th>Karat</th><th class="num">Pure gold</th><th class="num">Per gram</th>
+        <th class="num">Per 10 g</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <h3 style="margin-bottom:6px">Weigh your piece</h3>
+    <p class="small" style="margin-bottom:16px">Kitchen scales work fine. Enter the weight and the
+      stamp from inside the band.</p>
+    <div class="grid g3" style="align-items:end">
+      <div class="field"><label for="mKarat">Metal</label><select id="mKarat"></select></div>
+      <div class="field"><label for="mGrams">Weight in grams</label>
+        <input type="number" id="mGrams" value="5" min="0" step="0.1"></div>
+      <div class="stat"><div class="k">Scrap value today</div><div class="v gold" id="mOut">—</div></div>
+    </div>
+    <p class="small">Not sure which metal? <a href="stamp.html">Look up the stamp.</a></p>
+  </div>
+
+  <div id="vaultBox" style="margin-top:18px"></div>
+
+  <section class="narrow" style="margin-top:60px">
+    <h2>Why a buyer pays less than spot</h2>
+    <p class="lede" style="margin-top:16px">
+      Spot is the price of pure, refined metal traded in bulk. Your ring is neither pure nor
+      refined — it is an alloy mixed with copper and silver, often with stones and solder in it.
+      A buyer has to refine it, carry the cost of doing so, and take a margin. An offer of 70–90%
+      of the calculated scrap value is normal; anything under about 60% is worth walking away from.
+    </p>
+    <h2 style="margin-top:40px">Scrap value is a floor, not a valuation</h2>
+    <p class="lede" style="margin-top:16px">
+      If the piece has a diamond, a maker's mark, or any antique interest, scrap is the worst
+      price it can fetch, not the right one. Melting an Art Deco platinum setting for its metal
+      is how genuinely valuable jewellery gets destroyed.
+      <a href="value.html">Value the stone properly first.</a>
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="value.html">Valuation</a><a href="vault.html">My vault</a><a href="stamp.html">Hallmarks</a></div>
+</div><div class="wrap"><p class="disclaimer">
+  Prices are indicative spot figures refreshed once daily and will not match a live trading screen.
+  Not an offer to buy or sell, and not financial advice.
+</p></div></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/analytics.js"></script>
+<script src="assets/nav.js"></script>
+<script src="assets/vault.js"></script>
+<script src="assets/metals.js"></script>
+</body></html>

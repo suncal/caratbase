@@ -1,0 +1,52 @@
+name: Refresh metal prices
+on:
+  schedule:
+    - cron: '15 6 * * *'      # daily, 06:15 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch spot prices and rewrite metals.json
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, datetime, pathlib
+          # stooq serves free, keyless CSV quotes. Prices are per troy ounce.
+          OZ_TO_G = 31.1034768
+          SYMS = {'gold':'xauusd','silver':'xagusd','platinum':'xptusd','palladium':'xpdusd'}
+          def spot(sym):
+              url = f'https://stooq.com/q/l/?s={sym}&f=sd2t2ohlc&h&e=csv'
+              rows = urllib.request.urlopen(url, timeout=30).read().decode().strip().splitlines()
+              close = rows[1].split(',')[6]
+              return round(float(close) / OZ_TO_G, 4)
+
+          p = pathlib.Path('assets/metals.json')
+          old = json.loads(p.read_text())
+          new = {}
+          for name, sym in SYMS.items():
+              try:
+                  new[name] = spot(sym)
+              except Exception as e:
+                  print(f'{name}: kept previous ({e})')
+                  new[name] = old['perGram'].get(name)
+
+          p.write_text(json.dumps({
+              'updated': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              'source': 'stooq.com spot, converted per gram',
+              'perGram': new,
+              'prevPerGram': old['perGram']
+          }, indent=2) + '\n')
+          print(json.dumps(new, indent=2))
+          PY
+      - name: Commit if changed
+        run: |
+          git config user.name  "caratbase-bot"
+          git config user.email "bot@caratbase.com"
+          git add assets/metals.json
+          git diff --staged --quiet || git commit -m "chore: refresh metal prices"
+          git push
