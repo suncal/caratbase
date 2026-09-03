@@ -1,0 +1,14 @@
+name = "caratbase-analytics"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+[[d1_databases]]
+binding       = "DB"
+database_name = "caratbase"
+database_id   = "REPLACE_WITH_YOUR_D1_ID"
+
+[vars]
+# Comma separated origins allowed to POST events.
+ALLOWED_ORIGINS = "https://caratbase.com,https://www.caratbase.com,http://localhost:4500"
+# Change this. Required as ?key= on every /api/stats and /api/leads call.
+DASH_KEY = "CHANGE_ME_BEFORE_DEPLOY"

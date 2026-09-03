@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>CaratBase — Live Traffic</title>
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%8A</text></svg>">
+<style>
+  .kpi{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  @media(max-width:900px){.kpi{grid-template-columns:repeat(2,1fr)}}
+  .kpi .v{font-size:34px}
+  .live-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--good);
+    margin-right:7px;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(95,208,154,.5)}
+    50%{opacity:.55;box-shadow:0 0 0 7px rgba(95,208,154,0)}}
+  .feed{max-height:420px;overflow-y:auto;font-size:13.5px}
+  .feed-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .feed-row .t{color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap;font-size:12px}
+  .bar{height:6px;background:var(--line-2);border-radius:999px;overflow:hidden;margin-top:6px}
+  .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+  .funnel-step{padding:14px 0;border-bottom:1px solid var(--line)}
+  .funnel-step:last-child{border:0}
+  .setup{max-width:520px;margin:80px auto}
+</style>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="/" class="logo">Carat<b>Base</b></a>
+  <nav class="nav">
+    <span class="small" id="modeLabel"></span>
+    <a href="#" id="cfgBtn">Settings</a>
+    <a href="/">Back to site</a>
+  </nav>
+</div></header>
+
+<main class="wrap" style="padding-top:28px;padding-bottom:60px">
+
+  <!-- setup -->
+  <div id="setup" class="panel setup hide">
+    <h2 style="font-size:26px">Connect your analytics</h2>
+    <p class="small" style="margin:10px 0 20px">
+      Paste the URL of your deployed Cloudflare Worker and the dashboard key you set in
+      <code>wrangler.toml</code>. Leave blank to run in local mode, which reads only this
+      browser's own buffered events — useful for testing before you deploy.</p>
+    <div class="field"><label>Worker URL</label>
+      <input id="cfgUrl" placeholder="https://caratbase-analytics.your-name.workers.dev"></div>
+    <div class="field"><label>Dashboard key</label><input id="cfgKey" placeholder="DASH_KEY"></div>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-gold" id="cfgSave">Save</button>
+      <button class="btn btn-ghost" id="cfgLocal">Use local mode</button>
+    </div>
+  </div>
+
+  <div id="board">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px">
+      <h1 style="font-size:34px"><span class="live-dot"></span>Live traffic</h1>
+      <div class="small" id="updated"></div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi">
+      <div class="stat"><div class="k">Active now</div><div class="v good" id="kActive">0</div></div>
+      <div class="stat"><div class="k">Views today</div><div class="v" id="kViews">0</div></div>
+      <div class="stat"><div class="k">Visitors today</div><div class="v" id="kUniq">0</div></div>
+      <div class="stat"><div class="k">Valuations</div><div class="v" id="kVal">0</div></div>
+      <div class="stat"><div class="k">Leads today</div><div class="v gold" id="kLeads">0</div></div>
+    </div>
+
+    <!-- sparkline -->
+    <div class="panel" style="margin-top:16px">
+      <div class="k" style="font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:12px">
+        Pageviews — last 30 minutes</div>
+      <svg id="spark" viewBox="0 0 300 60" preserveAspectRatio="none" style="width:100%;height:70px"></svg>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px;align-items:start">
+      <!-- funnel -->
+      <div class="panel">
+        <h3 style="margin-bottom:6px">Today's funnel</h3>
+        <p class="small" style="margin-bottom:12px">The only chain that matters — visitors through to leads.</p>
+        <div id="funnel"></div>
+      </div>
+      <!-- feed -->
+      <div class="panel">
+        <h3 style="margin-bottom:12px">Live event feed</h3>
+        <div class="feed" id="feed"></div>
+      </div>
+    </div>
+
+    <div class="grid g3" style="margin-top:16px;align-items:start">
+      <div class="panel"><h3 style="margin-bottom:14px">Top pages</h3><div id="pages"></div></div>
+      <div class="panel"><h3 style="margin-bottom:14px">Traffic sources</h3><div id="sources"></div></div>
+      <div class="panel"><h3 style="margin-bottom:14px">Countries</h3><div id="countries"></div></div>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <h3 style="margin-bottom:6px">Leads</h3>
+      <p class="small" style="margin-bottom:14px">Every one of these is a person who valued a stone and told you what they want to do next.</p>
+      <div class="table-scroll"><table id="leadsTable">
+        <thead><tr><th>When</th><th>Intent</th><th>Stone</th><th class="num">Est. resale</th>
+          <th>Email</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </div>
+</main>
+
+<script src="assets/data.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const CFG={url:localStorage.getItem('cb_dash_url')||'',key:localStorage.getItem('cb_dash_key')||'',
+  local:localStorage.getItem('cb_dash_local')==='1'};
+
+function openSetup(){$('setup').classList.remove('hide');$('board').classList.add('hide');
+  $('cfgUrl').value=CFG.url;$('cfgKey').value=CFG.key;}
+function closeSetup(){$('setup').classList.add('hide');$('board').classList.remove('hide');}
+
+$('cfgBtn').onclick=e=>{e.preventDefault();openSetup()};
+$('cfgSave').onclick=()=>{
+  localStorage.setItem('cb_dash_url',$('cfgUrl').value.trim().replace(/\/$/,''));
+  localStorage.setItem('cb_dash_key',$('cfgKey').value.trim());
+  localStorage.setItem('cb_dash_local','0');location.reload();};
+$('cfgLocal').onclick=()=>{localStorage.setItem('cb_dash_local','1');location.reload()};
+
+/* ---------- local mode: derive the same shape from the browser's own buffer ---------- */
+function localStats(){
+  let b=[];try{b=JSON.parse(localStorage.getItem('cb_buffer')||'[]')}catch{}
+  const now=Date.now(),DAY=86400000,today=now-DAY,live=now-300000;
+  const inDay=b.filter(e=>e.ts>today), pv=inDay.filter(e=>e.name==='pageview');
+  const uniq=k=>new Set(k).size;
+  const tally=(arr,f)=>{const m={};arr.forEach(e=>{const k=f(e)||'—';m[k]=(m[k]||0)+1});
+    return Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,8)};
+  const src=e=>{if(!e.referrer)return 'direct';try{return new URL(e.referrer).hostname.replace(/^www\./,'')}catch{return 'direct'}};
+  const spark=Array(30).fill(0);
+  pv.forEach(e=>{const m=Math.floor((now-e.ts)/60000);if(m>=0&&m<30)spark[29-m]++});
+  const sess=n=>uniq(inDay.filter(e=>e.name===n).map(e=>e.session));
+  return {generated:now,
+    activeNow:uniq(b.filter(e=>e.ts>live).map(e=>e.session)),
+    today:{views:pv.length,uniques:uniq(pv.map(e=>e.visitor))},
+    spark,
+    pages:tally(pv,e=>e.path).map(([path,c])=>({path,c})),
+    sources:tally(pv,src).map(([source,c])=>({source,c})),
+    countries:[{country:'local',c:uniq(pv.map(e=>e.visitor))}],
+    feed:b.slice(-30).reverse().map(e=>({ts:e.ts,name:e.name,path:e.path,
+      source:src(e),country:'—',meta:e.meta?JSON.stringify(e.meta):null})),
+    funnel:{visitors:sess('pageview'),toolUsers:sess('tool_use'),
+      valuations:sess('valuation'),leads:sess('lead')},
+    leadsToday:inDay.filter(e=>e.name==='lead').length,
+    _leads:b.filter(e=>e.name==='lead').reverse().map(e=>({ts:e.ts,...(e.meta||{}),source:src(e)}))};
+}
+
+/* ---------- render ---------- */
+function bars(el,rows,keyName){
+  const max=Math.max(1,...rows.map(r=>r.c));
+  el.innerHTML=rows.length?rows.map(r=>`
+    <div style="margin-bottom:13px">
+      <div style="display:flex;justify-content:space-between;font-size:13.5px">
+        <span style="color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:75%">${r[keyName]||'—'}</span>
+        <strong class="mono">${r.c}</strong></div>
+      <div class="bar"><span style="width:${r.c/max*100}%"></span></div>
+    </div>`).join(''):'<p class="small">Nothing yet today.</p>';
+}
+
+function sparkline(vals){
+  const w=300,h=60,max=Math.max(1,...vals);
+  const pts=vals.map((v,i)=>[i/(vals.length-1)*w,h-(v/max)*(h-8)-4]);
+  const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  $('spark').innerHTML=`
+    <defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9A961" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#C9A961" stop-opacity="0"/></linearGradient></defs>
+    <path d="${d} L ${w} ${h} L 0 ${h} Z" fill="url(#sg)"/>
+    <path d="${d}" fill="none" stroke="#E3C88A" stroke-width="1.6"
+      stroke-linejoin="round" vector-effect="non-scaling-stroke"/>`;
+}
+
+function funnel(f){
+  const steps=[['Visitors',f.visitors],['Used a tool',f.toolUsers],
+               ['Completed a valuation',f.valuations],['Became a lead',f.leads]];
+  const top=Math.max(1,f.visitors);
+  $('funnel').innerHTML=steps.map(([label,v],i)=>{
+    const pct=(v/top*100);
+    const drop=i?` · ${steps[i-1][1]?Math.round(v/steps[i-1][1]*100):0}% of previous`:'';
+    return `<div class="funnel-step">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <span style="font-size:14.5px;color:var(--ink-2)">${label}</span>
+        <strong class="mono" style="font-size:19px;color:${i===3?'var(--gold-2)':'var(--ink)'}">${v}</strong></div>
+      <div class="bar"><span style="width:${pct}%"></span></div>
+      <div class="small" style="margin-top:5px">${pct.toFixed(1)}% of visitors${drop}</div></div>`;
+  }).join('');
+}
+
+const NAMES={pageview:'viewed',tool_use:'used',valuation:'valued a stone',
+  lead:'BECAME A LEAD',email:'gave an email'};
+function feed(rows){
+  $('feed').innerHTML=rows.length?rows.map(r=>{
+    const t=new Date(r.ts).toLocaleTimeString('en-US',{hour12:false});
+    let m='';try{m=r.meta?JSON.parse(r.meta):null}catch{m=null}
+    const extra=m?(m.tool||m.intent||m.query||''):'';
+    const gold=r.name==='lead'||r.name==='email';
+    return `<div class="feed-row"><span class="t">${t}</span>
+      <span style="color:${gold?'var(--gold-2)':'var(--ink-2)'};font-weight:${gold?600:400}">
+        ${NAMES[r.name]||r.name}</span>
+      <span style="color:var(--ink-3);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+        ${extra||r.path||''}</span>
+      <span class="t">${r.source||''}</span></div>`;
+  }).join(''):'<p class="small">Waiting for the first event.</p>';
+}
+
+function leads(rows){
+  const tb=document.querySelector('#leadsTable tbody');
+  tb.innerHTML=rows.length?rows.slice(0,25).map(l=>`<tr>
+    <td class="small">${new Date(l.ts).toLocaleString('en-US',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'})}</td>
+    <td><span class="pill${l.intent==='sell'?'':' pill-ice'}">${l.intent||'—'}</span></td>
+    <td>${l.carat?l.carat+' ct '+(l.shape||''):'—'}<span class="small"> ${l.origin||''}</span></td>
+    <td class="num">${l.est_low?fmt(l.est_low)+'–'+fmt(l.est_high):'—'}</td>
+    <td class="small">${l.email||'—'}</td><td class="small">${l.source||'—'}</td></tr>`).join('')
+    :'<tr><td colspan="6" class="small">No leads yet.</td></tr>';
+}
+
+function paint(d,leadRows){
+  $('kActive').textContent=d.activeNow;
+  $('kViews').textContent =d.today.views;
+  $('kUniq').textContent  =d.today.uniques;
+  $('kVal').textContent   =d.funnel.valuations;
+  $('kLeads').textContent =d.leadsToday;
+  sparkline(d.spark); funnel(d.funnel); feed(d.feed||[]);
+  bars($('pages'),d.pages||[],'path');
+  bars($('sources'),d.sources||[],'source');
+  bars($('countries'),d.countries||[],'country');
+  leads(leadRows||d._leads||[]);
+  $('updated').textContent='Updated '+new Date(d.generated).toLocaleTimeString('en-US',{hour12:false});
+}
+
+async function tick(){
+  if(CFG.local){ paint(localStats()); return; }
+  try{
+    const [s,l]=await Promise.all([
+      fetch(`${CFG.url}/api/stats?key=${encodeURIComponent(CFG.key)}`).then(r=>r.json()),
+      fetch(`${CFG.url}/api/leads?key=${encodeURIComponent(CFG.key)}`).then(r=>r.json()).catch(()=>[])
+    ]);
+    if(s.error) throw new Error(s.error);
+    paint(s,l);
+  }catch(e){
+    $('updated').innerHTML=`<span style="color:var(--bad)">Cannot reach the Worker — check the URL and key.</span>`;
+  }
+}
+
+if(!CFG.url && !CFG.local){ openSetup(); }
+else{
+  closeSetup();
+  $('modeLabel').textContent=CFG.local?'local mode':'live';
+  tick(); setInterval(tick,5000);
+}
+</script>
+</body></html>

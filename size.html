@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diamond Carat Size Chart — Actual MM Sizes Drawn to Scale | CaratBase</title>
+<meta name="description" content="Diamond carat size chart showing true millimetre sizes from 0.25 to 5 carats, drawn to scale on a real finger, with typical retail and resale prices for each weight.">
+<link rel="canonical" href="https://caratbase.com/size.html">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="/" class="logo">Carat<b>Base</b></a>
+  <nav class="nav"><a href="/">Daily</a><a href="value.html">Value my diamond</a>
+  <a href="stamp.html">Hallmark lookup</a><a href="size.html" class="on">Carat size chart</a></nav>
+</div></header>
+
+<main class="wrap section">
+  <div class="narrow">
+    <div class="eyebrow">Size reference</div>
+    <h1>What a carat actually looks like</h1>
+    <p class="lede" style="margin-top:18px">
+      A carat is a measure of weight, not size — 0.20 grams. Because weight rises with the cube
+      of the diameter, doubling the carat does not come close to doubling how big a stone looks.
+      Every diamond below is drawn to true scale on an average 17&nbsp;mm ring finger.
+    </p>
+  </div>
+
+  <div class="grid g3" id="sizeGrid" style="margin-top:40px"></div>
+
+  <section class="narrow" style="margin-top:64px">
+    <h2>Carat to millimetre table</h2>
+    <p class="small" style="margin:12px 0 20px">
+      Face-up diameter for a well-cut round brilliant, with typical US retail and realistic resale
+      for a G colour, VS2, Very Good cut natural stone.</p>
+    <div class="table-scroll">
+      <table id="sizeTable">
+        <thead><tr><th>Carat</th><th class="num">Diameter</th><th class="num">Typical retail</th>
+          <th class="num">Realistic resale</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">
+      Diameters assume standard proportions. A deep-cut stone of the same weight looks smaller
+      face-up; a shallow one looks larger but loses brilliance. This is why two 1&nbsp;carat
+      diamonds can look noticeably different sizes.
+    </p>
+  </section>
+
+  <section class="narrow" style="margin-top:50px">
+    <div class="capture center">
+      <h2 style="font-size:28px">Know the weight already?</h2>
+      <p class="small" style="margin:12px auto 20px;max-width:48ch">
+        Get the retail range and the honest resale range for your exact stone.</p>
+      <a href="value.html" class="btn btn-gold btn-lg">Value my diamond</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="value.html">Valuation</a><a href="stamp.html">Hallmarks</a><a href="size.html">Size chart</a></div>
+</div></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/analytics.js"></script>
+<script src="assets/game.js"></script>
+<script>
+(function(){
+  const show=[0.25,0.50,0.75,1.00,1.50,2.00,3.00,4.00,5.00];
+  document.getElementById('sizeGrid').innerHTML = show.map(ct=>{
+    const v=valueDiamond({carat:ct,color:'G',clarity:'VS2',cut:'Very Good',
+      shape:'Round',origin:'Natural',cert:'GIA'});
+    return `<div class="panel" style="text-align:center">
+      <div class="stage" style="min-height:250px;padding:14px">${diamondSVG(mmForCarat(ct))}</div>
+      <div style="font-family:var(--serif);font-size:30px;font-weight:600;color:var(--gold-2);margin-top:14px">
+        ${ct.toFixed(2)} ct</div>
+      <div class="small" style="margin-top:4px">${mmForCarat(ct)} mm across</div>
+      <div class="small" style="margin-top:10px">Retail ${fmt(v.retailLow)}–${fmt(v.retailHigh)}</div>
+      <div class="small" style="color:var(--bad)">Resale ${fmt(v.resaleLow)}–${fmt(v.resaleHigh)}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelector('#sizeTable tbody').innerHTML = CARAT_MM.map(r=>{
+    const v=valueDiamond({carat:r.ct,color:'G',clarity:'VS2',cut:'Very Good',
+      shape:'Round',origin:'Natural',cert:'GIA'});
+    return `<tr><td><strong>${r.ct.toFixed(2)} ct</strong></td><td class="num">${r.mm} mm</td>
+      <td class="num">${fmt(v.retailLow)}–${fmt(v.retailHigh)}</td>
+      <td class="num" style="color:var(--ink-2)">${fmt(v.resaleLow)}–${fmt(v.resaleHigh)}</td></tr>`;
+  }).join('');
+})();
+</script>
+</body></html>

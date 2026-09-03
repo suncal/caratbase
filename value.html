@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diamond Value Calculator — Retail vs Real Resale Price | CaratBase</title>
+<meta name="description" content="Free diamond value calculator. Enter your carat, colour, clarity and cut to get both the retail price and the honest resale value — the number jewellers don't quote.">
+<link rel="canonical" href="https://caratbase.com/value.html">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="/" class="logo">Carat<b>Base</b></a>
+  <nav class="nav"><a href="/">Daily</a><a href="value.html" class="on">Value my diamond</a>
+  <a href="stamp.html">Hallmark lookup</a><a href="size.html">Carat size chart</a></nav>
+</div></header>
+
+<main class="wrap section">
+  <div class="narrow">
+    <div class="eyebrow">Free valuation</div>
+    <h1>What is your diamond worth?</h1>
+    <p class="lede" style="margin-top:18px">
+      Two numbers, not one. What a jeweller would sell it for, and what you would actually
+      be offered if you sold it today. Take the details from your certificate, your
+      appraisal, or the receipt.
+    </p>
+  </div>
+
+  <div class="grid g2" style="margin-top:36px;align-items:start;gap:24px">
+
+    <!-- ---------------- form ---------------- -->
+    <div class="panel">
+      <h3 style="margin-bottom:20px">The stone</h3>
+      <div class="grid g2" style="gap:14px">
+        <div class="field"><label for="fCarat">Carat weight</label>
+          <input type="number" id="fCarat" value="1.00" min="0.05" max="30" step="0.01"></div>
+        <div class="field"><label for="fShape">Shape</label><select id="fShape"></select></div>
+        <div class="field"><label for="fColor">Colour</label><select id="fColor"></select></div>
+        <div class="field"><label for="fClarity">Clarity</label><select id="fClarity"></select></div>
+        <div class="field"><label for="fCut">Cut</label><select id="fCut"></select></div>
+        <div class="field"><label for="fOrigin">Origin</label>
+          <select id="fOrigin"><option>Natural</option><option>Lab-grown</option></select></div>
+        <div class="field"><label for="fCert">Certificate</label>
+          <select id="fCert"><option>GIA</option><option>IGI</option><option>Other</option><option>None</option></select></div>
+      </div>
+
+      <h3 style="margin:22px 0 16px">The setting <span class="small" style="font-weight:400">— optional</span></h3>
+      <div class="grid g2" style="gap:14px">
+        <div class="field"><label for="fKarat">Metal</label><select id="fKarat"></select></div>
+        <div class="field"><label for="fGrams">Weight in grams</label>
+          <input type="number" id="fGrams" value="" min="0" max="500" step="0.1" placeholder="e.g. 3.5"></div>
+      </div>
+      <p class="small">Not sure of the metal? <a href="stamp.html">Look up the stamp inside the band.</a></p>
+    </div>
+
+    <!-- ---------------- result ---------------- -->
+    <div>
+      <div class="panel" id="resultPanel">
+        <h3 style="margin-bottom:18px">Estimated value</h3>
+        <div class="grid" style="gap:12px">
+          <div class="stat"><div class="k">Retail — what a jeweller charges</div>
+            <div class="v" id="oRetail">—</div></div>
+          <div class="stat" style="border-color:rgba(232,103,107,.35)">
+            <div class="k">Resale — what you would be offered</div>
+            <div class="v bad" id="oResale">—</div></div>
+          <div class="grid g2" style="gap:12px">
+            <div class="stat"><div class="k">Setting metal</div><div class="v" id="oMetal">—</div></div>
+            <div class="stat"><div class="k">You keep</div><div class="v gold" id="oKeep">—</div></div>
+          </div>
+        </div>
+        <p class="small" id="oNote" style="margin-top:16px"></p>
+      </div>
+
+      <!-- ---------------- intent capture — this is the product ---------------- -->
+      <div class="panel" style="margin-top:18px" id="intentPanel">
+        <h3 style="margin-bottom:8px">What do you want to do with it?</h3>
+        <p class="small" style="margin-bottom:16px">
+          Pick one and we will point you at the right next step — free, and with no obligation.</p>
+        <div class="grid g2" style="gap:10px">
+          <button class="btn btn-ghost" data-intent="insure">Insure it</button>
+          <button class="btn btn-ghost" data-intent="sell">Sell it</button>
+          <button class="btn btn-ghost" data-intent="appraise">Get it appraised</button>
+          <button class="btn btn-ghost" data-intent="curious">Just curious</button>
+        </div>
+
+        <div id="intentFollow" class="hide" style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line)">
+          <p id="intentCopy" style="font-size:15px;color:var(--ink-2);margin-bottom:16px"></p>
+          <form id="leadForm" style="display:flex;gap:10px;flex-wrap:wrap">
+            <input type="email" id="leadEmail" placeholder="you@email.com" required style="flex:1;min-width:200px">
+            <button class="btn btn-gold" type="submit" id="leadBtn">Send my report</button>
+          </form>
+          <p class="small" id="leadMsg" style="margin-top:12px;min-height:20px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------------- SEO body copy ---------------- -->
+  <section class="narrow" style="margin-top:70px">
+    <h2>Why retail and resale are so far apart</h2>
+    <p class="lede" style="margin-top:16px">
+      A jeweller's retail price carries the shop's rent, staff, insurance, marketing and margin.
+      When you sell, none of that comes back to you. A buyer is purchasing stock they must
+      re-cut, re-set, hold and resell, so they price to protect their own margin.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      For natural diamonds that typically means an offer somewhere between a quarter and two
+      fifths of the original retail price. Certification helps — a GIA report removes the buyer's
+      grading risk, and stones without paperwork are discounted further.
+    </p>
+    <h2 style="margin-top:40px">The lab-grown question</h2>
+    <p class="lede" style="margin-top:16px">
+      Lab-grown diamonds are chemically and optically real diamonds. The difference is supply:
+      production scaled enormously and retail prices fell hard. The secondary market has been
+      slower still, so resale on lab-grown stones is currently very weak. If you bought one to
+      wear, that changes nothing. If you bought one expecting to recover value later, it matters
+      a great deal.
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="value.html">Valuation</a><a href="stamp.html">Hallmarks</a><a href="size.html">Size chart</a></div>
+</div><div class="wrap"><p class="disclaimer">
+  These are estimates generated from published market data, not a formal appraisal. CaratBase is
+  not a licensed appraiser and does not buy or sell jewellery. Figures are for information only
+  and are not an offer, a guarantee of value, or financial advice. For insurance or legal purposes,
+  obtain a certified appraisal from a qualified professional.
+</p></div></footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/analytics.js"></script>
+<script src="assets/value.js"></script>
+</body></html>

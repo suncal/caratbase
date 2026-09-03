@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CaratBase — What Your Diamond and Gold Are Actually Worth</title>
+<meta name="description" content="Free diamond valuation, gold hallmark lookup and carat size charts. See the real resale value of any diamond — not the retail price you were quoted.">
+<link rel="canonical" href="https://caratbase.com/">
+<meta property="og:title" content="CaratBase — What Your Diamond and Gold Are Actually Worth">
+<meta property="og:description" content="Free diamond valuation, hallmark lookup, and the resale numbers the trade doesn't publish.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"CaratBase",
+ "applicationCategory":"FinanceApplication","operatingSystem":"Any",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "description":"Free diamond valuation, gold hallmark lookup and carat size reference."}
+</script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a href="/" class="logo">Carat<b>Base</b></a>
+    <nav class="nav">
+      <a href="/" class="on">Daily</a>
+      <a href="value.html">Value my diamond</a>
+      <a href="stamp.html">Hallmark lookup</a>
+      <a href="size.html">Carat size chart</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="wrap section" style="padding-bottom:34px">
+  <div class="narrow center" style="margin:0 auto">
+    <div class="eyebrow">The jewellery reference</div>
+    <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
+    <p class="lede" style="margin:20px auto 0">
+      Retail prices are everywhere. What a diamond really <strong>resells</strong> for is not.
+      CaratBase gives you both numbers, free, with no appraisal fee and nothing to ship.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap">
+      <a href="value.html" class="btn btn-gold btn-lg">Value my diamond</a>
+      <a href="stamp.html" class="btn btn-ghost btn-lg">Decode a hallmark</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DAILY GAME ================= -->
+<section class="wrap" style="padding-bottom:20px">
+  <div class="panel" style="padding:30px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px">
+      <div>
+        <div class="eyebrow" style="margin-bottom:6px">Guess the Carat</div>
+        <h2 style="font-size:29px">Today's stone</h2>
+      </div>
+      <div style="text-align:right">
+        <div class="small" id="dayLabel"></div>
+        <div class="pill" id="streakPill" style="margin-top:6px">Streak 0</div>
+      </div>
+    </div>
+    <p class="small" style="margin-bottom:20px;max-width:60ch">
+      This diamond is drawn at its true face-up size, on an average ring finger for scale.
+      Guess the carat weight — then see what it costs, and what it actually resells for.
+    </p>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="stage" id="stage"></div>
+
+      <div>
+        <!-- guess -->
+        <div id="guessBox">
+          <div class="guess-val"><span id="guessNum">1.00</span><small>carats — your guess</small></div>
+          <div class="slider-wrap">
+            <input type="range" id="guessRange" min="20" max="500" value="100" step="1" aria-label="Guess the carat weight">
+            <div style="display:flex;justify-content:space-between;margin-top:8px" class="small">
+              <span>0.20 ct</span><span>5.00 ct</span>
+            </div>
+          </div>
+          <button class="btn btn-gold btn-lg" id="lockBtn" style="width:100%;margin-top:14px">Lock in my guess</button>
+        </div>
+
+        <!-- reveal -->
+        <div class="reveal" id="reveal">
+          <div id="verdict" style="margin-bottom:16px"></div>
+          <div class="grid" style="gap:10px">
+            <div class="stat">
+              <div class="k">Actual weight</div>
+              <div class="v gold"><span id="rActual"></span> ct</div>
+            </div>
+            <div class="grid g2" style="gap:10px">
+              <div class="stat">
+                <div class="k">Retail price</div>
+                <div class="v" id="rRetail"></div>
+              </div>
+              <div class="stat">
+                <div class="k">Actual resale</div>
+                <div class="v bad" id="rResale"></div>
+              </div>
+            </div>
+          </div>
+          <p class="small" id="rSpec" style="margin-top:14px"></p>
+          <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+            <a href="value.html" class="btn btn-gold" style="flex:1;min-width:180px">Value my own diamond</a>
+            <button class="btn btn-ghost" id="shareBtn">Copy result</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE GAP ================= -->
+<section class="wrap section">
+  <div class="narrow">
+    <div class="eyebrow">The number nobody publishes</div>
+    <h2>A diamond loses most of its value the moment you buy it</h2>
+    <p class="lede" style="margin-top:16px">
+      Every jeweller will tell you the retail price. Almost none will tell you what happens
+      when you try to sell it back. On the secondary market a natural diamond typically
+      recovers only a quarter to two fifths of what was paid for it.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      Lab-grown stones are a harder story again. Production scaled, prices collapsed, and
+      resale has followed. That is not an argument against buying one — it is an argument
+      for knowing the number before you need it.
+    </p>
+    <div class="table-scroll" style="margin-top:26px">
+      <table id="gapTable">
+        <thead><tr><th>Stone</th><th class="num">Typical retail</th><th class="num">Realistic resale</th><th class="num">You keep</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">
+      Estimates for round brilliant, G colour, VS2 clarity, Very Good cut, GIA graded.
+      Real offers vary with condition, certification, market timing and the buyer's own margin.
+    </p>
+  </div>
+</section>
+
+<!-- ================= TOOLS ================= -->
+<section class="wrap section" style="padding-top:0">
+  <h2 class="center" style="margin-bottom:34px">Free tools</h2>
+  <div class="grid g3">
+    <a href="value.html" class="panel" style="text-decoration:none;color:inherit">
+      <div class="pill">Valuation</div>
+      <h3 style="margin:14px 0 8px">Value my diamond</h3>
+      <p class="small">Enter the specs from your certificate or your appraisal. Get a retail range and, more usefully, an honest resale range.</p>
+    </a>
+    <a href="stamp.html" class="panel" style="text-decoration:none;color:inherit">
+      <div class="pill pill-ice">Identification</div>
+      <h3 style="margin:14px 0 8px">Hallmark lookup</h3>
+      <p class="small">Found a number stamped inside a ring? 925, 750, 585, GF, EPNS — find out what it means and whether the piece has any metal value at all.</p>
+    </a>
+    <a href="size.html" class="panel" style="text-decoration:none;color:inherit">
+      <div class="pill pill-ice">Reference</div>
+      <h3 style="margin:14px 0 8px">Carat size chart</h3>
+      <p class="small">What a carat actually looks like. True millimetre sizes for every weight, drawn to scale on a real finger.</p>
+    </a>
+  </div>
+</section>
+
+<!-- ================= CAPTURE ================= -->
+<section class="wrap" style="padding-bottom:70px">
+  <div class="capture narrow center" style="margin:0 auto">
+    <h2 style="font-size:30px">Get your free valuation report</h2>
+    <p class="small" style="margin:12px auto 22px;max-width:52ch">
+      A one-page PDF with your stone's specs, retail range and resale range — the document
+      insurers ask for. No cost, no appraisal appointment.
+    </p>
+    <form id="emailForm" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap">
+      <input type="email" id="emailInput" placeholder="you@email.com" required style="flex:1;min-width:220px">
+      <button class="btn btn-gold" type="submit">Send it</button>
+    </form>
+    <p class="small" id="emailMsg" style="margin-top:14px;min-height:20px"></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <a href="value.html">Valuation</a><a href="stamp.html">Hallmarks</a><a href="size.html">Size chart</a>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="disclaimer">
+      CaratBase provides estimates for information only. We are not a licensed appraiser and
+      these figures are not a formal appraisal, an offer to buy, or financial advice.
+      For insurance or legal purposes, obtain a certified appraisal.
+    </p>
+  </div>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/analytics.js"></script>
+<script src="assets/game.js"></script>
+</body>
+</html>
