@@ -3,73 +3,119 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gold Price Today Per Gram — 24K, 22K, 18K, 14K Scrap Value | CaratBase</title>
-<meta name="description" content="Today's gold, silver and platinum prices per gram, with what each karat is actually worth as scrap. Updated daily. Work out what your jewellery is worth by weight.">
+<title>Gold Calculator — What Your Gold Is Worth Today, Per Gram | CaratBase</title>
+<meta name="description" content="Free gold calculator. Enter the weight and karat of any gold, silver or platinum jewellery and see exactly what it is worth at today's live prices — and what a buyer will realistically pay.">
 <link rel="canonical" href="https://caratbase.com/metals.html">
-<link rel="stylesheet" href="assets/style.css?v=633dcb75">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
+<link rel="stylesheet" href="assets/style.css?v=83fd7951">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I work out what my gold is worth?","acceptedAnswer":{"@type":"Answer","text":"Weigh the piece in grams, find the karat stamp inside it, then multiply the weight by the purity and by today's gold price per gram. A 5 gram 14K ring is 58.5% gold, so it holds about 2.9 grams of pure gold."}},
+{"@type":"Question","name":"Will a buyer pay the full scrap value?","acceptedAnswer":{"@type":"Answer","text":"No. Buyers refine the metal and take a margin, so an offer of 70 to 90 percent of the calculated scrap value is normal. Anything below about 60 percent is worth walking away from."}},
+{"@type":"Question","name":"What is 14K gold worth per gram?","acceptedAnswer":{"@type":"Answer","text":"14K gold is 58.5% pure, so it is worth 58.5% of the spot gold price per gram. The calculator on this page uses live prices refreshed every morning."}}]}
+</script>
 </head>
 <body>
 <header class="site-head"><div class="wrap head-in">
   <a href="index.html" class="logo"></a><nav class="nav"></nav>
 </div></header>
 
-<main class="wrap section">
-  <div class="narrow">
-    <div class="eyebrow">Updated daily</div>
-    <h1>Gold price today</h1>
-    <p class="lede" style="margin-top:18px">
-      Spot prices per gram, and — more usefully — what each karat is actually worth if you
-      weighed your jewellery and sold it for scrap today.
+<main class="wrap">
+
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Gold calculator · live prices</div>
+    <h1>What is your gold worth?</h1>
+    <p class="lede">
+      Weigh it, find the stamp inside it, and see exactly what the metal is worth today —
+      plus what a buyer will realistically hand you, which is not the same number.
     </p>
-    <p class="small" id="updated" style="margin-top:12px"></p>
   </div>
 
-  <div class="grid g2" style="margin-top:34px;align-items:start">
-    <div class="panel">
-      <h3 style="margin-bottom:8px">Spot price per gram</h3>
-      <div id="spotList" style="margin-top:6px"></div>
+  <!-- ============ THE TOOL ============ -->
+  <section class="console">
+    <div class="console-head">
+      <span class="name"><span class="dot"></span> Gold &amp; metal calculator</span>
+      <span class="status" id="calcStatus">loading today's prices…</span>
     </div>
+    <div class="console-body">
+      <div class="console-in">
+        <h3>Your piece</h3>
+        <div class="field">
+          <label for="mKarat">Metal and purity</label>
+          <select id="mKarat"></select>
+        </div>
+        <div class="field">
+          <label for="mWeight">Weight</label>
+          <input type="number" id="mWeight" value="5" min="0" step="0.1">
+        </div>
+        <div class="field" style="margin-bottom:10px">
+          <label>Weighed in</label>
+          <div class="units" id="mUnits"></div>
+        </div>
+        <p class="small">
+          Kitchen scales are accurate enough. Not sure of the metal?
+          <a href="stamp.html">Look up the stamp inside the band.</a>
+          Stones are not included — <a href="value.html">value those separately</a>.
+        </p>
+      </div>
 
-    <div class="panel">
-      <h3 style="margin-bottom:8px">What your gold is worth</h3>
-      <p class="small" style="margin-bottom:14px">Scrap value per gram by karat. Buyers typically
-        pay 70–90% of these figures to cover refining and their margin.</p>
-      <div class="table-scroll"><table id="karatTable">
-        <thead><tr><th>Karat</th><th class="num">Pure gold</th><th class="num">Per gram</th>
-        <th class="num">Per 10 g</th></tr></thead><tbody></tbody></table></div>
+      <div class="console-out">
+        <div>
+          <div class="lab">Metal value at today's price</div>
+          <div class="big" id="mOut">—</div>
+          <div class="sub" id="mOutSub"></div>
+        </div>
+        <div class="split">
+          <div><div class="lab">A buyer will likely offer</div>
+            <div class="v" id="mOffer">—</div></div>
+          <div><div class="lab">Pure metal it contains</div>
+            <div class="v" id="mPure">—</div></div>
+        </div>
+        <div class="note" id="mNote"></div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="panel" style="margin-top:18px">
-    <h3 style="margin-bottom:6px">Weigh your piece</h3>
-    <p class="small" style="margin-bottom:16px">Kitchen scales work fine. Enter the weight and the
-      stamp from inside the band.</p>
-    <div class="grid g3" style="align-items:end">
-      <div class="field"><label for="mKarat">Metal</label><select id="mKarat"></select></div>
-      <div class="field"><label for="mGrams">Weight in grams</label>
-        <input type="number" id="mGrams" value="5" min="0" step="0.1"></div>
-      <div class="stat"><div class="k">Scrap value today</div><div class="v gold" id="mOut">—</div></div>
+  <!-- ============ THE DATA ============ -->
+  <section class="section">
+    <div class="sec-head">
+      <div><div class="eyebrow">Today's market</div><h2>Spot prices</h2></div>
+      <p class="small" id="updated"></p>
     </div>
-    <p class="small">Not sure which metal? <a href="stamp.html">Look up the stamp.</a></p>
-  </div>
+    <div class="grid g2" style="align-items:start">
+      <div class="panel">
+        <h3 style="margin-bottom:8px">Per gram</h3>
+        <div id="spotList" style="margin-top:6px"></div>
+      </div>
+      <div class="panel">
+        <h3 style="margin-bottom:8px">Gold by karat</h3>
+        <p class="small" style="margin-bottom:14px">What each purity is worth per gram at
+          today's spot price.</p>
+        <div class="table-scroll"><table id="karatTable">
+          <thead><tr><th>Karat</th><th class="num">Pure gold</th><th class="num">Per gram</th>
+          <th class="num">Per 10 g</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </div>
+  </section>
 
-  <div id="vaultBox" style="margin-top:18px"></div>
+  <div id="vaultBox" style="margin-bottom:20px"></div>
 
-  <section class="narrow" style="margin-top:60px">
+  <!-- ============ KNOWLEDGE ============ -->
+  <section class="narrow section" style="padding-top:20px">
     <h2>Why a buyer pays less than spot</h2>
     <p class="lede" style="margin-top:16px">
       Spot is the price of pure, refined metal traded in bulk. Your ring is neither pure nor
       refined — it is an alloy mixed with copper and silver, often with stones and solder in it.
-      A buyer has to refine it, carry the cost of doing so, and take a margin. An offer of 70–90%
-      of the calculated scrap value is normal; anything under about 60% is worth walking away from.
+      A buyer has to refine it, carry the cost of doing so, and take a margin. An offer of
+      70–90% of the calculated value is normal; anything under about 60% is worth walking
+      away from.
     </p>
     <h2 style="margin-top:40px">Scrap value is a floor, not a valuation</h2>
     <p class="lede" style="margin-top:16px">
-      If the piece has a diamond, a maker's mark, or any antique interest, scrap is the worst
-      price it can fetch, not the right one. Melting an Art Deco platinum setting for its metal
-      is how genuinely valuable jewellery gets destroyed.
-      <a href="value.html">Value the stone properly first.</a>
+      If the piece holds a diamond, carries a maker's mark, or has any antique interest, scrap
+      is the worst price it can fetch, not the right one. Melting an Art Deco platinum setting
+      for its metal is how genuinely valuable jewellery gets destroyed every day.
+      <a href="value.html">Value the stones properly first.</a>
     </p>
   </section>
 </main>
@@ -79,15 +125,14 @@
   <div style="display:flex;gap:20px;flex-wrap:wrap">
     <a href="value.html">Valuation</a><a href="vault.html">My vault</a><a href="stamp.html">Hallmarks</a></div>
 </div><div class="wrap"><p class="disclaimer">
-  Prices are indicative spot figures refreshed once daily and will not match a live trading screen.
-  Not an offer to buy or sell, and not financial advice.
+  Prices are indicative spot figures refreshed once daily and will not match a live trading
+  screen. Not an offer to buy or sell, and not financial advice.
 </p></div></footer>
 
-<script src="assets/data.js?v=633dcb75"></script>
-<script>window.CB_ANALYTICS_ENDPOINT="https://caratbase-analytics.sunnyatlanta20.workers.dev"</script>
-<script src="assets/analytics.js?v=633dcb75"></script>
-<script src="assets/logo.js?v=633dcb75"></script>
-<script src="assets/nav.js?v=633dcb75"></script>
-<script src="assets/vault.js?v=633dcb75"></script>
-<script src="assets/metals.js?v=633dcb75"></script>
+<script src="assets/data.js?v=83fd7951"></script>
+<script src="assets/analytics.js?v=83fd7951"></script>
+<script src="assets/logo.js?v=83fd7951"></script>
+<script src="assets/nav.js?v=83fd7951"></script>
+<script src="assets/vault.js?v=83fd7951"></script>
+<script src="assets/metals.js?v=83fd7951"></script>
 </body></html>

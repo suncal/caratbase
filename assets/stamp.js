@@ -30,10 +30,42 @@
     }).slice(0,6);
   }
 
+  /* The readout carries the verdict; the cards below carry the detail. */
+  function paintOut(hit){
+    const box=document.getElementById('stampOut');
+    if(!hit){
+      box.innerHTML=`<div class="lab">No match</div>
+        <div class="big" style="font-size:38px">?</div>
+        <div class="sub">Marks wear down and are often partly struck. Try just the digits,
+          or look for a second mark elsewhere on the piece.</div>`;
+      return;
+    }
+    const verdict={
+      solid:['Solid precious metal','#7FD9A8'],
+      filled:['Partial — low value','#E8D19A'],
+      plated:['Plated — no metal value','#F0928E'],
+      lab:['Real diamond, weak resale','#9FD8EC'],
+      none:['No precious metal','#F0928E']
+    }[hit.value]||['','#F6F1E6'];
+    box.innerHTML=`
+      <div class="lab">${hit.metal}</div>
+      <div class="big">${hit.code}</div>
+      <div class="sub" style="color:${verdict[1]};font-weight:600;margin-top:6px">${verdict[0]}</div>
+      <div class="split" style="grid-template-columns:1fr">
+        <div><div class="lab">Purity</div><div class="v" style="font-size:19px">${hit.purity}</div></div>
+      </div>
+      <div class="note">${hit.worth}</div>`;
+  }
+
   function run(q){
     const hits=search(q);
-    if(!q.trim()){ out.innerHTML=''; return; }
+    if(!q.trim()){ out.innerHTML=''; paintOut(null); 
+      document.getElementById('stampOut').innerHTML=
+        `<div class="lab">Waiting for a mark</div><div class="big" style="font-size:38px">—</div>
+         <div class="sub">Enter a stamp and its meaning appears here.</div>`;
+      return; }
     if(!hits.length){
+      paintOut(null);
       out.innerHTML=`<div class="panel"><h3>No match for "${q}"</h3>
         <p class="small" style="margin-top:8px">Marks can be worn or partially struck. Try just the
         digits, or look for a second mark elsewhere on the piece — many items carry a purity mark
@@ -41,6 +73,7 @@
         piece is fake; older and handmade jewellery is often unmarked.</p></div>`;
       return;
     }
+    paintOut(hits[0]);
     out.innerHTML=hits.map(s=>`
       <div class="stamp-card">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap">

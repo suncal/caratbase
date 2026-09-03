@@ -6,7 +6,7 @@
 <title>Diamond Value Calculator — Retail vs Real Resale Price | CaratBase</title>
 <meta name="description" content="Free diamond value calculator. Enter your carat, colour, clarity and cut to get both the retail price and the honest resale value — the number jewellers don't quote.">
 <link rel="canonical" href="https://caratbase.com/value.html">
-<link rel="stylesheet" href="assets/style.css?v=633dcb75">
+<link rel="stylesheet" href="assets/style.css?v=83fd7951">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%8E</text></svg>">
 </head>
 <body>
@@ -15,22 +15,25 @@
   <nav class="nav"></nav>
 </div></header>
 
-<main class="wrap section">
-  <div class="narrow">
-    <div class="eyebrow">Free valuation</div>
-    <h1>What is your diamond worth?</h1>
-    <p class="lede" style="margin-top:18px">
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Free valuation · whole piece</div>
+    <h1>What is your jewellery worth?</h1>
+    <p class="lede">
       Two numbers, not one. What a jeweller would sell it for, and what you would actually
       be offered if you sold it today. Take the details from your certificate, your
       appraisal, or the receipt.
     </p>
   </div>
 
-  <div class="grid g2" style="margin-top:36px;align-items:start;gap:24px">
-
-    <!-- ---------------- form ---------------- -->
-    <div class="panel">
-      <h3 style="margin-bottom:20px">The stone</h3>
+  <section class="console">
+    <div class="console-head">
+      <span class="name"><span class="dot"></span> Jewellery valuation</span>
+      <span class="status" id="valStatus">centre stone · side stones · metal</span>
+    </div>
+    <div class="console-body">
+      <div class="console-in">
+        <h3 style="margin-bottom:20px">The stone</h3>
       <div class="grid g2" style="gap:14px">
         <div class="field"><label for="fCarat">Carat weight</label>
           <input type="number" id="fCarat" value="1.00" min="0.05" max="30" step="0.01"></div>
@@ -75,21 +78,29 @@
       <p class="small" id="sideHint"></p>
     </div>
 
-    <!-- ---------------- result ---------------- -->
-    <div>
-      <div class="panel" id="resultPanel">
-        <h3 style="margin-bottom:18px">Estimated value</h3>
-        <div class="grid" style="gap:12px">
-          <div class="stat"><div class="k">Retail — what a jeweller charges</div>
-            <div class="v" id="oRetail">—</div></div>
-          <div class="stat" style="border-color:rgba(176,65,59,.35)">
-            <div class="k">Resale — what you would be offered</div>
-            <div class="v bad" id="oResale">—</div></div>
-          <div class="grid g2" style="gap:12px">
-            <div class="stat"><div class="k">Setting metal</div><div class="v" id="oMetal">—</div></div>
-            <div class="stat"><div class="k">You keep</div><div class="v gold" id="oKeep">—</div></div>
-          </div>
+      <!-- ---------------- readout ---------------- -->
+      <div class="console-out">
+        <div>
+          <div class="lab">Retail — what a jeweller charges</div>
+          <div class="big" id="oRetail">—</div>
         </div>
+        <div>
+          <div class="lab">Resale — what you would actually be offered</div>
+          <div class="big" id="oResale" style="font-size:clamp(28px,4.4vw,38px);color:#F0928E">—</div>
+        </div>
+        <div class="split">
+          <div><div class="lab">Setting metal</div><div class="v" id="oMetal">—</div></div>
+          <div><div class="lab">You keep</div><div class="v" id="oKeep" style="color:#E8D19A">—</div></div>
+        </div>
+        <div class="note" id="oNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid g2" style="margin-top:20px;align-items:start;gap:20px">
+    <div>
+      <div class="panel">
+        <h3 style="margin-bottom:14px">Where the money is</h3>
 
         <div class="table-scroll" style="margin-top:18px">
           <table id="breakdown">
@@ -99,16 +110,17 @@
           </table>
         </div>
         <p class="small" id="sideVerdict" style="margin-top:12px"></p>
-        <p class="small" id="oNote" style="margin-top:16px"></p>
         <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
           <button class="btn btn-ghost" id="saveVaultBtn" style="flex:1;min-width:170px">Save to my vault</button>
           <a href="vault.html" class="btn btn-ghost btn-sm" id="openVaultLink">Open vault</a>
         </div>
         <p class="small" id="vaultMsg" style="margin-top:10px;min-height:18px"></p>
       </div>
+    </div>
 
+    <div>
       <!-- ---------------- offer capture — the dataset nobody else has ---------------- -->
-      <div class="panel" style="margin-top:18px" id="offerPanel">
+      <div class="panel" id="offerPanel">
         <h3 style="margin-bottom:8px">Been offered a price for it?</h3>
         <p class="small" style="margin-bottom:16px">
           Tell us what you were offered and we will show you how it compares. Real offers are
@@ -162,6 +174,7 @@
             </form>
             <p class="small" id="leadMsg" style="margin-top:12px;min-height:20px"></p>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -205,12 +218,12 @@
   obtain a certified appraisal from a qualified professional.
 </p></div></footer>
 
-<script src="assets/data.js?v=633dcb75"></script>
+<script src="assets/data.js?v=83fd7951"></script>
 <script>window.CB_ANALYTICS_ENDPOINT="https://caratbase-analytics.sunnyatlanta20.workers.dev"</script>
-<script src="assets/spot.js?v=633dcb75"></script>
-<script src="assets/analytics.js?v=633dcb75"></script>
-<script src="assets/logo.js?v=633dcb75"></script>
-<script src="assets/nav.js?v=633dcb75"></script>
-<script src="assets/vault.js?v=633dcb75"></script>
-<script src="assets/value.js?v=633dcb75"></script>
+<script src="assets/spot.js?v=83fd7951"></script>
+<script src="assets/analytics.js?v=83fd7951"></script>
+<script src="assets/logo.js?v=83fd7951"></script>
+<script src="assets/nav.js?v=83fd7951"></script>
+<script src="assets/vault.js?v=83fd7951"></script>
+<script src="assets/value.js?v=83fd7951"></script>
 </body></html>
