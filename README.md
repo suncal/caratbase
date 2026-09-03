@@ -69,3 +69,23 @@ curl https://caratbase-analytics.sunnyatlanta20.workers.dev/api/capabilities
 
 `{"email":true}` means sending is live. Only then should the UI offer to email a report —
 `/api/capabilities` exists precisely so the page can ask before it promises.
+
+
+## How prices stay current
+
+Three layers, none of which involve your machine:
+
+1. **Live** — `/api/spot` on the Worker fetches gold, silver, platinum and palladium on
+   demand and caches the answer at Cloudflare's edge for 60 seconds. Data is never more
+   than a minute old, and upstream sees at most one request per minute no matter how much
+   traffic arrives. Pages poll every 60s, and only while the tab is visible.
+2. **Snapshot** — `.github/workflows/metals.yml` still commits `assets/metals.json` daily.
+   It is the fallback when the Worker or the upstream feed is down, and its commit history
+   doubles as the site's price record.
+3. **Sanity** — both layers reject a figure outside a plausible per-ounce range rather
+   than publishing nonsense, and the page labels itself "live" or "daily snapshot" so a
+   stale number is never passed off as current.
+
+Per-second updates are deliberately not attempted. Free metals APIs refresh about once a
+minute and rate-limit abuse, spot moves fractions of a cent in that window, and the metals
+markets close entirely at weekends. Tick-level data is a paid market feed.

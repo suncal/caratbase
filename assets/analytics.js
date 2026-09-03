@@ -1,9 +1,12 @@
 /* CaratBase — first-party analytics client.
    No cookies, no third parties, no personal data beyond what a user types into a lead form. */
 (function () {
-  // Point this at your deployed Worker. Until then events buffer locally so the
-  // dashboard still works in dev.
-  const ENDPOINT = window.CB_ANALYTICS_ENDPOINT || '';
+  // Defined HERE, not per page. A page-level <script> constant is silently lost whenever
+  // a page is rewritten, which already cost us all tracking on the home page, the gold
+  // calculator and the ring sizer. window.CB_ANALYTICS_ENDPOINT still overrides it.
+  const DEFAULT_ENDPOINT = 'https://caratbase-analytics.sunnyatlanta20.workers.dev';
+  const ENDPOINT = window.CB_ANALYTICS_ENDPOINT || DEFAULT_ENDPOINT;
+  window.CB_ANALYTICS_ENDPOINT = ENDPOINT;   // so spot.js and others can rely on it
 
   const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
 

@@ -53,39 +53,60 @@
     $(id).addEventListener('input',calc); $(id).addEventListener('change',calc);
   });
 
-  /* ---------- live prices ---------- */
-  fetch('assets/metals.json?t='+Math.floor(Date.now()/3600000)).then(r=>r.json()).then(d=>{
+  /* ---------- live prices ----------
+     Spot (assets/spot.js) fetches from the Worker's edge-cached endpoint and falls back
+     to the committed daily snapshot, then fires cb:spot. We just render whatever arrives. */
+  let lastUpdated=null, live=false;
+
+  function render(d){
     const g=d.perGram, p=d.prevPerGram||{};
-    METAL_SPOT.gold=g.gold; METAL_SPOT.silver=g.silver; METAL_SPOT.platinum=g.platinum;
-
-    const when=new Date(d.updated);
-    $('calcStatus').textContent='gold $'+g.gold.toFixed(2)+'/g · '+
-      when.toLocaleDateString('en-US',{month:'short',day:'numeric'});
-    $('updated').textContent='Last updated '+when.toLocaleString('en-US',
-      {dateStyle:'medium',timeStyle:'short'});
-
-    $('spotList').innerHTML=Object.keys(NAMES).filter(k=>g[k]).map(k=>{
-      const now=g[k], was=p[k]||now, dp=was?((now-was)/was*100):0;
-      return `<div class="metal-row">
-        <div><strong style="font-size:16px">${NAMES[k]}</strong><div class="small">per gram</div></div>
-        <div style="text-align:right">
-          <div class="mono" style="font-family:var(--serif);font-size:24px;font-weight:600">$${now.toFixed(2)}</div>
-          <div class="small ${dp>=0?'delta-up':'delta-dn'}">${dp>=0?'▲':'▼'} ${Math.abs(dp).toFixed(2)}%</div>
-        </div></div>`;
-    }).join('');
+    lastUpdated=new Date(d.updated); live=!!d.live;
 
     document.querySelector('#karatTable tbody').innerHTML=KARATS.map(([k,pur])=>
       `<tr><td><strong>${k}</strong></td><td class="num">${(pur*100).toFixed(1)}%</td>
        <td class="num">$${(g.gold*pur).toFixed(2)}</td>
        <td class="num"><strong>$${(g.gold*pur*10).toFixed(0)}</strong></td></tr>`).join('');
 
+    $('spotList').innerHTML=Object.keys(NAMES).filter(k=>g[k]).map(k=>{
+      const now=g[k], was=p[k], dp=was?((now-was)/was*100):null;
+      return `<div class="metal-row">
+        <div><strong style="font-size:16px">${NAMES[k]}</strong><div class="small">per gram</div></div>
+        <div style="text-align:right">
+          <div class="mono" style="font-family:var(--serif);font-size:24px;font-weight:600">$${now.toFixed(2)}</div>
+          ${dp===null?'<div class="small">live</div>'
+            :`<div class="small ${dp>=0?'delta-up':'delta-dn'}">${dp>=0?'▲':'▼'} ${Math.abs(dp).toFixed(2)}% today</div>`}
+        </div></div>`;
+    }).join('');
+
     calc();
     vaultBox();
-  }).catch(()=>{
-    $('calcStatus').textContent='using last known prices';
-    $('spotList').innerHTML='<p class="small">Prices unavailable right now.</p>';
-    calc();
-  });
+    tick();
+  }
+
+  /* "updated 12 seconds ago" reads as alive in a way a timestamp never does. */
+  function ago(d){
+    const s=Math.max(0,Math.round((Date.now()-d)/1000));
+    if(s<60) return s+' second'+(s===1?'':'s')+' ago';
+    const m=Math.round(s/60); if(m<60) return m+' minute'+(m===1?'':'s')+' ago';
+    const h=Math.round(m/60); if(h<24) return h+' hour'+(h===1?'':'s')+' ago';
+    return d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+  }
+  function tick(){
+    if(!lastUpdated) return;
+    const gold=METAL_SPOT.gold;
+    $('calcStatus').innerHTML=
+      `<span class="dot" style="display:inline-block;width:7px;height:7px;border-radius:50%;
+        background:${live?'var(--good)':'var(--warn)'};margin-right:6px;vertical-align:1px"></span>`+
+      `gold $${gold.toFixed(2)}/g · ${live?'live, updated ':'daily snapshot, '}${ago(lastUpdated)}`;
+    $('updated').textContent = live
+      ? 'Live price, refreshed automatically — updated '+ago(lastUpdated)
+      : 'Daily snapshot — '+lastUpdated.toLocaleString('en-US',{dateStyle:'medium',timeStyle:'short'});
+  }
+  setInterval(tick, 1000);
+
+  document.addEventListener('cb:spot', e=>render(e.detail));
+  if(Spot.latest) render(Spot.latest);
+  Spot.start(60);
 
   function vaultBox(){
     const items=(typeof Vault!=='undefined')?Vault.all():[];

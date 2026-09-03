@@ -191,8 +191,84 @@ async function sendReport(request, env) {
   return new Response(JSON.stringify({ ok: true }), { headers: JSON_HEADERS });
 }
 
+/**
+ * Live spot prices, fetched on demand and cached at Cloudflare's edge.
+ *
+ * Why this and not a cron job: a scheduled task pushes data on a fixed clock whether or
+ * not anyone is looking, and its freshness is capped by the interval. This instead fetches
+ * when a visitor actually asks, then serves that answer from the edge for CACHE_SECONDS.
+ * So the data is never more than a minute old, upstream sees at most one call a minute no
+ * matter how much traffic arrives, and nothing has to be committed to the repo.
+ *
+ * Per-second updates are deliberately not attempted: free metals APIs refresh about once a
+ * minute and rate-limit abuse, spot moves by fractions of a cent in that window, and the
+ * metals markets are closed at weekends entirely.
+ */
+const CACHE_SECONDS = 60;
+const OZ_TO_G = 31.1034768;
+const SPOT_SYMS = {
+  gold:      ['XAU', 'GC=F'],
+  silver:    ['XAG', 'SI=F'],
+  platinum:  ['XPT', 'PL=F'],
+  palladium: ['XPD', 'PA=F']
+};
+/* Per troy ounce. Catches a source returning nonsense rather than shipping it to users. */
+const SANE = { gold:[500,20000], silver:[5,500], platinum:[200,10000], palladium:[200,10000] };
+
+async function fetchSpot() {
+  const UA = { 'User-Agent': 'caratbase.com price fetcher' };
+  const getJson = async (u) => {
+    const r = await fetch(u, { headers: UA, cf: { cacheTtl: 30 } });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return r.json();
+  };
+  const goldApi = async (sym) => parseFloat((await getJson(`https://api.gold-api.com/price/${sym}`)).price);
+  const yahoo   = async (sym) => parseFloat(
+    (await getJson(`https://query1.finance.yahoo.com/v8/finance/chart/${sym}?interval=1d&range=5d`))
+      .chart.result[0].meta.regularMarketPrice);
+
+  const perGram = {};
+  const sources = {};
+  await Promise.all(Object.entries(SPOT_SYMS).map(async ([name, [g, y]]) => {
+    for (const [label, fn, arg] of [['gold-api', goldApi, g], ['yahoo', yahoo, y]]) {
+      try {
+        const oz = await fn(arg);
+        const [lo, hi] = SANE[name];
+        if (!(oz >= lo && oz <= hi)) continue;
+        perGram[name] = +(oz / OZ_TO_G).toFixed(4);
+        sources[name] = label;
+        return;
+      } catch { /* try the fallback */ }
+    }
+  }));
+  if (!perGram.gold) throw new Error('no gold price from any source');
+  return { updated: new Date().toISOString(), perGram, sources, cacheSeconds: CACHE_SECONDS };
+}
+
+async function spotHandler(request, ctx) {
+  const cache = caches.default;
+  const key = new Request('https://caratbase.internal/spot', { method: 'GET' });
+  const hit = await cache.match(key);
+  if (hit) return hit;
+
+  let payload;
+  try {
+    payload = await fetchSpot();
+  } catch (e) {
+    // Never serve a wrong number: say plainly that live pricing is unavailable and let the
+    // page fall back to the committed daily snapshot.
+    return new Response(JSON.stringify({ ok: false, reason: String(e) }),
+      { status: 503, headers: { ...JSON_HEADERS, 'cache-control': 'no-store' } });
+  }
+  const res = new Response(JSON.stringify(payload), {
+    headers: { ...JSON_HEADERS, 'cache-control': `public, max-age=${CACHE_SECONDS}` }
+  });
+  ctx.waitUntil(cache.put(key, res.clone()));
+  return res;
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const ch  = cors(env, request);
     if (request.method === 'OPTIONS') return new Response(null, { headers: ch });
@@ -209,6 +285,12 @@ export default {
       }
 
       // Lets the page ask whether emailing actually works before it offers to email.
+      if (url.pathname === '/api/spot') {
+        const r = await spotHandler(request, ctx);
+        return new Response(r.body, { status: r.status,
+          headers: { ...Object.fromEntries(r.headers), ...ch } });
+      }
+
       if (url.pathname === '/api/capabilities') {
         return new Response(JSON.stringify({ email: !!(env.RESEND_API_KEY && env.MAIL_FROM) }),
           { headers: { ...JSON_HEADERS, ...ch } });
