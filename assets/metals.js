@@ -28,8 +28,45 @@
   $('mKarat').innerHTML=Object.keys(KARAT_PURITY).filter(k=>k!=='None / not sure')
     .map(k=>`<option${k==='14K'?' selected':''}>${k}</option>`).join('');
 
+  /* ---------- estimate weight from dimensions ----------
+     For anyone without scales. A plain band is an annulus, so its volume follows from the
+     ring size, the width and the thickness; multiply by the metal's density for weight. */
+  let mode='weigh';
+  const US_DIA={};  /* inside diameter in mm, from the ring size table */
+  [[4,14.86],[4.5,15.27],[5,15.70],[5.5,16.10],[6,16.51],[6.5,16.92],[7,17.35],[7.5,17.75],
+   [8,18.19],[8.5,18.53],[9,18.95],[9.5,19.41],[10,19.84],[10.5,20.20],[11,20.68],
+   [12,21.49],[13,22.33]].forEach(([us,d])=>US_DIA[us]=d);
+
+  $('dSize').innerHTML=Object.keys(US_DIA).map(us=>
+    `<option value="${us}"${+us===7?' selected':''}>US ${us}</option>`).join('');
+
+  $('mMode').addEventListener('click',e=>{
+    const m=e.target.dataset.m; if(!m) return;
+    mode=m;
+    $('mMode').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+    $('modeWeigh').classList.toggle('hide',m!=='weigh');
+    $('modeSize').classList.toggle('hide',m!=='size');
+    calc();
+  });
+  ['dSize','dWidth','dThick'].forEach(id=>{
+    $(id).addEventListener('input',calc); $(id).addEventListener('change',calc);
+  });
+
+  function estimatedGrams(){
+    const karat=$('mKarat').value;
+    const w=bandWeight(US_DIA[$('dSize').value], $('dWidth').value, $('dThick').value, karat);
+    if(!w){ $('dOut').textContent='Enter a width and thickness.'; return 0; }
+    $('dOut').innerHTML=`Estimated at <strong style="color:var(--ink)">${w.grams} g</strong>
+      — ${w.cm3} cm³ of ${karat} at ${w.density} g/cm³.
+      <span style="color:var(--warn)">Assumes a solid plain band</span>; hollow, tapered or
+      stone-set rings will differ, sometimes by a lot.`;
+    return w.grams;
+  }
+
   function calc(){
-    const grams=(parseFloat($('mWeight').value)||0)*UNITS[unit].toG;
+    const grams = mode==='size'
+      ? estimatedGrams()
+      : (parseFloat($('mWeight').value)||0)*UNITS[unit].toG;
     const karat=$('mKarat').value;
     const val=valueMetal(karat,grams);
     if(!val){ $('mOut').textContent='—'; $('mOutSub').textContent=''; return; }
@@ -39,8 +76,9 @@
     const metalName = karat==='Platinum'?'platinum' : karat==='Silver 925'?'silver' : 'gold';
 
     $('mOut').textContent=fmt(val);
-    $('mOutSub').textContent=
-      `${(grams).toFixed(2)} g of ${karat}${unit!=='g'?` (${$('mWeight').value} ${UNITS[unit].label})`:''}`;
+    $('mOutSub').textContent = mode==='size'
+      ? `${grams.toFixed(2)} g of ${karat}, estimated from its dimensions`
+      : `${grams.toFixed(2)} g of ${karat}${unit!=='g'?` (${$('mWeight').value} ${UNITS[unit].label})`:''}`;
     $('mOffer').textContent=fmt(val*0.70)+' – '+fmt(val*0.90);
     $('mPure').textContent=pureG.toFixed(2)+' g '+metalName;
     $('mNote').innerHTML=

@@ -291,6 +291,17 @@ export default {
           headers: { ...Object.fromEntries(r.headers), ...ch } });
       }
 
+      // Public, aggregate only — no amounts, no specs, nothing identifying. Lets the
+      // methodology page show honestly how much real data sits behind the estimates.
+      if (url.pathname === '/api/offers-summary') {
+        const row = await env.DB.prepare(
+          `SELECT COUNT(*) n, MIN(ts) first FROM offers`).first();
+        return new Response(JSON.stringify({
+          reported: row?.n || 0,
+          since: row?.first || null
+        }), { headers: { ...JSON_HEADERS, 'cache-control': 'public, max-age=300', ...ch } });
+      }
+
       if (url.pathname === '/api/capabilities') {
         return new Response(JSON.stringify({ email: !!(env.RESEND_API_KEY && env.MAIL_FROM) }),
           { headers: { ...JSON_HEADERS, ...ch } });

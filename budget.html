@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diamond Budget Calculator — What Size Can I Get for My Money? | CaratBase</title>
+<meta name="description" content="Enter your budget and see the biggest diamond it will buy, four different ways. Compare going for size against going for quality, and see what each option resells for.">
+<link rel="canonical" href="https://caratbase.com/budget.html">
+<link rel="stylesheet" href="assets/style.css?v=6e1cfc9a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What size diamond can I get for $5,000?","acceptedAnswer":{"@type":"Answer","text":"Around 1 carat at a balanced G colour, VS2 clarity and excellent cut. If you drop to J colour and SI2 clarity and choose an elongated shape you can reach close to 2 carats for the same money, and a lab-grown stone of similar quality would be around 3 carats."}},
+{"@type":"Question","name":"Is it better to buy a bigger diamond or a better quality one?","acceptedAnswer":{"@type":"Answer","text":"Most of what you pay for in colour and clarity above about G and VS2 is invisible without a loupe, so buyers who want visible size usually get more from spending on carat and cut than on the top clarity grades."}},
+{"@type":"Question","name":"How much should I spend on an engagement ring?","acceptedAnswer":{"@type":"Answer","text":"The two or three months salary figure was an advertising slogan, not a rule. Spend what you are comfortable with, and be aware that a diamond typically resells for only a quarter to two fifths of its retail price."}}]}
+</script>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Budget calculator</div>
+    <h1>What will your budget actually buy?</h1>
+    <p class="lede">
+      The same money buys wildly different stones depending on what you prioritise. Enter a
+      figure and see all four options side by side — including what each one would fetch if
+      you ever sold it.
+    </p>
+  </div>
+
+  <section class="console">
+    <div class="console-head">
+      <span class="name"><span class="dot"></span> Budget calculator</span>
+      <span class="status" id="bStatus">four ways to spend the same money</span>
+    </div>
+    <div class="console-body">
+      <div class="console-in">
+        <h3>Your budget</h3>
+        <div class="field">
+          <label for="bAmount">How much do you want to spend</label>
+          <input type="number" id="bAmount" value="5000" min="300" max="500000" step="100">
+        </div>
+        <div class="field">
+          <label>Or pick a starting point</label>
+          <div class="units" id="bPresets"></div>
+        </div>
+        <p class="small">
+          Figures are for the loose stone at retail. A setting typically adds
+          $400–2,000 on top, and the two or three months salary line was an
+          advertising slogan, not a rule.
+        </p>
+      </div>
+      <div class="console-out">
+        <div>
+          <div class="lab">The biggest stone your money buys</div>
+          <div class="big" id="bBig">—</div>
+          <div class="sub" id="bBigSub"></div>
+        </div>
+        <div class="split">
+          <div><div class="lab">At balanced quality</div><div class="v" id="bBalanced">—</div></div>
+          <div><div class="lab">At top quality</div><div class="v" id="bTop">—</div></div>
+        </div>
+        <div class="note" id="bNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-head">
+      <div><div class="eyebrow">Side by side</div><h2>Four ways to spend it</h2></div>
+      <p class="small">All drawn to true scale, so you can see the difference rather than read it.</p>
+    </div>
+    <div class="grid g2" id="bGrid"></div>
+  </section>
+
+  <section class="narrow section" style="padding-top:10px">
+    <h2>Where the money actually goes</h2>
+    <p class="lede" style="margin-top:16px">
+      Above roughly G colour and VS2 clarity, almost nothing you are paying for is visible
+      without a loupe. A D colour, VVS1 stone and a G colour, VS2 stone look identical on a
+      hand, yet the first costs far more — which is why the same budget buys so much less
+      of it.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      Cut is the exception, and the one grade worth protecting. A poorly cut diamond leaks
+      light and looks dull no matter how good its other grades are. If something has to give,
+      give on colour and clarity long before cut.
+    </p>
+    <h2 style="margin-top:40px">Remember the resale column</h2>
+    <p class="lede" style="margin-top:16px">
+      Every option above shows what it would fetch secondhand as well as what it costs. That
+      spread is not a criticism of buying jewellery — it is simply the number nobody tells
+      you at the counter. <a href="value.html">Value a specific stone</a> for a figure matched
+      to its exact specification.
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="value.html">Valuation</a><a href="size.html">Size chart</a><a href="metals.html">Metal prices</a></div>
+</div><div class="wrap"><p class="disclaimer">
+  <a href="methodology.html">How these figures are worked out.</a> Estimates for loose stones at typical US retail.
+  Individual stones and retailers vary considerably. Not an offer, a quote, or financial advice.
+</p></div></footer>
+
+<script src="assets/data.js?v=6e1cfc9a"></script>
+<script src="assets/analytics.js?v=6e1cfc9a"></script>
+<script src="assets/spot.js?v=6e1cfc9a"></script>
+<script src="assets/ticker.js?v=6e1cfc9a"></script>
+<script src="assets/logo.js?v=6e1cfc9a"></script>
+<script src="assets/nav.js?v=6e1cfc9a"></script>
+<script src="assets/shapes.js?v=6e1cfc9a"></script>
+<script src="assets/budget.js?v=6e1cfc9a"></script>
+</body></html>

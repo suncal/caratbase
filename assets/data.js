@@ -223,3 +223,58 @@ function mmForCarat(ct){
 }
 
 const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+
+
+/* ---------------------------------------------------------------
+   4. REVERSE SOLVE — biggest stone a budget will buy
+   Price per carat steps at each size threshold, so the relationship between budget and
+   carat is not smooth and cannot be solved algebraically. Walking the curve is exact and
+   costs nothing at this resolution.
+   --------------------------------------------------------------- */
+function caratForBudget(budget, spec){
+  const b = parseFloat(budget) || 0;
+  if(b <= 0) return null;
+  let best = null;
+  for(let ct = 0.20; ct <= 15.001; ct += 0.01){   /* well past any realistic budget */
+    const v = valueDiamond({carat:+ct.toFixed(2), ...spec});
+    if(!v) continue;
+    if(v.retailLow <= b) best = {carat:+ct.toFixed(2), ...v};
+    else break;                       /* price rises monotonically with weight */
+  }
+  return best;
+}
+
+/* Four honest ways to spend the same money. */
+const BUDGET_STRATEGIES = [
+  {key:'size',   label:'Go for size',
+   spec:{color:'J', clarity:'SI2', cut:'Very Good', shape:'Oval',  origin:'Natural', cert:'GIA'},
+   note:'Lower colour and clarity, and an elongated shape that spreads wider. Faces up much larger; a warm tint is visible against white metal.'},
+  {key:'balance',label:'The balanced pick',
+   spec:{color:'G', clarity:'VS2', cut:'Excellent', shape:'Round', origin:'Natural', cert:'GIA'},
+   note:'Eye-clean, no visible tint, excellent cut. The specification most jewellers steer people toward, and the easiest to resell.'},
+  {key:'quality',label:'Go for quality',
+   spec:{color:'D', clarity:'VVS1', cut:'Excellent', shape:'Round', origin:'Natural', cert:'GIA'},
+   note:'Top colour and near-flawless. Almost none of this is visible without a loupe, which is why it buys so much less stone.'},
+  {key:'lab',    label:'Lab-grown',
+   spec:{color:'F', clarity:'VS1', cut:'Excellent', shape:'Round', origin:'Lab-grown', cert:'IGI'},
+   note:'A real diamond, chemically identical, for a fraction of the money. Resale is currently very weak, so buy it to wear rather than to hold value.'}
+];
+
+/* ---------------------------------------------------------------
+   5. WEIGHT FROM DIMENSIONS
+   A plain band is an annulus: volume = pi x mean diameter x width x thickness.
+   Mean diameter is the inside diameter plus one thickness, since the band wraps outside it.
+   --------------------------------------------------------------- */
+const METAL_DENSITY = {   /* g/cm3 */
+  '24K':19.3, '22K':17.7, '18K':15.5, '14K':13.1, '10K':11.6, '9K':11.2,
+  'Platinum':20.1, 'Silver 925':10.36
+};
+function bandWeight(insideDiaMm, widthMm, thicknessMm, karat){
+  const d=parseFloat(insideDiaMm)||0, w=parseFloat(widthMm)||0, t=parseFloat(thicknessMm)||0;
+  const rho=METAL_DENSITY[karat];
+  if(!d||!w||!t||!rho) return null;
+  const meanD = d + t;
+  const mm3 = Math.PI * meanD * w * t;
+  const grams = (mm3/1000) * rho;
+  return { grams:+grams.toFixed(2), cm3:+(mm3/1000).toFixed(3), density:rho };
+}

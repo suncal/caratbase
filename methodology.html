@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How CaratBase Values Jewellery — Method, Sources and Limits</title>
+<meta name="description" content="Exactly how CaratBase arrives at every figure it publishes: the price model, the data sources, the resale bands, and an honest account of what the estimates cannot tell you.">
+<link rel="canonical" href="https://caratbase.com/methodology.html">
+<link rel="stylesheet" href="assets/style.css?v=6e1cfc9a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Methodology</div>
+    <h1>How we arrive at every number</h1>
+    <p class="lede">
+      A valuation you cannot check is worth very little. This page sets out exactly where
+      each figure comes from, how the model works, and — the part most valuation sites leave
+      out — what it cannot tell you.
+    </p>
+  </div>
+
+  <section class="grid g3" style="margin-bottom:36px">
+    <div class="stat"><div class="k">Metal prices</div>
+      <div class="v gold" style="font-size:20px">Live market</div></div>
+    <div class="stat"><div class="k">Diamond prices</div>
+      <div class="v" style="font-size:20px">Modelled</div></div>
+    <div class="stat"><div class="k">Real offers reported</div>
+      <div class="v" style="font-size:20px" id="offerCount">—</div></div>
+  </section>
+
+  <section class="narrow">
+    <h2>Metals</h2>
+    <p class="lede" style="margin-top:14px">
+      Gold, silver, platinum and palladium are traded on a live market, so we quote real
+      prices. They are fetched on demand from <strong>api.gold-api.com</strong>, with Yahoo
+      Finance futures as a fallback, and cached for sixty seconds. Every figure is checked
+      against a plausible range before publication, so a bad response from a source is
+      discarded rather than shown. Prices are converted from troy ounces at
+      31.1034768&nbsp;g. If the live feed fails, the page falls back to a daily snapshot and
+      says so rather than passing a stale number off as current.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      Scrap value is the metal weight multiplied by its purity and the spot price. Real
+      buyers pay 70–90% of that, because they carry the cost of refining and take a margin.
+    </p>
+
+    <h2 style="margin-top:44px">Diamonds</h2>
+    <p class="lede" style="margin-top:14px">
+      Diamonds are different, and it matters: <strong>there is no exchange, no public tape
+      and no live price for a diamond.</strong> Wholesale list pricing exists but is a paid,
+      trade-only product. So every diamond figure on this site is <em>modelled</em>, and we
+      label it that way everywhere it appears.
+    </p>
+    <p class="lede" style="margin-top:14px">The model works in five steps:</p>
+    <ol class="lede" style="margin-top:12px;padding-left:22px">
+      <li style="margin-bottom:8px"><strong>A base price per carat</strong> that steps at each
+        recognised size threshold. Price per carat is not smooth — it jumps at half a carat,
+        one carat, two carats and so on, because those sizes are in demand.</li>
+      <li style="margin-bottom:8px"><strong>Multipliers</strong> for colour, clarity, cut and
+        shape, applied against a G colour, VS2, Very Good cut round brilliant baseline.</li>
+      <li style="margin-bottom:8px"><strong>A lab-grown factor.</strong> Lab-grown stones are
+        real diamonds, but production scaled enormously and prices collapsed, so they are
+        priced at a fraction of an equivalent mined stone.</li>
+      <li style="margin-bottom:8px"><strong>Side stones priced individually.</strong> Each
+        melee stone is valued at its own tiny per-carat rate, never as one combined weight.
+        Treating a 38-stone halo as a single 0.3&nbsp;ct stone would overstate it several
+        times over.</li>
+      <li><strong>A certification discount.</strong> An uncertified stone carries grading
+        risk for the buyer and trades below a GIA-graded equivalent.</li>
+    </ol>
+
+    <h2 style="margin-top:44px">Resale — the number nobody publishes</h2>
+    <p class="lede" style="margin-top:14px">
+      Retail prices are everywhere. What a diamond actually fetches secondhand is not
+      published by anyone, because the trade has no particular reason to publish it. Our
+      resale figures currently sit at <strong>25–40% of retail for natural stones</strong>
+      and <strong>5–12% for lab-grown</strong>, with melee lower again since nobody buys
+      used melee on its own.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      Those bands are the weakest part of the model, and we would rather say so than pretend
+      otherwise. They are being replaced, gradually, by something better: every visitor who
+      is offered a price for a piece can tell us what it was. Those reports accumulate into
+      the only public dataset of real secondhand jewellery offers we are aware of. As it
+      grows, the bands stop being an assumption and start being an observation.
+      <a href="value.html">Report an offer here</a> if you have one.
+    </p>
+
+    <h2 style="margin-top:44px">What these figures cannot tell you</h2>
+    <p class="lede" style="margin-top:14px">
+      This is a price model, not an inspection. It cannot see your stone. Specifically it
+      does not know about:
+    </p>
+    <ul class="lede" style="margin-top:12px;padding-left:22px">
+      <li style="margin-bottom:6px">Damage, chips, abrasion or a poor repair</li>
+      <li style="margin-bottom:6px">Fluorescence, which can help or hurt depending on the stone</li>
+      <li style="margin-bottom:6px">Brand. A signed Cartier or Tiffany piece can be worth
+        multiples of its materials, and this model values materials</li>
+      <li style="margin-bottom:6px">Antique and period value. Melting an Art Deco setting for
+        scrap destroys most of what it is worth</li>
+      <li style="margin-bottom:6px">Coloured stones, pearls and watches, which are not yet covered</li>
+      <li>Your local market. Prices vary considerably by country and by season</li>
+    </ul>
+    <p class="lede" style="margin-top:14px">
+      For insurance, probate or a legal matter you will need a certified appraisal from a
+      qualified appraiser. Use these figures to know roughly where you stand and to tell
+      whether an offer or an appraisal is sensible — not as a substitute for one.
+    </p>
+
+    <h2 style="margin-top:44px">Corrections</h2>
+    <p class="lede" style="margin-top:14px">
+      If you work in the trade and something here is wrong, we would genuinely like to know.
+      The model is only as good as its assumptions, and the fastest way to improve it is to
+      be told where it is off.
+    </p>
+
+    <div class="capture" style="margin-top:34px">
+      <h3 style="font-size:20px;margin-bottom:8px">Citing CaratBase</h3>
+      <p class="small">
+        Figures may be quoted with attribution to CaratBase (caratbase.com) and the date
+        retrieved, since prices move. Please quote the range rather than a single number,
+        and say whether it is the retail or the resale figure — the difference between them
+        is the entire point.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>© <span id="yr"></span> CaratBase — independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="value.html">Valuation</a><a href="budget.html">Budget</a><a href="metals.html">Metal prices</a></div>
+</div><div class="wrap"><p class="disclaimer">
+  CaratBase is not a licensed appraiser and does not buy or sell jewellery. Nothing here is
+  a formal appraisal, an offer, a guarantee of value, or financial advice.
+</p></div></footer>
+
+<script src="assets/data.js?v=6e1cfc9a"></script>
+<script src="assets/analytics.js?v=6e1cfc9a"></script>
+<script src="assets/spot.js?v=6e1cfc9a"></script>
+<script src="assets/ticker.js?v=6e1cfc9a"></script>
+<script src="assets/logo.js?v=6e1cfc9a"></script>
+<script src="assets/nav.js?v=6e1cfc9a"></script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+fetch((window.CB_ANALYTICS_ENDPOINT||'')+'/api/offers-summary')
+  .then(r=>r.json())
+  .then(d=>{ document.getElementById('offerCount').textContent =
+    (d.reported||0).toLocaleString('en-US'); })
+  .catch(()=>{ document.getElementById('offerCount').textContent='—'; });
+</script>
+</body></html>

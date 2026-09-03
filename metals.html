@@ -6,7 +6,7 @@
 <title>Gold Calculator — What Your Gold Is Worth Today, Per Gram | CaratBase</title>
 <meta name="description" content="Free gold calculator. Enter the weight and karat of any gold, silver or platinum jewellery and see exactly what it is worth at today's live prices — and what a buyer will realistically pay.">
 <link rel="canonical" href="https://caratbase.com/metals.html">
-<link rel="stylesheet" href="assets/style.css?v=6603e677">
+<link rel="stylesheet" href="assets/style.css?v=6e1cfc9a">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -44,9 +44,34 @@
           <label for="mKarat">Metal and purity</label>
           <select id="mKarat"></select>
         </div>
-        <div class="field">
-          <label for="mWeight">Weight</label>
-          <input type="number" id="mWeight" value="5" min="0" step="0.1">
+        <div class="field" style="margin-bottom:12px">
+          <label>Do you know the weight?</label>
+          <div class="units" id="mMode">
+            <button data-m="weigh" class="on">I weighed it</button>
+            <button data-m="size">Work it out from its size</button>
+          </div>
+        </div>
+
+        <div id="modeWeigh">
+          <div class="field">
+            <label for="mWeight">Weight</label>
+            <input type="number" id="mWeight" value="5" min="0" step="0.1">
+          </div>
+        </div>
+
+        <div id="modeSize" class="hide">
+          <p class="small" style="margin:-4px 0 12px">
+            For a plain band. Measure the width across the band and its thickness with a
+            ruler, and give the ring size if you know it.</p>
+          <div class="grid g2" style="gap:12px">
+            <div class="field"><label for="dSize">Ring size (US)</label>
+              <select id="dSize"></select></div>
+            <div class="field"><label for="dWidth">Band width (mm)</label>
+              <input type="number" id="dWidth" value="4" min="1" max="30" step="0.1"></div>
+          </div>
+          <div class="field"><label for="dThick">Band thickness (mm)</label>
+            <input type="number" id="dThick" value="1.5" min="0.3" max="8" step="0.1"></div>
+          <p class="small" id="dOut"></p>
         </div>
         <div class="field" style="margin-bottom:10px">
           <label>Weighed in</label>
@@ -125,16 +150,16 @@
   <div style="display:flex;gap:20px;flex-wrap:wrap">
     <a href="value.html">Valuation</a><a href="vault.html">My vault</a><a href="stamp.html">Hallmarks</a></div>
 </div><div class="wrap"><p class="disclaimer">
-  Prices are indicative spot figures refreshed once daily and will not match a live trading
+  <a href="methodology.html">How these figures are worked out.</a> Prices are indicative spot figures and will not match a live trading
   screen. Not an offer to buy or sell, and not financial advice.
 </p></div></footer>
 
-<script src="assets/data.js?v=6603e677"></script>
-<script src="assets/analytics.js?v=6603e677"></script>
-<script src="assets/spot.js?v=6603e677"></script>
-<script src="assets/ticker.js?v=6603e677"></script>
-<script src="assets/logo.js?v=6603e677"></script>
-<script src="assets/nav.js?v=6603e677"></script>
-<script src="assets/vault.js?v=6603e677"></script>
-<script src="assets/metals.js?v=6603e677"></script>
+<script src="assets/data.js?v=6e1cfc9a"></script>
+<script src="assets/analytics.js?v=6e1cfc9a"></script>
+<script src="assets/spot.js?v=6e1cfc9a"></script>
+<script src="assets/ticker.js?v=6e1cfc9a"></script>
+<script src="assets/logo.js?v=6e1cfc9a"></script>
+<script src="assets/nav.js?v=6e1cfc9a"></script>
+<script src="assets/vault.js?v=6e1cfc9a"></script>
+<script src="assets/metals.js?v=6e1cfc9a"></script>
 </body></html>
