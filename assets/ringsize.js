@@ -106,13 +106,23 @@
     $('cardCal').scrollIntoView({behavior:'smooth',block:'center'});
   });
 
+  const COLLAR_MM = 1.5;   // dark band just outside true diameter
+  const SEAT_MM    = 9;    // dashed placement guide, comfortably past a wide band
+
   function drawGauges(){
     const v=pxPerMm();
     const picks=RING_SIZES.filter(r=>Number.isInteger(r.us)&&r.us>=4&&r.us<=13);
     $('gaugeWrap').innerHTML=picks.map(r=>{
-      const px=r.dia*v;
+      const core   = r.dia*v;
+      const collar = (r.dia+COLLAR_MM*2)*v;
+      const seat   = (r.dia+SEAT_MM*2)*v;
       return `<div class="gauge" data-us="${r.us}">
-        <div class="ring" style="width:${px}px;height:${px}px"></div>
+        <div class="target" style="width:${seat}px;height:${seat}px">
+          <div class="seat"></div>
+          <div class="collar" style="width:${collar}px;height:${collar}px">
+            <div class="core" style="width:${core}px;height:${core}px"></div>
+          </div>
+        </div>
         <div class="lbl">US ${r.us}</div>
         <div class="sub">${r.dia.toFixed(1)} mm</div></div>`;
     }).join('');
