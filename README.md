@@ -89,3 +89,43 @@ Three layers, none of which involve your machine:
 Per-second updates are deliberately not attempted. Free metals APIs refresh about once a
 minute and rate-limit abuse, spot moves fractions of a cent in that window, and the metals
 markets close entirely at weekends. Tick-level data is a paid market feed.
+
+
+## Monetisation — how to switch it on
+
+Everything commercial lives in `assets/partners.js`. Nothing else needs editing.
+
+**To activate an affiliate link:** put your tracking URL in that partner's `aff` field.
+
+```js
+{name:'Blue Nile', url:'https://www.bluenile.com', aff:'https://YOUR-TRACKING-LINK', ...}
+```
+
+That one edit switches the link to your tracked URL, adds `rel="sponsored"`, and makes the
+FTC disclosure appear on that block. Leave `aff` empty and the link still shows — untracked,
+undisclosed, still useful to the visitor.
+
+**To turn on ads:** set `ADS.adsense.client` and `enabled:true`. Until then ad slots render
+nothing at all.
+
+### Where each route sits
+
+| Page | Group | Why there |
+|---|---|---|
+| budget, ring-size | `retail` | About to buy |
+| value (intent: insure), vault | `insurance` | Owns it — highest conversion, renews yearly |
+| value (intent: sell) | `buyers` | Three competing buyers, never one |
+| value (intent: appraise) | `appraisers` | NAJA / ASA — pays nothing, and is the honest answer |
+| metals | `metalBuyers` | Selling scrap |
+| gemstone | `labs` | The tool has just told them a report is worth getting |
+
+### Application order
+
+Neither ads nor the big affiliate networks will approve a site with no traffic.
+
+1. **Now:** apply to programs that do not gate on traffic — Amazon Associates, BriteCo.
+2. **~1,000 visits/month:** AdSense and CJ / Impact become realistic.
+3. **50,000 sessions:** move to Raptive or Mediavine — usually a 3–5x jump on AdSense.
+
+Partner clicks fire a `partner_click` analytics event, so which routes actually earn is
+measurable before any money changes hands.
