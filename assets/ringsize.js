@@ -113,7 +113,10 @@
   // 1.2mm, not more: this must be fully covered by even a narrow 2mm band, or a
   // correctly sized ring would wrongly read as too small.
   const COLLAR_MM = 1.2;   // fluorescent band just outside true diameter
-  const SEAT_MM    = 9;    // dashed placement guide, comfortably past a wide band
+  /* Dashed placement guide. The circles themselves must stay true-scale, so on a narrow
+     screen the only thing that can give is the space around them — a tighter seat is what
+     keeps two gauges per row instead of one, without touching accuracy. */
+  const SEAT_MM = matchMedia('(max-width:560px)').matches ? 4.5 : 9;
 
   function drawGauges(){
     const v=pxPerMm();

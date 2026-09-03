@@ -442,3 +442,87 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .tick .tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;
   color:rgba(246,241,230,.38);border:1px solid rgba(246,241,230,.18);border-radius:4px;
   padding:1px 5px}
+
+/* ==========================================================================
+   MOBILE
+   Most jewellery searches happen on a phone, and anyone measuring a ring is
+   holding one. The nav becomes a sheet, the hero gets out of the way, and the
+   tools move above the fold.
+   ========================================================================== */
+.navbtn{display:none;align-items:center;justify-content:center;width:42px;height:42px;
+  margin-left:auto;border:1px solid var(--line-2);border-radius:11px;background:var(--panel);
+  cursor:pointer;color:var(--ink);flex:0 0 auto}
+.navbtn svg{display:block}
+
+@media(max-width:900px){
+  .navbtn{display:flex}
+  .head-in{height:58px;gap:12px}
+  .logo{font-size:21px}
+  .logo .mark svg{width:22px;height:22px}
+
+  /* The menu is a sheet under the header. It is deliberately NOT position:fixed —
+     .site-head carries backdrop-filter, which makes it the containing block for fixed
+     descendants and clips the menu to the header's own 58px box. Absolute against the
+     header, which is what backdrop-filter already made it, behaves correctly. */
+  /* Shown or hidden outright rather than animated to a height. A slide needs the sheet to
+     be measurable while collapsed, and .site-head's backdrop-filter makes it the containing
+     block for the menu, which kept collapsing it to its border. A display toggle is
+     bulletproof and the animation was never worth the fragility. */
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;margin:0;
+    background:var(--panel);border-bottom:1px solid var(--line);
+    box-shadow:0 18px 40px rgba(26,23,20,.16);
+    max-height:78vh;overflow-y:auto;z-index:60}
+  .nav.open{display:block;animation:navdrop .2s ease}
+  @keyframes navdrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .nav a{display:flex;align-items:center;justify-content:space-between;
+    padding:15px 20px;border-bottom:1px solid var(--line);font-size:16px}
+  .nav a:last-child{border-bottom:0}
+  .nav a.on{background:var(--gold-dim)}
+
+  /* hero out of the way — the tools are the point */
+  .hero{padding:34px 0 22px}
+  .hero h1{font-size:clamp(30px,8.6vw,40px);margin-bottom:14px}
+  .hero .lede,.tool-hero .lede{font-size:16px}
+  .hero-cta{margin-top:22px;flex-direction:column}
+  .hero-cta .btn{width:100%}
+  .tool-hero{padding:28px 0 20px}
+  .tool-hero h1{font-size:clamp(28px,8.2vw,38px)}
+  .section{padding:44px 0}
+
+  /* one scrollable row instead of a tall stack */
+  .trust-bar{margin-top:26px;padding-top:20px;gap:0;flex-wrap:nowrap;overflow-x:auto;
+    justify-content:flex-start;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none}
+  .trust-bar::-webkit-scrollbar{display:none}
+  .trust-bar div{flex:0 0 auto;padding:0 18px;border-right:1px solid var(--line)}
+  .trust-bar div:last-child{border-right:0}
+  .trust-bar .n{font-size:21px}
+  .trust-bar .t{font-size:10px;white-space:nowrap}
+
+  .console{border-radius:14px;margin-left:-4px;margin-right:-4px}
+  .console-in,.console-out{padding:22px 18px}
+  .console-out .big{font-size:clamp(32px,9vw,42px)}
+  .sec-head{margin-bottom:20px}
+  h2{font-size:clamp(24px,6.6vw,32px)}
+  .panel{padding:22px 18px}
+  .capture{padding:24px 18px}
+
+  /* comfortable thumb targets */
+  .btn{padding:14px 24px}
+  .chip,.units button{padding:10px 15px}
+  input,select{font-size:16px}     /* 16px stops iOS zooming the page on focus */
+
+  .tick{padding:10px 16px}
+  .ticker::before,.ticker::after{width:28px}
+
+  .foot-in{flex-direction:column;align-items:flex-start;gap:12px}
+}
+
+@media(max-width:560px){
+  .gauge-wrap{gap:14px 10px;padding:18px 6px}
+  .guess-val{font-size:38px}
+  .result-big{font-size:48px}
+  .console-out .split{grid-template-columns:1fr;gap:14px}
+  .grid[style*="repeat(5"]{grid-template-columns:repeat(2,1fr)!important}
+  .kpi{grid-template-columns:repeat(2,1fr)}
+}
