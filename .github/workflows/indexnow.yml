@@ -1,0 +1,15 @@
+name: Ping IndexNow
+on:
+  push:
+    branches: [main]
+    paths: ['**.html', 'sitemap.xml']
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Pages needs a moment to publish before the crawlers are told to come and look.
+      - run: sleep 90
+      - run: python3 tools/indexnow.py --all

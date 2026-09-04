@@ -574,3 +574,22 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .todo{background:#FFF6E5;border:1px solid #E8C87A;border-radius:11px;padding:16px 18px;
   margin:18px 0;font-size:14px;color:#6B4E12;line-height:1.6}
 .todo strong{color:#4A3608}
+
+/* ---------- generated long-tail pages ---------- */
+.crumbs{font-size:13px;color:var(--ink-3);padding:18px 0 0}
+.crumbs a{color:var(--ink-3)}
+.crumbs a:hover{color:var(--gold-2)}
+.crumbs span{margin:0 6px;color:var(--line-2)}
+.answer-box{background:linear-gradient(160deg,#FBF4E4,#FDFBF6);
+  border:1px solid rgba(169,124,44,.3);border-left:4px solid var(--gold);
+  border-radius:0 var(--r) var(--r) 0;padding:24px 26px;margin-bottom:8px;max-width:760px;
+  box-shadow:var(--shadow)}
+.answer-box p{font-size:18px;line-height:1.6;color:var(--ink-2);margin:0}
+.answer-box strong{color:var(--ink)}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:9px}
+.rel-link{display:block;padding:13px 15px;background:var(--panel);border:1px solid var(--line);
+  border-radius:10px;font-size:14.5px;font-weight:500;color:var(--ink-2);text-decoration:none;
+  transition:.15s}
+.rel-link:hover{border-color:var(--gold);color:var(--gold-2);text-decoration:none;
+  background:var(--gold-dim)}
+@media(max-width:560px){.answer-box{padding:20px}.answer-box p{font-size:16.5px}}
