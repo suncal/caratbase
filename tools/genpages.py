@@ -508,6 +508,94 @@ def build_gems():
                  f"Treatment affects this more than size does."}}]})))
     return urls
 
+
+# ================================================================ CATEGORY HUBS
+def build_hubs(built):
+    """A parent page for each generated directory.
+
+    Two jobs. Crawlers try the parent of every URL they find, and five 404s at the top of
+    our biggest directories is both a wasted crawl and a bad signal. And with no hub, the
+    222 leaf pages were reachable only through the sitemap — no internal links meant no
+    path for authority to reach them from the home page.
+    """
+    HUBS = {
+      'ring-size': dict(
+        title='Ring Size Conversion Charts — US, UK, EU, India &amp; Japan | CaratBase',
+        desc='Every ring size converted between US, UK, European and Indian/Japanese systems, '
+             'with inside diameter and circumference in millimetres.',
+        h1='Ring size conversion charts',
+        lead='Every size, converted between all five systems used around the world, with the '
+             'inside diameter and circumference in millimetres. Pick your size, or '
+             '<a href="../ring-size.html">measure it with the sizer</a>.',
+        tool='ring-size.html', tool_label='Open the ring sizer'),
+      'hallmark': dict(
+        title='Jewellery Hallmarks Explained — What Every Stamp Means | CaratBase',
+        desc='What the mark inside your jewellery means. 925, 750, 585, 417, GF, EPNS and more '
+             '— the metal, the purity, and whether the piece is worth anything.',
+        h1='Jewellery hallmarks, explained',
+        lead='Nearly every real piece carries a stamp. Here is what each one means, what metal '
+             'it is, and — the part that matters — whether it is worth anything by weight.',
+        tool='stamp.html', tool_label='Look up a stamp'),
+      'gold-price': dict(
+        title='Gold Price Per Gram by Karat — 24K, 22K, 18K, 14K, 10K, 9K | CaratBase',
+        desc='Live gold price per gram for every karat, and what a scrap buyer will '
+             'realistically pay for each.',
+        h1='Gold price per gram, by karat',
+        lead='What each purity is worth per gram at today\'s price, and the offer a buyer is '
+             'likely to actually make.',
+        tool='metals.html', tool_label='Open the gold calculator'),
+      'diamond': dict(
+        title='Diamond Sizes &amp; Prices by Carat and Shape | CaratBase',
+        desc='How big each carat weight looks in millimetres across ten diamond shapes, what it '
+             'costs at retail, and the far smaller figure it resells for.',
+        h1='Diamond sizes and prices, by carat and shape',
+        lead='Carat is weight, not size — and the same weight looks very different across '
+             'shapes. Every combination below gives the true face-up size in millimetres, the '
+             'retail price, and the resale figure nobody else publishes.',
+        tool='value.html', tool_label='Value your own diamond'),
+      'gemstone': dict(
+        title='Gemstone Values — Ruby, Sapphire, Emerald &amp; More | CaratBase',
+        desc='What each coloured stone is worth, and why treatment affects the value far more '
+             'than size does.',
+        h1='What coloured stones are worth',
+        lead='Coloured stones do not price like diamonds. There is no universal grading '
+             'standard, and treatment usually matters more than size — often by a factor of '
+             'thousands.',
+        tool='gemstone.html', tool_label='Value a gemstone'),
+    }
+    urls=[]
+    for d, cfg in HUBS.items():
+        kids = sorted(u for u in built if u.startswith(d + '/'))
+        links = []
+        for u in kids:
+            slug = u.split('/')[1]
+            label = slug.replace('-', ' ')
+            if d == 'ring-size':
+                label = ('US size ' + slug[3:].replace('-', '.')) if slug.startswith('us-') \
+                        else ('UK size ' + slug[3:].replace('-half', '\u00bd').upper())
+            elif d == 'gold-price':  label = slug.upper() + ' gold price per gram'
+            elif d == 'diamond':     label = label.replace('carat', 'ct').replace(' ct ', ' carat ')
+            elif d == 'hallmark':    label = 'What does ' + slug.upper() + ' mean?'
+            else:                    label = label.title()
+            links.append((label, f'{d}/{slug}/'))
+        body = (f'<p class="lede" style="margin-bottom:26px">{cfg["lead"]}</p>'
+                + related_block(f'All {len(links)} pages', links, '../'))
+        urls.append(write(f'{d}/index.html',
+          title=cfg['title'], desc=cfg['desc'], eyebrow='Reference',
+          h1=cfg['h1'], crumb=cfg['h1'], hub=cfg['tool'], hubname='Tools',
+          answer=f'<p>{cfg["lead"]}</p>',
+          body=body,
+          cta_h='Work out your own',
+          cta_p='These pages are worked examples. Put your own details in and get a figure '
+                'matched to your piece.',
+          cta_url=cfg['tool'], cta_label=cfg['tool_label'],
+          related='',
+          footnote='Estimates for information only. See our '
+                   '<a href="../methodology.html">methodology</a>.',
+          schema=json.dumps({"@context":"https://schema.org","@type":"CollectionPage",
+                             "name":cfg['h1'],"url":f"{BASE}/{d}/"})))
+    return urls
+
 # ================================================================ MAIN
 def main():
     for d in OUT_DIRS:
@@ -519,6 +607,9 @@ def main():
         got = fn()
         print(f'  {len(got):>4}  {name}')
         urls += got
+    hubs = build_hubs(urls)
+    print(f'  {len(hubs):>4}  category hubs')
+    urls += hubs
 
     # sitemap: hand-built pages first, then everything generated
     core = ['', 'value.html','gemstone.html','budget.html','metals.html','stamp.html',
