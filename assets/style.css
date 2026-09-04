@@ -1,5 +1,20 @@
 /* CaratBase — design system (light) */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/* Fonts are self-hosted, not loaded from Google.
+   fonts.googleapis.com transmits every visitor's IP address to Google before a page even
+   renders, which German courts have held to be a GDPR violation absent consent. Serving
+   the files ourselves removes the only third party the browser ever contacts — so the site
+   genuinely makes no external requests on a visitor's behalf.
+   Both are variable fonts: one file covers every weight. SIL Open Font License. */
+@font-face{
+  font-family:'Cormorant Garamond';
+  src:url('fonts/CormorantGaramond.woff2') format('woff2');
+  font-weight:400 700; font-style:normal; font-display:swap;
+}
+@font-face{
+  font-family:'Inter';
+  src:url('fonts/Inter.woff2') format('woff2');
+  font-weight:400 700; font-style:normal; font-display:swap;
+}
 
 :root{
   --bg:#FBFAF7;
@@ -543,3 +558,19 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   .partner{flex-direction:column;align-items:flex-start;gap:8px}
   .partner-go{align-self:flex-end}
 }
+
+/* ---------- legal pages ---------- */
+.legal{max-width:760px}
+.legal h2{font-size:clamp(22px,3.4vw,28px);margin:38px 0 12px}
+.legal h3{font-size:18px;margin:24px 0 8px}
+.legal p,.legal li{font-size:16px;color:var(--ink-2);line-height:1.65}
+.legal p{margin-bottom:12px}
+.legal ul,.legal ol{margin:0 0 14px 22px}
+.legal li{margin-bottom:7px}
+.legal strong{color:var(--ink)}
+.legal table{margin:16px 0}
+.legal .updated{font-size:13.5px;color:var(--ink-3);padding-bottom:18px;
+  border-bottom:1px solid var(--line);margin-bottom:8px}
+.todo{background:#FFF6E5;border:1px solid #E8C87A;border-radius:11px;padding:16px 18px;
+  margin:18px 0;font-size:14px;color:#6B4E12;line-height:1.6}
+.todo strong{color:#4A3608}

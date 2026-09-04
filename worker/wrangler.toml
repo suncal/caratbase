@@ -11,3 +11,7 @@ database_id   = "8ed35877-6092-4701-89e9-4378f5ed71ba"
 # Comma separated origins allowed to POST events.
 ALLOWED_ORIGINS = "https://caratbase.com,https://www.caratbase.com,https://suncal.github.io,http://localhost:4500"
 # DASH_KEY is a secret, NOT a var — set with:  npx wrangler secret put DASH_KEY
+
+# Nightly retention purge — see scheduled() in worker.js
+[triggers]
+crons = ["30 3 * * *"]

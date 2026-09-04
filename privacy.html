@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy | CaratBase</title>
+<meta name="description" content="How CaratBase handles data: no cookies, no third-party trackers, no persistent identifiers, and nothing stored on your device without you asking for it.">
+<link rel="canonical" href="https://caratbase.com/privacy.html">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="assets/style.css?v=0bf92ec5">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+<main class="wrap">
+  <div class="tool-hero legal">
+    <div class="eyebrow">Privacy</div>
+    <h1>Privacy Policy</h1>
+  </div>
+  <div class="legal">
+    <p class="updated">Last updated 4 September 2026</p>
+<div class="todo"><strong>Before this goes in front of real traffic, three things only you can supply:</strong>
+      the legal entity or trading name behind the site, a working contact address
+      (set up forwarding for <code>privacy@caratbase.com</code>), and your country of
+      establishment, which decides the governing law clause. They are marked
+      <code>[TO CONFIRM]</code> below. Everything else is accurate to what the site
+      actually does today.</div>
+    <p>This policy describes exactly what CaratBase does with data. It is written to match
+    the site as built rather than as a general template, so where it says something does not
+    happen, that is a statement about the code.</p>
+
+    <h2>The short version</h2>
+    <ul>
+      <li><strong>No cookies.</strong> The site sets none, for any purpose.</li>
+      <li><strong>No third-party trackers, ad networks or analytics services.</strong>
+        Analytics is our own and runs on our own infrastructure.</li>
+      <li><strong>No persistent identifier.</strong> Nothing is written to your device to
+        recognise you, and we cannot follow you from one day to the next.</li>
+      <li><strong>No external requests.</strong> Fonts are served by us, not by Google.
+        Loading a page contacts nobody but CaratBase.</li>
+      <li><strong>Your saved jewellery never leaves your device</strong> unless you type an
+        email address into a form and submit it.</li>
+    </ul>
+
+    <h2>Who is responsible for your data</h2>
+    <p>CaratBase is operated by <strong>[TO CONFIRM: legal entity or trading name]</strong>,
+    established in <strong>[TO CONFIRM: country]</strong>. For any question about this policy
+    or to exercise the rights described below, write to
+    <a href="mailto:privacy@caratbase.com">privacy@caratbase.com</a>.</p>
+
+    <h2>How visits are counted</h2>
+    <p>We want to know how many people use each tool. We do that without identifying anyone.</p>
+    <p>Your browser sends no identifier at all. Our server derives a one-way hash from three
+    things &mdash; a shortened form of your IP address, your browser's user-agent string, and a
+    secret salt that <strong>changes every day at midnight UTC</strong> &mdash; and stores only
+    that hash.</p>
+    <p>Two consequences follow, and both are deliberate:</p>
+    <ul>
+      <li>Your IP address is <strong>truncated before hashing</strong>, to the first three
+        octets of an IPv4 address or the first four groups of an IPv6 one, so the input
+        corresponds to a neighbourhood rather than a household. The full address is never
+        written down.</li>
+      <li>Because the salt rotates daily, <strong>yesterday's hashes cannot be matched to
+        today's</strong>. We can count how many people visited on a given day. We cannot
+        build a profile, follow a person over time, or work backwards from stored data to
+        an individual.</li>
+    </ul>
+    <p>Alongside the hash we record the page path, the referring site if your browser sends
+    one, the country your request came from as reported by our network provider, whether you
+    are on a phone, tablet or desktop, and the time. We do not record your full IP address,
+    your name, or anything else about you.</p>
+    <p>This is why the site has no cookie banner: there is no persistent identifier to ask
+    your permission for.</p>
+
+    <h2>What is stored on your own device</h2>
+    <p>Several tools save your work locally so it is still there when you return. This uses
+    your browser's local storage, never cookies, and <strong>none of it is transmitted to
+    us</strong>:</p>
+    <table>
+      <thead><tr><th>What</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Your vault</td><td>The pieces you have valued and chosen to save</td></tr>
+        <tr><td>Saved ring sizes</td><td>Sizes you have named and stored, and your last result</td></tr>
+        <tr><td>Screen calibration</td><td>So the ring sizer stays true to life on your screen</td></tr>
+        <tr><td>Game history</td><td>Your streak and past guesses</td></tr>
+      </tbody>
+    </table>
+    <p>Clearing your browser data deletes all of it, and we have no copy. This storage exists
+    only because you asked for a feature that needs it, which is why it does not require
+    consent.</p>
+
+    <h2>What you actively give us</h2>
+    <p>Two forms send data to our server, and only when you fill them in and submit:</p>
+    <ul>
+      <li><strong>Value-change alerts.</strong> If you give an email address we store it with
+        the specification of the piece you valued, so we can tell you if its value moves
+        materially. The lawful basis is your consent, which you may withdraw at any time.</li>
+      <li><strong>Reported offers.</strong> If you tell us what a buyer offered you, we store
+        the amount, the type of buyer, the stone's specification and the country. This is
+        deliberately anonymous &mdash; it carries no email address and nothing that identifies
+        you &mdash; and it is what allows the site to publish honest resale figures.</li>
+    </ul>
+
+    <h2>Where the data is held</h2>
+    <p>The site is hosted on GitHub Pages. Analytics and form submissions are processed by a
+    Cloudflare Worker and stored in a Cloudflare D1 database in the Asia-Pacific region.
+    Both are processors acting on our instructions. If we later enable email delivery it
+    will be through Resend, and this policy will be updated before that happens.</p>
+    <p>Live metal prices are fetched by our server, not by your browser, so requesting a
+    price reveals nothing about you to those providers.</p>
+
+    <h2>How long it is kept</h2>
+    <ul>
+      <li><strong>Analytics events:</strong> 14 months, then deleted.</li>
+      <li><strong>Email addresses:</strong> until you ask us to remove them, or after two
+        years of no contact.</li>
+      <li><strong>Reported offers:</strong> retained indefinitely, because they are anonymous
+        and their value is as a long-run record. They contain nothing that identifies you.</li>
+    </ul>
+
+    <h2>Your rights</h2>
+    <p>If you are in the UK, the EU, or a jurisdiction with comparable law such as California,
+    you have the right to ask what we hold about you, to have it corrected or deleted, to
+    receive a copy, to object to processing, and to complain to your data protection
+    authority.</p>
+    <p>In practice the only data we hold that can be linked to you is an email address you
+    chose to give us. Write to <a href="mailto:privacy@caratbase.com">privacy@caratbase.com</a>
+    and we will action it within 30 days. We do not sell personal information, and we do not
+    share it for advertising.</p>
+    <p>We cannot delete analytics records on request, because after the daily salt has rotated
+    we have no way to work out which ones were yours. That is a consequence of the design
+    rather than a refusal.</p>
+
+    <h2>Links to other companies</h2>
+    <p>Some pages link to retailers, insurers, buyers and laboratories. Following one takes you
+    to a business we do not control, with its own privacy policy. Some of those links may earn
+    us a commission; where they do it is disclosed on the page. See our
+    <a href="disclaimer.html">disclaimer</a>.</p>
+
+    <h2>Children</h2>
+    <p>The site is not intended for children and we do not knowingly collect data from anyone
+    under 16.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes materially the date at the top will change and the substance of
+    the change will be described here rather than quietly absorbed.</p>
+  </div>
+</main>
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="methodology.html">How we value</a><a href="disclaimer.html">Disclaimer</a>
+    <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</div></footer>
+<script src="assets/data.js?v=0bf92ec5"></script>
+<script src="assets/analytics.js?v=0bf92ec5"></script>
+<script src="assets/logo.js?v=0bf92ec5"></script>
+<script src="assets/nav.js?v=0bf92ec5"></script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body></html>

@@ -8,46 +8,22 @@
   const ENDPOINT = window.CB_ANALYTICS_ENDPOINT || DEFAULT_ENDPOINT;
   window.CB_ANALYTICS_ENDPOINT = ENDPOINT;   // so spot.js and others can rely on it
 
-  const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
-
-  function visitorId() {
-    try {
-      let v = localStorage.getItem('cb_vid');
-      if (!v) { v = uid(); localStorage.setItem('cb_vid', v); }
-      return v;
-    } catch { return 'anon'; }
-  }
-
-  function sessionId() {
-    try {
-      const now = Date.now();
-      let s = JSON.parse(sessionStorage.getItem('cb_sid') || 'null');
-      if (!s || now - s.t > 1800000) s = { id: uid(), t: now };   // 30-min idle window
-      s.t = now;
-      sessionStorage.setItem('cb_sid', JSON.stringify(s));
-      return s.id;
-    } catch { return 'anon'; }
-  }
+  // No identifier is generated or stored here, deliberately.
+  //
+  // A persistent id in localStorage is a tracking identifier under GDPR/ePrivacy and would
+  // oblige us to show a consent banner. Instead the Worker derives a short-lived hash from
+  // the request itself (IP + user agent + a salt that rotates daily), keeps only the hash,
+  // and can therefore count people without ever being able to follow one across days.
+  // Nothing about analytics is written to the visitor's device.
 
   function device() {
     const w = window.innerWidth;
     return w < 768 ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
   }
 
-  function buffer(payload) {
-    try {
-      const k = 'cb_buffer';
-      const b = JSON.parse(localStorage.getItem(k) || '[]');
-      b.push(payload);
-      localStorage.setItem(k, JSON.stringify(b.slice(-500)));
-    } catch {}
-  }
-
   function track(name, meta) {
     const payload = {
       name,
-      visitor:  visitorId(),
-      session:  sessionId(),
       path:     location.pathname.replace(/index\.html$/, '') || '/',
       url:      location.href,
       referrer: document.referrer || '',
@@ -55,7 +31,6 @@
       meta:     meta || null,
       ts:       Date.now()
     };
-    buffer(payload);
     if (!ENDPOINT) return;
     const body = JSON.stringify(payload);
     try {
