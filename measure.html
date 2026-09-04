@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Measure Your Ring or Diamond From a Photo — No Ruler Needed | CaratBase</title>
+<meta name="description" content="Photograph your ring next to any bank card and get its true size in millimetres — ring size, diamond carat weight, or band dimensions. Perspective-corrected, works on any phone, photo never leaves your device.">
+<link rel="canonical" href="https://caratbase.com/measure.html">
+<link rel="stylesheet" href="assets/style.css?v=c1798df3">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo",
+ "name":"Measure a ring or diamond from a photo using a bank card",
+ "totalTime":"PT2M",
+ "tool":[{"@type":"HowToTool","name":"Any bank or credit card"},{"@type":"HowToTool","name":"A phone camera"}],
+ "step":[
+  {"@type":"HowToStep","name":"Photograph","text":"Lay the ring flat next to any bank card and photograph both from directly above."},
+  {"@type":"HowToStep","name":"Mark the card","text":"Drag the four markers onto the card's corners. The card is exactly 85.60 by 53.98 mm, which sets the scale."},
+  {"@type":"HowToStep","name":"Measure","text":"Drag the two measuring points across what you want to measure. The result is given in true millimetres, corrected for camera angle."}]}
+</script>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Measure from a photo · no ruler, no scales</div>
+    <h1>Measure it with your phone and a bank card</h1>
+    <p class="lede">
+      Every other calculator asks for a measurement you probably do not have. This one takes
+      the measurement for you: photograph your ring beside any bank card, mark the card, and
+      get its true size in millimetres — then a ring size, a carat weight, or a metal value.
+    </p>
+  </div>
+
+  <section class="console">
+    <div class="console-head">
+      <span class="name"><span class="dot"></span> Photo measurement</span>
+      <span class="status" id="mStatus">step 1 of 3 — add a photo</span>
+    </div>
+    <div class="console-body" style="grid-template-columns:1.25fr .75fr">
+      <div class="console-in">
+        <div id="stepPhoto">
+          <h3>1. Take the photo</h3>
+          <p class="small" style="margin-bottom:14px">
+            Lay the ring <strong>flat</strong> on a table next to any bank, credit or debit card
+            — they are all exactly the same size by international standard. Shoot from directly
+            above, with both fully in frame. Good light, no flash glare.
+          </p>
+          <input type="file" id="mFile" accept="image/*" capture="environment" style="display:none">
+          <button class="btn btn-gold btn-lg" id="mPick" style="width:100%">Take or choose a photo</button>
+          <p class="small" style="margin-top:12px">
+            Your photo is processed entirely inside your browser and is never uploaded.
+          </p>
+        </div>
+
+        <div id="stepMark" class="hide">
+          <h3 id="markTitle">2. Mark the card</h3>
+          <p class="small" id="markHelp" style="margin-bottom:12px"></p>
+          <canvas id="mCanvas" style="width:100%;border:1px solid var(--line);border-radius:12px;
+            touch-action:none;background:var(--panel-2);cursor:crosshair"></canvas>
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+            <button class="btn btn-gold" id="mNext">Card corners are set</button>
+            <button class="btn btn-ghost" id="mRestart">Start over</button>
+          </div>
+          <p class="small" id="mTilt" style="margin-top:10px"></p>
+        </div>
+      </div>
+
+      <div class="console-out">
+        <div>
+          <div class="lab" id="outLab">Measured size</div>
+          <div class="big" id="outMm">—</div>
+          <div class="sub" id="outSub">Add a photo to begin.</div>
+        </div>
+        <div class="split">
+          <div><div class="lab">Reads as</div><div class="v" id="outReads">—</div></div>
+          <div><div class="lab">Worth about</div><div class="v" id="outWorth" style="color:#E8D19A">—</div></div>
+        </div>
+        <div class="note" id="outNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="whatSection" style="padding-top:22px">
+    <div class="sec-head"><div><div class="eyebrow">What are you measuring?</div>
+      <h2>Pick one and drag the two points across it</h2></div></div>
+    <div class="units" id="mMode" style="font-size:15px"></div>
+  </section>
+
+  <section class="narrow section" style="padding-top:10px">
+    <h2>Why a bank card</h2>
+    <p class="lede" style="margin-top:14px">
+      Every bank, credit and debit card in the world conforms to ISO/IEC 7810 ID-1 and measures
+      exactly <strong>85.60 × 53.98 mm</strong>. It is the one precisely-dimensioned object
+      almost everybody already carries, which makes it a free and perfectly accurate ruler.
+    </p>
+
+    <h2 style="margin-top:38px">Why the angle of the photo does not matter</h2>
+    <p class="lede" style="margin-top:14px">
+      A phone is never exactly square to the table. If you simply compared pixel counts, a
+      photo taken at a modest angle would be several percent out — and because a diamond's
+      weight rises with the <em>cube</em> of its diameter, a 2% error in millimetres becomes
+      roughly a 7% error in carats. On a $5,000 stone that is a few hundred dollars.
+    </p>
+    <p class="lede" style="margin-top:14px">
+      So this tool does not compare pixels. Marking the card's four corners fully determines
+      the projective transform between the photo and the real table top, and every later
+      measurement is mapped through it. The angle is cancelled out rather than ignored. The
+      tool tells you how oblique your shot was, and asks you to retake it if it is too extreme
+      to trust.
+    </p>
+
+    <h2 style="margin-top:38px">Nothing is uploaded</h2>
+    <p class="lede" style="margin-top:14px">
+      The photograph is read into your browser and measured there. It is never sent to us, never
+      stored, and disappears when you close the tab. <a href="privacy.html">Our privacy policy</a>
+      explains the rest.
+    </p>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="methodology.html">How we value</a><a href="disclaimer.html">Disclaimer</a>
+    <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</div><div class="wrap"><p class="disclaimer">
+  A photo measurement is a good deal better than a guess and not as good as callipers in the
+  hand. Treat the result as a close estimate; for anything valuable, confirm with a jeweller.
+</p></div></footer>
+
+<script src="assets/data.js?v=c1798df3"></script>
+<script src="assets/ringdata.js?v=c1798df3"></script>
+<script src="assets/homography.js?v=c1798df3"></script>
+<script src="assets/analytics.js?v=c1798df3"></script>
+<script src="assets/spot.js?v=c1798df3"></script>
+<script src="assets/ticker.js?v=c1798df3"></script>
+<script src="assets/logo.js?v=c1798df3"></script>
+<script src="assets/nav.js?v=c1798df3"></script>
+<script src="assets/measure.js?v=c1798df3"></script>
+</body></html>

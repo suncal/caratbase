@@ -1,0 +1,20 @@
+name: Competitive tracker
+on:
+  schedule:
+    - cron: '0 7 * * 1'          # Mondays
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  track:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/tracker.py --diff
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "caratbase-bot"
+          git config user.email "bot@caratbase.com"
+          git add tools/tracker-history.json
+          git diff --staged --quiet || git commit -m "chore: competitor snapshot"
+          git push

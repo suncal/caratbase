@@ -1,0 +1,65 @@
+[
+ {
+  "date": "2026-09-04",
+  "sites": {
+   "goldpricez": {
+    "kb": 311,
+    "words": 8484,
+    "inputs": 27,
+    "signals": [
+     "adsense",
+     "canvas",
+     "schema"
+    ],
+    "adsense_id": "3313040605164482"
+   },
+   "meltvalue": {
+    "kb": 112,
+    "words": 1032,
+    "inputs": 0,
+    "signals": [
+     "schema"
+    ],
+    "adsense_id": null
+   },
+   "goldtoolkit": {
+    "kb": 100,
+    "words": 3633,
+    "inputs": 2,
+    "signals": [
+     "schema"
+    ],
+    "adsense_id": null
+   },
+   "ringsizes.biz": {
+    "kb": 12,
+    "words": 675,
+    "inputs": 0,
+    "signals": [
+     "adsense"
+    ],
+    "adsense_id": "2489774504100527"
+   },
+   "ringsize.org": {
+    "kb": 136,
+    "words": 1256,
+    "inputs": 1,
+    "signals": [
+     "adsense",
+     "email_capture",
+     "schema"
+    ],
+    "adsense_id": "2716209154567173"
+   },
+   "omnicalculator": {
+    "kb": 820,
+    "words": 1761,
+    "inputs": 0,
+    "signals": [
+     "schema"
+    ],
+    "adsense_id": null
+   }
+  }
+ }
+]

@@ -3,6 +3,7 @@
   const LINKS=[
     ['index.html',   'Daily'],
     ['value.html',   'Value my diamond'],
+    ['measure.html', 'Measure by photo'],
     ['vault.html',   'My vault'],
     ['gemstone.html','Gemstones'],
     ['budget.html',  'Budget'],
