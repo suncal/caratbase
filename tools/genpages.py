@@ -111,7 +111,9 @@ def write(url, **kw):
     depth = url.count('/')
     kw.setdefault('up', '../' * depth)
     kw.setdefault('base', BASE)
-    kw['url'] = url
+    # canonical + og:url must match the sitemap, which serves directories as
+    # '/slug/' not '/slug/index.html'. Two URLs, one page, one canonical.
+    kw['url'] = url.replace('/index.html', '/')
     p.write_text(SHELL.format(**kw))
     return url
 
@@ -613,7 +615,7 @@ def main():
 
     # sitemap: hand-built pages first, then everything generated
     core = ['', 'value.html','gemstone.html','budget.html','metals.html','stamp.html',
-            'size.html','ring-size.html','vault.html','methodology.html',
+            'size.html','ring-size.html','measure.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):
         loc = f'{BASE}/{u}'.rstrip('/') + ('/' if u.endswith('/index.html') or u=='' else '')
