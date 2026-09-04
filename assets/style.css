@@ -593,3 +593,40 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .rel-link:hover{border-color:var(--gold);color:var(--gold-2);text-decoration:none;
   background:var(--gold-dim)}
 @media(max-width:560px){.answer-box{padding:20px}.answer-box p{font-size:16.5px}}
+
+/* ---------- grouped navigation ---------- */
+.navgroup{position:relative}
+.navtop{display:inline-flex;align-items:center;gap:6px;border:0;background:none;cursor:pointer;
+  font-family:var(--sans);font-size:14.5px;font-weight:500;color:var(--ink-2);padding:6px 2px;
+  border-radius:0}
+.navtop:hover{color:var(--ink)}
+.navtop.on{color:var(--gold-2);font-weight:600}
+.navtop svg{opacity:.55;transition:transform .18s}
+.navgroup:hover .navtop svg,.navgroup.open .navtop svg{transform:rotate(180deg)}
+.navmenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);
+  min-width:236px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 8px 20px rgba(26,23,20,.10),0 20px 46px rgba(26,23,20,.13);
+  padding:7px;opacity:0;visibility:hidden;transition:.16s ease;z-index:70}
+/* Shown by JS setting inline styles, not by a descendant rule. The cascade version
+   matched the element and still would not reveal it, and a menu that intermittently
+   fails to open is not worth the elegance. */
+/* a hover bridge, so the pointer can travel from the label to the panel */
+.navgroup::after{content:'';position:absolute;top:100%;left:0;right:0;height:10px}
+.navmenu a{display:block;padding:10px 13px;border-radius:8px;font-size:14.5px;
+  color:var(--ink-2);white-space:nowrap}
+.navmenu a:hover{background:var(--gold-dim);color:var(--gold-2);text-decoration:none}
+.navmenu a.on{color:var(--gold-2);font-weight:600}
+
+@media(max-width:900px){
+  /* the sheet flattens the groups back out — nesting is worse than headings on a phone */
+  .navgroup{position:static}
+  .navtop{display:block;width:100%;text-align:left;padding:16px 20px 6px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-3);pointer-events:none}
+  .navtop svg{display:none}
+  .navmenu{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;
+    border:0;border-radius:0;padding:0;min-width:0;background:none}
+  .navgroup:hover .navmenu,.navgroup.open .navmenu{transform:none}
+  .navmenu a{padding:14px 20px;border-bottom:1px solid var(--line);border-radius:0}
+  .navgroup::after{display:none}
+}
