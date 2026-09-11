@@ -14,9 +14,12 @@ V=$(cat assets/*.css assets/*.js | shasum | cut -c1-8)
 python3 - "$V" <<'PY'
 import sys, pathlib, re
 v = sys.argv[1]; n = 0
-for f in pathlib.Path('.').glob('*.html'):
+# every page, including the generated ones two directories deep, which reference assets
+# via a relative prefix
+for f in pathlib.Path('.').rglob('*.html'):
+    if '.git' in f.parts: continue
     s = f.read_text(); orig = s
-    s = re.sub(r'(?P<a>(?:src|href)=")(?P<p>assets/[^"?]+)(?:\?v=[^"]*)?"',
+    s = re.sub(r'(?P<a>(?:src|href)=")(?P<p>(?:\.\./)*assets/[^"?]+)(?:\?v=[^"]*)?"',
                lambda m: f'{m.group("a")}{m.group("p")}?v={v}"', s)
     if s != orig:
         f.write_text(s); n += 1
