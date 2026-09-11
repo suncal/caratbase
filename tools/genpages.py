@@ -995,26 +995,34 @@ def main():
     print(f'  {len(hubs):>4}  category hubs')
     urls += hubs
 
-    # sitemap: hand-built pages first, then everything generated
+    # Sitemaps: one per section plus an index at the old URL, so Search Console reports
+    # indexing per section and the existing submission keeps working unchanged.
     core = ['', 'value.html','gemstone.html','budget.html','metals.html','stamp.html',
             'size.html','ring-size.html','measure.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):
-        loc = f'{BASE}/{u}'.rstrip('/') + ('/' if u.endswith('/index.html') or u=='' else '')
         loc = f'{BASE}/{u}'.replace('/index.html','/')
         return (f'  <url><loc>{loc}</loc><lastmod>{TODAY}</lastmod>'
                 f'<changefreq>{freq}</changefreq><priority>{pri}</priority></url>')
-    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
-             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    lines.append(entry('', '1.0', 'daily'))
-    for u in core[1:]:
-        pri = '0.3' if u in ('privacy.html','terms.html') else '0.9'
-        lines.append(entry(u, pri, 'weekly'))
-    for u in urls:
-        lines.append(entry(u, '0.7', 'monthly'))
-    lines.append('</urlset>')
-    (ROOT/'sitemap.xml').write_text('\n'.join(lines) + '\n')
-    print(f'\n  sitemap: {len(urls)+len(core)} URLs')
+    def urlset(entries):
+        return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                + '\n'.join(entries) + '\n</urlset>\n')
+    files = {}
+    files['sitemap-core.xml'] = [entry('', '1.0', 'daily')] + [
+        entry(u, '0.3' if u in ('privacy.html','terms.html') else '0.9', 'weekly') for u in core[1:]]
+    for d in OUT_DIRS:
+        kids = [u for u in urls if u.startswith(d + '/')]
+        files[f'sitemap-{d}.xml'] = [entry(u, '0.8' if u == f'{d}/index.html' else '0.7', 'monthly')
+                                     for u in kids]
+    for name, entries in files.items():
+        (ROOT / name).write_text(urlset(entries))
+    (ROOT / 'sitemap.xml').write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + '\n'.join(f'  <sitemap><loc>{BASE}/{n}</loc><lastmod>{TODAY}</lastmod></sitemap>' for n in files)
+        + '\n</sitemapindex>\n')
+    print(f'\n  sitemap index: {len(files)} sitemaps, {sum(len(e) for e in files.values())} URLs')
     return urls
 
 if __name__ == '__main__':

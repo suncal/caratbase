@@ -22,7 +22,9 @@ if not keys:
     sys.exit('No IndexNow key file found in the site root.')
 KEY = keys[0].stem
 
-sitemap = (ROOT / 'sitemap.xml').read_text()
+# sitemap.xml is an index; the URLs live in the per-section files it points to
+sitemap = ''.join((ROOT / n).read_text() for n in re.findall(r'<loc>[^<]*/(sitemap-[^<]+)</loc>',
+                                                       (ROOT / 'sitemap.xml').read_text()))
 urls = re.findall(r'<loc>([^<]+)</loc>', sitemap)
 
 only_changed = '--all' not in sys.argv
