@@ -126,9 +126,7 @@
     if(shop){
       shop.innerHTML = (typeof BLUE_NILE !== 'undefined')
         ? BLUE_NILE.button({shape:o.shape, carat:o.carat, color:o.color, clarity:o.clarity, lab:o.origin==='Lab-grown'},
-            `See ${o.carat} ct ${o.shape.toLowerCase()} diamonds like this at Blue Nile →`)
-          + '<p class="small" style="margin-top:8px">Retail listings for the same shape, weight and grade. '
-          + 'Links to Blue Nile earn us a commission if you buy; the figures above are ours, not theirs.</p>'
+            `See ${o.carat} ct ${o.shape.toLowerCase()} diamonds like this one`) + BLUE_NILE.note()
         : '';
     }
 

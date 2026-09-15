@@ -122,12 +122,17 @@ const BLUE_NILE = {
     </div>`;
   },
 
-  /* A ready-made button for a spec — used by the value, budget and size tools. */
-  button(o, label){
+  /* The compact co-branded row — used wherever a single spec has a single destination:
+     the value, budget and size tools and the generated diamond pages. */
+  button(o, label, opts){
+    const x = opts || {};
     const url = this.search(o);
-    return `<a href="${url}" target="_blank" rel="sponsored noopener noreferrer" data-bn-item="1"
-      class="btn btn-ghost" style="border-color:var(--gold);color:var(--gold-2);background:var(--gold-dim);margin-top:10px">${label}</a>`;
+    const grade = [o.color ? o.color + ' colour and up' : null, o.clarity ? o.clarity + ' and up' : null].filter(Boolean).join(', ');
+    const sub = x.sub || `${o.lab ? 'Lab-grown' : 'Natural'}${grade ? ' · ' + grade : ''} · filtered at Blue Nile`;
+    return `<a href="${url}" target="_blank" rel="sponsored noopener noreferrer" data-bn-item="1" class="bn-cta${x.small ? ' sm' : ''}">
+      <span class="bn-mark">Blue Nile</span><span class="bn-txt"><b>${label}</b><small>${sub}</small></span><span class="bn-arrow">→</span></a>`;
   },
+  note(){ return '<p class="bn-note bn-disc">Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the figures on this page.</p>'; },
   wrap(url){
     if(!this.template) return url;
     if(this.template.includes('{url}')) return this.template.replace('{url}', encodeURIComponent(url));
@@ -167,12 +172,8 @@ const Partners = {
       a.rel = 'sponsored noopener noreferrer';
     });
     if(BLUE_NILE.active() && !document.querySelector('.bn-disclosure, .bn-disc')){
-      const p = document.createElement('p');
-      p.className = 'small bn-disclosure';
-      p.style.cssText = 'margin-top:12px;padding-top:10px;border-top:1px solid var(--line)';
-      p.textContent = 'Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the figures on this page.';
       const last = links[links.length - 1];
-      (last.closest('section') || last.parentElement).appendChild(p);
+      last.insertAdjacentHTML('afterend', this.note());
     }
   },
 

@@ -548,8 +548,10 @@ def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
          f"&Clarity={','.join(BN_CLARITY[BN_CLARITY.index(clarity):])}")
     url = 'https://www.bluenile.com' + ('/diamonds/lab-grown-diamonds' if lab else '/diamonds') + '?' + q + '&' + BN_AFF
     spec = json.dumps({'shape':shape,'carat':ct,'color':color,'clarity':clarity,'lab':lab})
-    return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="sponsored noopener noreferrer" '
-            f'class="btn btn-ghost btn-lg" style="margin-top:12px;border-color:var(--gold);color:var(--gold-2);background:var(--gold-dim)">{label}</a>')
+    sub = f"{'Lab-grown' if lab else 'Natural'} · {color} colour and up, {clarity} and up · filtered at Blue Nile"
+    return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="sponsored noopener noreferrer" class="bn-cta">'
+            f'<span class="bn-mark">Blue Nile</span><span class="bn-txt"><b>{label}</b><small>{sub}</small></span>'
+            f'<span class="bn-arrow">→</span></a>')
 
 def stone_cards(key, ctxt, s):
     """Two natural + one lab-grown stone from the Blue Nile feed, matched to this page. Empty
@@ -572,7 +574,7 @@ def stone_cards(key, ctxt, s):
                 f'{img}<div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px">{tag}'
                 f'<strong style="font-size:18px">{money(x["price"])}</strong></div>'
                 f'<div class="small" style="margin-top:4px">{spec}</div>'
-                f'<div style="margin-top:8px;font-size:13px;color:var(--gold);font-weight:600">View at Blue Nile →</div></a>')
+                f'<div style="margin-top:8px;font-size:13px;color:var(--bn);font-weight:600">View at Blue Nile →</div></a>')
     return (f'<h2>Three {ctxt} carat {s.lower()} stones to look at right now</h2>'
             f'<p>The cheapest stones at Blue Nile today that meet this page\'s grade — G colour or better, '
             f'VS2 or better, well cut — two natural and one lab-grown. Prices are theirs, refreshed daily; '
@@ -701,7 +703,7 @@ def build_diamonds():
     <p>Above about G colour and VS2 clarity, almost nothing you pay for is visible without a loupe.
     Cut is the one grade worth protecting: a badly cut {s.lower()} looks dull whatever else is true of it.</p>
     {stone_cards(slug.split('/')[1], ctxt, s)}
-    {bn_link(s, c, 'G', 'VS2', False, f'See all {ctxt} ct {s.lower()} diamonds, G–D colour, VS2 and up, at Blue Nile →')}
+    {bn_link(s, c, 'G', 'VS2', False, f'See all {ctxt} ct {s.lower()} diamonds at this grade')}
 
     <h2>The price step just below {ctxt} carat</h2>
     {cliff}
@@ -712,10 +714,9 @@ def build_diamonds():
     <p>The lab-grown figure is not a typo. Lab-grown prices fell by roughly 85% between 2022 and
     2025 and resale is 5–12% of retail, so the saving is real at the counter and is gone the day
     after. Buy lab-grown to wear it; never as a store of value.</p>
-    {bn_link(s, c, 'G', 'VS2', True, f'See lab-grown {ctxt} ct {s.lower()} diamonds at Blue Nile →')}
-    <p class="small bn-disclosure" style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line)">Links to
-    Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the
-    figures on this page — every number here comes from our own model, not from the retailer.</p>
+    {bn_link(s, c, 'G', 'VS2', True, f'See lab-grown {ctxt} ct {s.lower()} diamonds')}
+    <p class="bn-note bn-disc">Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not
+    change the figures on this page — every number here comes from our own model, not from the retailer.</p>
 
     <h2>Price and the resale gap</h2>
     {tbl(['Where you sell', '#Typical offer', '#Share of retail'], [
