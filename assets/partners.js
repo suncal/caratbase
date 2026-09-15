@@ -19,7 +19,7 @@ const PARTNERS = {
   /* People about to BUY — budget calculator, ring sizer, size charts. */
   retail: [
     {name:'Blue Nile',       url:'https://www.bluenile.com',      aff:'https://www.bluenile.com/?a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates',
-     note:'The largest online inventory. 5% commission, 45-day cookie, capped at $7,500 orders.'},
+     note:'The largest online inventory. Programme terms as approved 2026-09-15: 3.5% on all sales (James Allen stones included).'},
     {name:'James Allen',     url:'https://www.jamesallen.com',    aff:'',
      note:'360-degree video on every stone, which is the closest thing to seeing it in person. 5%, 60-day cookie.'},
     {name:'Brilliant Earth', url:'https://www.brilliantearth.com',aff:'',
