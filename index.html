@@ -14,7 +14,7 @@
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/style.css?v=0e41ad6d">
+<link rel="stylesheet" href="assets/style.css?v=82091d46">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -135,8 +135,19 @@
   </p>
 </section>
 
+<!-- ================= GAME — a compact card, expands on demand ================= -->
+<section class="wrap section-sm">
+  <div class="panel" id="gameCard" style="display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:24px 28px">
+    <div>
+      <div class="eyebrow" style="margin-bottom:6px">Guess the Carat · daily</div>
+      <h2 style="font-size:24px">Train your eye</h2>
+      <p class="small" style="margin-top:6px;max-width:60ch">One stone a day, drawn to scale on a finger. Guess its weight; see how far off you were. Most people are 30% out on day one and under 10% within a fortnight.</p>
+    </div>
+    <button class="btn btn-ghost" id="gameOpen" type="button">Play today's stone</button>
+  </div>
+  <div id="gameWrap" hidden>
 <!-- ================= GAME — now a side attraction ================= -->
-<section class="wrap section">
+<div>
   <div class="panel" style="padding:30px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px">
       <div>
@@ -199,7 +210,12 @@
       </div>
     </div>
   </div>
+</div>
+  </div>
 </section>
+<script>
+document.getElementById('gameOpen').addEventListener('click',()=>{ document.getElementById('gameWrap').hidden=false; document.getElementById('gameCard').style.display='none'; window.dispatchEvent(new Event('resize')); if(window.cbTrack) cbTrack('game_open',{}); });
+</script>
 
 <!-- ================= CAPTURE ================= -->
 <section class="wrap section">
@@ -248,15 +264,15 @@
   </div>
 </footer>
 
-<script src="assets/data.js?v=0e41ad6d"></script>
-<script src="assets/analytics.js?v=0e41ad6d"></script>
-<script src="assets/spot.js?v=0e41ad6d"></script>
-<script src="assets/ticker.js?v=0e41ad6d"></script>
-<script src="assets/nav.js?v=0e41ad6d"></script>
-<script src="assets/logo.js?v=0e41ad6d"></script>
-<script src="assets/shapes.js?v=0e41ad6d"></script>
-<script src="assets/showcase.js?v=0e41ad6d"></script>
-<script src="assets/game.js?v=0e41ad6d"></script>
+<script src="assets/data.js?v=82091d46"></script>
+<script src="assets/analytics.js?v=82091d46"></script>
+<script src="assets/spot.js?v=82091d46"></script>
+<script src="assets/ticker.js?v=82091d46"></script>
+<script src="assets/nav.js?v=82091d46"></script>
+<script src="assets/logo.js?v=82091d46"></script>
+<script src="assets/shapes.js?v=82091d46"></script>
+<script src="assets/showcase.js?v=82091d46"></script>
+<script src="assets/game.js?v=82091d46"></script>
 <script>
 /* live gold price into the trust bar */
 document.addEventListener('cb:spot',e=>{

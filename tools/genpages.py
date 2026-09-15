@@ -97,9 +97,9 @@ SHELL = '''<!doctype html>
     <h1>{h1}</h1>
   </div>
 
-  <div class="answer-box">{answer}</div>
+  {answer_box}
 
-  <div class="legal">{body}</div>
+  <div class="legal{bodycls}">{body}</div>
 
   <section class="section" style="padding-top:26px">
     <h2 style="font-size:24px;margin-bottom:6px">{cta_h}</h2>
@@ -141,6 +141,8 @@ def write(url, **kw):
     # canonical + og:url must match the sitemap, which serves directories as
     # '/slug/' not '/slug/index.html'. Two URLs, one page, one canonical.
     kw['url'] = url.replace('/index.html', '/')
+    kw['answer_box'] = f'<div class="answer-box">{kw["answer"]}</div>' if kw.get('answer') else ''
+    kw['bodycls'] = ' wide' if kw.get('wide') else ''
     p.write_text(SHELL.format(**kw))
     return url
 
@@ -1015,17 +1017,23 @@ def build_hubs(built):
                 label = ('US size ' + slug[3:].replace('-', '.')) if slug.startswith('us-') \
                         else ('UK size ' + slug[3:].replace('-half', '\u00bd').upper())
             elif d == 'gold-price':  label = slug.upper() + ' gold price per gram'
-            elif d == 'diamond':     label = label.replace('carat', 'ct').replace(' ct ', ' carat ')
+            elif d == 'diamond':     label = slug.split('-carat-')[0].replace('-', '.') + ' carat ' + slug.split('-carat-')[1]
             elif d == 'hallmark':    label = 'What does ' + slug.upper() + ' mean?'
             else:                    label = label.title()
             links.append((label, f'{d}/{slug}/'))
-        body = (f'<p class="lede" style="margin-bottom:26px">{cfg["lead"]}</p>'
+        IMG = {'diamond':'diamond','gemstone':'gems','gold-price':'gold','ring-size':'rings','hallmark':'silver'}[d]
+        ALT = {'diamond':'A round brilliant diamond in jeweller\'s tweezers','gemstone':'Loose ruby, sapphire and emerald beside a loupe',
+               'gold-price':'Gold bands and a fine chain','ring-size':'Five bands in graduated sizes','hallmark':'A polished silver band'}[d]
+        body = (f'<div class="mood" style="margin:6px 0 40px"><div class="img" role="img" aria-label="{ALT}" '
+                f'style="background-image:url(../assets/img/{IMG}.jpg);aspect-ratio:4/3"></div>'
+                f'<div><p class="lede">{cfg["lead"]}</p>'
+                f'<a href="../{cfg["tool"]}" class="btn btn-gold" style="margin-top:22px">{cfg["tool_label"]}</a></div></div>'
                 + TABLES[d]
                 + related_block(f'All {len(links)} pages', links, '../'))
         urls.append(write(f'{d}/index.html',
           title=cfg['title'], desc=cfg['desc'], eyebrow='Reference',
           h1=cfg['h1'], crumb=cfg['h1'], hub=cfg['tool'], hubname='Tools',
-          answer=f'<p>{cfg["lead"]}</p>',
+          answer='', wide=True,
           body=body,
           cta_h='Work out your own',
           cta_p='These pages are worked examples. Put your own details in and get a figure '
