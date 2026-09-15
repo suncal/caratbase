@@ -550,6 +550,34 @@ def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
     return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="noopener noreferrer" '
             f'class="btn btn-lg" style="margin-top:12px">{label}</a>')
 
+def stone_cards(key, ctxt, s):
+    """Two natural + one lab-grown stone from the Blue Nile feed, matched to this page. Empty
+    when the feed has nothing that qualifies, in which case the gallery links stand alone."""
+    pk = ROOT / 'assets' / 'picks.json'
+    if not pk.exists(): return ''
+    picks = json.loads(pk.read_text())['pages'].get(key) or []
+    if not picks: return ''
+    def card(x):
+        img = (f'<img src="{x["image"]}" alt="{x["carat"]:g} carat {x["shape"].lower()} diamond" loading="lazy" '
+               f'style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;background:var(--panel-2)">'
+               if x.get('image') and 'example.invalid' not in x['image'] else
+               f'<div style="aspect-ratio:1;border-radius:10px;background:var(--panel-2);display:grid;place-items:center;color:var(--ink-3);font-size:13px">{x["shape"]}</div>')
+        spec = f'{x["carat"]:g} ct · {x["color"]} · {x["clarity"]}' + (f' · {x["cut"].title()}' if x.get('cut') else '')
+        tag = ('<span class="pill" style="background:var(--ice-dim);color:var(--ice)">Lab-grown</span>' if x['lab']
+               else '<span class="pill">Natural</span>')
+        return (f'<a class="stone" href="{x["url"]}" data-bn-item="1" target="_blank" rel="noopener noreferrer" '
+                f'style="display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:10px;background:var(--panel)">'
+                f'{img}<div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px">{tag}'
+                f'<strong style="font-size:18px">{money(x["price"])}</strong></div>'
+                f'<div class="small" style="margin-top:4px">{spec}</div>'
+                f'<div style="margin-top:8px;font-size:13px;color:var(--gold);font-weight:600">View at Blue Nile →</div></a>')
+    return (f'<h2>Three {ctxt} carat {s.lower()} stones to look at right now</h2>'
+            f'<p>The cheapest stones at Blue Nile today that meet this page\'s grade — G colour or better, '
+            f'VS2 or better, well cut — two natural and one lab-grown. Prices are theirs, refreshed daily; '
+            f'the value judgement is ours.</p>'
+            f'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:14px 0 6px">'
+            + ''.join(card(x) for x in picks) + '</div>')
+
 def build_diamonds():
     cts = [0.25,0.5,0.75,1,1.25,1.5,2,2.5,3,4,5]
     shapes = ['Round','Oval','Princess','Cushion','Emerald','Pear','Marquise','Radiant','Asscher','Heart']
@@ -670,7 +698,8 @@ def build_diamonds():
     {tbl(['Colour'] + ['#' + cl for cl in clars], grid_rows)}
     <p>Above about G colour and VS2 clarity, almost nothing you pay for is visible without a loupe.
     Cut is the one grade worth protecting: a badly cut {s.lower()} looks dull whatever else is true of it.</p>
-    {bn_link(s, c, 'G', 'VS2', False, f'See {ctxt} ct {s.lower()} diamonds, G–D colour, VS2 and up, at Blue Nile →')}
+    {stone_cards(slug.split('/')[1], ctxt, s)}
+    {bn_link(s, c, 'G', 'VS2', False, f'See all {ctxt} ct {s.lower()} diamonds, G–D colour, VS2 and up, at Blue Nile →')}
 
     <h2>The price step just below {ctxt} carat</h2>
     {cliff}

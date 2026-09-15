@@ -1,0 +1,41 @@
+name: Refresh Blue Nile stone picks
+on:
+  schedule:
+    - cron: '45 6 * * *'      # daily, after the metals refresh
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - name: Download feed
+        env:
+          FEED_URL: ${{ secrets.BLUE_NILE_FEED_URL }}
+        run: |
+          if [ -z "$FEED_URL" ]; then echo "BLUE_NILE_FEED_URL secret not set — nothing to do"; exit 0; fi
+          ext="${FEED_URL##*.}"; ext="${ext%%\?*}"; case "$ext" in csv|tsv|xml|json) ;; *) ext=csv;; esac
+          curl -sSL --fail -A "Mozilla/5.0 (compatible; caratbase-bot/1.0)" -o "/tmp/feed.$ext" "$FEED_URL"
+          echo "/tmp/feed.$ext" > /tmp/feedpath
+          ls -la /tmp/feed.$ext
+      - name: Build picks and regenerate pages
+        run: |
+          [ -f /tmp/feedpath ] || exit 0
+          python3 tools/feed/build_picks.py "$(cat /tmp/feedpath)"
+          python3 tools/genpages.py
+          bash scripts/bump-assets.sh
+      - name: Commit
+        run: |
+          [ -f /tmp/feedpath ] || exit 0
+          git config user.name  "caratbase-bot"
+          git config user.email "bot@caratbase.com"
+          git add -A
+          git diff --cached --quiet && echo "no change" && exit 0
+          git commit -m "chore: refresh Blue Nile stone picks"
+          git pull --rebase origin main
+          git push

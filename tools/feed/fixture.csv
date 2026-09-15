@@ -1,0 +1,881 @@
+sku,shape,carat,color,clarity,cut,price,url,image_url,type,lab
+BN1001,Round,0.25,E,VVS1,Very Good,586,https://www.bluenile.com/diamond-details/1001,https://example.invalid/1001.jpg,Natural,GIA
+BN1002,Round,0.27,D,VVS2,Excellent,633,https://www.bluenile.com/diamond-details/1002,https://example.invalid/1002.jpg,Natural,GIA
+BN1003,Round,0.25,D,VVS1,Very Good,604,https://www.bluenile.com/diamond-details/1003,https://example.invalid/1003.jpg,Natural,GIA
+BN1004,Round,0.24,G,VS2,Very Good,358,https://www.bluenile.com/diamond-details/1004,https://example.invalid/1004.jpg,Natural,GIA
+LD1005,Round,0.27,H,VS2,Ideal,52,https://www.bluenile.com/diamond-details/1005,https://example.invalid/1005.jpg,Lab-Grown,IGI
+LD1006,Round,0.24,E,VS2,Very Good,64,https://www.bluenile.com/diamond-details/1006,https://example.invalid/1006.jpg,Lab-Grown,IGI
+LD1007,Round,0.25,E,VS2,Excellent,67,https://www.bluenile.com/diamond-details/1007,https://example.invalid/1007.jpg,Lab-Grown,IGI
+LD1008,Round,0.27,E,VS2,Excellent,72,https://www.bluenile.com/diamond-details/1008,https://example.invalid/1008.jpg,Lab-Grown,IGI
+BN1009,Round,0.49,D,VS2,Excellent,1809,https://www.bluenile.com/diamond-details/1009,https://example.invalid/1009.jpg,Natural,GIA
+BN1010,Round,0.49,H,VVS1,Ideal,1634,https://www.bluenile.com/diamond-details/1010,https://example.invalid/1010.jpg,Natural,GIA
+BN1011,Round,0.52,G,VVS2,Very Good,1644,https://www.bluenile.com/diamond-details/1011,https://example.invalid/1011.jpg,Natural,GIA
+BN1012,Round,0.53,E,VS2,Excellent,1815,https://www.bluenile.com/diamond-details/1012,https://example.invalid/1012.jpg,Natural,GIA
+LD1013,Round,0.51,F,VVS1,Very Good,296,https://www.bluenile.com/diamond-details/1013,https://example.invalid/1013.jpg,Lab-Grown,IGI
+LD1014,Round,0.49,G,VS1,Very Good,230,https://www.bluenile.com/diamond-details/1014,https://example.invalid/1014.jpg,Lab-Grown,IGI
+LD1015,Round,0.54,G,VS2,Very Good,239,https://www.bluenile.com/diamond-details/1015,https://example.invalid/1015.jpg,Lab-Grown,IGI
+LD1016,Round,0.53,H,VVS2,Ideal,228,https://www.bluenile.com/diamond-details/1016,https://example.invalid/1016.jpg,Lab-Grown,IGI
+BN1017,Round,0.78,H,VVS1,Very Good,2835,https://www.bluenile.com/diamond-details/1017,https://example.invalid/1017.jpg,Natural,GIA
+BN1018,Round,0.81,G,VS2,Excellent,2512,https://www.bluenile.com/diamond-details/1018,https://example.invalid/1018.jpg,Natural,GIA
+BN1019,Round,0.75,H,VVS1,Ideal,2855,https://www.bluenile.com/diamond-details/1019,https://example.invalid/1019.jpg,Natural,GIA
+BN1020,Round,0.81,F,VS2,Ideal,3446,https://www.bluenile.com/diamond-details/1020,https://example.invalid/1020.jpg,Natural,GIA
+LD1021,Round,0.74,D,VVS1,Ideal,604,https://www.bluenile.com/diamond-details/1021,https://example.invalid/1021.jpg,Lab-Grown,IGI
+LD1022,Round,0.73,E,VVS1,Ideal,592,https://www.bluenile.com/diamond-details/1022,https://example.invalid/1022.jpg,Lab-Grown,IGI
+LD1023,Round,0.73,G,VVS1,Very Good,489,https://www.bluenile.com/diamond-details/1023,https://example.invalid/1023.jpg,Lab-Grown,IGI
+LD1024,Round,0.8,H,VVS2,Ideal,466,https://www.bluenile.com/diamond-details/1024,https://example.invalid/1024.jpg,Lab-Grown,IGI
+BN1025,Round,1.05,G,VS1,Very Good,5587,https://www.bluenile.com/diamond-details/1025,https://example.invalid/1025.jpg,Natural,GIA
+BN1026,Round,0.98,E,VS2,Excellent,6351,https://www.bluenile.com/diamond-details/1026,https://example.invalid/1026.jpg,Natural,GIA
+BN1027,Round,0.98,F,VS2,Excellent,5445,https://www.bluenile.com/diamond-details/1027,https://example.invalid/1027.jpg,Natural,GIA
+BN1028,Round,1.01,H,VVS2,Excellent,6289,https://www.bluenile.com/diamond-details/1028,https://example.invalid/1028.jpg,Natural,GIA
+LD1029,Round,1.07,H,VS2,Excellent,745,https://www.bluenile.com/diamond-details/1029,https://example.invalid/1029.jpg,Lab-Grown,IGI
+LD1030,Round,1.06,G,VVS1,Very Good,1053,https://www.bluenile.com/diamond-details/1030,https://example.invalid/1030.jpg,Lab-Grown,IGI
+LD1031,Round,1.02,G,VS2,Very Good,746,https://www.bluenile.com/diamond-details/1031,https://example.invalid/1031.jpg,Lab-Grown,IGI
+LD1032,Round,1.02,D,VVS2,Very Good,1337,https://www.bluenile.com/diamond-details/1032,https://example.invalid/1032.jpg,Lab-Grown,IGI
+BN1033,Round,1.2,E,VS2,Excellent,8500,https://www.bluenile.com/diamond-details/1033,https://example.invalid/1033.jpg,Natural,GIA
+BN1034,Round,1.2,E,VVS1,Ideal,9427,https://www.bluenile.com/diamond-details/1034,https://example.invalid/1034.jpg,Natural,GIA
+BN1035,Round,1.36,H,VVS2,Very Good,7725,https://www.bluenile.com/diamond-details/1035,https://example.invalid/1035.jpg,Natural,GIA
+BN1036,Round,1.34,G,VVS1,Very Good,9029,https://www.bluenile.com/diamond-details/1036,https://example.invalid/1036.jpg,Natural,GIA
+LD1037,Round,1.22,F,VVS2,Excellent,1329,https://www.bluenile.com/diamond-details/1037,https://example.invalid/1037.jpg,Lab-Grown,IGI
+LD1038,Round,1.23,D,VS1,Excellent,1553,https://www.bluenile.com/diamond-details/1038,https://example.invalid/1038.jpg,Lab-Grown,IGI
+LD1039,Round,1.26,H,VS2,Ideal,930,https://www.bluenile.com/diamond-details/1039,https://example.invalid/1039.jpg,Lab-Grown,IGI
+LD1040,Round,1.36,D,VVS2,Very Good,1754,https://www.bluenile.com/diamond-details/1040,https://example.invalid/1040.jpg,Lab-Grown,IGI
+BN1041,Round,1.51,E,VVS2,Excellent,15376,https://www.bluenile.com/diamond-details/1041,https://example.invalid/1041.jpg,Natural,GIA
+BN1042,Round,1.6,E,VS1,Excellent,15210,https://www.bluenile.com/diamond-details/1042,https://example.invalid/1042.jpg,Natural,GIA
+BN1043,Round,1.6,E,VVS1,Very Good,16412,https://www.bluenile.com/diamond-details/1043,https://example.invalid/1043.jpg,Natural,GIA
+BN1044,Round,1.63,F,VVS1,Excellent,15077,https://www.bluenile.com/diamond-details/1044,https://example.invalid/1044.jpg,Natural,GIA
+LD1045,Round,1.56,F,VVS1,Excellent,2414,https://www.bluenile.com/diamond-details/1045,https://example.invalid/1045.jpg,Lab-Grown,IGI
+LD1046,Round,1.63,F,VS2,Very Good,1725,https://www.bluenile.com/diamond-details/1046,https://example.invalid/1046.jpg,Lab-Grown,IGI
+LD1047,Round,1.53,F,VS1,Excellent,1881,https://www.bluenile.com/diamond-details/1047,https://example.invalid/1047.jpg,Lab-Grown,IGI
+LD1048,Round,1.6,G,VVS2,Very Good,2017,https://www.bluenile.com/diamond-details/1048,https://example.invalid/1048.jpg,Lab-Grown,IGI
+BN1049,Round,2.14,D,VVS1,Very Good,33726,https://www.bluenile.com/diamond-details/1049,https://example.invalid/1049.jpg,Natural,GIA
+BN1050,Round,2.04,E,VVS1,Ideal,29807,https://www.bluenile.com/diamond-details/1050,https://example.invalid/1050.jpg,Natural,GIA
+BN1051,Round,1.94,G,VVS1,Very Good,21014,https://www.bluenile.com/diamond-details/1051,https://example.invalid/1051.jpg,Natural,GIA
+BN1052,Round,2.11,E,VS1,Excellent,22330,https://www.bluenile.com/diamond-details/1052,https://example.invalid/1052.jpg,Natural,GIA
+LD1053,Round,2.16,E,VVS1,Ideal,4616,https://www.bluenile.com/diamond-details/1053,https://example.invalid/1053.jpg,Lab-Grown,IGI
+LD1054,Round,1.96,H,VS1,Excellent,2237,https://www.bluenile.com/diamond-details/1054,https://example.invalid/1054.jpg,Lab-Grown,IGI
+LD1055,Round,2.09,H,VS1,Very Good,2603,https://www.bluenile.com/diamond-details/1055,https://example.invalid/1055.jpg,Lab-Grown,IGI
+LD1056,Round,2.13,E,VS2,Ideal,3226,https://www.bluenile.com/diamond-details/1056,https://example.invalid/1056.jpg,Lab-Grown,IGI
+BN1057,Round,2.56,H,VVS2,Ideal,22743,https://www.bluenile.com/diamond-details/1057,https://example.invalid/1057.jpg,Natural,GIA
+BN1058,Round,2.67,D,VVS2,Excellent,40352,https://www.bluenile.com/diamond-details/1058,https://example.invalid/1058.jpg,Natural,GIA
+BN1059,Round,2.59,H,VVS1,Excellent,27443,https://www.bluenile.com/diamond-details/1059,https://example.invalid/1059.jpg,Natural,GIA
+BN1060,Round,2.44,E,VS2,Very Good,27858,https://www.bluenile.com/diamond-details/1060,https://example.invalid/1060.jpg,Natural,GIA
+LD1061,Round,2.6,E,VS1,Excellent,4231,https://www.bluenile.com/diamond-details/1061,https://example.invalid/1061.jpg,Lab-Grown,IGI
+LD1062,Round,2.64,H,VS2,Excellent,2924,https://www.bluenile.com/diamond-details/1062,https://example.invalid/1062.jpg,Lab-Grown,IGI
+LD1063,Round,2.57,G,VS2,Very Good,3528,https://www.bluenile.com/diamond-details/1063,https://example.invalid/1063.jpg,Lab-Grown,IGI
+LD1064,Round,2.48,F,VS2,Excellent,3834,https://www.bluenile.com/diamond-details/1064,https://example.invalid/1064.jpg,Lab-Grown,IGI
+BN1065,Round,3.06,D,VS2,Excellent,46967,https://www.bluenile.com/diamond-details/1065,https://example.invalid/1065.jpg,Natural,GIA
+BN1066,Round,3.26,H,VS1,Ideal,38546,https://www.bluenile.com/diamond-details/1066,https://example.invalid/1066.jpg,Natural,GIA
+BN1067,Round,3.08,G,VS1,Ideal,40514,https://www.bluenile.com/diamond-details/1067,https://example.invalid/1067.jpg,Natural,GIA
+BN1068,Round,3.24,E,VVS1,Very Good,56153,https://www.bluenile.com/diamond-details/1068,https://example.invalid/1068.jpg,Natural,GIA
+LD1069,Round,3.03,F,VS2,Ideal,6217,https://www.bluenile.com/diamond-details/1069,https://example.invalid/1069.jpg,Lab-Grown,IGI
+LD1070,Round,2.91,F,VS2,Very Good,6231,https://www.bluenile.com/diamond-details/1070,https://example.invalid/1070.jpg,Lab-Grown,IGI
+LD1071,Round,3.25,F,VS1,Very Good,6742,https://www.bluenile.com/diamond-details/1071,https://example.invalid/1071.jpg,Lab-Grown,IGI
+LD1072,Round,3.26,E,VS2,Ideal,6886,https://www.bluenile.com/diamond-details/1072,https://example.invalid/1072.jpg,Lab-Grown,IGI
+BN1073,Round,3.92,E,VS1,Excellent,78574,https://www.bluenile.com/diamond-details/1073,https://example.invalid/1073.jpg,Natural,GIA
+BN1074,Round,4.05,G,VS1,Very Good,60581,https://www.bluenile.com/diamond-details/1074,https://example.invalid/1074.jpg,Natural,GIA
+BN1075,Round,4.22,D,VVS2,Ideal,98357,https://www.bluenile.com/diamond-details/1075,https://example.invalid/1075.jpg,Natural,GIA
+BN1076,Round,4.21,G,VVS2,Ideal,72158,https://www.bluenile.com/diamond-details/1076,https://example.invalid/1076.jpg,Natural,GIA
+LD1077,Round,4.11,D,VS2,Very Good,12782,https://www.bluenile.com/diamond-details/1077,https://example.invalid/1077.jpg,Lab-Grown,IGI
+LD1078,Round,4.35,D,VS2,Very Good,11754,https://www.bluenile.com/diamond-details/1078,https://example.invalid/1078.jpg,Lab-Grown,IGI
+LD1079,Round,4.31,E,VVS2,Ideal,14509,https://www.bluenile.com/diamond-details/1079,https://example.invalid/1079.jpg,Lab-Grown,IGI
+LD1080,Round,4.28,F,VVS1,Excellent,12495,https://www.bluenile.com/diamond-details/1080,https://example.invalid/1080.jpg,Lab-Grown,IGI
+BN1081,Round,5.17,F,VS2,Excellent,79559,https://www.bluenile.com/diamond-details/1081,https://example.invalid/1081.jpg,Natural,GIA
+BN1082,Round,4.92,D,VVS2,Excellent,123391,https://www.bluenile.com/diamond-details/1082,https://example.invalid/1082.jpg,Natural,GIA
+BN1083,Round,4.86,F,VS2,Very Good,79939,https://www.bluenile.com/diamond-details/1083,https://example.invalid/1083.jpg,Natural,GIA
+BN1084,Round,4.84,D,VVS1,Excellent,107302,https://www.bluenile.com/diamond-details/1084,https://example.invalid/1084.jpg,Natural,GIA
+LD1085,Round,5.07,F,VS1,Excellent,12238,https://www.bluenile.com/diamond-details/1085,https://example.invalid/1085.jpg,Lab-Grown,IGI
+LD1086,Round,4.95,D,VS1,Very Good,14701,https://www.bluenile.com/diamond-details/1086,https://example.invalid/1086.jpg,Lab-Grown,IGI
+LD1087,Round,4.93,F,VVS2,Very Good,14616,https://www.bluenile.com/diamond-details/1087,https://example.invalid/1087.jpg,Lab-Grown,IGI
+LD1088,Round,4.99,H,VS1,Very Good,9898,https://www.bluenile.com/diamond-details/1088,https://example.invalid/1088.jpg,Lab-Grown,IGI
+BN1089,Oval,0.27,D,VS2,Excellent,461,https://www.bluenile.com/diamond-details/1089,https://example.invalid/1089.jpg,Natural,GIA
+BN1090,Oval,0.26,E,VVS1,Ideal,561,https://www.bluenile.com/diamond-details/1090,https://example.invalid/1090.jpg,Natural,GIA
+BN1091,Oval,0.24,G,VVS1,Ideal,441,https://www.bluenile.com/diamond-details/1091,https://example.invalid/1091.jpg,Natural,GIA
+BN1092,Oval,0.27,F,VS1,Ideal,524,https://www.bluenile.com/diamond-details/1092,https://example.invalid/1092.jpg,Natural,GIA
+LD1093,Oval,0.25,E,VVS1,Very Good,94,https://www.bluenile.com/diamond-details/1093,https://example.invalid/1093.jpg,Lab-Grown,IGI
+LD1094,Oval,0.27,D,VS2,Ideal,78,https://www.bluenile.com/diamond-details/1094,https://example.invalid/1094.jpg,Lab-Grown,IGI
+LD1095,Oval,0.25,D,VS2,Ideal,73,https://www.bluenile.com/diamond-details/1095,https://example.invalid/1095.jpg,Lab-Grown,IGI
+LD1096,Oval,0.27,F,VS1,Very Good,74,https://www.bluenile.com/diamond-details/1096,https://example.invalid/1096.jpg,Lab-Grown,IGI
+BN1097,Oval,0.51,E,VVS2,Ideal,2077,https://www.bluenile.com/diamond-details/1097,https://example.invalid/1097.jpg,Natural,GIA
+BN1098,Oval,0.5,F,VVS2,Ideal,1797,https://www.bluenile.com/diamond-details/1098,https://example.invalid/1098.jpg,Natural,GIA
+BN1099,Oval,0.49,E,VS2,Very Good,1599,https://www.bluenile.com/diamond-details/1099,https://example.invalid/1099.jpg,Natural,GIA
+BN1100,Oval,0.51,H,VS1,Very Good,1295,https://www.bluenile.com/diamond-details/1100,https://example.invalid/1100.jpg,Natural,GIA
+LD1101,Oval,0.49,D,VS1,Very Good,289,https://www.bluenile.com/diamond-details/1101,https://example.invalid/1101.jpg,Lab-Grown,IGI
+LD1102,Oval,0.51,F,VVS2,Very Good,297,https://www.bluenile.com/diamond-details/1102,https://example.invalid/1102.jpg,Lab-Grown,IGI
+LD1103,Oval,0.52,H,VS1,Excellent,215,https://www.bluenile.com/diamond-details/1103,https://example.invalid/1103.jpg,Lab-Grown,IGI
+LD1104,Oval,0.53,H,VVS1,Excellent,264,https://www.bluenile.com/diamond-details/1104,https://example.invalid/1104.jpg,Lab-Grown,IGI
+BN1105,Oval,0.82,E,VVS2,Excellent,4442,https://www.bluenile.com/diamond-details/1105,https://example.invalid/1105.jpg,Natural,GIA
+BN1106,Oval,0.73,H,VVS1,Excellent,3040,https://www.bluenile.com/diamond-details/1106,https://example.invalid/1106.jpg,Natural,GIA
+BN1107,Oval,0.73,H,VS2,Excellent,2380,https://www.bluenile.com/diamond-details/1107,https://example.invalid/1107.jpg,Natural,GIA
+BN1108,Oval,0.8,E,VS2,Very Good,3081,https://www.bluenile.com/diamond-details/1108,https://example.invalid/1108.jpg,Natural,GIA
+LD1109,Oval,0.78,D,VVS1,Excellent,745,https://www.bluenile.com/diamond-details/1109,https://example.invalid/1109.jpg,Lab-Grown,IGI
+LD1110,Oval,0.72,D,VS1,Very Good,544,https://www.bluenile.com/diamond-details/1110,https://example.invalid/1110.jpg,Lab-Grown,IGI
+LD1111,Oval,0.76,D,VS2,Very Good,540,https://www.bluenile.com/diamond-details/1111,https://example.invalid/1111.jpg,Lab-Grown,IGI
+LD1112,Oval,0.79,G,VVS2,Ideal,522,https://www.bluenile.com/diamond-details/1112,https://example.invalid/1112.jpg,Lab-Grown,IGI
+BN1113,Oval,0.99,E,VS1,Ideal,7418,https://www.bluenile.com/diamond-details/1113,https://example.invalid/1113.jpg,Natural,GIA
+BN1114,Oval,1.02,G,VS2,Excellent,5282,https://www.bluenile.com/diamond-details/1114,https://example.invalid/1114.jpg,Natural,GIA
+BN1115,Oval,1.0,D,VS1,Very Good,7069,https://www.bluenile.com/diamond-details/1115,https://example.invalid/1115.jpg,Natural,GIA
+BN1116,Oval,1.0,F,VS1,Very Good,5937,https://www.bluenile.com/diamond-details/1116,https://example.invalid/1116.jpg,Natural,GIA
+LD1117,Oval,1.02,D,VS1,Ideal,1223,https://www.bluenile.com/diamond-details/1117,https://example.invalid/1117.jpg,Lab-Grown,IGI
+LD1118,Oval,1.05,F,VVS1,Very Good,1216,https://www.bluenile.com/diamond-details/1118,https://example.invalid/1118.jpg,Lab-Grown,IGI
+LD1119,Oval,1.09,H,VS1,Very Good,810,https://www.bluenile.com/diamond-details/1119,https://example.invalid/1119.jpg,Lab-Grown,IGI
+LD1120,Oval,1.08,D,VVS2,Excellent,1376,https://www.bluenile.com/diamond-details/1120,https://example.invalid/1120.jpg,Lab-Grown,IGI
+BN1121,Oval,1.36,G,VVS2,Very Good,8433,https://www.bluenile.com/diamond-details/1121,https://example.invalid/1121.jpg,Natural,GIA
+BN1122,Oval,1.21,D,VS1,Ideal,9806,https://www.bluenile.com/diamond-details/1122,https://example.invalid/1122.jpg,Natural,GIA
+BN1123,Oval,1.35,E,VVS2,Excellent,11534,https://www.bluenile.com/diamond-details/1123,https://example.invalid/1123.jpg,Natural,GIA
+BN1124,Oval,1.26,G,VVS1,Very Good,8337,https://www.bluenile.com/diamond-details/1124,https://example.invalid/1124.jpg,Natural,GIA
+LD1125,Oval,1.2,G,VVS1,Excellent,1194,https://www.bluenile.com/diamond-details/1125,https://example.invalid/1125.jpg,Lab-Grown,IGI
+LD1126,Oval,1.22,F,VVS1,Ideal,1370,https://www.bluenile.com/diamond-details/1126,https://example.invalid/1126.jpg,Lab-Grown,IGI
+LD1127,Oval,1.2,F,VVS1,Very Good,1293,https://www.bluenile.com/diamond-details/1127,https://example.invalid/1127.jpg,Lab-Grown,IGI
+LD1128,Oval,1.32,F,VVS2,Ideal,1408,https://www.bluenile.com/diamond-details/1128,https://example.invalid/1128.jpg,Lab-Grown,IGI
+BN1129,Oval,1.52,H,VS2,Ideal,8644,https://www.bluenile.com/diamond-details/1129,https://example.invalid/1129.jpg,Natural,GIA
+BN1130,Oval,1.59,D,VVS2,Excellent,15666,https://www.bluenile.com/diamond-details/1130,https://example.invalid/1130.jpg,Natural,GIA
+BN1131,Oval,1.5,E,VS1,Ideal,14669,https://www.bluenile.com/diamond-details/1131,https://example.invalid/1131.jpg,Natural,GIA
+BN1132,Oval,1.54,E,VVS2,Ideal,16136,https://www.bluenile.com/diamond-details/1132,https://example.invalid/1132.jpg,Natural,GIA
+LD1133,Oval,1.61,G,VS1,Very Good,1803,https://www.bluenile.com/diamond-details/1133,https://example.invalid/1133.jpg,Lab-Grown,IGI
+LD1134,Oval,1.62,G,VVS1,Very Good,2101,https://www.bluenile.com/diamond-details/1134,https://example.invalid/1134.jpg,Lab-Grown,IGI
+LD1135,Oval,1.57,F,VVS1,Excellent,2082,https://www.bluenile.com/diamond-details/1135,https://example.invalid/1135.jpg,Lab-Grown,IGI
+LD1136,Oval,1.46,G,VVS1,Ideal,1793,https://www.bluenile.com/diamond-details/1136,https://example.invalid/1136.jpg,Lab-Grown,IGI
+BN1137,Oval,1.99,F,VVS1,Ideal,26077,https://www.bluenile.com/diamond-details/1137,https://example.invalid/1137.jpg,Natural,GIA
+BN1138,Oval,2.05,G,VS2,Very Good,16266,https://www.bluenile.com/diamond-details/1138,https://example.invalid/1138.jpg,Natural,GIA
+BN1139,Oval,1.94,H,VVS1,Ideal,19488,https://www.bluenile.com/diamond-details/1139,https://example.invalid/1139.jpg,Natural,GIA
+BN1140,Oval,2.16,G,VVS1,Very Good,22148,https://www.bluenile.com/diamond-details/1140,https://example.invalid/1140.jpg,Natural,GIA
+LD1141,Oval,1.98,E,VVS2,Ideal,3893,https://www.bluenile.com/diamond-details/1141,https://example.invalid/1141.jpg,Lab-Grown,IGI
+LD1142,Oval,1.98,F,VS1,Excellent,3441,https://www.bluenile.com/diamond-details/1142,https://example.invalid/1142.jpg,Lab-Grown,IGI
+LD1143,Oval,2.15,G,VVS1,Very Good,3739,https://www.bluenile.com/diamond-details/1143,https://example.invalid/1143.jpg,Lab-Grown,IGI
+LD1144,Oval,2.02,F,VS2,Excellent,2961,https://www.bluenile.com/diamond-details/1144,https://example.invalid/1144.jpg,Lab-Grown,IGI
+BN1145,Oval,2.71,E,VS1,Very Good,29092,https://www.bluenile.com/diamond-details/1145,https://example.invalid/1145.jpg,Natural,GIA
+BN1146,Oval,2.52,G,VVS1,Very Good,30374,https://www.bluenile.com/diamond-details/1146,https://example.invalid/1146.jpg,Natural,GIA
+BN1147,Oval,2.44,G,VVS1,Ideal,29487,https://www.bluenile.com/diamond-details/1147,https://example.invalid/1147.jpg,Natural,GIA
+BN1148,Oval,2.4,G,VVS1,Very Good,29025,https://www.bluenile.com/diamond-details/1148,https://example.invalid/1148.jpg,Natural,GIA
+LD1149,Oval,2.65,E,VS1,Excellent,4322,https://www.bluenile.com/diamond-details/1149,https://example.invalid/1149.jpg,Lab-Grown,IGI
+LD1150,Oval,2.44,G,VS2,Very Good,3143,https://www.bluenile.com/diamond-details/1150,https://example.invalid/1150.jpg,Lab-Grown,IGI
+LD1151,Oval,2.4,E,VS1,Very Good,4266,https://www.bluenile.com/diamond-details/1151,https://example.invalid/1151.jpg,Lab-Grown,IGI
+LD1152,Oval,2.61,F,VS1,Excellent,4316,https://www.bluenile.com/diamond-details/1152,https://example.invalid/1152.jpg,Lab-Grown,IGI
+BN1153,Oval,3.13,D,VS2,Excellent,44418,https://www.bluenile.com/diamond-details/1153,https://example.invalid/1153.jpg,Natural,GIA
+BN1154,Oval,3.25,E,VVS1,Excellent,57830,https://www.bluenile.com/diamond-details/1154,https://example.invalid/1154.jpg,Natural,GIA
+BN1155,Oval,2.88,H,VVS2,Ideal,39976,https://www.bluenile.com/diamond-details/1155,https://example.invalid/1155.jpg,Natural,GIA
+BN1156,Oval,3.25,E,VVS1,Excellent,61054,https://www.bluenile.com/diamond-details/1156,https://example.invalid/1156.jpg,Natural,GIA
+LD1157,Oval,2.98,G,VVS2,Very Good,5714,https://www.bluenile.com/diamond-details/1157,https://example.invalid/1157.jpg,Lab-Grown,IGI
+LD1158,Oval,3.07,G,VS2,Excellent,5039,https://www.bluenile.com/diamond-details/1158,https://example.invalid/1158.jpg,Lab-Grown,IGI
+LD1159,Oval,3.05,F,VS1,Excellent,6646,https://www.bluenile.com/diamond-details/1159,https://example.invalid/1159.jpg,Lab-Grown,IGI
+LD1160,Oval,3.01,G,VVS2,Very Good,6566,https://www.bluenile.com/diamond-details/1160,https://example.invalid/1160.jpg,Lab-Grown,IGI
+BN1161,Oval,3.84,F,VS2,Very Good,58179,https://www.bluenile.com/diamond-details/1161,https://example.invalid/1161.jpg,Natural,GIA
+BN1162,Oval,4.0,E,VS1,Ideal,76463,https://www.bluenile.com/diamond-details/1162,https://example.invalid/1162.jpg,Natural,GIA
+BN1163,Oval,4.24,F,VS2,Ideal,74434,https://www.bluenile.com/diamond-details/1163,https://example.invalid/1163.jpg,Natural,GIA
+BN1164,Oval,4.16,E,VVS1,Excellent,93070,https://www.bluenile.com/diamond-details/1164,https://example.invalid/1164.jpg,Natural,GIA
+LD1165,Oval,3.87,H,VS1,Very Good,8725,https://www.bluenile.com/diamond-details/1165,https://example.invalid/1165.jpg,Lab-Grown,IGI
+LD1166,Oval,3.95,H,VS1,Excellent,8073,https://www.bluenile.com/diamond-details/1166,https://example.invalid/1166.jpg,Lab-Grown,IGI
+LD1167,Oval,3.87,G,VVS1,Ideal,11406,https://www.bluenile.com/diamond-details/1167,https://example.invalid/1167.jpg,Lab-Grown,IGI
+LD1168,Oval,4.22,D,VS1,Very Good,12711,https://www.bluenile.com/diamond-details/1168,https://example.invalid/1168.jpg,Lab-Grown,IGI
+BN1169,Oval,5.22,H,VVS1,Excellent,77499,https://www.bluenile.com/diamond-details/1169,https://example.invalid/1169.jpg,Natural,GIA
+BN1170,Oval,5.27,F,VVS2,Very Good,102322,https://www.bluenile.com/diamond-details/1170,https://example.invalid/1170.jpg,Natural,GIA
+BN1171,Oval,4.8,F,VS2,Very Good,74984,https://www.bluenile.com/diamond-details/1171,https://example.invalid/1171.jpg,Natural,GIA
+BN1172,Oval,5.16,E,VVS1,Ideal,114024,https://www.bluenile.com/diamond-details/1172,https://example.invalid/1172.jpg,Natural,GIA
+LD1173,Oval,5.33,G,VS2,Ideal,10184,https://www.bluenile.com/diamond-details/1173,https://example.invalid/1173.jpg,Lab-Grown,IGI
+LD1174,Oval,4.93,H,VVS1,Ideal,11369,https://www.bluenile.com/diamond-details/1174,https://example.invalid/1174.jpg,Lab-Grown,IGI
+LD1175,Oval,5.28,G,VS2,Very Good,11380,https://www.bluenile.com/diamond-details/1175,https://example.invalid/1175.jpg,Lab-Grown,IGI
+LD1176,Oval,5.33,G,VS2,Ideal,10914,https://www.bluenile.com/diamond-details/1176,https://example.invalid/1176.jpg,Lab-Grown,IGI
+BN1177,Princess,0.24,D,VVS2,Very Good,520,https://www.bluenile.com/diamond-details/1177,https://example.invalid/1177.jpg,Natural,GIA
+BN1178,Princess,0.27,F,VVS2,Excellent,506,https://www.bluenile.com/diamond-details/1178,https://example.invalid/1178.jpg,Natural,GIA
+BN1179,Princess,0.24,F,VVS2,Excellent,452,https://www.bluenile.com/diamond-details/1179,https://example.invalid/1179.jpg,Natural,GIA
+BN1180,Princess,0.26,D,VS2,Very Good,523,https://www.bluenile.com/diamond-details/1180,https://example.invalid/1180.jpg,Natural,GIA
+LD1181,Princess,0.26,G,VVS1,Ideal,75,https://www.bluenile.com/diamond-details/1181,https://example.invalid/1181.jpg,Lab-Grown,IGI
+LD1182,Princess,0.27,E,VVS1,Excellent,86,https://www.bluenile.com/diamond-details/1182,https://example.invalid/1182.jpg,Lab-Grown,IGI
+LD1183,Princess,0.25,E,VS1,Ideal,70,https://www.bluenile.com/diamond-details/1183,https://example.invalid/1183.jpg,Lab-Grown,IGI
+LD1184,Princess,0.25,H,VS2,Ideal,47,https://www.bluenile.com/diamond-details/1184,https://example.invalid/1184.jpg,Lab-Grown,IGI
+BN1185,Princess,0.53,E,VVS1,Very Good,2123,https://www.bluenile.com/diamond-details/1185,https://example.invalid/1185.jpg,Natural,GIA
+BN1186,Princess,0.51,H,VVS2,Ideal,1409,https://www.bluenile.com/diamond-details/1186,https://example.invalid/1186.jpg,Natural,GIA
+BN1187,Princess,0.54,D,VVS2,Very Good,2461,https://www.bluenile.com/diamond-details/1187,https://example.invalid/1187.jpg,Natural,GIA
+BN1188,Princess,0.49,G,VVS1,Very Good,1607,https://www.bluenile.com/diamond-details/1188,https://example.invalid/1188.jpg,Natural,GIA
+LD1189,Princess,0.51,H,VS1,Excellent,215,https://www.bluenile.com/diamond-details/1189,https://example.invalid/1189.jpg,Lab-Grown,IGI
+LD1190,Princess,0.53,F,VVS2,Ideal,288,https://www.bluenile.com/diamond-details/1190,https://example.invalid/1190.jpg,Lab-Grown,IGI
+LD1191,Princess,0.5,F,VS1,Very Good,253,https://www.bluenile.com/diamond-details/1191,https://example.invalid/1191.jpg,Lab-Grown,IGI
+LD1192,Princess,0.5,E,VVS2,Excellent,333,https://www.bluenile.com/diamond-details/1192,https://example.invalid/1192.jpg,Lab-Grown,IGI
+BN1193,Princess,0.74,D,VVS1,Very Good,4196,https://www.bluenile.com/diamond-details/1193,https://example.invalid/1193.jpg,Natural,GIA
+BN1194,Princess,0.77,E,VS2,Very Good,3373,https://www.bluenile.com/diamond-details/1194,https://example.invalid/1194.jpg,Natural,GIA
+BN1195,Princess,0.73,G,VS1,Ideal,2916,https://www.bluenile.com/diamond-details/1195,https://example.invalid/1195.jpg,Natural,GIA
+BN1196,Princess,0.72,F,VS1,Very Good,2861,https://www.bluenile.com/diamond-details/1196,https://example.invalid/1196.jpg,Natural,GIA
+LD1197,Princess,0.78,H,VS1,Ideal,428,https://www.bluenile.com/diamond-details/1197,https://example.invalid/1197.jpg,Lab-Grown,IGI
+LD1198,Princess,0.77,E,VVS1,Excellent,651,https://www.bluenile.com/diamond-details/1198,https://example.invalid/1198.jpg,Lab-Grown,IGI
+LD1199,Princess,0.81,D,VVS2,Ideal,642,https://www.bluenile.com/diamond-details/1199,https://example.invalid/1199.jpg,Lab-Grown,IGI
+LD1200,Princess,0.75,D,VS1,Very Good,625,https://www.bluenile.com/diamond-details/1200,https://example.invalid/1200.jpg,Lab-Grown,IGI
+BN1201,Princess,1.04,E,VS2,Ideal,7191,https://www.bluenile.com/diamond-details/1201,https://example.invalid/1201.jpg,Natural,GIA
+BN1202,Princess,1.05,E,VVS2,Very Good,7624,https://www.bluenile.com/diamond-details/1202,https://example.invalid/1202.jpg,Natural,GIA
+BN1203,Princess,1.06,H,VVS1,Very Good,5886,https://www.bluenile.com/diamond-details/1203,https://example.invalid/1203.jpg,Natural,GIA
+BN1204,Princess,1.06,H,VS1,Very Good,5609,https://www.bluenile.com/diamond-details/1204,https://example.invalid/1204.jpg,Natural,GIA
+LD1205,Princess,1.04,G,VVS2,Ideal,972,https://www.bluenile.com/diamond-details/1205,https://example.invalid/1205.jpg,Lab-Grown,IGI
+LD1206,Princess,1.05,G,VS2,Excellent,788,https://www.bluenile.com/diamond-details/1206,https://example.invalid/1206.jpg,Lab-Grown,IGI
+LD1207,Princess,1.07,G,VVS1,Ideal,980,https://www.bluenile.com/diamond-details/1207,https://example.invalid/1207.jpg,Lab-Grown,IGI
+LD1208,Princess,1.04,G,VVS1,Very Good,992,https://www.bluenile.com/diamond-details/1208,https://example.invalid/1208.jpg,Lab-Grown,IGI
+BN1209,Princess,1.27,E,VVS1,Very Good,9902,https://www.bluenile.com/diamond-details/1209,https://example.invalid/1209.jpg,Natural,GIA
+BN1210,Princess,1.27,F,VVS1,Very Good,10412,https://www.bluenile.com/diamond-details/1210,https://example.invalid/1210.jpg,Natural,GIA
+BN1211,Princess,1.2,H,VS1,Ideal,6351,https://www.bluenile.com/diamond-details/1211,https://example.invalid/1211.jpg,Natural,GIA
+BN1212,Princess,1.21,H,VVS2,Very Good,7236,https://www.bluenile.com/diamond-details/1212,https://example.invalid/1212.jpg,Natural,GIA
+LD1213,Princess,1.22,F,VS1,Very Good,1209,https://www.bluenile.com/diamond-details/1213,https://example.invalid/1213.jpg,Lab-Grown,IGI
+LD1214,Princess,1.22,G,VS1,Very Good,1005,https://www.bluenile.com/diamond-details/1214,https://example.invalid/1214.jpg,Lab-Grown,IGI
+LD1215,Princess,1.36,G,VVS2,Excellent,1179,https://www.bluenile.com/diamond-details/1215,https://example.invalid/1215.jpg,Lab-Grown,IGI
+LD1216,Princess,1.26,H,VS1,Very Good,1000,https://www.bluenile.com/diamond-details/1216,https://example.invalid/1216.jpg,Lab-Grown,IGI
+BN1217,Princess,1.56,H,VS1,Very Good,10700,https://www.bluenile.com/diamond-details/1217,https://example.invalid/1217.jpg,Natural,GIA
+BN1218,Princess,1.55,D,VVS1,Very Good,19232,https://www.bluenile.com/diamond-details/1218,https://example.invalid/1218.jpg,Natural,GIA
+BN1219,Princess,1.51,D,VS1,Excellent,13838,https://www.bluenile.com/diamond-details/1219,https://example.invalid/1219.jpg,Natural,GIA
+BN1220,Princess,1.6,E,VS2,Excellent,13998,https://www.bluenile.com/diamond-details/1220,https://example.invalid/1220.jpg,Natural,GIA
+LD1221,Princess,1.45,F,VS2,Ideal,1590,https://www.bluenile.com/diamond-details/1221,https://example.invalid/1221.jpg,Lab-Grown,IGI
+LD1222,Princess,1.55,F,VVS1,Very Good,2173,https://www.bluenile.com/diamond-details/1222,https://example.invalid/1222.jpg,Lab-Grown,IGI
+LD1223,Princess,1.52,F,VVS1,Very Good,2217,https://www.bluenile.com/diamond-details/1223,https://example.invalid/1223.jpg,Lab-Grown,IGI
+LD1224,Princess,1.44,H,VVS1,Ideal,1631,https://www.bluenile.com/diamond-details/1224,https://example.invalid/1224.jpg,Lab-Grown,IGI
+BN1225,Princess,2.12,G,VS1,Ideal,21053,https://www.bluenile.com/diamond-details/1225,https://example.invalid/1225.jpg,Natural,GIA
+BN1226,Princess,1.95,E,VVS2,Very Good,24926,https://www.bluenile.com/diamond-details/1226,https://example.invalid/1226.jpg,Natural,GIA
+BN1227,Princess,2.13,H,VS2,Very Good,14798,https://www.bluenile.com/diamond-details/1227,https://example.invalid/1227.jpg,Natural,GIA
+BN1228,Princess,1.94,F,VS2,Excellent,17273,https://www.bluenile.com/diamond-details/1228,https://example.invalid/1228.jpg,Natural,GIA
+LD1229,Princess,2.15,E,VS2,Excellent,3671,https://www.bluenile.com/diamond-details/1229,https://example.invalid/1229.jpg,Lab-Grown,IGI
+LD1230,Princess,2.11,D,VS1,Ideal,3701,https://www.bluenile.com/diamond-details/1230,https://example.invalid/1230.jpg,Lab-Grown,IGI
+LD1231,Princess,1.99,E,VS1,Ideal,3186,https://www.bluenile.com/diamond-details/1231,https://example.invalid/1231.jpg,Lab-Grown,IGI
+LD1232,Princess,2.08,F,VS1,Excellent,3237,https://www.bluenile.com/diamond-details/1232,https://example.invalid/1232.jpg,Lab-Grown,IGI
+BN1233,Princess,2.49,G,VS1,Ideal,22137,https://www.bluenile.com/diamond-details/1233,https://example.invalid/1233.jpg,Natural,GIA
+BN1234,Princess,2.47,F,VS1,Very Good,25598,https://www.bluenile.com/diamond-details/1234,https://example.invalid/1234.jpg,Natural,GIA
+BN1235,Princess,2.46,G,VS1,Ideal,23629,https://www.bluenile.com/diamond-details/1235,https://example.invalid/1235.jpg,Natural,GIA
+BN1236,Princess,2.62,G,VS1,Ideal,25928,https://www.bluenile.com/diamond-details/1236,https://example.invalid/1236.jpg,Natural,GIA
+LD1237,Princess,2.44,H,VS2,Ideal,2876,https://www.bluenile.com/diamond-details/1237,https://example.invalid/1237.jpg,Lab-Grown,IGI
+LD1238,Princess,2.71,G,VS2,Excellent,3284,https://www.bluenile.com/diamond-details/1238,https://example.invalid/1238.jpg,Lab-Grown,IGI
+LD1239,Princess,2.6,G,VVS2,Ideal,3854,https://www.bluenile.com/diamond-details/1239,https://example.invalid/1239.jpg,Lab-Grown,IGI
+LD1240,Princess,2.59,F,VVS2,Ideal,4878,https://www.bluenile.com/diamond-details/1240,https://example.invalid/1240.jpg,Lab-Grown,IGI
+BN1241,Princess,2.97,H,VS2,Excellent,29488,https://www.bluenile.com/diamond-details/1241,https://example.invalid/1241.jpg,Natural,GIA
+BN1242,Princess,2.98,H,VVS2,Excellent,39382,https://www.bluenile.com/diamond-details/1242,https://example.invalid/1242.jpg,Natural,GIA
+BN1243,Princess,2.89,E,VVS2,Ideal,51860,https://www.bluenile.com/diamond-details/1243,https://example.invalid/1243.jpg,Natural,GIA
+BN1244,Princess,3.04,F,VS2,Very Good,37245,https://www.bluenile.com/diamond-details/1244,https://example.invalid/1244.jpg,Natural,GIA
+LD1245,Princess,3.12,D,VS2,Excellent,6618,https://www.bluenile.com/diamond-details/1245,https://example.invalid/1245.jpg,Lab-Grown,IGI
+LD1246,Princess,3.02,D,VVS2,Ideal,8639,https://www.bluenile.com/diamond-details/1246,https://example.invalid/1246.jpg,Lab-Grown,IGI
+LD1247,Princess,3.11,H,VS1,Excellent,4997,https://www.bluenile.com/diamond-details/1247,https://example.invalid/1247.jpg,Lab-Grown,IGI
+LD1248,Princess,3.2,E,VS1,Very Good,6852,https://www.bluenile.com/diamond-details/1248,https://example.invalid/1248.jpg,Lab-Grown,IGI
+BN1249,Princess,4.21,G,VS2,Very Good,53797,https://www.bluenile.com/diamond-details/1249,https://example.invalid/1249.jpg,Natural,GIA
+BN1250,Princess,4.29,F,VVS1,Very Good,95385,https://www.bluenile.com/diamond-details/1250,https://example.invalid/1250.jpg,Natural,GIA
+BN1251,Princess,3.87,H,VVS2,Excellent,60617,https://www.bluenile.com/diamond-details/1251,https://example.invalid/1251.jpg,Natural,GIA
+BN1252,Princess,4.07,H,VVS1,Very Good,63313,https://www.bluenile.com/diamond-details/1252,https://example.invalid/1252.jpg,Natural,GIA
+LD1253,Princess,3.86,H,VS2,Very Good,7158,https://www.bluenile.com/diamond-details/1253,https://example.invalid/1253.jpg,Lab-Grown,IGI
+LD1254,Princess,3.92,D,VS2,Excellent,11364,https://www.bluenile.com/diamond-details/1254,https://example.invalid/1254.jpg,Lab-Grown,IGI
+LD1255,Princess,4.33,E,VVS1,Excellent,13888,https://www.bluenile.com/diamond-details/1255,https://example.invalid/1255.jpg,Lab-Grown,IGI
+LD1256,Princess,4.17,G,VS1,Very Good,9649,https://www.bluenile.com/diamond-details/1256,https://example.invalid/1256.jpg,Lab-Grown,IGI
+BN1257,Princess,5.0,D,VVS1,Very Good,128142,https://www.bluenile.com/diamond-details/1257,https://example.invalid/1257.jpg,Natural,GIA
+BN1258,Princess,5.04,G,VVS1,Excellent,84032,https://www.bluenile.com/diamond-details/1258,https://example.invalid/1258.jpg,Natural,GIA
+BN1259,Princess,5.09,E,VS2,Excellent,84825,https://www.bluenile.com/diamond-details/1259,https://example.invalid/1259.jpg,Natural,GIA
+BN1260,Princess,4.83,F,VVS2,Ideal,98887,https://www.bluenile.com/diamond-details/1260,https://example.invalid/1260.jpg,Natural,GIA
+LD1261,Princess,5.21,G,VVS2,Very Good,12802,https://www.bluenile.com/diamond-details/1261,https://example.invalid/1261.jpg,Lab-Grown,IGI
+LD1262,Princess,4.86,H,VS2,Very Good,8579,https://www.bluenile.com/diamond-details/1262,https://example.invalid/1262.jpg,Lab-Grown,IGI
+LD1263,Princess,5.35,E,VS1,Ideal,16209,https://www.bluenile.com/diamond-details/1263,https://example.invalid/1263.jpg,Lab-Grown,IGI
+LD1264,Princess,4.92,G,VVS2,Ideal,12860,https://www.bluenile.com/diamond-details/1264,https://example.invalid/1264.jpg,Lab-Grown,IGI
+BN1265,Cushion,0.27,H,VVS1,Excellent,440,https://www.bluenile.com/diamond-details/1265,https://example.invalid/1265.jpg,Natural,GIA
+BN1266,Cushion,0.26,D,VVS1,Very Good,697,https://www.bluenile.com/diamond-details/1266,https://example.invalid/1266.jpg,Natural,GIA
+BN1267,Cushion,0.26,F,VS1,Excellent,450,https://www.bluenile.com/diamond-details/1267,https://example.invalid/1267.jpg,Natural,GIA
+BN1268,Cushion,0.24,E,VS1,Very Good,419,https://www.bluenile.com/diamond-details/1268,https://example.invalid/1268.jpg,Natural,GIA
+LD1269,Cushion,0.24,E,VVS2,Excellent,84,https://www.bluenile.com/diamond-details/1269,https://example.invalid/1269.jpg,Lab-Grown,IGI
+LD1270,Cushion,0.24,D,VS1,Excellent,78,https://www.bluenile.com/diamond-details/1270,https://example.invalid/1270.jpg,Lab-Grown,IGI
+LD1271,Cushion,0.24,D,VS2,Excellent,62,https://www.bluenile.com/diamond-details/1271,https://example.invalid/1271.jpg,Lab-Grown,IGI
+LD1272,Cushion,0.26,E,VS2,Excellent,73,https://www.bluenile.com/diamond-details/1272,https://example.invalid/1272.jpg,Lab-Grown,IGI
+BN1273,Cushion,0.54,D,VS1,Very Good,2038,https://www.bluenile.com/diamond-details/1273,https://example.invalid/1273.jpg,Natural,GIA
+BN1274,Cushion,0.48,D,VVS2,Very Good,2125,https://www.bluenile.com/diamond-details/1274,https://example.invalid/1274.jpg,Natural,GIA
+BN1275,Cushion,0.49,E,VVS2,Ideal,1945,https://www.bluenile.com/diamond-details/1275,https://example.invalid/1275.jpg,Natural,GIA
+BN1276,Cushion,0.5,F,VVS2,Very Good,2057,https://www.bluenile.com/diamond-details/1276,https://example.invalid/1276.jpg,Natural,GIA
+LD1277,Cushion,0.53,F,VVS2,Excellent,317,https://www.bluenile.com/diamond-details/1277,https://example.invalid/1277.jpg,Lab-Grown,IGI
+LD1278,Cushion,0.51,F,VS2,Very Good,251,https://www.bluenile.com/diamond-details/1278,https://example.invalid/1278.jpg,Lab-Grown,IGI
+LD1279,Cushion,0.51,D,VVS2,Very Good,338,https://www.bluenile.com/diamond-details/1279,https://example.invalid/1279.jpg,Lab-Grown,IGI
+LD1280,Cushion,0.51,E,VS2,Ideal,262,https://www.bluenile.com/diamond-details/1280,https://example.invalid/1280.jpg,Lab-Grown,IGI
+BN1281,Cushion,0.74,D,VS1,Very Good,3578,https://www.bluenile.com/diamond-details/1281,https://example.invalid/1281.jpg,Natural,GIA
+BN1282,Cushion,0.72,G,VS2,Very Good,2444,https://www.bluenile.com/diamond-details/1282,https://example.invalid/1282.jpg,Natural,GIA
+BN1283,Cushion,0.81,H,VVS2,Excellent,3300,https://www.bluenile.com/diamond-details/1283,https://example.invalid/1283.jpg,Natural,GIA
+BN1284,Cushion,0.75,E,VVS2,Excellent,4134,https://www.bluenile.com/diamond-details/1284,https://example.invalid/1284.jpg,Natural,GIA
+LD1285,Cushion,0.74,E,VS2,Very Good,513,https://www.bluenile.com/diamond-details/1285,https://example.invalid/1285.jpg,Lab-Grown,IGI
+LD1286,Cushion,0.77,H,VS2,Ideal,362,https://www.bluenile.com/diamond-details/1286,https://example.invalid/1286.jpg,Lab-Grown,IGI
+LD1287,Cushion,0.73,G,VS2,Excellent,367,https://www.bluenile.com/diamond-details/1287,https://example.invalid/1287.jpg,Lab-Grown,IGI
+LD1288,Cushion,0.72,E,VVS2,Excellent,533,https://www.bluenile.com/diamond-details/1288,https://example.invalid/1288.jpg,Lab-Grown,IGI
+BN1289,Cushion,1.03,G,VS1,Very Good,6415,https://www.bluenile.com/diamond-details/1289,https://example.invalid/1289.jpg,Natural,GIA
+BN1290,Cushion,1.03,H,VS2,Ideal,4674,https://www.bluenile.com/diamond-details/1290,https://example.invalid/1290.jpg,Natural,GIA
+BN1291,Cushion,1.03,G,VVS2,Ideal,6102,https://www.bluenile.com/diamond-details/1291,https://example.invalid/1291.jpg,Natural,GIA
+BN1292,Cushion,1.05,F,VS1,Ideal,6390,https://www.bluenile.com/diamond-details/1292,https://example.invalid/1292.jpg,Natural,GIA
+LD1293,Cushion,1.04,E,VS1,Excellent,1064,https://www.bluenile.com/diamond-details/1293,https://example.invalid/1293.jpg,Lab-Grown,IGI
+LD1294,Cushion,1.07,H,VS1,Very Good,863,https://www.bluenile.com/diamond-details/1294,https://example.invalid/1294.jpg,Lab-Grown,IGI
+LD1295,Cushion,1.05,H,VVS2,Ideal,838,https://www.bluenile.com/diamond-details/1295,https://example.invalid/1295.jpg,Lab-Grown,IGI
+LD1296,Cushion,1.08,F,VS2,Excellent,904,https://www.bluenile.com/diamond-details/1296,https://example.invalid/1296.jpg,Lab-Grown,IGI
+BN1297,Cushion,1.22,G,VS1,Ideal,7654,https://www.bluenile.com/diamond-details/1297,https://example.invalid/1297.jpg,Natural,GIA
+BN1298,Cushion,1.32,G,VVS2,Excellent,7865,https://www.bluenile.com/diamond-details/1298,https://example.invalid/1298.jpg,Natural,GIA
+BN1299,Cushion,1.35,F,VS1,Ideal,9565,https://www.bluenile.com/diamond-details/1299,https://example.invalid/1299.jpg,Natural,GIA
+BN1300,Cushion,1.21,G,VVS1,Excellent,8496,https://www.bluenile.com/diamond-details/1300,https://example.invalid/1300.jpg,Natural,GIA
+LD1301,Cushion,1.36,F,VVS1,Ideal,1434,https://www.bluenile.com/diamond-details/1301,https://example.invalid/1301.jpg,Lab-Grown,IGI
+LD1302,Cushion,1.3,G,VS2,Ideal,1063,https://www.bluenile.com/diamond-details/1302,https://example.invalid/1302.jpg,Lab-Grown,IGI
+LD1303,Cushion,1.31,H,VVS1,Excellent,1278,https://www.bluenile.com/diamond-details/1303,https://example.invalid/1303.jpg,Lab-Grown,IGI
+LD1304,Cushion,1.32,H,VS1,Excellent,1056,https://www.bluenile.com/diamond-details/1304,https://example.invalid/1304.jpg,Lab-Grown,IGI
+BN1305,Cushion,1.46,G,VVS2,Excellent,11022,https://www.bluenile.com/diamond-details/1305,https://example.invalid/1305.jpg,Natural,GIA
+BN1306,Cushion,1.46,G,VS1,Excellent,11029,https://www.bluenile.com/diamond-details/1306,https://example.invalid/1306.jpg,Natural,GIA
+BN1307,Cushion,1.58,E,VVS2,Ideal,16756,https://www.bluenile.com/diamond-details/1307,https://example.invalid/1307.jpg,Natural,GIA
+BN1308,Cushion,1.53,H,VVS1,Excellent,11678,https://www.bluenile.com/diamond-details/1308,https://example.invalid/1308.jpg,Natural,GIA
+LD1309,Cushion,1.62,E,VVS2,Ideal,2543,https://www.bluenile.com/diamond-details/1309,https://example.invalid/1309.jpg,Lab-Grown,IGI
+LD1310,Cushion,1.6,D,VS2,Very Good,2001,https://www.bluenile.com/diamond-details/1310,https://example.invalid/1310.jpg,Lab-Grown,IGI
+LD1311,Cushion,1.47,E,VVS2,Excellent,2011,https://www.bluenile.com/diamond-details/1311,https://example.invalid/1311.jpg,Lab-Grown,IGI
+LD1312,Cushion,1.53,E,VVS1,Excellent,2430,https://www.bluenile.com/diamond-details/1312,https://example.invalid/1312.jpg,Lab-Grown,IGI
+BN1313,Cushion,2.13,F,VVS2,Ideal,24946,https://www.bluenile.com/diamond-details/1313,https://example.invalid/1313.jpg,Natural,GIA
+BN1314,Cushion,1.97,E,VVS1,Very Good,27286,https://www.bluenile.com/diamond-details/1314,https://example.invalid/1314.jpg,Natural,GIA
+BN1315,Cushion,2.11,H,VVS2,Ideal,20234,https://www.bluenile.com/diamond-details/1315,https://example.invalid/1315.jpg,Natural,GIA
+BN1316,Cushion,1.99,G,VS2,Ideal,15269,https://www.bluenile.com/diamond-details/1316,https://example.invalid/1316.jpg,Natural,GIA
+LD1317,Cushion,2.16,F,VVS2,Ideal,3562,https://www.bluenile.com/diamond-details/1317,https://example.invalid/1317.jpg,Lab-Grown,IGI
+LD1318,Cushion,2.11,H,VS1,Ideal,2927,https://www.bluenile.com/diamond-details/1318,https://example.invalid/1318.jpg,Lab-Grown,IGI
+LD1319,Cushion,2.04,E,VS1,Very Good,3884,https://www.bluenile.com/diamond-details/1319,https://example.invalid/1319.jpg,Lab-Grown,IGI
+LD1320,Cushion,2.13,E,VVS1,Excellent,4539,https://www.bluenile.com/diamond-details/1320,https://example.invalid/1320.jpg,Lab-Grown,IGI
+BN1321,Cushion,2.47,E,VVS2,Ideal,33081,https://www.bluenile.com/diamond-details/1321,https://example.invalid/1321.jpg,Natural,GIA
+BN1322,Cushion,2.55,F,VS1,Ideal,28953,https://www.bluenile.com/diamond-details/1322,https://example.invalid/1322.jpg,Natural,GIA
+BN1323,Cushion,2.52,E,VVS2,Excellent,34000,https://www.bluenile.com/diamond-details/1323,https://example.invalid/1323.jpg,Natural,GIA
+BN1324,Cushion,2.48,G,VS1,Excellent,23103,https://www.bluenile.com/diamond-details/1324,https://example.invalid/1324.jpg,Natural,GIA
+LD1325,Cushion,2.66,F,VS1,Ideal,4423,https://www.bluenile.com/diamond-details/1325,https://example.invalid/1325.jpg,Lab-Grown,IGI
+LD1326,Cushion,2.56,G,VS2,Ideal,3368,https://www.bluenile.com/diamond-details/1326,https://example.invalid/1326.jpg,Lab-Grown,IGI
+LD1327,Cushion,2.45,F,VVS1,Excellent,4256,https://www.bluenile.com/diamond-details/1327,https://example.invalid/1327.jpg,Lab-Grown,IGI
+LD1328,Cushion,2.69,E,VVS2,Very Good,5370,https://www.bluenile.com/diamond-details/1328,https://example.invalid/1328.jpg,Lab-Grown,IGI
+BN1329,Cushion,3.14,E,VS2,Ideal,46545,https://www.bluenile.com/diamond-details/1329,https://example.invalid/1329.jpg,Natural,GIA
+BN1330,Cushion,3.12,H,VS1,Very Good,38037,https://www.bluenile.com/diamond-details/1330,https://example.invalid/1330.jpg,Natural,GIA
+BN1331,Cushion,3.18,F,VS1,Ideal,43564,https://www.bluenile.com/diamond-details/1331,https://example.invalid/1331.jpg,Natural,GIA
+BN1332,Cushion,3.19,E,VS2,Excellent,47401,https://www.bluenile.com/diamond-details/1332,https://example.invalid/1332.jpg,Natural,GIA
+LD1333,Cushion,3.19,F,VS1,Very Good,6953,https://www.bluenile.com/diamond-details/1333,https://example.invalid/1333.jpg,Lab-Grown,IGI
+LD1334,Cushion,3.09,G,VS2,Ideal,5389,https://www.bluenile.com/diamond-details/1334,https://example.invalid/1334.jpg,Lab-Grown,IGI
+LD1335,Cushion,3.04,E,VVS1,Very Good,8510,https://www.bluenile.com/diamond-details/1335,https://example.invalid/1335.jpg,Lab-Grown,IGI
+LD1336,Cushion,3.07,E,VVS1,Very Good,8169,https://www.bluenile.com/diamond-details/1336,https://example.invalid/1336.jpg,Lab-Grown,IGI
+BN1337,Cushion,4.12,D,VS1,Ideal,91492,https://www.bluenile.com/diamond-details/1337,https://example.invalid/1337.jpg,Natural,GIA
+BN1338,Cushion,4.2,G,VVS2,Ideal,76622,https://www.bluenile.com/diamond-details/1338,https://example.invalid/1338.jpg,Natural,GIA
+BN1339,Cushion,4.06,D,VS1,Excellent,86721,https://www.bluenile.com/diamond-details/1339,https://example.invalid/1339.jpg,Natural,GIA
+BN1340,Cushion,4.18,D,VS2,Ideal,81887,https://www.bluenile.com/diamond-details/1340,https://example.invalid/1340.jpg,Natural,GIA
+LD1341,Cushion,4.26,D,VVS1,Very Good,15652,https://www.bluenile.com/diamond-details/1341,https://example.invalid/1341.jpg,Lab-Grown,IGI
+LD1342,Cushion,3.86,G,VS1,Excellent,8629,https://www.bluenile.com/diamond-details/1342,https://example.invalid/1342.jpg,Lab-Grown,IGI
+LD1343,Cushion,4.03,G,VS1,Ideal,8907,https://www.bluenile.com/diamond-details/1343,https://example.invalid/1343.jpg,Lab-Grown,IGI
+LD1344,Cushion,4.06,H,VS2,Ideal,8175,https://www.bluenile.com/diamond-details/1344,https://example.invalid/1344.jpg,Lab-Grown,IGI
+BN1345,Cushion,5.03,G,VVS1,Ideal,88502,https://www.bluenile.com/diamond-details/1345,https://example.invalid/1345.jpg,Natural,GIA
+BN1346,Cushion,5.37,F,VS1,Very Good,98042,https://www.bluenile.com/diamond-details/1346,https://example.invalid/1346.jpg,Natural,GIA
+BN1347,Cushion,5.02,F,VVS2,Excellent,91258,https://www.bluenile.com/diamond-details/1347,https://example.invalid/1347.jpg,Natural,GIA
+BN1348,Cushion,4.86,D,VVS1,Ideal,124728,https://www.bluenile.com/diamond-details/1348,https://example.invalid/1348.jpg,Natural,GIA
+LD1349,Cushion,5.15,D,VVS1,Very Good,18223,https://www.bluenile.com/diamond-details/1349,https://example.invalid/1349.jpg,Lab-Grown,IGI
+LD1350,Cushion,4.83,G,VS2,Excellent,10729,https://www.bluenile.com/diamond-details/1350,https://example.invalid/1350.jpg,Lab-Grown,IGI
+LD1351,Cushion,5.2,H,VS1,Excellent,11085,https://www.bluenile.com/diamond-details/1351,https://example.invalid/1351.jpg,Lab-Grown,IGI
+LD1352,Cushion,5.25,D,VS1,Excellent,14864,https://www.bluenile.com/diamond-details/1352,https://example.invalid/1352.jpg,Lab-Grown,IGI
+BN1353,Emerald,0.25,E,VS2,Very Good,452,https://www.bluenile.com/diamond-details/1353,https://example.invalid/1353.jpg,Natural,GIA
+BN1354,Emerald,0.25,D,VS2,Very Good,460,https://www.bluenile.com/diamond-details/1354,https://example.invalid/1354.jpg,Natural,GIA
+BN1355,Emerald,0.27,H,VVS2,Very Good,445,https://www.bluenile.com/diamond-details/1355,https://example.invalid/1355.jpg,Natural,GIA
+BN1356,Emerald,0.25,F,VS2,Excellent,397,https://www.bluenile.com/diamond-details/1356,https://example.invalid/1356.jpg,Natural,GIA
+LD1357,Emerald,0.26,D,VVS1,Very Good,97,https://www.bluenile.com/diamond-details/1357,https://example.invalid/1357.jpg,Lab-Grown,IGI
+LD1358,Emerald,0.27,G,VVS1,Very Good,73,https://www.bluenile.com/diamond-details/1358,https://example.invalid/1358.jpg,Lab-Grown,IGI
+LD1359,Emerald,0.26,H,VS1,Ideal,54,https://www.bluenile.com/diamond-details/1359,https://example.invalid/1359.jpg,Lab-Grown,IGI
+LD1360,Emerald,0.26,D,VVS1,Very Good,90,https://www.bluenile.com/diamond-details/1360,https://example.invalid/1360.jpg,Lab-Grown,IGI
+BN1361,Emerald,0.52,G,VS2,Excellent,1266,https://www.bluenile.com/diamond-details/1361,https://example.invalid/1361.jpg,Natural,GIA
+BN1362,Emerald,0.49,D,VS1,Very Good,2110,https://www.bluenile.com/diamond-details/1362,https://example.invalid/1362.jpg,Natural,GIA
+BN1363,Emerald,0.51,F,VS1,Excellent,1725,https://www.bluenile.com/diamond-details/1363,https://example.invalid/1363.jpg,Natural,GIA
+BN1364,Emerald,0.49,D,VVS2,Excellent,2298,https://www.bluenile.com/diamond-details/1364,https://example.invalid/1364.jpg,Natural,GIA
+LD1365,Emerald,0.53,E,VS2,Excellent,257,https://www.bluenile.com/diamond-details/1365,https://example.invalid/1365.jpg,Lab-Grown,IGI
+LD1366,Emerald,0.53,G,VVS2,Very Good,284,https://www.bluenile.com/diamond-details/1366,https://example.invalid/1366.jpg,Lab-Grown,IGI
+LD1367,Emerald,0.53,D,VS2,Excellent,262,https://www.bluenile.com/diamond-details/1367,https://example.invalid/1367.jpg,Lab-Grown,IGI
+LD1368,Emerald,0.52,H,VS2,Ideal,185,https://www.bluenile.com/diamond-details/1368,https://example.invalid/1368.jpg,Lab-Grown,IGI
+BN1369,Emerald,0.79,E,VVS1,Ideal,4460,https://www.bluenile.com/diamond-details/1369,https://example.invalid/1369.jpg,Natural,GIA
+BN1370,Emerald,0.76,H,VVS1,Very Good,3005,https://www.bluenile.com/diamond-details/1370,https://example.invalid/1370.jpg,Natural,GIA
+BN1371,Emerald,0.73,D,VVS2,Very Good,4459,https://www.bluenile.com/diamond-details/1371,https://example.invalid/1371.jpg,Natural,GIA
+BN1372,Emerald,0.78,G,VVS1,Ideal,3369,https://www.bluenile.com/diamond-details/1372,https://example.invalid/1372.jpg,Natural,GIA
+LD1373,Emerald,0.81,H,VVS2,Very Good,435,https://www.bluenile.com/diamond-details/1373,https://example.invalid/1373.jpg,Lab-Grown,IGI
+LD1374,Emerald,0.78,H,VVS2,Excellent,469,https://www.bluenile.com/diamond-details/1374,https://example.invalid/1374.jpg,Lab-Grown,IGI
+LD1375,Emerald,0.82,E,VVS2,Very Good,649,https://www.bluenile.com/diamond-details/1375,https://example.invalid/1375.jpg,Lab-Grown,IGI
+LD1376,Emerald,0.76,G,VS1,Ideal,453,https://www.bluenile.com/diamond-details/1376,https://example.invalid/1376.jpg,Lab-Grown,IGI
+BN1377,Emerald,1.05,F,VVS2,Very Good,7305,https://www.bluenile.com/diamond-details/1377,https://example.invalid/1377.jpg,Natural,GIA
+BN1378,Emerald,1.04,D,VVS2,Excellent,9501,https://www.bluenile.com/diamond-details/1378,https://example.invalid/1378.jpg,Natural,GIA
+BN1379,Emerald,0.98,H,VVS1,Very Good,5780,https://www.bluenile.com/diamond-details/1379,https://example.invalid/1379.jpg,Natural,GIA
+BN1380,Emerald,1.03,G,VVS1,Excellent,6546,https://www.bluenile.com/diamond-details/1380,https://example.invalid/1380.jpg,Natural,GIA
+LD1381,Emerald,1.08,E,VVS2,Excellent,1312,https://www.bluenile.com/diamond-details/1381,https://example.invalid/1381.jpg,Lab-Grown,IGI
+LD1382,Emerald,1.01,E,VVS2,Very Good,1222,https://www.bluenile.com/diamond-details/1382,https://example.invalid/1382.jpg,Lab-Grown,IGI
+LD1383,Emerald,1.06,G,VS2,Ideal,833,https://www.bluenile.com/diamond-details/1383,https://example.invalid/1383.jpg,Lab-Grown,IGI
+LD1384,Emerald,1.06,E,VVS1,Ideal,1365,https://www.bluenile.com/diamond-details/1384,https://example.invalid/1384.jpg,Lab-Grown,IGI
+BN1385,Emerald,1.34,H,VVS2,Excellent,7615,https://www.bluenile.com/diamond-details/1385,https://example.invalid/1385.jpg,Natural,GIA
+BN1386,Emerald,1.23,E,VS1,Excellent,8077,https://www.bluenile.com/diamond-details/1386,https://example.invalid/1386.jpg,Natural,GIA
+BN1387,Emerald,1.25,H,VVS2,Excellent,6998,https://www.bluenile.com/diamond-details/1387,https://example.invalid/1387.jpg,Natural,GIA
+BN1388,Emerald,1.34,E,VS2,Ideal,9446,https://www.bluenile.com/diamond-details/1388,https://example.invalid/1388.jpg,Natural,GIA
+LD1389,Emerald,1.26,D,VVS2,Very Good,1662,https://www.bluenile.com/diamond-details/1389,https://example.invalid/1389.jpg,Lab-Grown,IGI
+LD1390,Emerald,1.23,H,VS2,Excellent,837,https://www.bluenile.com/diamond-details/1390,https://example.invalid/1390.jpg,Lab-Grown,IGI
+LD1391,Emerald,1.3,D,VS2,Excellent,1288,https://www.bluenile.com/diamond-details/1391,https://example.invalid/1391.jpg,Lab-Grown,IGI
+LD1392,Emerald,1.28,H,VS1,Ideal,941,https://www.bluenile.com/diamond-details/1392,https://example.invalid/1392.jpg,Lab-Grown,IGI
+BN1393,Emerald,1.52,G,VS1,Very Good,10333,https://www.bluenile.com/diamond-details/1393,https://example.invalid/1393.jpg,Natural,GIA
+BN1394,Emerald,1.51,E,VVS1,Very Good,14621,https://www.bluenile.com/diamond-details/1394,https://example.invalid/1394.jpg,Natural,GIA
+BN1395,Emerald,1.45,F,VVS1,Very Good,14053,https://www.bluenile.com/diamond-details/1395,https://example.invalid/1395.jpg,Natural,GIA
+BN1396,Emerald,1.61,G,VS2,Very Good,10897,https://www.bluenile.com/diamond-details/1396,https://example.invalid/1396.jpg,Natural,GIA
+LD1397,Emerald,1.49,H,VS1,Excellent,1479,https://www.bluenile.com/diamond-details/1397,https://example.invalid/1397.jpg,Lab-Grown,IGI
+LD1398,Emerald,1.54,E,VVS1,Ideal,2611,https://www.bluenile.com/diamond-details/1398,https://example.invalid/1398.jpg,Lab-Grown,IGI
+LD1399,Emerald,1.63,E,VS1,Ideal,1984,https://www.bluenile.com/diamond-details/1399,https://example.invalid/1399.jpg,Lab-Grown,IGI
+LD1400,Emerald,1.62,D,VS2,Very Good,2276,https://www.bluenile.com/diamond-details/1400,https://example.invalid/1400.jpg,Lab-Grown,IGI
+BN1401,Emerald,1.99,H,VVS1,Very Good,18032,https://www.bluenile.com/diamond-details/1401,https://example.invalid/1401.jpg,Natural,GIA
+BN1402,Emerald,2.0,D,VS1,Ideal,26138,https://www.bluenile.com/diamond-details/1402,https://example.invalid/1402.jpg,Natural,GIA
+BN1403,Emerald,2.07,G,VS2,Ideal,17492,https://www.bluenile.com/diamond-details/1403,https://example.invalid/1403.jpg,Natural,GIA
+BN1404,Emerald,1.99,D,VVS2,Very Good,27755,https://www.bluenile.com/diamond-details/1404,https://example.invalid/1404.jpg,Natural,GIA
+LD1405,Emerald,2.03,E,VS2,Very Good,3215,https://www.bluenile.com/diamond-details/1405,https://example.invalid/1405.jpg,Lab-Grown,IGI
+LD1406,Emerald,2.13,E,VS1,Excellent,3419,https://www.bluenile.com/diamond-details/1406,https://example.invalid/1406.jpg,Lab-Grown,IGI
+LD1407,Emerald,2.15,E,VVS1,Ideal,4863,https://www.bluenile.com/diamond-details/1407,https://example.invalid/1407.jpg,Lab-Grown,IGI
+LD1408,Emerald,2.14,D,VVS1,Ideal,5241,https://www.bluenile.com/diamond-details/1408,https://example.invalid/1408.jpg,Lab-Grown,IGI
+BN1409,Emerald,2.67,G,VS2,Very Good,23277,https://www.bluenile.com/diamond-details/1409,https://example.invalid/1409.jpg,Natural,GIA
+BN1410,Emerald,2.51,D,VS1,Excellent,33037,https://www.bluenile.com/diamond-details/1410,https://example.invalid/1410.jpg,Natural,GIA
+BN1411,Emerald,2.69,G,VS1,Ideal,23976,https://www.bluenile.com/diamond-details/1411,https://example.invalid/1411.jpg,Natural,GIA
+BN1412,Emerald,2.48,D,VVS2,Ideal,35212,https://www.bluenile.com/diamond-details/1412,https://example.invalid/1412.jpg,Natural,GIA
+LD1413,Emerald,2.51,E,VVS2,Ideal,4872,https://www.bluenile.com/diamond-details/1413,https://example.invalid/1413.jpg,Lab-Grown,IGI
+LD1414,Emerald,2.55,G,VS2,Excellent,3026,https://www.bluenile.com/diamond-details/1414,https://example.invalid/1414.jpg,Lab-Grown,IGI
+LD1415,Emerald,2.42,E,VVS1,Very Good,5350,https://www.bluenile.com/diamond-details/1415,https://example.invalid/1415.jpg,Lab-Grown,IGI
+LD1416,Emerald,2.48,E,VVS2,Ideal,4757,https://www.bluenile.com/diamond-details/1416,https://example.invalid/1416.jpg,Lab-Grown,IGI
+BN1417,Emerald,3.27,E,VS2,Ideal,45973,https://www.bluenile.com/diamond-details/1417,https://example.invalid/1417.jpg,Natural,GIA
+BN1418,Emerald,3.23,D,VVS2,Excellent,56826,https://www.bluenile.com/diamond-details/1418,https://example.invalid/1418.jpg,Natural,GIA
+BN1419,Emerald,2.89,H,VVS2,Ideal,36571,https://www.bluenile.com/diamond-details/1419,https://example.invalid/1419.jpg,Natural,GIA
+BN1420,Emerald,2.88,H,VVS2,Ideal,34081,https://www.bluenile.com/diamond-details/1420,https://example.invalid/1420.jpg,Natural,GIA
+LD1421,Emerald,2.9,G,VS1,Very Good,5257,https://www.bluenile.com/diamond-details/1421,https://example.invalid/1421.jpg,Lab-Grown,IGI
+LD1422,Emerald,2.93,E,VS1,Very Good,7244,https://www.bluenile.com/diamond-details/1422,https://example.invalid/1422.jpg,Lab-Grown,IGI
+LD1423,Emerald,3.11,D,VVS1,Very Good,9907,https://www.bluenile.com/diamond-details/1423,https://example.invalid/1423.jpg,Lab-Grown,IGI
+LD1424,Emerald,2.96,H,VS1,Very Good,5139,https://www.bluenile.com/diamond-details/1424,https://example.invalid/1424.jpg,Lab-Grown,IGI
+BN1425,Emerald,3.85,H,VVS1,Very Good,67365,https://www.bluenile.com/diamond-details/1425,https://example.invalid/1425.jpg,Natural,GIA
+BN1426,Emerald,4.11,F,VVS2,Excellent,77205,https://www.bluenile.com/diamond-details/1426,https://example.invalid/1426.jpg,Natural,GIA
+BN1427,Emerald,4.29,G,VS2,Ideal,54240,https://www.bluenile.com/diamond-details/1427,https://example.invalid/1427.jpg,Natural,GIA
+BN1428,Emerald,3.91,F,VS1,Ideal,64898,https://www.bluenile.com/diamond-details/1428,https://example.invalid/1428.jpg,Natural,GIA
+LD1429,Emerald,3.86,F,VS2,Ideal,9054,https://www.bluenile.com/diamond-details/1429,https://example.invalid/1429.jpg,Lab-Grown,IGI
+LD1430,Emerald,4.34,D,VS2,Very Good,11951,https://www.bluenile.com/diamond-details/1430,https://example.invalid/1430.jpg,Lab-Grown,IGI
+LD1431,Emerald,4.26,F,VVS1,Very Good,13578,https://www.bluenile.com/diamond-details/1431,https://example.invalid/1431.jpg,Lab-Grown,IGI
+LD1432,Emerald,3.99,D,VVS1,Very Good,14548,https://www.bluenile.com/diamond-details/1432,https://example.invalid/1432.jpg,Lab-Grown,IGI
+BN1433,Emerald,5.14,H,VS1,Very Good,64411,https://www.bluenile.com/diamond-details/1433,https://example.invalid/1433.jpg,Natural,GIA
+BN1434,Emerald,4.95,E,VS1,Ideal,87715,https://www.bluenile.com/diamond-details/1434,https://example.invalid/1434.jpg,Natural,GIA
+BN1435,Emerald,5.16,D,VS2,Excellent,89653,https://www.bluenile.com/diamond-details/1435,https://example.invalid/1435.jpg,Natural,GIA
+BN1436,Emerald,5.28,F,VS2,Excellent,90743,https://www.bluenile.com/diamond-details/1436,https://example.invalid/1436.jpg,Natural,GIA
+LD1437,Emerald,5.17,H,VS1,Very Good,11184,https://www.bluenile.com/diamond-details/1437,https://example.invalid/1437.jpg,Lab-Grown,IGI
+LD1438,Emerald,5.03,D,VS1,Very Good,14259,https://www.bluenile.com/diamond-details/1438,https://example.invalid/1438.jpg,Lab-Grown,IGI
+LD1439,Emerald,5.1,H,VVS2,Very Good,10842,https://www.bluenile.com/diamond-details/1439,https://example.invalid/1439.jpg,Lab-Grown,IGI
+LD1440,Emerald,5.06,E,VS1,Very Good,15666,https://www.bluenile.com/diamond-details/1440,https://example.invalid/1440.jpg,Lab-Grown,IGI
+BN1441,Pear,0.26,G,VVS1,Very Good,441,https://www.bluenile.com/diamond-details/1441,https://example.invalid/1441.jpg,Natural,GIA
+BN1442,Pear,0.27,G,VVS1,Excellent,501,https://www.bluenile.com/diamond-details/1442,https://example.invalid/1442.jpg,Natural,GIA
+BN1443,Pear,0.26,G,VS2,Ideal,384,https://www.bluenile.com/diamond-details/1443,https://example.invalid/1443.jpg,Natural,GIA
+BN1444,Pear,0.25,F,VVS1,Excellent,559,https://www.bluenile.com/diamond-details/1444,https://example.invalid/1444.jpg,Natural,GIA
+LD1445,Pear,0.27,F,VVS1,Very Good,91,https://www.bluenile.com/diamond-details/1445,https://example.invalid/1445.jpg,Lab-Grown,IGI
+LD1446,Pear,0.25,E,VVS2,Ideal,76,https://www.bluenile.com/diamond-details/1446,https://example.invalid/1446.jpg,Lab-Grown,IGI
+LD1447,Pear,0.26,D,VVS2,Very Good,83,https://www.bluenile.com/diamond-details/1447,https://example.invalid/1447.jpg,Lab-Grown,IGI
+LD1448,Pear,0.24,G,VS1,Very Good,55,https://www.bluenile.com/diamond-details/1448,https://example.invalid/1448.jpg,Lab-Grown,IGI
+BN1449,Pear,0.49,G,VVS1,Ideal,1815,https://www.bluenile.com/diamond-details/1449,https://example.invalid/1449.jpg,Natural,GIA
+BN1450,Pear,0.52,D,VS2,Excellent,2034,https://www.bluenile.com/diamond-details/1450,https://example.invalid/1450.jpg,Natural,GIA
+BN1451,Pear,0.5,H,VVS2,Very Good,1520,https://www.bluenile.com/diamond-details/1451,https://example.invalid/1451.jpg,Natural,GIA
+BN1452,Pear,0.52,F,VS2,Ideal,1621,https://www.bluenile.com/diamond-details/1452,https://example.invalid/1452.jpg,Natural,GIA
+LD1453,Pear,0.5,D,VVS2,Ideal,308,https://www.bluenile.com/diamond-details/1453,https://example.invalid/1453.jpg,Lab-Grown,IGI
+LD1454,Pear,0.52,D,VS2,Excellent,290,https://www.bluenile.com/diamond-details/1454,https://example.invalid/1454.jpg,Lab-Grown,IGI
+LD1455,Pear,0.54,D,VVS1,Very Good,391,https://www.bluenile.com/diamond-details/1455,https://example.invalid/1455.jpg,Lab-Grown,IGI
+LD1456,Pear,0.51,H,VS1,Ideal,220,https://www.bluenile.com/diamond-details/1456,https://example.invalid/1456.jpg,Lab-Grown,IGI
+BN1457,Pear,0.78,F,VS1,Excellent,3513,https://www.bluenile.com/diamond-details/1457,https://example.invalid/1457.jpg,Natural,GIA
+BN1458,Pear,0.77,G,VS1,Very Good,2966,https://www.bluenile.com/diamond-details/1458,https://example.invalid/1458.jpg,Natural,GIA
+BN1459,Pear,0.77,F,VVS1,Ideal,4221,https://www.bluenile.com/diamond-details/1459,https://example.invalid/1459.jpg,Natural,GIA
+BN1460,Pear,0.78,G,VVS2,Ideal,2932,https://www.bluenile.com/diamond-details/1460,https://example.invalid/1460.jpg,Natural,GIA
+LD1461,Pear,0.74,H,VVS1,Ideal,483,https://www.bluenile.com/diamond-details/1461,https://example.invalid/1461.jpg,Lab-Grown,IGI
+LD1462,Pear,0.72,F,VS1,Very Good,498,https://www.bluenile.com/diamond-details/1462,https://example.invalid/1462.jpg,Lab-Grown,IGI
+LD1463,Pear,0.75,F,VVS1,Very Good,546,https://www.bluenile.com/diamond-details/1463,https://example.invalid/1463.jpg,Lab-Grown,IGI
+LD1464,Pear,0.75,D,VS1,Excellent,574,https://www.bluenile.com/diamond-details/1464,https://example.invalid/1464.jpg,Lab-Grown,IGI
+BN1465,Pear,1.07,G,VS2,Ideal,5583,https://www.bluenile.com/diamond-details/1465,https://example.invalid/1465.jpg,Natural,GIA
+BN1466,Pear,1.01,D,VS1,Excellent,8562,https://www.bluenile.com/diamond-details/1466,https://example.invalid/1466.jpg,Natural,GIA
+BN1467,Pear,1.06,E,VVS1,Ideal,8665,https://www.bluenile.com/diamond-details/1467,https://example.invalid/1467.jpg,Natural,GIA
+BN1468,Pear,0.98,E,VVS2,Excellent,8271,https://www.bluenile.com/diamond-details/1468,https://example.invalid/1468.jpg,Natural,GIA
+LD1469,Pear,0.97,G,VVS2,Excellent,976,https://www.bluenile.com/diamond-details/1469,https://example.invalid/1469.jpg,Lab-Grown,IGI
+LD1470,Pear,1.04,E,VVS1,Very Good,1416,https://www.bluenile.com/diamond-details/1470,https://example.invalid/1470.jpg,Lab-Grown,IGI
+LD1471,Pear,1.01,H,VS2,Excellent,709,https://www.bluenile.com/diamond-details/1471,https://example.invalid/1471.jpg,Lab-Grown,IGI
+LD1472,Pear,0.98,F,VS2,Ideal,858,https://www.bluenile.com/diamond-details/1472,https://example.invalid/1472.jpg,Lab-Grown,IGI
+BN1473,Pear,1.31,F,VVS2,Ideal,9161,https://www.bluenile.com/diamond-details/1473,https://example.invalid/1473.jpg,Natural,GIA
+BN1474,Pear,1.29,H,VVS1,Very Good,8081,https://www.bluenile.com/diamond-details/1474,https://example.invalid/1474.jpg,Natural,GIA
+BN1475,Pear,1.33,G,VVS1,Very Good,8890,https://www.bluenile.com/diamond-details/1475,https://example.invalid/1475.jpg,Natural,GIA
+BN1476,Pear,1.29,E,VVS1,Excellent,11065,https://www.bluenile.com/diamond-details/1476,https://example.invalid/1476.jpg,Natural,GIA
+LD1477,Pear,1.24,F,VVS2,Excellent,1484,https://www.bluenile.com/diamond-details/1477,https://example.invalid/1477.jpg,Lab-Grown,IGI
+LD1478,Pear,1.34,F,VS1,Very Good,1447,https://www.bluenile.com/diamond-details/1478,https://example.invalid/1478.jpg,Lab-Grown,IGI
+LD1479,Pear,1.2,F,VVS1,Excellent,1343,https://www.bluenile.com/diamond-details/1479,https://example.invalid/1479.jpg,Lab-Grown,IGI
+LD1480,Pear,1.33,H,VVS1,Excellent,1218,https://www.bluenile.com/diamond-details/1480,https://example.invalid/1480.jpg,Lab-Grown,IGI
+BN1481,Pear,1.58,G,VVS1,Very Good,13256,https://www.bluenile.com/diamond-details/1481,https://example.invalid/1481.jpg,Natural,GIA
+BN1482,Pear,1.56,F,VVS1,Excellent,16517,https://www.bluenile.com/diamond-details/1482,https://example.invalid/1482.jpg,Natural,GIA
+BN1483,Pear,1.45,E,VS2,Excellent,11568,https://www.bluenile.com/diamond-details/1483,https://example.invalid/1483.jpg,Natural,GIA
+BN1484,Pear,1.52,H,VS1,Ideal,10524,https://www.bluenile.com/diamond-details/1484,https://example.invalid/1484.jpg,Natural,GIA
+LD1485,Pear,1.53,G,VVS2,Excellent,1890,https://www.bluenile.com/diamond-details/1485,https://example.invalid/1485.jpg,Lab-Grown,IGI
+LD1486,Pear,1.6,E,VVS2,Very Good,2292,https://www.bluenile.com/diamond-details/1486,https://example.invalid/1486.jpg,Lab-Grown,IGI
+LD1487,Pear,1.6,H,VS1,Ideal,1424,https://www.bluenile.com/diamond-details/1487,https://example.invalid/1487.jpg,Lab-Grown,IGI
+LD1488,Pear,1.57,H,VVS1,Excellent,1838,https://www.bluenile.com/diamond-details/1488,https://example.invalid/1488.jpg,Lab-Grown,IGI
+BN1489,Pear,2.0,H,VS1,Very Good,16846,https://www.bluenile.com/diamond-details/1489,https://example.invalid/1489.jpg,Natural,GIA
+BN1490,Pear,2.03,D,VS2,Excellent,22610,https://www.bluenile.com/diamond-details/1490,https://example.invalid/1490.jpg,Natural,GIA
+BN1491,Pear,2.09,D,VVS1,Very Good,28127,https://www.bluenile.com/diamond-details/1491,https://example.invalid/1491.jpg,Natural,GIA
+BN1492,Pear,2.0,H,VS2,Ideal,16576,https://www.bluenile.com/diamond-details/1492,https://example.invalid/1492.jpg,Natural,GIA
+LD1493,Pear,2.14,H,VS2,Very Good,2538,https://www.bluenile.com/diamond-details/1493,https://example.invalid/1493.jpg,Lab-Grown,IGI
+LD1494,Pear,1.97,H,VVS2,Excellent,2963,https://www.bluenile.com/diamond-details/1494,https://example.invalid/1494.jpg,Lab-Grown,IGI
+LD1495,Pear,2.05,E,VS1,Very Good,3530,https://www.bluenile.com/diamond-details/1495,https://example.invalid/1495.jpg,Lab-Grown,IGI
+LD1496,Pear,1.96,H,VS2,Very Good,2037,https://www.bluenile.com/diamond-details/1496,https://example.invalid/1496.jpg,Lab-Grown,IGI
+BN1497,Pear,2.46,H,VVS1,Excellent,26046,https://www.bluenile.com/diamond-details/1497,https://example.invalid/1497.jpg,Natural,GIA
+BN1498,Pear,2.54,D,VS2,Excellent,30222,https://www.bluenile.com/diamond-details/1498,https://example.invalid/1498.jpg,Natural,GIA
+BN1499,Pear,2.5,E,VVS2,Very Good,30951,https://www.bluenile.com/diamond-details/1499,https://example.invalid/1499.jpg,Natural,GIA
+BN1500,Pear,2.49,D,VS2,Ideal,27709,https://www.bluenile.com/diamond-details/1500,https://example.invalid/1500.jpg,Natural,GIA
+LD1501,Pear,2.6,D,VS2,Ideal,4225,https://www.bluenile.com/diamond-details/1501,https://example.invalid/1501.jpg,Lab-Grown,IGI
+LD1502,Pear,2.59,D,VVS1,Very Good,5279,https://www.bluenile.com/diamond-details/1502,https://example.invalid/1502.jpg,Lab-Grown,IGI
+LD1503,Pear,2.48,D,VS1,Very Good,5100,https://www.bluenile.com/diamond-details/1503,https://example.invalid/1503.jpg,Lab-Grown,IGI
+LD1504,Pear,2.5,G,VVS2,Ideal,3825,https://www.bluenile.com/diamond-details/1504,https://example.invalid/1504.jpg,Lab-Grown,IGI
+BN1505,Pear,3.25,G,VS2,Ideal,35453,https://www.bluenile.com/diamond-details/1505,https://example.invalid/1505.jpg,Natural,GIA
+BN1506,Pear,3.14,H,VS1,Ideal,35130,https://www.bluenile.com/diamond-details/1506,https://example.invalid/1506.jpg,Natural,GIA
+BN1507,Pear,3.22,G,VS2,Very Good,39198,https://www.bluenile.com/diamond-details/1507,https://example.invalid/1507.jpg,Natural,GIA
+BN1508,Pear,2.91,E,VVS2,Very Good,49799,https://www.bluenile.com/diamond-details/1508,https://example.invalid/1508.jpg,Natural,GIA
+LD1509,Pear,3.26,F,VVS1,Very Good,8511,https://www.bluenile.com/diamond-details/1509,https://example.invalid/1509.jpg,Lab-Grown,IGI
+LD1510,Pear,3.01,G,VVS2,Very Good,6212,https://www.bluenile.com/diamond-details/1510,https://example.invalid/1510.jpg,Lab-Grown,IGI
+LD1511,Pear,3.25,G,VVS2,Ideal,6913,https://www.bluenile.com/diamond-details/1511,https://example.invalid/1511.jpg,Lab-Grown,IGI
+LD1512,Pear,2.95,F,VVS2,Very Good,6764,https://www.bluenile.com/diamond-details/1512,https://example.invalid/1512.jpg,Lab-Grown,IGI
+BN1513,Pear,3.99,D,VVS2,Very Good,97611,https://www.bluenile.com/diamond-details/1513,https://example.invalid/1513.jpg,Natural,GIA
+BN1514,Pear,4.21,D,VS1,Very Good,83494,https://www.bluenile.com/diamond-details/1514,https://example.invalid/1514.jpg,Natural,GIA
+BN1515,Pear,4.13,G,VS1,Ideal,59267,https://www.bluenile.com/diamond-details/1515,https://example.invalid/1515.jpg,Natural,GIA
+BN1516,Pear,3.95,G,VVS1,Excellent,73750,https://www.bluenile.com/diamond-details/1516,https://example.invalid/1516.jpg,Natural,GIA
+LD1517,Pear,3.95,G,VS1,Ideal,8627,https://www.bluenile.com/diamond-details/1517,https://example.invalid/1517.jpg,Lab-Grown,IGI
+LD1518,Pear,4.19,F,VVS1,Ideal,13385,https://www.bluenile.com/diamond-details/1518,https://example.invalid/1518.jpg,Lab-Grown,IGI
+LD1519,Pear,4.12,G,VS1,Very Good,8804,https://www.bluenile.com/diamond-details/1519,https://example.invalid/1519.jpg,Lab-Grown,IGI
+LD1520,Pear,4.19,D,VVS2,Ideal,15176,https://www.bluenile.com/diamond-details/1520,https://example.invalid/1520.jpg,Lab-Grown,IGI
+BN1521,Pear,4.82,H,VS1,Ideal,64277,https://www.bluenile.com/diamond-details/1521,https://example.invalid/1521.jpg,Natural,GIA
+BN1522,Pear,5.26,E,VS1,Excellent,97631,https://www.bluenile.com/diamond-details/1522,https://example.invalid/1522.jpg,Natural,GIA
+BN1523,Pear,5.38,D,VVS2,Ideal,131624,https://www.bluenile.com/diamond-details/1523,https://example.invalid/1523.jpg,Natural,GIA
+BN1524,Pear,4.93,F,VS2,Very Good,75030,https://www.bluenile.com/diamond-details/1524,https://example.invalid/1524.jpg,Natural,GIA
+LD1525,Pear,5.33,G,VVS2,Ideal,13262,https://www.bluenile.com/diamond-details/1525,https://example.invalid/1525.jpg,Lab-Grown,IGI
+LD1526,Pear,5.3,E,VVS2,Ideal,15875,https://www.bluenile.com/diamond-details/1526,https://example.invalid/1526.jpg,Lab-Grown,IGI
+LD1527,Pear,5.24,F,VVS1,Excellent,14889,https://www.bluenile.com/diamond-details/1527,https://example.invalid/1527.jpg,Lab-Grown,IGI
+LD1528,Pear,5.25,E,VVS1,Excellent,17386,https://www.bluenile.com/diamond-details/1528,https://example.invalid/1528.jpg,Lab-Grown,IGI
+BN1529,Marquise,0.24,F,VS2,Excellent,369,https://www.bluenile.com/diamond-details/1529,https://example.invalid/1529.jpg,Natural,GIA
+BN1530,Marquise,0.26,D,VVS1,Very Good,580,https://www.bluenile.com/diamond-details/1530,https://example.invalid/1530.jpg,Natural,GIA
+BN1531,Marquise,0.25,F,VS1,Very Good,432,https://www.bluenile.com/diamond-details/1531,https://example.invalid/1531.jpg,Natural,GIA
+BN1532,Marquise,0.26,E,VS1,Excellent,508,https://www.bluenile.com/diamond-details/1532,https://example.invalid/1532.jpg,Natural,GIA
+LD1533,Marquise,0.26,G,VVS2,Very Good,72,https://www.bluenile.com/diamond-details/1533,https://example.invalid/1533.jpg,Lab-Grown,IGI
+LD1534,Marquise,0.27,F,VS2,Excellent,70,https://www.bluenile.com/diamond-details/1534,https://example.invalid/1534.jpg,Lab-Grown,IGI
+LD1535,Marquise,0.26,D,VS1,Very Good,84,https://www.bluenile.com/diamond-details/1535,https://example.invalid/1535.jpg,Lab-Grown,IGI
+LD1536,Marquise,0.27,E,VVS2,Very Good,91,https://www.bluenile.com/diamond-details/1536,https://example.invalid/1536.jpg,Lab-Grown,IGI
+BN1537,Marquise,0.51,G,VS1,Very Good,1448,https://www.bluenile.com/diamond-details/1537,https://example.invalid/1537.jpg,Natural,GIA
+BN1538,Marquise,0.5,G,VVS1,Excellent,1906,https://www.bluenile.com/diamond-details/1538,https://example.invalid/1538.jpg,Natural,GIA
+BN1539,Marquise,0.51,G,VS2,Very Good,1426,https://www.bluenile.com/diamond-details/1539,https://example.invalid/1539.jpg,Natural,GIA
+BN1540,Marquise,0.51,H,VS1,Very Good,1360,https://www.bluenile.com/diamond-details/1540,https://example.invalid/1540.jpg,Natural,GIA
+LD1541,Marquise,0.48,H,VVS2,Very Good,200,https://www.bluenile.com/diamond-details/1541,https://example.invalid/1541.jpg,Lab-Grown,IGI
+LD1542,Marquise,0.54,E,VVS2,Very Good,317,https://www.bluenile.com/diamond-details/1542,https://example.invalid/1542.jpg,Lab-Grown,IGI
+LD1543,Marquise,0.49,F,VVS1,Excellent,273,https://www.bluenile.com/diamond-details/1543,https://example.invalid/1543.jpg,Lab-Grown,IGI
+LD1544,Marquise,0.5,E,VVS1,Very Good,340,https://www.bluenile.com/diamond-details/1544,https://example.invalid/1544.jpg,Lab-Grown,IGI
+BN1545,Marquise,0.79,D,VVS1,Excellent,4368,https://www.bluenile.com/diamond-details/1545,https://example.invalid/1545.jpg,Natural,GIA
+BN1546,Marquise,0.75,F,VS1,Very Good,3474,https://www.bluenile.com/diamond-details/1546,https://example.invalid/1546.jpg,Natural,GIA
+BN1547,Marquise,0.78,E,VVS2,Very Good,4149,https://www.bluenile.com/diamond-details/1547,https://example.invalid/1547.jpg,Natural,GIA
+BN1548,Marquise,0.77,E,VS1,Ideal,3671,https://www.bluenile.com/diamond-details/1548,https://example.invalid/1548.jpg,Natural,GIA
+LD1549,Marquise,0.8,G,VS1,Ideal,414,https://www.bluenile.com/diamond-details/1549,https://example.invalid/1549.jpg,Lab-Grown,IGI
+LD1550,Marquise,0.72,G,VS1,Ideal,367,https://www.bluenile.com/diamond-details/1550,https://example.invalid/1550.jpg,Lab-Grown,IGI
+LD1551,Marquise,0.75,D,VVS2,Very Good,623,https://www.bluenile.com/diamond-details/1551,https://example.invalid/1551.jpg,Lab-Grown,IGI
+LD1552,Marquise,0.74,G,VVS1,Ideal,497,https://www.bluenile.com/diamond-details/1552,https://example.invalid/1552.jpg,Lab-Grown,IGI
+BN1553,Marquise,0.98,D,VS2,Ideal,6207,https://www.bluenile.com/diamond-details/1553,https://example.invalid/1553.jpg,Natural,GIA
+BN1554,Marquise,0.97,F,VVS2,Ideal,6523,https://www.bluenile.com/diamond-details/1554,https://example.invalid/1554.jpg,Natural,GIA
+BN1555,Marquise,1.08,G,VS1,Ideal,6528,https://www.bluenile.com/diamond-details/1555,https://example.invalid/1555.jpg,Natural,GIA
+BN1556,Marquise,0.96,D,VVS2,Excellent,8432,https://www.bluenile.com/diamond-details/1556,https://example.invalid/1556.jpg,Natural,GIA
+LD1557,Marquise,1.04,F,VS1,Excellent,940,https://www.bluenile.com/diamond-details/1557,https://example.invalid/1557.jpg,Lab-Grown,IGI
+LD1558,Marquise,0.96,G,VS1,Very Good,790,https://www.bluenile.com/diamond-details/1558,https://example.invalid/1558.jpg,Lab-Grown,IGI
+LD1559,Marquise,1.09,H,VS1,Excellent,775,https://www.bluenile.com/diamond-details/1559,https://example.invalid/1559.jpg,Lab-Grown,IGI
+LD1560,Marquise,1.07,H,VVS2,Excellent,894,https://www.bluenile.com/diamond-details/1560,https://example.invalid/1560.jpg,Lab-Grown,IGI
+BN1561,Marquise,1.33,F,VS1,Excellent,8519,https://www.bluenile.com/diamond-details/1561,https://example.invalid/1561.jpg,Natural,GIA
+BN1562,Marquise,1.35,F,VS1,Very Good,8095,https://www.bluenile.com/diamond-details/1562,https://example.invalid/1562.jpg,Natural,GIA
+BN1563,Marquise,1.29,G,VS2,Ideal,7305,https://www.bluenile.com/diamond-details/1563,https://example.invalid/1563.jpg,Natural,GIA
+BN1564,Marquise,1.27,E,VVS2,Excellent,10278,https://www.bluenile.com/diamond-details/1564,https://example.invalid/1564.jpg,Natural,GIA
+LD1565,Marquise,1.21,E,VS1,Excellent,1204,https://www.bluenile.com/diamond-details/1565,https://example.invalid/1565.jpg,Lab-Grown,IGI
+LD1566,Marquise,1.36,D,VS2,Ideal,1533,https://www.bluenile.com/diamond-details/1566,https://example.invalid/1566.jpg,Lab-Grown,IGI
+LD1567,Marquise,1.23,F,VS2,Excellent,1000,https://www.bluenile.com/diamond-details/1567,https://example.invalid/1567.jpg,Lab-Grown,IGI
+LD1568,Marquise,1.34,H,VVS1,Very Good,1136,https://www.bluenile.com/diamond-details/1568,https://example.invalid/1568.jpg,Lab-Grown,IGI
+BN1569,Marquise,1.57,H,VVS1,Very Good,12873,https://www.bluenile.com/diamond-details/1569,https://example.invalid/1569.jpg,Natural,GIA
+BN1570,Marquise,1.53,E,VS1,Very Good,13343,https://www.bluenile.com/diamond-details/1570,https://example.invalid/1570.jpg,Natural,GIA
+BN1571,Marquise,1.53,H,VVS2,Ideal,11067,https://www.bluenile.com/diamond-details/1571,https://example.invalid/1571.jpg,Natural,GIA
+BN1572,Marquise,1.46,F,VVS1,Excellent,13984,https://www.bluenile.com/diamond-details/1572,https://example.invalid/1572.jpg,Natural,GIA
+LD1573,Marquise,1.62,E,VVS1,Excellent,2804,https://www.bluenile.com/diamond-details/1573,https://example.invalid/1573.jpg,Lab-Grown,IGI
+LD1574,Marquise,1.46,D,VVS2,Ideal,2396,https://www.bluenile.com/diamond-details/1574,https://example.invalid/1574.jpg,Lab-Grown,IGI
+LD1575,Marquise,1.55,G,VVS2,Excellent,1837,https://www.bluenile.com/diamond-details/1575,https://example.invalid/1575.jpg,Lab-Grown,IGI
+LD1576,Marquise,1.47,F,VS2,Very Good,1763,https://www.bluenile.com/diamond-details/1576,https://example.invalid/1576.jpg,Lab-Grown,IGI
+BN1577,Marquise,2.1,G,VS2,Excellent,16589,https://www.bluenile.com/diamond-details/1577,https://example.invalid/1577.jpg,Natural,GIA
+BN1578,Marquise,2.02,H,VVS1,Very Good,19526,https://www.bluenile.com/diamond-details/1578,https://example.invalid/1578.jpg,Natural,GIA
+BN1579,Marquise,2.07,G,VVS2,Very Good,19810,https://www.bluenile.com/diamond-details/1579,https://example.invalid/1579.jpg,Natural,GIA
+BN1580,Marquise,2.17,E,VS2,Ideal,21771,https://www.bluenile.com/diamond-details/1580,https://example.invalid/1580.jpg,Natural,GIA
+LD1581,Marquise,2.09,E,VVS2,Very Good,4234,https://www.bluenile.com/diamond-details/1581,https://example.invalid/1581.jpg,Lab-Grown,IGI
+LD1582,Marquise,2.06,E,VS2,Excellent,3438,https://www.bluenile.com/diamond-details/1582,https://example.invalid/1582.jpg,Lab-Grown,IGI
+LD1583,Marquise,2.07,G,VS2,Very Good,2798,https://www.bluenile.com/diamond-details/1583,https://example.invalid/1583.jpg,Lab-Grown,IGI
+LD1584,Marquise,2.14,H,VS2,Excellent,2518,https://www.bluenile.com/diamond-details/1584,https://example.invalid/1584.jpg,Lab-Grown,IGI
+BN1585,Marquise,2.57,G,VVS1,Very Good,28650,https://www.bluenile.com/diamond-details/1585,https://example.invalid/1585.jpg,Natural,GIA
+BN1586,Marquise,2.58,D,VS1,Excellent,31741,https://www.bluenile.com/diamond-details/1586,https://example.invalid/1586.jpg,Natural,GIA
+BN1587,Marquise,2.42,E,VS2,Very Good,25056,https://www.bluenile.com/diamond-details/1587,https://example.invalid/1587.jpg,Natural,GIA
+BN1588,Marquise,2.63,E,VVS1,Excellent,34873,https://www.bluenile.com/diamond-details/1588,https://example.invalid/1588.jpg,Natural,GIA
+LD1589,Marquise,2.44,D,VS1,Excellent,4678,https://www.bluenile.com/diamond-details/1589,https://example.invalid/1589.jpg,Lab-Grown,IGI
+LD1590,Marquise,2.68,E,VVS2,Ideal,5467,https://www.bluenile.com/diamond-details/1590,https://example.invalid/1590.jpg,Lab-Grown,IGI
+LD1591,Marquise,2.66,D,VVS2,Ideal,5164,https://www.bluenile.com/diamond-details/1591,https://example.invalid/1591.jpg,Lab-Grown,IGI
+LD1592,Marquise,2.57,H,VVS2,Very Good,3757,https://www.bluenile.com/diamond-details/1592,https://example.invalid/1592.jpg,Lab-Grown,IGI
+BN1593,Marquise,3.2,F,VS2,Ideal,41099,https://www.bluenile.com/diamond-details/1593,https://example.invalid/1593.jpg,Natural,GIA
+BN1594,Marquise,3.19,D,VS2,Excellent,53738,https://www.bluenile.com/diamond-details/1594,https://example.invalid/1594.jpg,Natural,GIA
+BN1595,Marquise,2.97,F,VS1,Very Good,44882,https://www.bluenile.com/diamond-details/1595,https://example.invalid/1595.jpg,Natural,GIA
+BN1596,Marquise,3.21,H,VVS1,Very Good,39853,https://www.bluenile.com/diamond-details/1596,https://example.invalid/1596.jpg,Natural,GIA
+LD1597,Marquise,3.07,D,VVS2,Excellent,8173,https://www.bluenile.com/diamond-details/1597,https://example.invalid/1597.jpg,Lab-Grown,IGI
+LD1598,Marquise,3.24,G,VS1,Ideal,6256,https://www.bluenile.com/diamond-details/1598,https://example.invalid/1598.jpg,Lab-Grown,IGI
+LD1599,Marquise,3.09,F,VVS1,Ideal,7194,https://www.bluenile.com/diamond-details/1599,https://example.invalid/1599.jpg,Lab-Grown,IGI
+LD1600,Marquise,3.27,G,VVS1,Very Good,7880,https://www.bluenile.com/diamond-details/1600,https://example.invalid/1600.jpg,Lab-Grown,IGI
+BN1601,Marquise,3.88,H,VVS1,Very Good,67914,https://www.bluenile.com/diamond-details/1601,https://example.invalid/1601.jpg,Natural,GIA
+BN1602,Marquise,4.2,G,VVS1,Excellent,72300,https://www.bluenile.com/diamond-details/1602,https://example.invalid/1602.jpg,Natural,GIA
+BN1603,Marquise,4.11,F,VVS2,Ideal,81185,https://www.bluenile.com/diamond-details/1603,https://example.invalid/1603.jpg,Natural,GIA
+BN1604,Marquise,4.3,H,VS2,Ideal,51053,https://www.bluenile.com/diamond-details/1604,https://example.invalid/1604.jpg,Natural,GIA
+LD1605,Marquise,4.22,F,VVS1,Ideal,12952,https://www.bluenile.com/diamond-details/1605,https://example.invalid/1605.jpg,Lab-Grown,IGI
+LD1606,Marquise,4.0,F,VVS1,Very Good,12141,https://www.bluenile.com/diamond-details/1606,https://example.invalid/1606.jpg,Lab-Grown,IGI
+LD1607,Marquise,3.97,H,VS2,Excellent,7700,https://www.bluenile.com/diamond-details/1607,https://example.invalid/1607.jpg,Lab-Grown,IGI
+LD1608,Marquise,4.19,F,VVS1,Excellent,12558,https://www.bluenile.com/diamond-details/1608,https://example.invalid/1608.jpg,Lab-Grown,IGI
+BN1609,Marquise,5.44,F,VS1,Very Good,105826,https://www.bluenile.com/diamond-details/1609,https://example.invalid/1609.jpg,Natural,GIA
+BN1610,Marquise,5.39,D,VS1,Excellent,118206,https://www.bluenile.com/diamond-details/1610,https://example.invalid/1610.jpg,Natural,GIA
+BN1611,Marquise,5.17,D,VVS2,Very Good,126169,https://www.bluenile.com/diamond-details/1611,https://example.invalid/1611.jpg,Natural,GIA
+BN1612,Marquise,5.37,E,VS2,Ideal,90291,https://www.bluenile.com/diamond-details/1612,https://example.invalid/1612.jpg,Natural,GIA
+LD1613,Marquise,5.28,H,VS1,Excellent,10649,https://www.bluenile.com/diamond-details/1613,https://example.invalid/1613.jpg,Lab-Grown,IGI
+LD1614,Marquise,5.27,F,VS2,Excellent,13247,https://www.bluenile.com/diamond-details/1614,https://example.invalid/1614.jpg,Lab-Grown,IGI
+LD1615,Marquise,5.01,G,VVS2,Very Good,13848,https://www.bluenile.com/diamond-details/1615,https://example.invalid/1615.jpg,Lab-Grown,IGI
+LD1616,Marquise,5.45,E,VS1,Excellent,14810,https://www.bluenile.com/diamond-details/1616,https://example.invalid/1616.jpg,Lab-Grown,IGI
+BN1617,Radiant,0.25,G,VVS1,Ideal,461,https://www.bluenile.com/diamond-details/1617,https://example.invalid/1617.jpg,Natural,GIA
+BN1618,Radiant,0.27,H,VS2,Excellent,316,https://www.bluenile.com/diamond-details/1618,https://example.invalid/1618.jpg,Natural,GIA
+BN1619,Radiant,0.25,H,VVS2,Very Good,352,https://www.bluenile.com/diamond-details/1619,https://example.invalid/1619.jpg,Natural,GIA
+BN1620,Radiant,0.26,D,VS1,Ideal,519,https://www.bluenile.com/diamond-details/1620,https://example.invalid/1620.jpg,Natural,GIA
+LD1621,Radiant,0.27,F,VVS1,Very Good,89,https://www.bluenile.com/diamond-details/1621,https://example.invalid/1621.jpg,Lab-Grown,IGI
+LD1622,Radiant,0.27,F,VS1,Ideal,69,https://www.bluenile.com/diamond-details/1622,https://example.invalid/1622.jpg,Lab-Grown,IGI
+LD1623,Radiant,0.26,E,VVS2,Very Good,79,https://www.bluenile.com/diamond-details/1623,https://example.invalid/1623.jpg,Lab-Grown,IGI
+LD1624,Radiant,0.25,G,VVS1,Excellent,64,https://www.bluenile.com/diamond-details/1624,https://example.invalid/1624.jpg,Lab-Grown,IGI
+BN1625,Radiant,0.5,H,VS2,Excellent,1141,https://www.bluenile.com/diamond-details/1625,https://example.invalid/1625.jpg,Natural,GIA
+BN1626,Radiant,0.48,E,VS2,Excellent,1484,https://www.bluenile.com/diamond-details/1626,https://example.invalid/1626.jpg,Natural,GIA
+BN1627,Radiant,0.5,E,VS2,Excellent,1582,https://www.bluenile.com/diamond-details/1627,https://example.invalid/1627.jpg,Natural,GIA
+BN1628,Radiant,0.52,D,VVS2,Very Good,2508,https://www.bluenile.com/diamond-details/1628,https://example.invalid/1628.jpg,Natural,GIA
+LD1629,Radiant,0.5,D,VVS1,Excellent,349,https://www.bluenile.com/diamond-details/1629,https://example.invalid/1629.jpg,Lab-Grown,IGI
+LD1630,Radiant,0.53,E,VS2,Very Good,288,https://www.bluenile.com/diamond-details/1630,https://example.invalid/1630.jpg,Lab-Grown,IGI
+LD1631,Radiant,0.49,H,VVS2,Excellent,230,https://www.bluenile.com/diamond-details/1631,https://example.invalid/1631.jpg,Lab-Grown,IGI
+LD1632,Radiant,0.51,G,VS2,Ideal,187,https://www.bluenile.com/diamond-details/1632,https://example.invalid/1632.jpg,Lab-Grown,IGI
+BN1633,Radiant,0.78,F,VS2,Excellent,2998,https://www.bluenile.com/diamond-details/1633,https://example.invalid/1633.jpg,Natural,GIA
+BN1634,Radiant,0.79,F,VS1,Very Good,3122,https://www.bluenile.com/diamond-details/1634,https://example.invalid/1634.jpg,Natural,GIA
+BN1635,Radiant,0.74,H,VS2,Ideal,2200,https://www.bluenile.com/diamond-details/1635,https://example.invalid/1635.jpg,Natural,GIA
+BN1636,Radiant,0.76,H,VS1,Excellent,2639,https://www.bluenile.com/diamond-details/1636,https://example.invalid/1636.jpg,Natural,GIA
+LD1637,Radiant,0.78,E,VVS2,Ideal,645,https://www.bluenile.com/diamond-details/1637,https://example.invalid/1637.jpg,Lab-Grown,IGI
+LD1638,Radiant,0.79,F,VVS1,Ideal,609,https://www.bluenile.com/diamond-details/1638,https://example.invalid/1638.jpg,Lab-Grown,IGI
+LD1639,Radiant,0.77,F,VS1,Excellent,472,https://www.bluenile.com/diamond-details/1639,https://example.invalid/1639.jpg,Lab-Grown,IGI
+LD1640,Radiant,0.77,F,VS1,Very Good,545,https://www.bluenile.com/diamond-details/1640,https://example.invalid/1640.jpg,Lab-Grown,IGI
+BN1641,Radiant,1.01,D,VS2,Very Good,7267,https://www.bluenile.com/diamond-details/1641,https://example.invalid/1641.jpg,Natural,GIA
+BN1642,Radiant,0.97,H,VS1,Very Good,5049,https://www.bluenile.com/diamond-details/1642,https://example.invalid/1642.jpg,Natural,GIA
+BN1643,Radiant,0.99,H,VVS2,Very Good,5921,https://www.bluenile.com/diamond-details/1643,https://example.invalid/1643.jpg,Natural,GIA
+BN1644,Radiant,1.07,E,VS2,Excellent,6748,https://www.bluenile.com/diamond-details/1644,https://example.invalid/1644.jpg,Natural,GIA
+LD1645,Radiant,0.99,G,VS1,Ideal,873,https://www.bluenile.com/diamond-details/1645,https://example.invalid/1645.jpg,Lab-Grown,IGI
+LD1646,Radiant,1.08,G,VVS1,Very Good,1032,https://www.bluenile.com/diamond-details/1646,https://example.invalid/1646.jpg,Lab-Grown,IGI
+LD1647,Radiant,0.97,D,VS2,Ideal,1084,https://www.bluenile.com/diamond-details/1647,https://example.invalid/1647.jpg,Lab-Grown,IGI
+LD1648,Radiant,1.05,F,VS2,Ideal,891,https://www.bluenile.com/diamond-details/1648,https://example.invalid/1648.jpg,Lab-Grown,IGI
+BN1649,Radiant,1.27,G,VS1,Very Good,6583,https://www.bluenile.com/diamond-details/1649,https://example.invalid/1649.jpg,Natural,GIA
+BN1650,Radiant,1.24,G,VS1,Very Good,6712,https://www.bluenile.com/diamond-details/1650,https://example.invalid/1650.jpg,Natural,GIA
+BN1651,Radiant,1.25,G,VVS2,Ideal,7610,https://www.bluenile.com/diamond-details/1651,https://example.invalid/1651.jpg,Natural,GIA
+BN1652,Radiant,1.24,H,VS1,Ideal,6355,https://www.bluenile.com/diamond-details/1652,https://example.invalid/1652.jpg,Natural,GIA
+LD1653,Radiant,1.36,E,VVS2,Ideal,1547,https://www.bluenile.com/diamond-details/1653,https://example.invalid/1653.jpg,Lab-Grown,IGI
+LD1654,Radiant,1.2,E,VS1,Excellent,1241,https://www.bluenile.com/diamond-details/1654,https://example.invalid/1654.jpg,Lab-Grown,IGI
+LD1655,Radiant,1.3,G,VS1,Very Good,1133,https://www.bluenile.com/diamond-details/1655,https://example.invalid/1655.jpg,Lab-Grown,IGI
+LD1656,Radiant,1.34,F,VS2,Ideal,1269,https://www.bluenile.com/diamond-details/1656,https://example.invalid/1656.jpg,Lab-Grown,IGI
+BN1657,Radiant,1.48,E,VVS2,Very Good,15214,https://www.bluenile.com/diamond-details/1657,https://example.invalid/1657.jpg,Natural,GIA
+BN1658,Radiant,1.47,D,VS1,Very Good,15357,https://www.bluenile.com/diamond-details/1658,https://example.invalid/1658.jpg,Natural,GIA
+BN1659,Radiant,1.54,F,VS2,Ideal,12090,https://www.bluenile.com/diamond-details/1659,https://example.invalid/1659.jpg,Natural,GIA
+BN1660,Radiant,1.57,D,VVS1,Excellent,17335,https://www.bluenile.com/diamond-details/1660,https://example.invalid/1660.jpg,Natural,GIA
+LD1661,Radiant,1.58,F,VS2,Very Good,1802,https://www.bluenile.com/diamond-details/1661,https://example.invalid/1661.jpg,Lab-Grown,IGI
+LD1662,Radiant,1.59,D,VS2,Excellent,1940,https://www.bluenile.com/diamond-details/1662,https://example.invalid/1662.jpg,Lab-Grown,IGI
+LD1663,Radiant,1.49,G,VS2,Very Good,1519,https://www.bluenile.com/diamond-details/1663,https://example.invalid/1663.jpg,Lab-Grown,IGI
+LD1664,Radiant,1.63,F,VS2,Very Good,1966,https://www.bluenile.com/diamond-details/1664,https://example.invalid/1664.jpg,Lab-Grown,IGI
+BN1665,Radiant,2.17,E,VVS1,Very Good,26991,https://www.bluenile.com/diamond-details/1665,https://example.invalid/1665.jpg,Natural,GIA
+BN1666,Radiant,2.1,E,VS2,Ideal,22446,https://www.bluenile.com/diamond-details/1666,https://example.invalid/1666.jpg,Natural,GIA
+BN1667,Radiant,2.17,D,VVS2,Very Good,33238,https://www.bluenile.com/diamond-details/1667,https://example.invalid/1667.jpg,Natural,GIA
+BN1668,Radiant,2.11,F,VS1,Ideal,20488,https://www.bluenile.com/diamond-details/1668,https://example.invalid/1668.jpg,Natural,GIA
+LD1669,Radiant,1.94,D,VS1,Ideal,3680,https://www.bluenile.com/diamond-details/1669,https://example.invalid/1669.jpg,Lab-Grown,IGI
+LD1670,Radiant,2.13,F,VVS2,Excellent,3437,https://www.bluenile.com/diamond-details/1670,https://example.invalid/1670.jpg,Lab-Grown,IGI
+LD1671,Radiant,1.93,G,VVS2,Excellent,3031,https://www.bluenile.com/diamond-details/1671,https://example.invalid/1671.jpg,Lab-Grown,IGI
+LD1672,Radiant,2.03,F,VVS1,Excellent,3809,https://www.bluenile.com/diamond-details/1672,https://example.invalid/1672.jpg,Lab-Grown,IGI
+BN1673,Radiant,2.54,E,VVS1,Ideal,36915,https://www.bluenile.com/diamond-details/1673,https://example.invalid/1673.jpg,Natural,GIA
+BN1674,Radiant,2.66,D,VS1,Ideal,34300,https://www.bluenile.com/diamond-details/1674,https://example.invalid/1674.jpg,Natural,GIA
+BN1675,Radiant,2.63,G,VS1,Excellent,26192,https://www.bluenile.com/diamond-details/1675,https://example.invalid/1675.jpg,Natural,GIA
+BN1676,Radiant,2.44,H,VS2,Very Good,20191,https://www.bluenile.com/diamond-details/1676,https://example.invalid/1676.jpg,Natural,GIA
+LD1677,Radiant,2.53,H,VVS2,Ideal,3673,https://www.bluenile.com/diamond-details/1677,https://example.invalid/1677.jpg,Lab-Grown,IGI
+LD1678,Radiant,2.58,F,VVS1,Very Good,5382,https://www.bluenile.com/diamond-details/1678,https://example.invalid/1678.jpg,Lab-Grown,IGI
+LD1679,Radiant,2.55,G,VVS2,Ideal,4040,https://www.bluenile.com/diamond-details/1679,https://example.invalid/1679.jpg,Lab-Grown,IGI
+LD1680,Radiant,2.48,G,VVS2,Ideal,4021,https://www.bluenile.com/diamond-details/1680,https://example.invalid/1680.jpg,Lab-Grown,IGI
+BN1681,Radiant,3.26,F,VVS2,Excellent,48096,https://www.bluenile.com/diamond-details/1681,https://example.invalid/1681.jpg,Natural,GIA
+BN1682,Radiant,3.14,H,VVS2,Ideal,37764,https://www.bluenile.com/diamond-details/1682,https://example.invalid/1682.jpg,Natural,GIA
+BN1683,Radiant,3.21,F,VVS1,Very Good,55968,https://www.bluenile.com/diamond-details/1683,https://example.invalid/1683.jpg,Natural,GIA
+BN1684,Radiant,2.91,H,VVS2,Excellent,36920,https://www.bluenile.com/diamond-details/1684,https://example.invalid/1684.jpg,Natural,GIA
+LD1685,Radiant,2.95,F,VS1,Very Good,6661,https://www.bluenile.com/diamond-details/1685,https://example.invalid/1685.jpg,Lab-Grown,IGI
+LD1686,Radiant,3.2,G,VS1,Excellent,6243,https://www.bluenile.com/diamond-details/1686,https://example.invalid/1686.jpg,Lab-Grown,IGI
+LD1687,Radiant,3.22,D,VVS2,Ideal,8931,https://www.bluenile.com/diamond-details/1687,https://example.invalid/1687.jpg,Lab-Grown,IGI
+LD1688,Radiant,2.93,E,VVS2,Ideal,7515,https://www.bluenile.com/diamond-details/1688,https://example.invalid/1688.jpg,Lab-Grown,IGI
+BN1689,Radiant,4.03,H,VVS2,Very Good,61364,https://www.bluenile.com/diamond-details/1689,https://example.invalid/1689.jpg,Natural,GIA
+BN1690,Radiant,3.98,F,VVS1,Ideal,86550,https://www.bluenile.com/diamond-details/1690,https://example.invalid/1690.jpg,Natural,GIA
+BN1691,Radiant,4.17,E,VS1,Very Good,72340,https://www.bluenile.com/diamond-details/1691,https://example.invalid/1691.jpg,Natural,GIA
+BN1692,Radiant,4.03,H,VS1,Excellent,57227,https://www.bluenile.com/diamond-details/1692,https://example.invalid/1692.jpg,Natural,GIA
+LD1693,Radiant,4.02,G,VVS2,Very Good,9306,https://www.bluenile.com/diamond-details/1693,https://example.invalid/1693.jpg,Lab-Grown,IGI
+LD1694,Radiant,3.84,F,VS2,Ideal,9442,https://www.bluenile.com/diamond-details/1694,https://example.invalid/1694.jpg,Lab-Grown,IGI
+LD1695,Radiant,4.21,F,VVS2,Ideal,11798,https://www.bluenile.com/diamond-details/1695,https://example.invalid/1695.jpg,Lab-Grown,IGI
+LD1696,Radiant,4.27,D,VVS1,Very Good,16867,https://www.bluenile.com/diamond-details/1696,https://example.invalid/1696.jpg,Lab-Grown,IGI
+BN1697,Radiant,4.88,F,VVS2,Excellent,103915,https://www.bluenile.com/diamond-details/1697,https://example.invalid/1697.jpg,Natural,GIA
+BN1698,Radiant,5.09,F,VS2,Ideal,85432,https://www.bluenile.com/diamond-details/1698,https://example.invalid/1698.jpg,Natural,GIA
+BN1699,Radiant,5.43,G,VVS2,Ideal,90006,https://www.bluenile.com/diamond-details/1699,https://example.invalid/1699.jpg,Natural,GIA
+BN1700,Radiant,5.35,E,VS1,Excellent,112827,https://www.bluenile.com/diamond-details/1700,https://example.invalid/1700.jpg,Natural,GIA
+LD1701,Radiant,5.18,D,VS1,Very Good,15603,https://www.bluenile.com/diamond-details/1701,https://example.invalid/1701.jpg,Lab-Grown,IGI
+LD1702,Radiant,4.85,G,VVS1,Ideal,12958,https://www.bluenile.com/diamond-details/1702,https://example.invalid/1702.jpg,Lab-Grown,IGI
+LD1703,Radiant,5.12,D,VS2,Ideal,14785,https://www.bluenile.com/diamond-details/1703,https://example.invalid/1703.jpg,Lab-Grown,IGI
+LD1704,Radiant,5.41,G,VVS1,Very Good,16231,https://www.bluenile.com/diamond-details/1704,https://example.invalid/1704.jpg,Lab-Grown,IGI
+BN1705,Asscher,0.27,G,VVS1,Excellent,491,https://www.bluenile.com/diamond-details/1705,https://example.invalid/1705.jpg,Natural,GIA
+BN1706,Asscher,0.26,D,VS1,Ideal,567,https://www.bluenile.com/diamond-details/1706,https://example.invalid/1706.jpg,Natural,GIA
+BN1707,Asscher,0.26,F,VVS2,Ideal,538,https://www.bluenile.com/diamond-details/1707,https://example.invalid/1707.jpg,Natural,GIA
+BN1708,Asscher,0.24,E,VS2,Very Good,426,https://www.bluenile.com/diamond-details/1708,https://example.invalid/1708.jpg,Natural,GIA
+LD1709,Asscher,0.24,D,VS1,Very Good,76,https://www.bluenile.com/diamond-details/1709,https://example.invalid/1709.jpg,Lab-Grown,IGI
+LD1710,Asscher,0.27,E,VVS2,Very Good,86,https://www.bluenile.com/diamond-details/1710,https://example.invalid/1710.jpg,Lab-Grown,IGI
+LD1711,Asscher,0.26,G,VS1,Very Good,66,https://www.bluenile.com/diamond-details/1711,https://example.invalid/1711.jpg,Lab-Grown,IGI
+LD1712,Asscher,0.27,E,VVS2,Excellent,84,https://www.bluenile.com/diamond-details/1712,https://example.invalid/1712.jpg,Lab-Grown,IGI
+BN1713,Asscher,0.54,E,VVS2,Very Good,2232,https://www.bluenile.com/diamond-details/1713,https://example.invalid/1713.jpg,Natural,GIA
+BN1714,Asscher,0.5,F,VVS2,Excellent,1915,https://www.bluenile.com/diamond-details/1714,https://example.invalid/1714.jpg,Natural,GIA
+BN1715,Asscher,0.54,D,VVS2,Ideal,2307,https://www.bluenile.com/diamond-details/1715,https://example.invalid/1715.jpg,Natural,GIA
+BN1716,Asscher,0.53,H,VVS2,Very Good,1510,https://www.bluenile.com/diamond-details/1716,https://example.invalid/1716.jpg,Natural,GIA
+LD1717,Asscher,0.48,H,VVS2,Excellent,232,https://www.bluenile.com/diamond-details/1717,https://example.invalid/1717.jpg,Lab-Grown,IGI
+LD1718,Asscher,0.51,H,VS1,Ideal,199,https://www.bluenile.com/diamond-details/1718,https://example.invalid/1718.jpg,Lab-Grown,IGI
+LD1719,Asscher,0.49,H,VS2,Very Good,187,https://www.bluenile.com/diamond-details/1719,https://example.invalid/1719.jpg,Lab-Grown,IGI
+LD1720,Asscher,0.51,G,VVS2,Very Good,229,https://www.bluenile.com/diamond-details/1720,https://example.invalid/1720.jpg,Lab-Grown,IGI
+BN1721,Asscher,0.8,F,VS1,Excellent,3586,https://www.bluenile.com/diamond-details/1721,https://example.invalid/1721.jpg,Natural,GIA
+BN1722,Asscher,0.78,G,VVS1,Very Good,3243,https://www.bluenile.com/diamond-details/1722,https://example.invalid/1722.jpg,Natural,GIA
+BN1723,Asscher,0.73,G,VS2,Very Good,2258,https://www.bluenile.com/diamond-details/1723,https://example.invalid/1723.jpg,Natural,GIA
+BN1724,Asscher,0.8,G,VS1,Excellent,2701,https://www.bluenile.com/diamond-details/1724,https://example.invalid/1724.jpg,Natural,GIA
+LD1725,Asscher,0.77,E,VVS1,Excellent,603,https://www.bluenile.com/diamond-details/1725,https://example.invalid/1725.jpg,Lab-Grown,IGI
+LD1726,Asscher,0.79,F,VS1,Very Good,513,https://www.bluenile.com/diamond-details/1726,https://example.invalid/1726.jpg,Lab-Grown,IGI
+LD1727,Asscher,0.73,E,VS2,Very Good,462,https://www.bluenile.com/diamond-details/1727,https://example.invalid/1727.jpg,Lab-Grown,IGI
+LD1728,Asscher,0.8,D,VVS1,Ideal,676,https://www.bluenile.com/diamond-details/1728,https://example.invalid/1728.jpg,Lab-Grown,IGI
+BN1729,Asscher,1.05,G,VVS1,Very Good,6608,https://www.bluenile.com/diamond-details/1729,https://example.invalid/1729.jpg,Natural,GIA
+BN1730,Asscher,1.08,E,VS2,Ideal,6543,https://www.bluenile.com/diamond-details/1730,https://example.invalid/1730.jpg,Natural,GIA
+BN1731,Asscher,1.0,E,VVS2,Excellent,8258,https://www.bluenile.com/diamond-details/1731,https://example.invalid/1731.jpg,Natural,GIA
+BN1732,Asscher,0.98,F,VVS2,Very Good,7219,https://www.bluenile.com/diamond-details/1732,https://example.invalid/1732.jpg,Natural,GIA
+LD1733,Asscher,0.98,E,VVS1,Ideal,1360,https://www.bluenile.com/diamond-details/1733,https://example.invalid/1733.jpg,Lab-Grown,IGI
+LD1734,Asscher,1.01,F,VS1,Excellent,1027,https://www.bluenile.com/diamond-details/1734,https://example.invalid/1734.jpg,Lab-Grown,IGI
+LD1735,Asscher,0.97,G,VS1,Ideal,870,https://www.bluenile.com/diamond-details/1735,https://example.invalid/1735.jpg,Lab-Grown,IGI
+LD1736,Asscher,1.0,G,VS2,Ideal,708,https://www.bluenile.com/diamond-details/1736,https://example.invalid/1736.jpg,Lab-Grown,IGI
+BN1737,Asscher,1.22,E,VS2,Ideal,7598,https://www.bluenile.com/diamond-details/1737,https://example.invalid/1737.jpg,Natural,GIA
+BN1738,Asscher,1.2,G,VS2,Ideal,5866,https://www.bluenile.com/diamond-details/1738,https://example.invalid/1738.jpg,Natural,GIA
+BN1739,Asscher,1.34,H,VS2,Ideal,5897,https://www.bluenile.com/diamond-details/1739,https://example.invalid/1739.jpg,Natural,GIA
+BN1740,Asscher,1.24,E,VVS2,Excellent,8914,https://www.bluenile.com/diamond-details/1740,https://example.invalid/1740.jpg,Natural,GIA
+LD1741,Asscher,1.22,D,VVS2,Very Good,1471,https://www.bluenile.com/diamond-details/1741,https://example.invalid/1741.jpg,Lab-Grown,IGI
+LD1742,Asscher,1.31,D,VS1,Ideal,1467,https://www.bluenile.com/diamond-details/1742,https://example.invalid/1742.jpg,Lab-Grown,IGI
+LD1743,Asscher,1.28,F,VVS2,Ideal,1311,https://www.bluenile.com/diamond-details/1743,https://example.invalid/1743.jpg,Lab-Grown,IGI
+LD1744,Asscher,1.33,H,VVS1,Excellent,1116,https://www.bluenile.com/diamond-details/1744,https://example.invalid/1744.jpg,Lab-Grown,IGI
+BN1745,Asscher,1.46,E,VVS1,Very Good,15302,https://www.bluenile.com/diamond-details/1745,https://example.invalid/1745.jpg,Natural,GIA
+BN1746,Asscher,1.45,H,VS2,Excellent,8335,https://www.bluenile.com/diamond-details/1746,https://example.invalid/1746.jpg,Natural,GIA
+BN1747,Asscher,1.47,H,VVS2,Excellent,9602,https://www.bluenile.com/diamond-details/1747,https://example.invalid/1747.jpg,Natural,GIA
+BN1748,Asscher,1.57,E,VVS2,Very Good,14535,https://www.bluenile.com/diamond-details/1748,https://example.invalid/1748.jpg,Natural,GIA
+LD1749,Asscher,1.5,G,VVS2,Very Good,1659,https://www.bluenile.com/diamond-details/1749,https://example.invalid/1749.jpg,Lab-Grown,IGI
+LD1750,Asscher,1.46,E,VS2,Ideal,1656,https://www.bluenile.com/diamond-details/1750,https://example.invalid/1750.jpg,Lab-Grown,IGI
+LD1751,Asscher,1.54,D,VVS2,Very Good,2457,https://www.bluenile.com/diamond-details/1751,https://example.invalid/1751.jpg,Lab-Grown,IGI
+LD1752,Asscher,1.55,D,VVS2,Very Good,2423,https://www.bluenile.com/diamond-details/1752,https://example.invalid/1752.jpg,Lab-Grown,IGI
+BN1753,Asscher,1.99,H,VS1,Very Good,18380,https://www.bluenile.com/diamond-details/1753,https://example.invalid/1753.jpg,Natural,GIA
+BN1754,Asscher,2.11,H,VS1,Very Good,19143,https://www.bluenile.com/diamond-details/1754,https://example.invalid/1754.jpg,Natural,GIA
+BN1755,Asscher,1.95,D,VVS1,Excellent,30786,https://www.bluenile.com/diamond-details/1755,https://example.invalid/1755.jpg,Natural,GIA
+BN1756,Asscher,2.07,E,VS2,Very Good,23094,https://www.bluenile.com/diamond-details/1756,https://example.invalid/1756.jpg,Natural,GIA
+LD1757,Asscher,2.14,D,VVS1,Excellent,4686,https://www.bluenile.com/diamond-details/1757,https://example.invalid/1757.jpg,Lab-Grown,IGI
+LD1758,Asscher,1.95,H,VS2,Excellent,2052,https://www.bluenile.com/diamond-details/1758,https://example.invalid/1758.jpg,Lab-Grown,IGI
+LD1759,Asscher,1.98,E,VS2,Very Good,3358,https://www.bluenile.com/diamond-details/1759,https://example.invalid/1759.jpg,Lab-Grown,IGI
+LD1760,Asscher,2.08,D,VS2,Excellent,3376,https://www.bluenile.com/diamond-details/1760,https://example.invalid/1760.jpg,Lab-Grown,IGI
+BN1761,Asscher,2.46,F,VVS2,Ideal,26896,https://www.bluenile.com/diamond-details/1761,https://example.invalid/1761.jpg,Natural,GIA
+BN1762,Asscher,2.59,E,VS2,Ideal,26514,https://www.bluenile.com/diamond-details/1762,https://example.invalid/1762.jpg,Natural,GIA
+BN1763,Asscher,2.66,D,VS2,Very Good,32285,https://www.bluenile.com/diamond-details/1763,https://example.invalid/1763.jpg,Natural,GIA
+BN1764,Asscher,2.64,E,VS1,Very Good,32692,https://www.bluenile.com/diamond-details/1764,https://example.invalid/1764.jpg,Natural,GIA
+LD1765,Asscher,2.47,E,VVS2,Very Good,5003,https://www.bluenile.com/diamond-details/1765,https://example.invalid/1765.jpg,Lab-Grown,IGI
+LD1766,Asscher,2.72,G,VS2,Ideal,3466,https://www.bluenile.com/diamond-details/1766,https://example.invalid/1766.jpg,Lab-Grown,IGI
+LD1767,Asscher,2.7,H,VS2,Excellent,2912,https://www.bluenile.com/diamond-details/1767,https://example.invalid/1767.jpg,Lab-Grown,IGI
+LD1768,Asscher,2.42,F,VVS1,Excellent,4237,https://www.bluenile.com/diamond-details/1768,https://example.invalid/1768.jpg,Lab-Grown,IGI
+BN1769,Asscher,3.26,H,VS1,Ideal,39367,https://www.bluenile.com/diamond-details/1769,https://example.invalid/1769.jpg,Natural,GIA
+BN1770,Asscher,3.14,G,VS1,Excellent,37809,https://www.bluenile.com/diamond-details/1770,https://example.invalid/1770.jpg,Natural,GIA
+BN1771,Asscher,3.25,D,VVS1,Excellent,69954,https://www.bluenile.com/diamond-details/1771,https://example.invalid/1771.jpg,Natural,GIA
+BN1772,Asscher,3.11,G,VVS1,Excellent,49518,https://www.bluenile.com/diamond-details/1772,https://example.invalid/1772.jpg,Natural,GIA
+LD1773,Asscher,3.0,H,VS2,Ideal,4255,https://www.bluenile.com/diamond-details/1773,https://example.invalid/1773.jpg,Lab-Grown,IGI
+LD1774,Asscher,3.17,E,VS1,Ideal,7065,https://www.bluenile.com/diamond-details/1774,https://example.invalid/1774.jpg,Lab-Grown,IGI
+LD1775,Asscher,3.1,G,VS2,Ideal,5232,https://www.bluenile.com/diamond-details/1775,https://example.invalid/1775.jpg,Lab-Grown,IGI
+LD1776,Asscher,3.19,F,VVS1,Very Good,8072,https://www.bluenile.com/diamond-details/1776,https://example.invalid/1776.jpg,Lab-Grown,IGI
+BN1777,Asscher,3.96,F,VVS1,Very Good,87739,https://www.bluenile.com/diamond-details/1777,https://example.invalid/1777.jpg,Natural,GIA
+BN1778,Asscher,4.0,H,VS2,Ideal,54946,https://www.bluenile.com/diamond-details/1778,https://example.invalid/1778.jpg,Natural,GIA
+BN1779,Asscher,4.06,H,VVS2,Ideal,61880,https://www.bluenile.com/diamond-details/1779,https://example.invalid/1779.jpg,Natural,GIA
+BN1780,Asscher,4.12,D,VVS2,Ideal,92983,https://www.bluenile.com/diamond-details/1780,https://example.invalid/1780.jpg,Natural,GIA
+LD1781,Asscher,4.16,F,VVS2,Ideal,11247,https://www.bluenile.com/diamond-details/1781,https://example.invalid/1781.jpg,Lab-Grown,IGI
+LD1782,Asscher,3.94,G,VVS1,Very Good,11103,https://www.bluenile.com/diamond-details/1782,https://example.invalid/1782.jpg,Lab-Grown,IGI
+LD1783,Asscher,3.9,D,VVS1,Very Good,15302,https://www.bluenile.com/diamond-details/1783,https://example.invalid/1783.jpg,Lab-Grown,IGI
+LD1784,Asscher,4.04,F,VS1,Very Good,10437,https://www.bluenile.com/diamond-details/1784,https://example.invalid/1784.jpg,Lab-Grown,IGI
+BN1785,Asscher,5.03,H,VVS1,Ideal,79237,https://www.bluenile.com/diamond-details/1785,https://example.invalid/1785.jpg,Natural,GIA
+BN1786,Asscher,5.42,H,VS1,Very Good,80481,https://www.bluenile.com/diamond-details/1786,https://example.invalid/1786.jpg,Natural,GIA
+BN1787,Asscher,5.05,D,VS2,Very Good,102193,https://www.bluenile.com/diamond-details/1787,https://example.invalid/1787.jpg,Natural,GIA
+BN1788,Asscher,5.41,G,VVS2,Excellent,96775,https://www.bluenile.com/diamond-details/1788,https://example.invalid/1788.jpg,Natural,GIA
+LD1789,Asscher,4.87,H,VVS1,Ideal,11092,https://www.bluenile.com/diamond-details/1789,https://example.invalid/1789.jpg,Lab-Grown,IGI
+LD1790,Asscher,5.23,D,VVS2,Ideal,17887,https://www.bluenile.com/diamond-details/1790,https://example.invalid/1790.jpg,Lab-Grown,IGI
+LD1791,Asscher,5.04,G,VS2,Ideal,11446,https://www.bluenile.com/diamond-details/1791,https://example.invalid/1791.jpg,Lab-Grown,IGI
+LD1792,Asscher,5.12,D,VS2,Excellent,15604,https://www.bluenile.com/diamond-details/1792,https://example.invalid/1792.jpg,Lab-Grown,IGI
+BN1793,Heart,0.24,G,VVS1,Excellent,420,https://www.bluenile.com/diamond-details/1793,https://example.invalid/1793.jpg,Natural,GIA
+BN1794,Heart,0.27,H,VVS1,Ideal,401,https://www.bluenile.com/diamond-details/1794,https://example.invalid/1794.jpg,Natural,GIA
+BN1795,Heart,0.26,D,VVS2,Excellent,557,https://www.bluenile.com/diamond-details/1795,https://example.invalid/1795.jpg,Natural,GIA
+BN1796,Heart,0.27,H,VS2,Very Good,374,https://www.bluenile.com/diamond-details/1796,https://example.invalid/1796.jpg,Natural,GIA
+LD1797,Heart,0.26,F,VS1,Excellent,66,https://www.bluenile.com/diamond-details/1797,https://example.invalid/1797.jpg,Lab-Grown,IGI
+LD1798,Heart,0.24,H,VVS1,Excellent,61,https://www.bluenile.com/diamond-details/1798,https://example.invalid/1798.jpg,Lab-Grown,IGI
+LD1799,Heart,0.26,G,VVS2,Ideal,69,https://www.bluenile.com/diamond-details/1799,https://example.invalid/1799.jpg,Lab-Grown,IGI
+LD1800,Heart,0.25,H,VVS1,Excellent,65,https://www.bluenile.com/diamond-details/1800,https://example.invalid/1800.jpg,Lab-Grown,IGI
+BN1801,Heart,0.5,E,VS1,Very Good,1862,https://www.bluenile.com/diamond-details/1801,https://example.invalid/1801.jpg,Natural,GIA
+BN1802,Heart,0.49,H,VS1,Very Good,1357,https://www.bluenile.com/diamond-details/1802,https://example.invalid/1802.jpg,Natural,GIA
+BN1803,Heart,0.52,G,VVS2,Very Good,1871,https://www.bluenile.com/diamond-details/1803,https://example.invalid/1803.jpg,Natural,GIA
+BN1804,Heart,0.5,G,VS1,Ideal,1521,https://www.bluenile.com/diamond-details/1804,https://example.invalid/1804.jpg,Natural,GIA
+LD1805,Heart,0.51,F,VVS2,Ideal,284,https://www.bluenile.com/diamond-details/1805,https://example.invalid/1805.jpg,Lab-Grown,IGI
+LD1806,Heart,0.53,G,VVS2,Excellent,242,https://www.bluenile.com/diamond-details/1806,https://example.invalid/1806.jpg,Lab-Grown,IGI
+LD1807,Heart,0.51,G,VS1,Ideal,240,https://www.bluenile.com/diamond-details/1807,https://example.invalid/1807.jpg,Lab-Grown,IGI
+LD1808,Heart,0.48,F,VVS1,Excellent,300,https://www.bluenile.com/diamond-details/1808,https://example.invalid/1808.jpg,Lab-Grown,IGI
+BN1809,Heart,0.76,D,VVS2,Excellent,4164,https://www.bluenile.com/diamond-details/1809,https://example.invalid/1809.jpg,Natural,GIA
+BN1810,Heart,0.81,H,VVS2,Very Good,3236,https://www.bluenile.com/diamond-details/1810,https://example.invalid/1810.jpg,Natural,GIA
+BN1811,Heart,0.75,D,VS2,Excellent,3465,https://www.bluenile.com/diamond-details/1811,https://example.invalid/1811.jpg,Natural,GIA
+BN1812,Heart,0.78,F,VVS2,Very Good,3546,https://www.bluenile.com/diamond-details/1812,https://example.invalid/1812.jpg,Natural,GIA
+LD1813,Heart,0.81,H,VS2,Excellent,391,https://www.bluenile.com/diamond-details/1813,https://example.invalid/1813.jpg,Lab-Grown,IGI
+LD1814,Heart,0.8,D,VVS2,Very Good,627,https://www.bluenile.com/diamond-details/1814,https://example.invalid/1814.jpg,Lab-Grown,IGI
+LD1815,Heart,0.81,D,VVS1,Excellent,710,https://www.bluenile.com/diamond-details/1815,https://example.invalid/1815.jpg,Lab-Grown,IGI
+LD1816,Heart,0.8,G,VVS1,Ideal,530,https://www.bluenile.com/diamond-details/1816,https://example.invalid/1816.jpg,Lab-Grown,IGI
+BN1817,Heart,1.01,E,VS1,Excellent,7267,https://www.bluenile.com/diamond-details/1817,https://example.invalid/1817.jpg,Natural,GIA
+BN1818,Heart,1.01,F,VS1,Excellent,6262,https://www.bluenile.com/diamond-details/1818,https://example.invalid/1818.jpg,Natural,GIA
+BN1819,Heart,0.97,G,VS2,Excellent,5046,https://www.bluenile.com/diamond-details/1819,https://example.invalid/1819.jpg,Natural,GIA
+BN1820,Heart,1.05,H,VVS1,Excellent,6265,https://www.bluenile.com/diamond-details/1820,https://example.invalid/1820.jpg,Natural,GIA
+LD1821,Heart,1.05,E,VS1,Very Good,1064,https://www.bluenile.com/diamond-details/1821,https://example.invalid/1821.jpg,Lab-Grown,IGI
+LD1822,Heart,1.03,F,VS2,Excellent,969,https://www.bluenile.com/diamond-details/1822,https://example.invalid/1822.jpg,Lab-Grown,IGI
+LD1823,Heart,1.01,F,VS1,Excellent,1026,https://www.bluenile.com/diamond-details/1823,https://example.invalid/1823.jpg,Lab-Grown,IGI
+LD1824,Heart,1.01,F,VS2,Excellent,955,https://www.bluenile.com/diamond-details/1824,https://example.invalid/1824.jpg,Lab-Grown,IGI
+BN1825,Heart,1.33,F,VS1,Ideal,9455,https://www.bluenile.com/diamond-details/1825,https://example.invalid/1825.jpg,Natural,GIA
+BN1826,Heart,1.22,H,VS2,Excellent,5549,https://www.bluenile.com/diamond-details/1826,https://example.invalid/1826.jpg,Natural,GIA
+BN1827,Heart,1.28,D,VVS2,Ideal,10345,https://www.bluenile.com/diamond-details/1827,https://example.invalid/1827.jpg,Natural,GIA
+BN1828,Heart,1.3,E,VVS1,Very Good,10491,https://www.bluenile.com/diamond-details/1828,https://example.invalid/1828.jpg,Natural,GIA
+LD1829,Heart,1.36,H,VS2,Ideal,867,https://www.bluenile.com/diamond-details/1829,https://example.invalid/1829.jpg,Lab-Grown,IGI
+LD1830,Heart,1.22,E,VVS2,Ideal,1489,https://www.bluenile.com/diamond-details/1830,https://example.invalid/1830.jpg,Lab-Grown,IGI
+LD1831,Heart,1.36,H,VS1,Very Good,991,https://www.bluenile.com/diamond-details/1831,https://example.invalid/1831.jpg,Lab-Grown,IGI
+LD1832,Heart,1.25,H,VS2,Very Good,829,https://www.bluenile.com/diamond-details/1832,https://example.invalid/1832.jpg,Lab-Grown,IGI
+BN1833,Heart,1.45,H,VVS2,Very Good,10191,https://www.bluenile.com/diamond-details/1833,https://example.invalid/1833.jpg,Natural,GIA
+BN1834,Heart,1.63,F,VS2,Ideal,12391,https://www.bluenile.com/diamond-details/1834,https://example.invalid/1834.jpg,Natural,GIA
+BN1835,Heart,1.52,H,VVS1,Very Good,10927,https://www.bluenile.com/diamond-details/1835,https://example.invalid/1835.jpg,Natural,GIA
+BN1836,Heart,1.6,H,VVS2,Ideal,11780,https://www.bluenile.com/diamond-details/1836,https://example.invalid/1836.jpg,Natural,GIA
+LD1837,Heart,1.45,G,VS1,Excellent,1534,https://www.bluenile.com/diamond-details/1837,https://example.invalid/1837.jpg,Lab-Grown,IGI
+LD1838,Heart,1.61,H,VVS1,Excellent,1723,https://www.bluenile.com/diamond-details/1838,https://example.invalid/1838.jpg,Lab-Grown,IGI
+LD1839,Heart,1.48,G,VS1,Very Good,1518,https://www.bluenile.com/diamond-details/1839,https://example.invalid/1839.jpg,Lab-Grown,IGI
+LD1840,Heart,1.45,H,VS2,Very Good,1257,https://www.bluenile.com/diamond-details/1840,https://example.invalid/1840.jpg,Lab-Grown,IGI
+BN1841,Heart,2.13,E,VVS2,Excellent,25960,https://www.bluenile.com/diamond-details/1841,https://example.invalid/1841.jpg,Natural,GIA
+BN1842,Heart,2.14,F,VS2,Excellent,22675,https://www.bluenile.com/diamond-details/1842,https://example.invalid/1842.jpg,Natural,GIA
+BN1843,Heart,2.08,D,VS2,Ideal,23171,https://www.bluenile.com/diamond-details/1843,https://example.invalid/1843.jpg,Natural,GIA
+BN1844,Heart,1.92,H,VVS2,Excellent,18126,https://www.bluenile.com/diamond-details/1844,https://example.invalid/1844.jpg,Natural,GIA
+LD1845,Heart,1.96,F,VVS2,Very Good,3370,https://www.bluenile.com/diamond-details/1845,https://example.invalid/1845.jpg,Lab-Grown,IGI
+LD1846,Heart,2.11,F,VVS1,Excellent,4343,https://www.bluenile.com/diamond-details/1846,https://example.invalid/1846.jpg,Lab-Grown,IGI
+LD1847,Heart,2.04,D,VVS2,Very Good,3947,https://www.bluenile.com/diamond-details/1847,https://example.invalid/1847.jpg,Lab-Grown,IGI
+LD1848,Heart,2.01,G,VVS1,Ideal,3658,https://www.bluenile.com/diamond-details/1848,https://example.invalid/1848.jpg,Lab-Grown,IGI
+BN1849,Heart,2.66,G,VS1,Excellent,26612,https://www.bluenile.com/diamond-details/1849,https://example.invalid/1849.jpg,Natural,GIA
+BN1850,Heart,2.58,H,VVS1,Ideal,24166,https://www.bluenile.com/diamond-details/1850,https://example.invalid/1850.jpg,Natural,GIA
+BN1851,Heart,2.61,E,VVS2,Excellent,36845,https://www.bluenile.com/diamond-details/1851,https://example.invalid/1851.jpg,Natural,GIA
+BN1852,Heart,2.54,G,VS1,Ideal,25230,https://www.bluenile.com/diamond-details/1852,https://example.invalid/1852.jpg,Natural,GIA
+LD1853,Heart,2.44,D,VS2,Excellent,3960,https://www.bluenile.com/diamond-details/1853,https://example.invalid/1853.jpg,Lab-Grown,IGI
+LD1854,Heart,2.57,D,VS2,Very Good,4701,https://www.bluenile.com/diamond-details/1854,https://example.invalid/1854.jpg,Lab-Grown,IGI
+LD1855,Heart,2.55,D,VS1,Excellent,5204,https://www.bluenile.com/diamond-details/1855,https://example.invalid/1855.jpg,Lab-Grown,IGI
+LD1856,Heart,2.7,F,VVS2,Ideal,4950,https://www.bluenile.com/diamond-details/1856,https://example.invalid/1856.jpg,Lab-Grown,IGI
+BN1857,Heart,3.07,E,VS2,Ideal,41867,https://www.bluenile.com/diamond-details/1857,https://example.invalid/1857.jpg,Natural,GIA
+BN1858,Heart,3.03,D,VS2,Very Good,47899,https://www.bluenile.com/diamond-details/1858,https://example.invalid/1858.jpg,Natural,GIA
+BN1859,Heart,3.25,G,VVS1,Excellent,49288,https://www.bluenile.com/diamond-details/1859,https://example.invalid/1859.jpg,Natural,GIA
+BN1860,Heart,3.15,G,VS2,Excellent,36733,https://www.bluenile.com/diamond-details/1860,https://example.invalid/1860.jpg,Natural,GIA
+LD1861,Heart,2.9,G,VS1,Excellent,5393,https://www.bluenile.com/diamond-details/1861,https://example.invalid/1861.jpg,Lab-Grown,IGI
+LD1862,Heart,3.22,E,VVS1,Ideal,9373,https://www.bluenile.com/diamond-details/1862,https://example.invalid/1862.jpg,Lab-Grown,IGI
+LD1863,Heart,3.12,D,VVS1,Very Good,9633,https://www.bluenile.com/diamond-details/1863,https://example.invalid/1863.jpg,Lab-Grown,IGI
+LD1864,Heart,3.15,E,VS2,Excellent,6646,https://www.bluenile.com/diamond-details/1864,https://example.invalid/1864.jpg,Lab-Grown,IGI
+BN1865,Heart,4.27,D,VS1,Very Good,81561,https://www.bluenile.com/diamond-details/1865,https://example.invalid/1865.jpg,Natural,GIA
+BN1866,Heart,4.26,D,VVS1,Very Good,95220,https://www.bluenile.com/diamond-details/1866,https://example.invalid/1866.jpg,Natural,GIA
+BN1867,Heart,4.33,E,VS2,Excellent,82297,https://www.bluenile.com/diamond-details/1867,https://example.invalid/1867.jpg,Natural,GIA
+BN1868,Heart,4.14,G,VVS2,Ideal,64224,https://www.bluenile.com/diamond-details/1868,https://example.invalid/1868.jpg,Natural,GIA
+LD1869,Heart,3.85,D,VS2,Excellent,10231,https://www.bluenile.com/diamond-details/1869,https://example.invalid/1869.jpg,Lab-Grown,IGI
+LD1870,Heart,3.92,H,VVS2,Ideal,8326,https://www.bluenile.com/diamond-details/1870,https://example.invalid/1870.jpg,Lab-Grown,IGI
+LD1871,Heart,4.32,D,VS2,Excellent,13108,https://www.bluenile.com/diamond-details/1871,https://example.invalid/1871.jpg,Lab-Grown,IGI
+LD1872,Heart,4.18,D,VS2,Excellent,12338,https://www.bluenile.com/diamond-details/1872,https://example.invalid/1872.jpg,Lab-Grown,IGI
+BN1873,Heart,5.15,F,VVS1,Very Good,105568,https://www.bluenile.com/diamond-details/1873,https://example.invalid/1873.jpg,Natural,GIA
+BN1874,Heart,5.16,E,VS2,Excellent,84654,https://www.bluenile.com/diamond-details/1874,https://example.invalid/1874.jpg,Natural,GIA
+BN1875,Heart,5.33,G,VS1,Excellent,75879,https://www.bluenile.com/diamond-details/1875,https://example.invalid/1875.jpg,Natural,GIA
+BN1876,Heart,5.28,G,VS2,Very Good,75586,https://www.bluenile.com/diamond-details/1876,https://example.invalid/1876.jpg,Natural,GIA
+LD1877,Heart,5.15,F,VS2,Very Good,11412,https://www.bluenile.com/diamond-details/1877,https://example.invalid/1877.jpg,Lab-Grown,IGI
+LD1878,Heart,5.35,D,VS2,Ideal,14766,https://www.bluenile.com/diamond-details/1878,https://example.invalid/1878.jpg,Lab-Grown,IGI
+LD1879,Heart,5.0,F,VS1,Excellent,13267,https://www.bluenile.com/diamond-details/1879,https://example.invalid/1879.jpg,Lab-Grown,IGI
+LD1880,Heart,5.44,E,VS2,Very Good,13077,https://www.bluenile.com/diamond-details/1880,https://example.invalid/1880.jpg,Lab-Grown,IGI

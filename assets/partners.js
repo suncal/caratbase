@@ -123,13 +123,14 @@ const Partners = {
      the programme is switched on, rewrite them to tracked links, mark them sponsored, and
      add the disclosure — all from this one file, no page rebuild. */
   upgradeDeepLinks(){
-    const links = document.querySelectorAll('a[data-bn]');
+    const links = document.querySelectorAll('a[data-bn], a[data-bn-item]');
     if(!links.length) return;
     links.forEach(a => {
       a.addEventListener('click', () => { if(window.cbTrack) cbTrack('partner_click',
         {partner:'Blue Nile', group:'deeplink', page:location.pathname}); });
       if(!BLUE_NILE.active()) return;
-      try { a.href = BLUE_NILE.search(JSON.parse(a.dataset.bn)); } catch {}
+      if(a.dataset.bn){ try { a.href = BLUE_NILE.search(JSON.parse(a.dataset.bn)); } catch {} }
+      else if(!a.href.includes('affiliates.r2net.com')) a.href = BLUE_NILE.wrap(a.href);
       a.rel = 'sponsored noopener noreferrer';
     });
     if(BLUE_NILE.active() && !document.querySelector('.bn-disclosure')){
