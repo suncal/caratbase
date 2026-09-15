@@ -1033,6 +1033,61 @@ def build_hubs(built):
                              "name":cfg['h1'],"url":f"{BASE}/{d}/"})))
     return urls
 
+# ================================================================ SEARCH INDEX
+TOOL_PAGES = {
+  'value.html': 'diamond value calculator jewellery worth appraisal resale price ring',
+  'gemstone.html': 'gemstone value ruby sapphire emerald pearl calculator',
+  'metals.html': 'gold price calculator scrap silver platinum per gram karat',
+  'budget.html': 'budget calculator what my money buys engagement ring',
+  'stamp.html': 'hallmark lookup stamp meaning 925 750 585 417 gf',
+  'size.html': 'carat size chart mm diamond shape actual size',
+  'ring-size.html': 'ring sizer measure ring size online',
+  'measure.html': 'measure ring diamond from photo camera bank card',
+  'vault.html': 'my vault saved pieces collection',
+  'compare.html': 'compare two diamonds side by side better value',
+  'lab-vs-natural.html': 'lab grown vs natural diamond price resale',
+  'engagement-ring-budget.html': 'how much to spend on an engagement ring salary rule',
+  'diamond-price-per-carat.html': 'diamond price per carat chart cost by weight',
+  'diamond-color-chart.html': 'diamond color chart colour grade d e f g h i j k',
+  'diamond-clarity-chart.html': 'diamond clarity chart fl if vvs vs si i1 grade',
+  'birthstones.html': 'birthstone by month january february march april may june july august september october november december anniversary',
+  'insurance-cost.html': 'jewellery insurance cost premium engagement ring insure',
+  'widgets.html': 'free widgets embed ring sizer for website jeweller',
+  'methodology.html': 'how we value methodology sources',
+}
+def build_search_index():
+    import html as _h
+    idx = []
+    stamps = {x['code']: x for x in node_eval('STAMPS', 'assets/data.js')}
+    for f in sorted(ROOT.rglob('*.html')):
+        rel = f.relative_to(ROOT).as_posix()
+        if rel.startswith(('embed/', 'dashboard')) or rel.endswith(('privacy.html','terms.html','disclaimer.html')): continue
+        t = f.read_text()
+        m = re.search(r'<title>(.*?)</title>', t, re.S); title = _h.unescape(m.group(1)).split('|')[0].strip() if m else rel
+        m = re.search(r'name="description" content="([^"]*)"', t); desc = _h.unescape(m.group(1)) if m else ''
+        url = rel.replace('index.html', '')
+        if url == '': g, k = 'home', 'caratbase home'
+        elif '/' in rel:
+            d, slug = rel.split('/')[0], rel.split('/')[1]
+            if slug == 'index.html': g, k = 'reference', d.replace('-', ' ') + ' all chart'
+            elif d == 'ring-size':
+                v = slug[3:].replace('-half', '½').replace('-', '.')
+                g, k = 'ring size', f"{slug[:2]} {v} size {v} ring size {v} {'uk' if slug.startswith('uk') else 'us'}"
+            elif d == 'diamond':
+                ct = slug.split('-carat-')[0].replace('-', '.'); sh = slug.split('-carat-')[1]
+                g, k = 'diamond', f"{ct} carat {sh} {ct}ct {ct} ct {sh} diamond size price"
+            elif d == 'hallmark':
+                st = stamps.get(slug.upper()) or next((x for c, x in stamps.items() if re.sub(r'[^a-z0-9]+','-',c.lower()).strip('-') == slug), None)
+                g, k = 'hallmark', (slug + ' ' + ' '.join(st.get('alias', [])) + ' ' + st['metal'] + ' ' + st['purity']) if st else slug
+            elif d == 'gemstone': g, k = 'gemstone', slug.replace('-', ' ') + ' value worth'
+            elif d == 'gold-price': g, k = 'gold', slug + ' gold price per gram ' + slug.replace('k', ' karat')
+            else: g, k = 'reference', slug
+        else:
+            g, k = ('tool', TOOL_PAGES.get(rel, rel.replace('.html','').replace('-', ' ')))
+        idx.append({'t': title[:80], 'u': url, 'd': desc[:110], 'g': g, 'k': k})
+    (ROOT / 'assets' / 'search-index.json').write_text(json.dumps(idx, separators=(',', ':'), ensure_ascii=False))
+    print(f'  search index: {len(idx)} entries')
+
 # ================================================================ MAIN
 def main():
     for d in OUT_DIRS:
@@ -1051,7 +1106,10 @@ def main():
     # Sitemaps: one per section plus an index at the old URL, so Search Console reports
     # indexing per section and the existing submission keeps working unchanged.
     core = ['', 'value.html','gemstone.html','budget.html','metals.html','stamp.html',
-            'size.html','ring-size.html','measure.html','widgets.html','vault.html','methodology.html',
+            'size.html','ring-size.html','measure.html','compare.html','lab-vs-natural.html',
+            'engagement-ring-budget.html','diamond-price-per-carat.html','diamond-color-chart.html',
+            'diamond-clarity-chart.html','birthstones.html','insurance-cost.html','tools.html',
+            'widgets.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):
         loc = f'{BASE}/{u}'.replace('/index.html','/')
@@ -1076,6 +1134,7 @@ def main():
         + '\n'.join(f'  <sitemap><loc>{BASE}/{n}</loc><lastmod>{TODAY}</lastmod></sitemap>' for n in files)
         + '\n</sitemapindex>\n')
     print(f'\n  sitemap index: {len(files)} sitemaps, {sum(len(e) for e in files.values())} URLs')
+    build_search_index()
     return urls
 
 if __name__ == '__main__':

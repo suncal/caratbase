@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare Two Diamonds Side by Side — Size, Price, Resale & Value | CaratBase</title>
+<meta name="description" content="Put two diamond specifications side by side: true face-up size, retail price, resale value, price per carat and which is the better buy. Natural or lab-grown.">
+<link rel="canonical" href="https://caratbase.com/compare.html">
+<meta property="og:title" content="Compare Two Diamonds Side by Side — Size, Price, Resale & Value | CaratBase"><meta property="og:description" content="Put two diamond specifications side by side: true face-up size, retail price, resale value, price per carat and which is the better buy. Natural or lab-grown."><meta property="og:url" content="https://caratbase.com/compare.html">
+<link rel="stylesheet" href="assets/style.css?v=28aefa35">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is a 0.9 carat diamond much smaller than a 1 carat?", "acceptedAnswer": {"@type": "Answer", "text": "No. Linear size scales with the cube root of weight, so a 0.90 ct round is about 6.27 mm across against 6.5 mm for a 1.00 ct \u2014 3.5% shorter \u2014 while costing roughly 25% less because it sits below the 1 carat price step."}}, {"@type": "Question", "name": "Which is better value, a higher colour or a higher clarity?", "acceptedAnswer": {"@type": "Answer", "text": "Below about G colour and VS2 clarity the differences are invisible without a loupe. For the same money, weight and cut quality are what you can actually see."}}]}</script>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Compare</div>
+    <h1>Compare two diamonds</h1>
+    <p class="lede">Two specifications, side by side, with everything that actually differs: how big each looks, what each costs, what each fetches back, and which one is the better buy for the money.</p>
+  </div>
+
+  <div class="grid g2" style="margin-top:8px">
+    <div class="panel"><div class="eyebrow" style="margin-bottom:10px">Diamond A</div><div id="fA"></div></div>
+    <div class="panel"><div class="eyebrow" style="margin-bottom:10px">Diamond B</div><div id="fB"></div></div>
+  </div>
+  <div class="chips" style="margin:14px 0 0"><span class="small" style="align-self:center">Quick comparisons:</span>
+    <button class="chip" data-p="1|Round|G|VS2|Natural;0.9|Round|G|VS2|Natural">1.00 ct vs 0.90 ct</button>
+    <button class="chip" data-p="1|Round|G|VS2|Natural;1|Round|G|VS2|Lab-grown">Natural vs lab-grown</button>
+    <button class="chip" data-p="1|Round|G|VS2|Natural;1.3|Round|J|SI1|Natural">G/VS2 vs bigger J/SI1</button>
+    <button class="chip" data-p="1.5|Round|G|VS2|Natural;1.5|Oval|G|VS2|Natural">Round vs oval, same weight</button>
+  </div>
+  <div class="grid g2" style="margin-top:22px" id="out"></div>
+  <div id="verdict" class="panel" style="margin-top:18px;display:none"></div>
+  <div id="shop"></div>
+  <section class="narrow legal" style="margin-top:40px">
+    <h2>How to read this</h2>
+    <p>Carat is weight, and weight rises with the cube of length — so a stone that is 26% heavier is only about 8% longer. Face-up area is what a finger shows. Price per carat is the number the trade uses; it jumps at 0.50, 1.00, 1.50 and 2.00 carats because those are the weights people ask for, which is why a stone just under a round number is the classic value buy.</p>
+    <p>Resale uses our standard bands: 25–40% of retail for natural stones, 5–12% for lab-grown. Every figure is from our own model — see the <a href="methodology.html">methodology</a>.</p>
+  </section>
+</main>
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
+    <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewellery. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
+<script src="assets/data.js?v=28aefa35"></script>
+<script src="assets/analytics.js?v=28aefa35"></script>
+<script src="assets/spot.js?v=28aefa35"></script>
+<script src="assets/ticker.js?v=28aefa35"></script>
+<script src="assets/logo.js?v=28aefa35"></script>
+<script src="assets/nav.js?v=28aefa35"></script>
+<script src="assets/partners.js?v=28aefa35"></script>
+<script src="assets/shapes.js?v=28aefa35"></script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+(function(){
+  const $=id=>document.getElementById(id);
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const SH=['Round','Oval','Princess','Cushion','Emerald','Pear','Marquise','Radiant','Asscher','Heart'];
+  function form(id, d){
+    return `<div class="grid g2" style="gap:10px">
+      <div class="field"><label>Carat</label><input type="number" id="${id}ct" value="${d.ct}" step="0.05" min="0.1" max="10"></div>
+      <div class="field"><label>Shape</label><select id="${id}sh">${SH.map(s=>`<option${s===d.sh?' selected':''}>${s}</option>`).join('')}</select></div>
+      <div class="field"><label>Colour</label><select id="${id}co">${Object.keys(COLOR_MULT).map(c=>`<option${c===d.co?' selected':''}>${c}</option>`).join('')}</select></div>
+      <div class="field"><label>Clarity</label><select id="${id}cl">${Object.keys(CLARITY_MULT).map(c=>`<option${c===d.cl?' selected':''}>${c}</option>`).join('')}</select></div>
+      <div class="field"><label>Cut</label><select id="${id}cu">${Object.keys(CUT_MULT).map(c=>`<option${c==='Very Good'?' selected':''}>${c}</option>`).join('')}</select></div>
+      <div class="field"><label>Origin</label><select id="${id}or"><option${d.or==='Natural'?' selected':''}>Natural</option><option${d.or==='Lab-grown'?' selected':''}>Lab-grown</option></select></div>
+    </div>`;
+  }
+  $('fA').innerHTML=form('a',{ct:1,sh:'Round',co:'G',cl:'VS2',or:'Natural'});
+  $('fB').innerHTML=form('b',{ct:0.9,sh:'Round',co:'G',cl:'VS2',or:'Natural'});
+  function read(id){ return {carat:parseFloat($(id+'ct').value)||1, shape:$(id+'sh').value, color:$(id+'co').value, clarity:$(id+'cl').value, cut:$(id+'cu').value, origin:$(id+'or').value, cert:$(id+'or').value==='Lab-grown'?'IGI':'GIA'}; }
+  function calc(){
+    const A=read('a'), B=read('b'); const va=valueDiamond(A), vb=valueDiamond(B); const da=shapeDims(A.shape,A.carat), db=shapeDims(B.shape,B.carat);
+    const mid=v=>(v.retailLow+v.retailHigh)/2, rmid=v=>(v.resaleLow+v.resaleHigh)/2;
+    const rows=[['Face-up size',`${da.l} × ${da.w} mm`,`${db.l} × ${db.w} mm`],['Face-up area',`${(da.l*da.w).toFixed(0)} mm²`,`${(db.l*db.w).toFixed(0)} mm²`],
+      ['Retail',`${money(va.retailLow)}–${money(va.retailHigh)}`,`${money(vb.retailLow)}–${money(vb.retailHigh)}`],
+      ['Price per carat',money(mid(va)/A.carat),money(mid(vb)/B.carat)],['Price per mm² of face-up',money(mid(va)/(da.l*da.w)),money(mid(vb)/(db.l*db.w))],
+      ['Resells for',`${money(va.resaleLow)}–${money(va.resaleHigh)}`,`${money(vb.resaleLow)}–${money(vb.resaleHigh)}`],
+      ['You keep',`${Math.round(rmid(va)/mid(va)*100)}%`,`${Math.round(rmid(vb)/mid(vb)*100)}%`]];
+    const card=(o,v,d,lbl)=>`<div class="panel"><div class="stage" style="min-height:220px;padding:10px">${shapeOnFinger(o.shape,o.carat)}</div>
+      <h3 style="margin-top:12px">${lbl}: ${o.carat.toFixed(2)} ct ${o.shape.toLowerCase()}${o.origin==='Lab-grown'?' <span class="pill pill-ice">lab-grown</span>':''}</h3>
+      <div class="small">${o.color} · ${o.clarity} · ${o.cut} cut</div>
+      <div style="font-family:var(--serif);font-size:30px;font-weight:700;color:var(--gold-2);margin-top:8px">${money(v.retailLow)}–${money(v.retailHigh)}</div>
+      <div class="small" style="color:var(--bad);font-weight:600">Resells for ${money(v.resaleLow)}–${money(v.resaleHigh)}</div></div>`;
+    $('out').innerHTML=card(A,va,da,'A')+card(B,vb,db,'B')+`<div class="panel" style="grid-column:1/-1"><div class="table-scroll"><table><thead><tr><th></th><th class="num">A</th><th class="num">B</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td class="num">${r[1]}</td><td class="num">${r[2]}</td></tr>`).join('')}</tbody></table></div></div>`;
+    const dl=(da.l/db.l-1)*100, dp=(mid(va)/mid(vb)-1)*100, area=(da.l*da.w)/(db.l*db.w);
+    let verdict=`<h3>Verdict</h3><p style="margin-top:8px">A is <strong>${Math.abs(dl).toFixed(1)}% ${dl>=0?'longer':'shorter'}</strong> across than B and costs <strong>${Math.abs(dp).toFixed(0)}% ${dp>=0?'more':'less'}</strong>. `;
+    if(Math.abs(dl)<5 && Math.abs(dp)>12) verdict+=`On a finger these two are indistinguishable in size; the price difference is almost entirely the grade or the round-number premium. <strong>${dp>0?'B':'A'} is the better buy.</strong>`;
+    else if(area>1.15 && dp<15) verdict+=`A shows ${((area-1)*100).toFixed(0)}% more face-up area for ${dp<0?'less':'little more'} money. <strong>A is the better buy for visible size.</strong>`;
+    else if(area<0.87 && dp>-15) verdict+=`B shows ${((1/area-1)*100).toFixed(0)}% more face-up area for ${dp>0?'less':'little more'} money. <strong>B is the better buy for visible size.</strong>`;
+    else verdict+=`The price tracks the visible size fairly closely here; choose on shape and cut quality rather than on the numbers.`;
+    if(A.origin!==B.origin) verdict+=` Note the resale row: the lab-grown stone keeps ${Math.round(rmid(A.origin==='Lab-grown'?va:vb)/mid(A.origin==='Lab-grown'?va:vb)*100)}% against ${Math.round(rmid(A.origin==='Lab-grown'?vb:va)/mid(A.origin==='Lab-grown'?vb:va)*100)}% for natural. Buy lab-grown to wear, not to hold.`;
+    $('verdict').style.display='block'; $('verdict').innerHTML=verdict+'</p>';
+    $('shop').innerHTML=(typeof BLUE_NILE!=='undefined')?BLUE_NILE.card({shape:A.shape,carat:A.carat,color:A.color,clarity:A.clarity,lab:A.origin==='Lab-grown'},{title:'Real stones matching A and B',
+      sub:`A: ${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()}, ${A.color}/${A.clarity} and up · B: ${B.carat.toFixed(2)} ct ${B.shape.toLowerCase()}, ${B.color}/${B.clarity} and up. Filtered to each spec at Blue Nile.`,
+      natLabel:`Like A — ${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()}${A.origin==='Lab-grown'?' (lab)':''} →`, labLabel:`Like A — lab-grown →`,
+      extra:[{label:`Like B — ${B.carat.toFixed(2)} ct ${B.shape.toLowerCase()}${B.origin==='Lab-grown'?' (lab)':''} →`, gold:true, spec:{shape:B.shape,carat:B.carat,color:B.color,clarity:B.clarity,lab:B.origin==='Lab-grown'}}]}):'';
+    if(window.cbTrack) cbTrack('tool_use',{tool:'compare',a:`${A.carat}${A.shape}${A.color}${A.clarity}`,b:`${B.carat}${B.shape}${B.color}${B.clarity}`});
+  }
+  document.querySelectorAll('#fA input,#fA select,#fB input,#fB select').forEach(el=>el.addEventListener('input',calc));
+  document.querySelectorAll('.chip[data-p]').forEach(b=>b.addEventListener('click',()=>{
+    const [a,bb]=b.dataset.p.split(';'); [['a',a],['b',bb]].forEach(([id,str])=>{const [ct,sh,co,cl,or]=str.split('|'); $(id+'ct').value=ct; $(id+'sh').value=sh; $(id+'co').value=co; $(id+'cl').value=cl; $(id+'or').value=or;}); calc();
+  }));
+  calc();
+})();
+</script>
+</body></html>

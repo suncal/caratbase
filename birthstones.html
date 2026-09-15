@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Birthstones by Month — Every Stone, What It Costs, and the Honest Alternative | CaratBase</title>
+<meta name="description" content="All twelve birthstones with colour, hardness, what a fine 1 carat stone is worth today, and the affordable alternative when the classic is out of reach. Plus anniversary gemstones by year.">
+<link rel="canonical" href="https://caratbase.com/birthstones.html">
+<meta property="og:title" content="Birthstones by Month — Every Stone, What It Costs, and the Honest Alternative | CaratBase"><meta property="og:description" content="All twelve birthstones with colour, hardness, what a fine 1 carat stone is worth today, and the affordable alternative when the classic is out of reach. Plus anniversary gemstones by year."><meta property="og:url" content="https://caratbase.com/birthstones.html">
+<link rel="stylesheet" href="assets/style.css?v=28aefa35">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What are the birthstones for each month?", "acceptedAnswer": {"@type": "Answer", "text": "January garnet, February amethyst, March aquamarine, April diamond, May emerald, June pearl or alexandrite, July ruby, August peridot, September sapphire, October opal or tourmaline, November topaz or citrine, December tanzanite, turquoise or blue zircon."}}, {"@type": "Question", "name": "Which birthstone is the most expensive?", "acceptedAnswer": {"@type": "Answer", "text": "April (diamond), May (emerald), July (ruby) and September (sapphire) are the costly months; a fine 1 carat ruby or emerald runs into the thousands. Amethyst, citrine, peridot and garnet are the affordable months \u2014 fine stones for well under $100 a carat."}}]}</script>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Reference</div>
+    <h1>Birthstones by month</h1>
+    <p class="lede">The modern list was fixed by the American jewellers' association in 1912 and has gained a few alternates since. Each month below gives the traditional stone, how hard it wears, what a fine 1 carat example costs at today's rates, and the sensible substitute when the classic is priced out of reach.</p>
+  </div>
+
+  <div class="grid g3" style="margin-top:8px" id="months"></div>
+  <h2 style="margin-top:44px">Anniversary gemstones by year</h2>
+  <p class="small" style="margin:6px 0 12px">The traditional list, with the classic stone priced where we model it.</p>
+  <div class="table-scroll"><table id="anni"><thead><tr><th>Year</th><th>Traditional</th><th class="num">A fine 1 ct today</th></tr></thead><tbody></tbody></table></div>
+  <section class="narrow legal" style="margin-top:40px">
+    <h2>On hardness</h2>
+    <p>The Mohs number is how well a stone resists scratching, and it decides whether it survives a ring. Diamond (10), sapphire and ruby (9) and alexandrite (8.5) are everyday-ring stones. Emerald (7.5–8) is hard but brittle, and is usually oiled to hide fractures. Below 7 — opal, pearl, turquoise — the stone belongs in earrings or a pendant, not on a hand.</p>
+  </section>
+</main>
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewellery valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
+    <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewellery. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
+<script src="assets/data.js?v=28aefa35"></script>
+<script src="assets/analytics.js?v=28aefa35"></script>
+<script src="assets/spot.js?v=28aefa35"></script>
+<script src="assets/ticker.js?v=28aefa35"></script>
+<script src="assets/logo.js?v=28aefa35"></script>
+<script src="assets/nav.js?v=28aefa35"></script>
+<script src="assets/partners.js?v=28aefa35"></script>
+<script src="assets/gems.js?v=28aefa35"></script>
+<script src="assets/shapes.js?v=28aefa35"></script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+(function(){
+  const $=id=>document.getElementById(id); const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  const price=(t)=>{ if(t==='Diamond'){ const v=valueDiamond({carat:1,shape:'Round',color:'G',clarity:'VS2',cut:'Very Good',origin:'Natural',cert:'GIA'}); return [v.retailLow,v.retailHigh]; }
+    if(!GEMS[t]) return null; const o=Object.keys(GEMS[t].origins).slice(-1)[0]; const v=valueGem({type:t,carat:1,tier:'Fine',treatment:t==='Emerald'?'Oiled — minor (emerald)':'Heated (standard)',origin:o}); return [v.retailLow,v.retailHigh]; };
+  const M=[['January','Garnet','#B22222',7,'Garnet','Deep red; the affordable classic.','—'],['February','Amethyst','#9966CC',7,'Amethyst','Purple quartz. Fine colour is cheap because supply is huge.','—'],
+    ['March','Aquamarine','#7FDBD4',7.5,'Aquamarine','Pale sea-blue beryl. Also bloodstone.','Blue topaz'],['April','Diamond','#F5F5F5',10,'Diamond','The priciest month by far.','White sapphire, or lab-grown diamond'],
+    ['May','Emerald','#50C878',7.5,'Emerald','Nearly always oiled; treatment drives the price.','Tsavorite garnet, green tourmaline'],['June','Pearl · Alexandrite','#F0E4D0',8.5,'Alexandrite','Alexandrite (priced here) is rare and colour-changing, hardness 8.5. Pearl is soft — 2.5 to 4.5 — and priced by size and lustre, not carat.','Moonstone; cultured pearl'],
+    ['July','Ruby','#E0115F',9,'Ruby','Red corundum. Burmese unheated is the world\'s dearest stone per carat.','Red spinel, rhodolite garnet'],['August','Peridot','#9ACD32',6.5,'Peridot','Olive green; inexpensive and bright.','Spinel'],
+    ['September','Sapphire','#0F52BA',9,'Blue sapphire','Blue corundum; Kashmir and Ceylon carry premiums.','Blue spinel, tanzanite'],['October','Opal · Tourmaline','#FF7F50',6,'Tourmaline','Opal is fragile; tourmaline comes in every colour.','Pink tourmaline'],
+    ['November','Topaz · Citrine','#FFC87C',8,'Citrine','Imperial topaz is the fine stone; citrine the everyday one.','Citrine'],['December','Tanzanite · Turquoise · Zircon','#40E0D0',6.5,'Tanzanite','Tanzanite from one hill in Tanzania; turquoise is soft.','Blue zircon, blue topaz']];
+  $('months').innerHTML=M.map(([m,stone,c,h,pt,note,alt])=>{ const p=price(pt); return `<div class="panel"><div style="display:flex;justify-content:space-between;align-items:center"><div class="eyebrow">${m}</div><div style="width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,${c} 60%);border:1px solid var(--line-2)"></div></div>
+    <h3 style="margin-top:6px">${stone}</h3><p class="small" style="margin-top:4px">${note}</p>
+    <div class="grid g2" style="gap:8px;margin-top:10px"><div class="stat"><div class="k">Hardness</div><div class="v">${h} / 10</div></div><div class="stat"><div class="k">Fine 1 ct</div><div class="v" style="font-size:15px">${p?money(p[0])+'–'+money(p[1]):'—'}</div></div></div>
+    <p class="small" style="margin-top:10px"><strong>Alternative:</strong> ${alt}</p>${GEMS[pt]?`<a class="small" href="gemstone/${pt.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/" style="font-weight:600;color:var(--gold-2)">${pt} values in detail →</a>`:pt==='Diamond'?`<a class="small" href="diamond/1-carat-round/" style="font-weight:600;color:var(--gold-2)">1 carat diamond prices →</a>`:''}</div>`; }).join('');
+  const A=[[1,'Gold'],[5,'Sapphire','Blue sapphire'],[10,'Diamond','Diamond'],[15,'Ruby','Ruby'],[20,'Emerald','Emerald'],[25,'Silver'],[30,'Pearl'],[35,'Emerald / jade','Emerald'],[40,'Ruby','Ruby'],[45,'Sapphire','Blue sapphire'],[50,'Gold'],[55,'Alexandrite','Alexandrite'],[60,'Diamond','Diamond']];
+  $('anni').querySelector('tbody').innerHTML=A.map(([y,n,pt])=>{ const p=pt?price(pt):null; return `<tr><td>${y}${y===1?'st':y===2?'nd':y===3?'rd':'th'}</td><td>${n}</td><td class="num">${p?money(p[0])+'–'+money(p[1]):(n.includes('Gold')?'<a href="gold-price/24k/">see gold price</a>':'—')}</td></tr>`; }).join('');
+})();
+</script>
+</body></html>

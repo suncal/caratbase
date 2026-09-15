@@ -10,13 +10,21 @@
       ['gemstone.html', 'Gemstones & pearls'],
       ['metals.html',   'Gold & metal prices'],
       ['budget.html',   'What my budget buys']]},
+    {label:'Buy',     items:[
+      ['compare.html',                'Compare two diamonds'],
+      ['lab-vs-natural.html',         'Lab-grown vs natural'],
+      ['engagement-ring-budget.html', 'How much to spend'],
+      ['diamond-price-per-carat.html','Price per carat'],
+      ['diamond-color-chart.html',    'Colour chart'],
+      ['diamond-clarity-chart.html',  'Clarity chart']]},
     {label:'Measure', items:[
       ['measure.html',  'From a photo'],
       ['ring-size.html','Ring size'],
       ['size.html',     'Carat & shape sizes'],
-      ['stamp.html',    'Hallmarks']]},
+      ['stamp.html',    'Hallmarks'],
+      ['birthstones.html','Birthstones']]},
     {label:'My vault', href:'vault.html'},
-    {label:'Daily',    href:'index.html'}
+    {label:'All tools', href:'tools.html'}
   ];
 
   const here=(location.pathname.split('/').pop()||'index.html');
@@ -34,6 +42,18 @@
       'stroke="currentColor" stroke-width="1.9" stroke-linecap="round">'+
       '<path d="M3 6h18M3 12h18M3 18h18"/></svg>';
     head.insertBefore(btn, nav);
+    /* search: one button, every page */
+    if(!head.querySelector('.navsearch')){
+      const sb=document.createElement('button'); sb.className='navsearch'; sb.type='button';
+      sb.setAttribute('aria-label','Search'); sb.title='Search (⌘K)';
+      sb.innerHTML='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
+      sb.addEventListener('click',()=>{ if(window.cbSearch) cbSearch.open(); });
+      head.insertBefore(sb, btn);
+      if(!document.querySelector('script[src*="assets/search.js"]')){
+        const sc=document.createElement('script'); const me=document.querySelector('script[src*="assets/nav.js"]');
+        sc.src=(me?me.src.replace(/nav\.js.*$/,'search.js'):'assets/search.js'); document.body.appendChild(sc);
+      }
+    }
     const isMobile=()=>matchMedia('(max-width:900px)').matches;
     const close=()=>{
       nav.classList.remove('open');
@@ -113,4 +133,21 @@
   document.addEventListener('click',()=>hideAll());
   addEventListener('resize',()=>hideAll());
 
+})();
+
+/* ---------- footer site map: rendered once, everywhere ---------- */
+(function(){
+  const foot=document.querySelector('footer.site-foot'); if(!foot || foot.querySelector('.foot-map')) return;
+  const me=document.querySelector('script[src*="assets/nav.js"]'); const root=me?me.src.replace(/assets\/nav\.js.*$/,''):'/';
+  const L=(u,t)=>`<a href="${root}${u}">${t}</a>`;
+  const cols=[
+    ['Value',['value.html','Diamond & jewellery'],['gemstone.html','Gemstones & pearls'],['metals.html','Gold & metal prices'],['stamp.html','Hallmark lookup'],['vault.html','My vault']],
+    ['Buy',['budget.html','What my budget buys'],['compare.html','Compare two diamonds'],['lab-vs-natural.html','Lab-grown vs natural'],['engagement-ring-budget.html','How much to spend'],['diamond-price-per-carat.html','Price per carat'],['diamond-color-chart.html','Colour chart'],['diamond-clarity-chart.html','Clarity chart']],
+    ['Measure',['ring-size.html','Ring sizer'],['measure.html','From a photo'],['size.html','Carat size chart'],['ring-size/','Ring size charts'],['diamond/','Sizes by carat & shape']],
+    ['Reference',['birthstones.html','Birthstones'],['insurance-cost.html','Insurance cost'],['hallmark/','Hallmarks explained'],['gold-price/','Gold price by karat'],['gemstone/','Gemstone values'],['widgets.html','Free widgets'],['methodology.html','How we value']],
+  ];
+  const map=document.createElement('div'); map.className='wrap';
+  map.innerHTML='<div class="foot-map"><div><div class="tag">CaratBase</div><p>The independent jewellery reference. Every number shown working; no account, no tracking.</p></div>'
+    + cols.map(c=>'<div><h4>'+c[0]+'</h4>'+c.slice(1).map(x=>L(x[0],x[1])).join('')+'</div>').join('') + '</div>';
+  foot.insertBefore(map, foot.firstChild);
 })();

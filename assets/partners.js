@@ -100,6 +100,28 @@ const BLUE_NILE = {
     const path = o.lab ? '/diamonds/lab-grown-diamonds' : '/diamonds';
     return this.wrap('https://www.bluenile.com' + path + '?' + q.toString());
   },
+  /* The designed partner module: one card, same everywhere a buying decision is being made.
+     Natural and lab-grown side by side, the spec spelled out, the disclosure on the card. */
+  card(o, opts){
+    const x = opts || {};
+    const spec = `${(+o.carat).toFixed(2)} ct ${String(o.shape||'Round').toLowerCase()}${o.color?' · '+o.color:''}${o.clarity?' · '+o.clarity+' and up':''}`;
+    const nat = this.search(Object.assign({}, o, {lab:false})), lab = this.search(Object.assign({}, o, {lab:true}));
+    return `<div class="bn-card">
+      <div class="bn-head">
+        <div><div class="bn-eyebrow">Shop this specification</div>
+          <div class="bn-title">${x.title || 'Real stones matching ' + spec}</div>
+          <div class="bn-sub">${x.sub || 'Blue Nile — the largest online inventory, every stone graded and photographed. Filtered to this spec so you land on the right stones.'}</div></div>
+        <div class="bn-logo" aria-hidden="true">Blue&nbsp;Nile</div>
+      </div>
+      <div class="bn-actions">
+        <a href="${nat}" data-bn-item="1" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-gold">${x.natLabel || 'Natural '+(+o.carat).toFixed(2)+' ct '+String(o.shape||'round').toLowerCase()+' →'}</a>
+        <a href="${lab}" data-bn-item="1" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-ghost">${x.labLabel || 'Lab-grown, same spec →'}</a>
+        ${(x.extra||[]).map(e=>`<a href="${this.search(e.spec)}" data-bn-item="1" target="_blank" rel="sponsored noopener noreferrer" class="btn ${e.gold?'btn-gold':'btn-ghost'}">${e.label}</a>`).join('')}
+      </div>
+      <p class="bn-disc">Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the figures on this page.</p>
+    </div>`;
+  },
+
   /* A ready-made button for a spec — used by the value, budget and size tools. */
   button(o, label){
     const url = this.search(o);
@@ -144,7 +166,7 @@ const Partners = {
       else if(!a.href.includes('affiliates.r2net.com')) a.href = BLUE_NILE.wrap(a.href);
       a.rel = 'sponsored noopener noreferrer';
     });
-    if(BLUE_NILE.active() && !document.querySelector('.bn-disclosure')){
+    if(BLUE_NILE.active() && !document.querySelector('.bn-disclosure, .bn-disc')){
       const p = document.createElement('p');
       p.className = 'small bn-disclosure';
       p.style.cssText = 'margin-top:12px;padding-top:10px;border-top:1px solid var(--line)';
