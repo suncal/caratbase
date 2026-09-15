@@ -120,6 +120,18 @@
       ? 'Lab-grown stones have very little secondary market at present. The metal in the setting may be worth more than the diamond.'
       : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} colour, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}${o.certNo?' #'+o.certNo:''}. Materials only — it excludes the jeweller's making and setting charges.`;
 
+    /* A valuation is also a specification. Someone pricing a 1.2 ct oval H VS1 usually
+       wants to know what one costs to buy today — and that click is the one that pays. */
+    const shop = $('oShop');
+    if(shop){
+      shop.innerHTML = (typeof BLUE_NILE !== 'undefined')
+        ? BLUE_NILE.button({shape:o.shape, carat:o.carat, color:o.color, clarity:o.clarity, lab:o.origin==='Lab-grown'},
+            `See ${o.carat} ct ${o.shape.toLowerCase()} diamonds like this at Blue Nile →`)
+          + '<p class="small" style="margin-top:8px">Retail listings for the same shape, weight and grade. '
+          + 'Links to Blue Nile earn us a commission if you buy; the figures above are ours, not theirs.</p>'
+        : '';
+    }
+
     $('sideHint').textContent = side
       ? `Each stone is about ${side.ctEach} ct. Typical pavé is 1.0–1.5 mm, a halo 1.2–1.8 mm.`
       : 'Typical pavé stones are 1.0–1.5 mm across, halo stones 1.2–1.8 mm.';

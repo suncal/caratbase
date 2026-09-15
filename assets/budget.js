@@ -66,11 +66,14 @@
                 <strong class="mono" style="color:${keep<20?'var(--bad)':'var(--warn)'}">${keep}%</strong></div>
             </div>
             <p class="small" style="margin-top:12px">${s.note}</p>
+            ${typeof BLUE_NILE!=='undefined' ? BLUE_NILE.button({shape:sp.shape, carat:s.r.carat, color:sp.color, clarity:sp.clarity, lab:sp.origin==='Lab-grown'},
+              `See ${s.r.carat.toFixed(2)} ct ${sp.shape.toLowerCase()} stones at this grade →`) : ''}
           </div>
         </div>
       </div>`;
     }).join('');
 
+    const disc=$('bDisclosure'); if(disc) disc.textContent='Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the figures above.';
     if(window.cbTrack) cbTrack('tool_use',{tool:'budget_calculator',budget:b,
       biggest:size.r.carat, balanced:bal.r.carat});
   }

@@ -100,6 +100,12 @@ const BLUE_NILE = {
     const path = o.lab ? '/diamonds/lab-grown-diamonds' : '/diamonds';
     return this.wrap('https://www.bluenile.com' + path + '?' + q.toString());
   },
+  /* A ready-made button for a spec — used by the value, budget and size tools. */
+  button(o, label){
+    const url = this.search(o);
+    return `<a href="${url}" target="_blank" rel="sponsored noopener noreferrer" data-bn-item="1"
+      class="btn btn-ghost" style="border-color:var(--gold);color:var(--gold-2);background:var(--gold-dim);margin-top:10px">${label}</a>`;
+  },
   wrap(url){
     if(!this.template) return url;
     if(this.template.includes('{url}')) return this.template.replace('{url}', encodeURIComponent(url));
