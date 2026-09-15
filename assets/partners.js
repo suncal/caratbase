@@ -18,7 +18,7 @@ const PARTNERS = {
 
   /* People about to BUY — budget calculator, ring sizer, size charts. */
   retail: [
-    {name:'Blue Nile',       url:'https://www.bluenile.com',      aff:'',
+    {name:'Blue Nile',       url:'https://www.bluenile.com',      aff:'https://www.bluenile.com/?a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates',
      note:'The largest online inventory. 5% commission, 45-day cookie, capped at $7,500 orders.'},
     {name:'James Allen',     url:'https://www.jamesallen.com',    aff:'',
      note:'360-degree video on every stone, which is the closest thing to seeing it in person. 5%, 60-day cookie.'},
@@ -81,7 +81,7 @@ const PARTNERS = {
  *   https://affiliates.r2net.com/scripts/XXXX?a_aid=YOUR_ID&a_bid=YOUR_BANNER&desturl={url}
  * Until then every link is the plain Blue Nile URL — useful, untracked, undisclosed. */
 const BLUE_NILE = {
-  template: '',
+  template: 'a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates',   /* approved 2026-09-15; parameter form, appended to any bluenile.com URL */
   shape:   {Round:'round-cut', Oval:'oval-cut', Princess:'princess-cut', Cushion:'cushion-cut',
             Emerald:'emerald-cut', Pear:'pear-cut', Marquise:'marquise-cut', Radiant:'radiant-cut',
             Asscher:'asscher-cut', Heart:'heart-cut'},
@@ -100,7 +100,12 @@ const BLUE_NILE = {
     const path = o.lab ? '/diamonds/lab-grown-diamonds' : '/diamonds';
     return this.wrap('https://www.bluenile.com' + path + '?' + q.toString());
   },
-  wrap(url){ return this.template ? this.template.replace('{url}', encodeURIComponent(url)) : url; },
+  wrap(url){
+    if(!this.template) return url;
+    if(this.template.includes('{url}')) return this.template.replace('{url}', encodeURIComponent(url));
+    if(url.includes('a_aid=')) return url;
+    return url + (url.includes('?') ? '&' : '?') + this.template;
+  },
   active(){ return !!this.template; }
 };
 

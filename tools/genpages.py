@@ -537,6 +537,7 @@ def build_gold():
 BN_SHAPE = {'Round':'round-cut','Oval':'oval-cut','Princess':'princess-cut','Cushion':'cushion-cut',
             'Emerald':'emerald-cut','Pear':'pear-cut','Marquise':'marquise-cut','Radiant':'radiant-cut',
             'Asscher':'asscher-cut','Heart':'heart-cut'}
+BN_AFF = 'a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates'   # keep identical to BLUE_NILE.template in assets/partners.js
 BN_COLORS  = ['K','J','I','H','G','F','E','D']
 BN_CLARITY = ['SI2','SI1','VS2','VS1','VVS2','VVS1','IF','FL']
 def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
@@ -545,9 +546,9 @@ def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
     q = (f"Shape={BN_SHAPE[shape]}&CaratFrom={ct*0.95:.2f}&CaratTo={ct*1.10:.2f}"
          f"&Color={','.join(BN_COLORS[BN_COLORS.index(color):])}"
          f"&Clarity={','.join(BN_CLARITY[BN_CLARITY.index(clarity):])}")
-    url = 'https://www.bluenile.com' + ('/diamonds/lab-grown-diamonds' if lab else '/diamonds') + '?' + q
+    url = 'https://www.bluenile.com' + ('/diamonds/lab-grown-diamonds' if lab else '/diamonds') + '?' + q + '&' + BN_AFF
     spec = json.dumps({'shape':shape,'carat':ct,'color':color,'clarity':clarity,'lab':lab})
-    return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="noopener noreferrer" '
+    return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="sponsored noopener noreferrer" '
             f'class="btn btn-lg" style="margin-top:12px">{label}</a>')
 
 def stone_cards(key, ctxt, s):
@@ -565,7 +566,8 @@ def stone_cards(key, ctxt, s):
         spec = f'{x["carat"]:g} ct · {x["color"]} · {x["clarity"]}' + (f' · {x["cut"].title()}' if x.get('cut') else '')
         tag = ('<span class="pill" style="background:var(--ice-dim);color:var(--ice)">Lab-grown</span>' if x['lab']
                else '<span class="pill">Natural</span>')
-        return (f'<a class="stone" href="{x["url"]}" data-bn-item="1" target="_blank" rel="noopener noreferrer" '
+        href = x["url"] + ('' if 'a_aid=' in x["url"] else ('&' if '?' in x["url"] else '?') + BN_AFF)
+        return (f'<a class="stone" href="{href}" data-bn-item="1" target="_blank" rel="sponsored noopener noreferrer" '
                 f'style="display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:10px;background:var(--panel)">'
                 f'{img}<div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px">{tag}'
                 f'<strong style="font-size:18px">{money(x["price"])}</strong></div>'
@@ -711,6 +713,9 @@ def build_diamonds():
     2025 and resale is 5–12% of retail, so the saving is real at the counter and is gone the day
     after. Buy lab-grown to wear it; never as a store of value.</p>
     {bn_link(s, c, 'G', 'VS2', True, f'See lab-grown {ctxt} ct {s.lower()} diamonds at Blue Nile →')}
+    <p class="small bn-disclosure" style="margin-top:12px;padding-top:10px;border-top:1px solid var(--line)">Links to
+    Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the
+    figures on this page — every number here comes from our own model, not from the retailer.</p>
 
     <h2>Price and the resale gap</h2>
     {tbl(['Where you sell', '#Typical offer', '#Share of retail'], [
