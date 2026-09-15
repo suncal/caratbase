@@ -66,6 +66,7 @@
   }
   function close(){ if(box) box.classList.remove('open'); }
   document.addEventListener('keydown',e=>{ if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){ e.preventDefault(); open(); } if(e.key==='/'&&!/input|textarea|select/i.test(document.activeElement.tagName)){ e.preventDefault(); open(); } });
+  const q0=new URLSearchParams(location.search).get('q'); if(q0) setTimeout(()=>open(q0), 300);
   const home=document.getElementById('homeSearch');
   if(home){ home.addEventListener('focus',()=>{ open(home.value); home.blur(); }); }
   window.cbSearch={open,close};

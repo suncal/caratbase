@@ -19,6 +19,10 @@ def shell(name, title, desc, eyebrow, h1, lede, body, script='', scripts=(), sch
 <meta name="description" content="{desc}">
 <link rel="canonical" href="https://caratbase.com/{name}">
 <meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:url" content="https://caratbase.com/{name}">
+<meta property="og:image" content="https://caratbase.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="{ICON}">
 {schema_tag}{extra_head}
@@ -455,10 +459,44 @@ PAGES['tools.html'] = dict(
 ''' + icons.families_html(),
   script='')
 
+PAGES['404.html'] = dict(
+  title='Page not found — CaratBase', desc='That page is not here. Search the tools and reference pages instead.',
+  eyebrow='404', h1='That page isn\'t here', lede='The address may have changed, or it never existed. Everything on the site is one search away.',
+  body='''
+  <label class="searchbar" for="homeSearch" style="margin:0 0 30px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="homeSearch" type="search" placeholder="Search — ring size 7, 925, 1.5 carat oval, 18k…" autocomplete="off"><span class="kbd">⌘K</span></label>
+  <div class="grid g3">
+    <a class="panel" href="value.html" style="text-decoration:none;color:inherit"><h3>Value my jewellery</h3><p class="small" style="margin-top:6px">Retail, and what it really resells for.</p></a>
+    <a class="panel" href="ring-size.html" style="text-decoration:none;color:inherit"><h3>Find my ring size</h3><p class="small" style="margin-top:6px">Four ways, five systems.</p></a>
+    <a class="panel" href="tools.html" style="text-decoration:none;color:inherit"><h3>All tools</h3><p class="small" style="margin-top:6px">Everything, in one place.</p></a>
+  </div>''',
+  script='', extra_head='<meta name="robots" content="noindex">')
+
+PAGES['about.html'] = dict(
+  title='About CaratBase — The Independent Jewellery Reference',
+  desc='Who runs CaratBase, why it exists, how it is paid for, and what it will never do. Independent, private, and every number shown working.',
+  eyebrow='About', h1='The independent jewellery reference', lede='CaratBase exists because the one number a jewellery owner most needs — what a piece actually fetches when sold — is the one number the trade does not publish. We publish it, with the working shown.',
+  body='''
+  <section class="narrow legal">
+    <h2>What it is</h2>
+    <p>A set of free calculators and around 250 reference pages covering diamonds, coloured stones, gold and metals, ring sizes and hallmarks. Every figure comes from our own price model, which is <a href="methodology.html">published in full</a>, and metal prices come from the live market. Nothing here is copied from a retailer.</p>
+    <h2>Who</h2>
+    <p>CaratBase is built and run by Priyankar Chakraborty, trading as CaratBase, from Georgia in the United States. It is not owned by, funded by, or affiliated with any jeweller, retailer, laboratory or insurer.</p>
+    <h2>How it is paid for</h2>
+    <p>Some links to retailers and insurers earn a commission if you buy. Every such link says so beside it, and it never changes a figure on the page — the valuation model does not know the links exist. We do not run display advertising, sell your data, or take payment to recommend anyone. If a partner stopped being the honest answer, the link would come out regardless of what it paid.</p>
+    <h2>What it will never do</h2>
+    <p>Buy or sell jewellery. Issue an appraisal — a document for insurance or probate needs a qualified appraiser who has handled the piece. Track you: there is no account, no cookie banner because there are no tracking cookies, and your vault lives on your own device.</p>
+    <h2>For jewellers and publishers</h2>
+    <p>The ring sizer, diamond size chart and gold calculator are available as <a href="widgets.html">free widgets</a> for any website. Retailers and laboratories interested in a data partnership can write to us.</p>
+    <h2>Contact</h2>
+    <p><a href="mailto:hello@caratbase.com">hello@caratbase.com</a> for anything general; <a href="mailto:privacy@caratbase.com">privacy@caratbase.com</a> for anything about your data. We read everything and reply to most.</p>
+  </section>''', script='')
+
 def main():
     for name, cfg in PAGES.items():
         html = shell(name, cfg['title'], cfg['desc'], cfg['eyebrow'], cfg['h1'], cfg['lede'], cfg['body'],
-                     script=cfg.get('script',''), scripts=cfg.get('scripts',()), schema=cfg.get('schema'))
+                     script=cfg.get('script',''), scripts=cfg.get('scripts',()), schema=cfg.get('schema'), extra_head=cfg.get('extra_head',''))
         (ROOT / name).write_text(html)
         print('wrote', name)
 

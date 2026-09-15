@@ -75,6 +75,10 @@ SHELL = '''<!doctype html>
 <meta property="og:description" content="{desc}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="{base}/{url}">
+<meta property="og:image" content="https://caratbase.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="{up}assets/style.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">{schema}</script>
@@ -1055,6 +1059,7 @@ TOOL_PAGES = {
   'insurance-cost.html': 'jewellery insurance cost premium engagement ring insure',
   'widgets.html': 'free widgets embed ring sizer for website jeweller',
   'methodology.html': 'how we value methodology sources',
+  'about.html': 'about us who runs caratbase contact independent',
 }
 def build_search_index():
     import html as _h
@@ -1062,7 +1067,7 @@ def build_search_index():
     stamps = {x['code']: x for x in node_eval('STAMPS', 'assets/data.js')}
     for f in sorted(ROOT.rglob('*.html')):
         rel = f.relative_to(ROOT).as_posix()
-        if rel.startswith(('embed/', 'dashboard')) or rel.endswith(('privacy.html','terms.html','disclaimer.html')): continue
+        if rel.startswith(('embed/', 'dashboard', '404')) or rel.endswith(('privacy.html','terms.html','disclaimer.html')): continue
         t = f.read_text()
         m = re.search(r'<title>(.*?)</title>', t, re.S); title = _h.unescape(m.group(1)).split('|')[0].strip() if m else rel
         m = re.search(r'name="description" content="([^"]*)"', t); desc = _h.unescape(m.group(1)) if m else ''
@@ -1110,7 +1115,7 @@ def main():
             'size.html','ring-size.html','measure.html','compare.html','lab-vs-natural.html',
             'engagement-ring-budget.html','diamond-price-per-carat.html','diamond-color-chart.html',
             'diamond-clarity-chart.html','birthstones.html','insurance-cost.html','tools.html',
-            'widgets.html','vault.html','methodology.html',
+            'widgets.html','about.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):
         loc = f'{BASE}/{u}'.replace('/index.html','/')

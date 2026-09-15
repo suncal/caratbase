@@ -859,3 +859,9 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .legal .bn-note,.legal p.bn-note{font-size:12.5px;color:var(--ink-3);line-height:1.5;margin-top:10px}
 .legal .bn-cta{margin-top:16px}
 .bn-cta.sm .bn-txt b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* partner list rows in the same co-brand language */
+.partner{border-radius:14px;background:#fff}
+.partner:hover{border-color:var(--bn);box-shadow:0 10px 26px rgba(20,39,79,.10)}
+.partner-name{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--bn)}
+.partner-go{color:#fff;background:var(--bn);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;white-space:nowrap}
+.partner-block{border:0;background:transparent;padding:0}

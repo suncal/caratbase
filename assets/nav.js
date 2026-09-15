@@ -144,7 +144,7 @@
     ['Value',['value.html','Diamond & jewellery'],['gemstone.html','Gemstones & pearls'],['metals.html','Gold & metal prices'],['stamp.html','Hallmark lookup'],['vault.html','My vault']],
     ['Buy',['budget.html','What my budget buys'],['compare.html','Compare two diamonds'],['lab-vs-natural.html','Lab-grown vs natural'],['engagement-ring-budget.html','How much to spend'],['diamond-price-per-carat.html','Price per carat'],['diamond-color-chart.html','Colour chart'],['diamond-clarity-chart.html','Clarity chart']],
     ['Measure',['ring-size.html','Ring sizer'],['measure.html','From a photo'],['size.html','Carat size chart'],['ring-size/','Ring size charts'],['diamond/','Sizes by carat & shape']],
-    ['Reference',['birthstones.html','Birthstones'],['insurance-cost.html','Insurance cost'],['hallmark/','Hallmarks explained'],['gold-price/','Gold price by karat'],['gemstone/','Gemstone values'],['widgets.html','Free widgets'],['methodology.html','How we value']],
+    ['Reference',['birthstones.html','Birthstones'],['insurance-cost.html','Insurance cost'],['hallmark/','Hallmarks explained'],['gold-price/','Gold price by karat'],['gemstone/','Gemstone values'],['widgets.html','Free widgets'],['methodology.html','How we value'],['about.html','About']],
   ];
   const map=document.createElement('div'); map.className='wrap';
   map.innerHTML='<div class="foot-map"><div><div class="tag">CaratBase</div><p>The independent jewellery reference. Every number shown working; no account, no tracking.</p></div>'
