@@ -10,7 +10,7 @@
 <meta property="og:title" content="CaratBase — Free Diamond, Gold &amp; Jewellery Calculators">
 <meta property="og:description" content="Work out what your jewellery is actually worth — including the resale number nobody else publishes.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=28aefa35">
+<link rel="stylesheet" href="assets/style.css?v=270d105c">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"CaratBase",
@@ -27,31 +27,34 @@
 <main>
 
 <!-- ================= HERO ================= -->
-<section class="wrap hero2">
-  <div class="copy">
-    <div class="eyebrow">The jewellery reference</div>
-    <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
-    <p class="lede">
-      Free tools for anything you own or are about to buy — with the number the trade
-      keeps to itself: what a diamond really fetches when you sell it.
-    </p>
-    <div class="hero-cta">
-      <a href="value.html" class="btn btn-gold btn-lg">Value my jewellery</a>
-      <a href="compare.html" class="btn btn-ghost btn-lg">Compare two diamonds</a>
+<section class="hero3">
+  <div class="ph" role="img" aria-label="A round brilliant diamond held in jeweller's tweezers"></div>
+  <div class="in">
+    <div class="copy">
+      <div class="eyebrow">The jewellery reference</div>
+      <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
+      <p class="lede">
+        Free tools for anything you own or are about to buy — with the number the trade
+        keeps to itself: what a diamond really fetches when you sell it.
+      </p>
+      <div class="hero-cta">
+        <a href="value.html" class="btn btn-gold btn-lg">Value my jewellery</a>
+        <a href="compare.html" class="btn btn-ghost btn-lg">Compare two diamonds</a>
+      </div>
+      <label class="searchbar" for="homeSearch">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="homeSearch" type="search" placeholder="Search — ring size 7, 925, 1.5 carat oval, 18k…" autocomplete="off">
+        <span class="kbd">⌘K</span>
+      </label>
     </div>
-    <label class="searchbar" for="homeSearch">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="homeSearch" type="search" placeholder="Search — ring size 7, 925, 1.5 carat oval, 18k…" autocomplete="off">
-      <span class="kbd">⌘K</span>
-    </label>
-  </div>
-  <div class="showcase" id="showcase" aria-live="polite">
-    <div class="stage fade" id="scStage"></div>
-    <div class="cap fade" id="scCap">
-      <div class="spec">—<small>&nbsp;</small></div>
-      <div class="nums"><div class="r">Retail <b>—</b></div><div class="s">Resells for —</div></div>
+    <div class="showcase" id="showcase" aria-live="polite">
+      <div class="stage fade" id="scStage"></div>
+      <div class="cap fade" id="scCap">
+        <div class="spec">—<small>&nbsp;</small></div>
+        <div class="nums"><div class="r">Retail <b>—</b></div><div class="s">Resells for —</div></div>
+      </div>
+      <div class="dots" id="scDots"></div>
     </div>
-    <div class="dots" id="scDots"></div>
   </div>
 </section>
 
@@ -82,19 +85,26 @@
 
 <!-- ================= WHY ================= -->
 <section class="wrap section">
-  <div class="narrow">
-    <div class="eyebrow">Why this exists</div>
-    <h2>A diamond loses most of its value the moment you buy it</h2>
-    <p class="lede" style="margin-top:18px">
-      Every jeweller will tell you the retail price. Almost none will tell you what happens
-      when you try to sell it back. On the secondary market a natural diamond typically
-      recovers only a quarter to two fifths of what was paid for it — and lab-grown stones,
-      whose prices have collapsed as production scaled, recover far less again.
-    </p>
-    <p class="lede" style="margin-top:14px">
-      That is not an argument against buying jewellery. It is an argument for knowing the
-      number before you need it.
-    </p>
+  <div class="mood">
+    <div class="img gems" role="img" aria-label="Loose ruby, sapphire and emerald beside a jeweller's loupe"></div>
+    <div>
+      <div class="eyebrow">Why this exists</div>
+      <h2>A diamond loses most of its value the moment you buy it</h2>
+      <p class="lede" style="margin-top:18px">
+        Every jeweller will tell you the retail price. Almost none will tell you what happens
+        when you try to sell it back. On the secondary market a natural diamond typically
+        recovers a quarter to two fifths of what was paid for it — and lab-grown stones,
+        whose prices have collapsed as production scaled, recover far less again.
+      </p>
+      <p class="lede" style="margin-top:14px">
+        That is not an argument against buying jewellery. It is an argument for knowing the
+        number before you need it.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+        <a href="methodology.html" class="btn btn-ghost">How we arrive at every number</a>
+        <a href="lab-vs-natural.html" class="btn btn-ghost">Lab-grown vs natural</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -186,34 +196,33 @@
 </section>
 
 <!-- ================= CAPTURE ================= -->
-<section class="wrap" style="padding-bottom:70px">
-  <div class="capture narrow center" style="margin:0 auto">
-    <h2 style="font-size:30px">Know when your jewellery changes in value</h2>
-    <p class="small" style="margin:12px auto 22px;max-width:52ch">
-      Gold moves every day and diamond resale shifts with the market. Leave your email and
-      we will tell you when it matters. Want a report right now?
-      <a href="value.html">Value your piece</a> — you can download it instantly, free.
-    </p>
-    <form id="emailForm" style="display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap">
-      <input type="email" id="emailInput" placeholder="you@email.com" required style="flex:1;min-width:220px">
-      <button class="btn btn-gold" type="submit">Keep me posted</button>
-    </form>
-    <p class="small" id="emailMsg" style="margin-top:14px;min-height:20px"></p>
+<section class="wrap section">
+  <div class="mood">
+    <div>
+      <div class="eyebrow">Stay current</div>
+      <h2>Know when your jewellery changes in value</h2>
+      <p class="lede" style="margin-top:14px">
+        Gold moves every day and diamond resale shifts with the market. Leave your email and
+        we will tell you when it matters — nothing else, ever. Want a report right now?
+        <a href="value.html">Value your piece</a> and download it instantly, free.
+      </p>
+      <form id="emailForm" style="display:flex;gap:10px;max-width:460px;margin-top:22px;flex-wrap:wrap">
+        <input type="email" id="emailInput" placeholder="you@email.com" required style="flex:1;min-width:220px">
+        <button class="btn btn-gold" type="submit">Keep me posted</button>
+      </form>
+      <p class="small" id="emailMsg" style="margin-top:12px;min-height:20px"></p>
+    </div>
+    <div class="img gold" role="img" aria-label="Gold bands and a fine chain on an ivory surface"></div>
   </div>
 </section>
 
-  <section class="section" style="padding-top:14px">
-    <h2 style="font-size:23px;margin-bottom:6px">Reference</h2>
-    <p class="small" style="margin-bottom:16px">Hundreds of worked pages behind the calculators — every ring size, every hallmark, every carat and shape.</p>
-    <div class="rel-grid"><a href="ring-size/" class="rel-link">Ring size charts</a><a href="hallmark/" class="rel-link">Hallmarks explained</a><a href="gold-price/" class="rel-link">Gold price by karat</a><a href="diamond/" class="rel-link">Diamond sizes & prices</a><a href="gemstone/" class="rel-link">Gemstone values</a></div>
+  <section class="wrap section-sm" style="padding-top:8px">
+    <div class="sec-head" style="margin-bottom:18px">
+      <div><div class="eyebrow">Most looked up</div><h2>The questions people bring here most</h2></div>
+      <p class="small">Each answered with a real number, on its own page.</p>
+    </div>
+    <div class="ml-grid"><div class="ml-col"><h3><a href="diamond/">Diamonds</a></h3><div class="ml-chips"><a href="diamond/1-carat-round/">1 carat round</a><a href="diamond/2-carat-round/">2 carat round</a><a href="diamond/1-carat-oval/">1 carat oval</a><a href="diamond/1-5-carat-round/">1.5 carat round</a><a href="diamond/0-5-carat-round/">0.5 carat round</a><a href="diamond/2-carat-oval/">2 carat oval</a><a href="diamond/3-carat-round/">3 carat round</a><a href="diamond/1-carat-princess/">1 carat princess</a><a href="diamond/1-carat-cushion/">1 carat cushion</a><a href="diamond/2-carat-cushion/">2 carat cushion</a></div><a class="ml-all" href="diamond/">All diamonds →</a></div><div class="ml-col"><h3><a href="ring-size/">Ring sizes</a></h3><div class="ml-chips"><a href="ring-size/us-5/">US 5</a><a href="ring-size/us-6/">US 6</a><a href="ring-size/us-6-5/">US 6.5</a><a href="ring-size/us-7/">US 7</a><a href="ring-size/us-7-5/">US 7.5</a><a href="ring-size/us-8/">US 8</a><a href="ring-size/us-9/">US 9</a><a href="ring-size/us-10/">US 10</a><a href="ring-size/uk-l/">UK L</a><a href="ring-size/uk-n/">UK N</a></div><a class="ml-all" href="ring-size/">All ring sizes →</a></div><div class="ml-col"><h3><a href="hallmark/">Hallmarks</a></h3><div class="ml-chips"><a href="hallmark/925/">925</a><a href="hallmark/750/">750</a><a href="hallmark/585/">585</a><a href="hallmark/417/">417</a><a href="hallmark/375/">375</a><a href="hallmark/916/">916</a><a href="hallmark/gf/">GF</a><a href="hallmark/pt950/">PT950</a></div><a class="ml-all" href="hallmark/">All hallmarks →</a></div><div class="ml-col"><h3><a href="gold-price/">Gold</a></h3><div class="ml-chips"><a href="gold-price/22k/">22K</a><a href="gold-price/18k/">18K</a><a href="gold-price/14k/">14K</a></div><a class="ml-all" href="gold-price/">All gold →</a></div><div class="ml-col"><h3><a href="gemstone/">Gemstones</a></h3><div class="ml-chips"><a href="gemstone/ruby/">Ruby</a><a href="gemstone/blue-sapphire/">Blue sapphire</a><a href="gemstone/emerald/">Emerald</a><a href="gemstone/tanzanite/">Tanzanite</a><a href="gemstone/alexandrite/">Alexandrite</a></div><a class="ml-all" href="gemstone/">All gemstones →</a></div></div>
   </section>
-
-  <section class="section" style="padding-top:0">
-    <h2 style="font-size:23px;margin-bottom:6px">Most looked up</h2>
-    <p class="small" style="margin-bottom:16px">The questions people bring here most often, each answered with a real number.</p>
-    <div class="rel-grid"><a href="diamond/1-carat-round/" class="rel-link">1 carat round diamond</a><a href="diamond/2-carat-round/" class="rel-link">2 carat round diamond</a><a href="diamond/1-carat-oval/" class="rel-link">1 carat oval diamond</a><a href="diamond/1-5-carat-round/" class="rel-link">1.5 carat round diamond</a><a href="diamond/0-5-carat-round/" class="rel-link">0.5 carat round diamond</a><a href="diamond/2-carat-oval/" class="rel-link">2 carat oval diamond</a><a href="diamond/3-carat-round/" class="rel-link">3 carat round diamond</a><a href="diamond/1-carat-princess/" class="rel-link">1 carat princess diamond</a><a href="diamond/1-carat-cushion/" class="rel-link">1 carat cushion diamond</a><a href="diamond/2-carat-cushion/" class="rel-link">2 carat cushion diamond</a><a href="ring-size/us-5/" class="rel-link">Ring size 5</a><a href="ring-size/us-6/" class="rel-link">Ring size 6</a><a href="ring-size/us-6-5/" class="rel-link">Ring size 6.5</a><a href="ring-size/us-7/" class="rel-link">Ring size 7</a><a href="ring-size/us-7-5/" class="rel-link">Ring size 7.5</a><a href="ring-size/us-8/" class="rel-link">Ring size 8</a><a href="ring-size/us-9/" class="rel-link">Ring size 9</a><a href="ring-size/us-10/" class="rel-link">Ring size 10</a><a href="ring-size/uk-l/" class="rel-link">UK ring size L</a><a href="ring-size/uk-n/" class="rel-link">UK ring size N</a><a href="hallmark/925/" class="rel-link">What does 925 mean?</a><a href="hallmark/750/" class="rel-link">What does 750 mean?</a><a href="hallmark/585/" class="rel-link">What does 585 mean?</a><a href="hallmark/417/" class="rel-link">What does 417 mean?</a><a href="hallmark/375/" class="rel-link">What does 375 mean?</a><a href="hallmark/916/" class="rel-link">What does 916 mean?</a><a href="hallmark/gf/" class="rel-link">What does GF mean?</a><a href="hallmark/pt950/" class="rel-link">What does PT950 mean?</a><a href="gold-price/22k/" class="rel-link">22K gold price per gram</a><a href="gold-price/18k/" class="rel-link">18K gold price per gram</a><a href="gold-price/14k/" class="rel-link">14K gold price per gram</a><a href="gemstone/ruby/" class="rel-link">Ruby value</a><a href="gemstone/blue-sapphire/" class="rel-link">Blue sapphire value</a><a href="gemstone/emerald/" class="rel-link">Emerald value</a><a href="gemstone/tanzanite/" class="rel-link">Tanzanite value</a><a href="gemstone/alexandrite/" class="rel-link">Alexandrite value</a></div>
-  </section>
-
 </main>
 
 <footer class="site-foot">
@@ -233,15 +242,15 @@
   </div>
 </footer>
 
-<script src="assets/data.js?v=28aefa35"></script>
-<script src="assets/analytics.js?v=28aefa35"></script>
-<script src="assets/spot.js?v=28aefa35"></script>
-<script src="assets/ticker.js?v=28aefa35"></script>
-<script src="assets/nav.js?v=28aefa35"></script>
-<script src="assets/logo.js?v=28aefa35"></script>
-<script src="assets/shapes.js?v=28aefa35"></script>
-<script src="assets/showcase.js?v=28aefa35"></script>
-<script src="assets/game.js?v=28aefa35"></script>
+<script src="assets/data.js?v=270d105c"></script>
+<script src="assets/analytics.js?v=270d105c"></script>
+<script src="assets/spot.js?v=270d105c"></script>
+<script src="assets/ticker.js?v=270d105c"></script>
+<script src="assets/nav.js?v=270d105c"></script>
+<script src="assets/logo.js?v=270d105c"></script>
+<script src="assets/shapes.js?v=270d105c"></script>
+<script src="assets/showcase.js?v=270d105c"></script>
+<script src="assets/game.js?v=270d105c"></script>
 <script>
 /* live gold price into the trust bar */
 document.addEventListener('cb:spot',e=>{

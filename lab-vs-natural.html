@@ -7,7 +7,7 @@
 <meta name="description" content="The same diamond both ways: what a lab-grown and a natural stone of identical size and grade cost today, what each resells for, and how far the same money goes in each.">
 <link rel="canonical" href="https://caratbase.com/lab-vs-natural.html">
 <meta property="og:title" content="Lab-Grown vs Natural Diamond — Price Today and Value in Five Years | CaratBase"><meta property="og:description" content="The same diamond both ways: what a lab-grown and a natural stone of identical size and grade cost today, what each resells for, and how far the same money goes in each."><meta property="og:url" content="https://caratbase.com/lab-vs-natural.html">
-<link rel="stylesheet" href="assets/style.css?v=28aefa35">
+<link rel="stylesheet" href="assets/style.css?v=270d105c">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much cheaper is a lab-grown diamond?", "acceptedAnswer": {"@type": "Answer", "text": "A lab-grown diamond of the same size and grade costs roughly 85% less than a natural one at retail. A 1 carat G VS2 round is about $5,250 natural and about $740 lab-grown."}}, {"@type": "Question", "name": "Do lab-grown diamonds hold their value?", "acceptedAnswer": {"@type": "Answer", "text": "No. Lab-grown resale is typically 5\u201312% of retail, against 25\u201340% for natural, and lab-grown prices have fallen every year since 2022 as production has scaled."}}, {"@type": "Question", "name": "Can anyone tell a lab-grown diamond from a natural one?", "acceptedAnswer": {"@type": "Answer", "text": "Not by eye or loupe. Laboratories use spectroscopy, and graded stones are laser-inscribed with their origin on the girdle."}}]}</script>
 </head>
@@ -22,12 +22,19 @@
     <p class="lede">Identical shape, weight and grade. One is grown in a reactor in weeks, the other in the mantle over a billion years — and they are chemically the same. The difference is entirely in what they cost and what they are worth later.</p>
   </div>
 
-  <div class="panel" style="margin-top:8px"><div class="grid g2" style="gap:10px">
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Lab-grown vs natural</span><span class="status">same stone, both ways</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>The stone</h3><div class="grid g2" style="gap:12px">
     <div class="field"><label>Carat</label><input type="number" id="ct" value="1" step="0.05" min="0.1" max="10"></div>
     <div class="field"><label>Shape</label><select id="sh"></select></div>
     <div class="field"><label>Colour</label><select id="co"></select></div>
     <div class="field"><label>Clarity</label><select id="cl"></select></div>
-  </div></div>
+  </div><p class="small" style="margin-top:8px">Very Good cut; natural graded GIA, lab-grown IGI.</p></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <div class="grid g2" style="margin-top:22px" id="out"></div>
   <div class="panel" style="margin-top:18px" id="same"></div>
   <div id="shop"></div>
@@ -45,14 +52,14 @@
     <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
     <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
 </div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewellery. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
-<script src="assets/data.js?v=28aefa35"></script>
-<script src="assets/analytics.js?v=28aefa35"></script>
-<script src="assets/spot.js?v=28aefa35"></script>
-<script src="assets/ticker.js?v=28aefa35"></script>
-<script src="assets/logo.js?v=28aefa35"></script>
-<script src="assets/nav.js?v=28aefa35"></script>
-<script src="assets/partners.js?v=28aefa35"></script>
-<script src="assets/shapes.js?v=28aefa35"></script>
+<script src="assets/data.js?v=270d105c"></script>
+<script src="assets/analytics.js?v=270d105c"></script>
+<script src="assets/spot.js?v=270d105c"></script>
+<script src="assets/ticker.js?v=270d105c"></script>
+<script src="assets/logo.js?v=270d105c"></script>
+<script src="assets/nav.js?v=270d105c"></script>
+<script src="assets/partners.js?v=270d105c"></script>
+<script src="assets/shapes.js?v=270d105c"></script>
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 
@@ -70,6 +77,9 @@ document.getElementById('yr').textContent=new Date().getFullYear();
       <div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--gold-2);margin-top:8px">${money(v.retailLow)}–${money(v.retailHigh)}</div>
       <div class="small" style="color:var(--bad);font-weight:600">Resells for ${money(v.resaleLow)}–${money(v.resaleHigh)} · you keep ${Math.round((v.resaleLow+v.resaleHigh)/2/mid(v)*100)}%</div></div>`;
     $('out').innerHTML=card('Natural',N,false)+card('Lab-grown',L,true);
+    $('cOut').innerHTML=`<div class="lab">Natural — retail</div><div class="big">${money(N.retailLow)}–${money(N.retailHigh)}</div><div class="sub">resells for ${money(N.resaleLow)}–${money(N.resaleHigh)}</div>
+      <div class="lab" style="margin-top:18px">Lab-grown — retail</div><div class="big" style="color:#9CCFE0">${money(L.retailLow)}–${money(L.retailHigh)}</div><div class="sub">resells for ${money(L.resaleLow)}–${money(L.resaleHigh)}</div>
+      <div class="split"><div><div class="lab">The difference</div><div class="v">${money(mid(N)-mid(L))}</div></div><div><div class="lab">Lab-grown is</div><div class="v">${Math.round((1-mid(L)/mid(N))*100)}% cheaper</div></div></div>`;
     const big=caratForBudget(mid(N),{shape:sh,color:co,clarity:cl,cut:'Very Good',origin:'Lab-grown',cert:'IGI'});
     const saving=mid(N)-mid(L);
     $('same').innerHTML=`<h3>The same money, the other way</h3><p style="margin-top:8px">The natural stone costs about <strong>${money(saving)} more</strong> — ${Math.round(saving/mid(N)*100)}% of its price. Spent on lab-grown instead, ${money(mid(N))} buys roughly a <strong>${big?big.carat.toFixed(2):'—'} ct</strong> stone of the same grade, about ${big?shapeDims(sh,big.carat).l:'—'} mm across against ${d.l} mm. Five years on, the natural stone would typically fetch ${money(N.resaleLow)}–${money(N.resaleHigh)}; the lab-grown one ${money(L.resaleLow)}–${money(L.resaleHigh)}, and likely less.</p>`;

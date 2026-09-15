@@ -7,31 +7,34 @@ s = p.read_text()
 start = s.index('<!-- ================= HERO ================= -->')
 end = s.index('<!-- ================= WHY ================= -->')
 hero = '''<!-- ================= HERO ================= -->
-<section class="wrap hero2">
-  <div class="copy">
-    <div class="eyebrow">The jewellery reference</div>
-    <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
-    <p class="lede">
-      Free tools for anything you own or are about to buy — with the number the trade
-      keeps to itself: what a diamond really fetches when you sell it.
-    </p>
-    <div class="hero-cta">
-      <a href="value.html" class="btn btn-gold btn-lg">Value my jewellery</a>
-      <a href="compare.html" class="btn btn-ghost btn-lg">Compare two diamonds</a>
+<section class="hero3">
+  <div class="ph" role="img" aria-label="A round brilliant diamond held in jeweller's tweezers"></div>
+  <div class="in">
+    <div class="copy">
+      <div class="eyebrow">The jewellery reference</div>
+      <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
+      <p class="lede">
+        Free tools for anything you own or are about to buy — with the number the trade
+        keeps to itself: what a diamond really fetches when you sell it.
+      </p>
+      <div class="hero-cta">
+        <a href="value.html" class="btn btn-gold btn-lg">Value my jewellery</a>
+        <a href="compare.html" class="btn btn-ghost btn-lg">Compare two diamonds</a>
+      </div>
+      <label class="searchbar" for="homeSearch">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="homeSearch" type="search" placeholder="Search — ring size 7, 925, 1.5 carat oval, 18k…" autocomplete="off">
+        <span class="kbd">⌘K</span>
+      </label>
     </div>
-    <label class="searchbar" for="homeSearch">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="homeSearch" type="search" placeholder="Search — ring size 7, 925, 1.5 carat oval, 18k…" autocomplete="off">
-      <span class="kbd">⌘K</span>
-    </label>
-  </div>
-  <div class="showcase" id="showcase" aria-live="polite">
-    <div class="stage fade" id="scStage"></div>
-    <div class="cap fade" id="scCap">
-      <div class="spec">—<small>&nbsp;</small></div>
-      <div class="nums"><div class="r">Retail <b>—</b></div><div class="s">Resells for —</div></div>
+    <div class="showcase" id="showcase" aria-live="polite">
+      <div class="stage fade" id="scStage"></div>
+      <div class="cap fade" id="scCap">
+        <div class="spec">—<small>&nbsp;</small></div>
+        <div class="nums"><div class="r">Retail <b>—</b></div><div class="s">Resells for —</div></div>
+      </div>
+      <div class="dots" id="scDots"></div>
     </div>
-    <div class="dots" id="scDots"></div>
   </div>
 </section>
 

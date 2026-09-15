@@ -7,7 +7,7 @@
 <meta name="description" content="Put two diamond specifications side by side: true face-up size, retail price, resale value, price per carat and which is the better buy. Natural or lab-grown.">
 <link rel="canonical" href="https://caratbase.com/compare.html">
 <meta property="og:title" content="Compare Two Diamonds Side by Side — Size, Price, Resale & Value | CaratBase"><meta property="og:description" content="Put two diamond specifications side by side: true face-up size, retail price, resale value, price per carat and which is the better buy. Natural or lab-grown."><meta property="og:url" content="https://caratbase.com/compare.html">
-<link rel="stylesheet" href="assets/style.css?v=28aefa35">
+<link rel="stylesheet" href="assets/style.css?v=270d105c">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is a 0.9 carat diamond much smaller than a 1 carat?", "acceptedAnswer": {"@type": "Answer", "text": "No. Linear size scales with the cube root of weight, so a 0.90 ct round is about 6.27 mm across against 6.5 mm for a 1.00 ct \u2014 3.5% shorter \u2014 while costing roughly 25% less because it sits below the 1 carat price step."}}, {"@type": "Question", "name": "Which is better value, a higher colour or a higher clarity?", "acceptedAnswer": {"@type": "Answer", "text": "Below about G colour and VS2 clarity the differences are invisible without a loupe. For the same money, weight and cut quality are what you can actually see."}}]}</script>
 </head>
@@ -22,10 +22,14 @@
     <p class="lede">Two specifications, side by side, with everything that actually differs: how big each looks, what each costs, what each fetches back, and which one is the better buy for the money.</p>
   </div>
 
-  <div class="grid g2" style="margin-top:8px">
-    <div class="panel"><div class="eyebrow" style="margin-bottom:10px">Diamond A</div><div id="fA"></div></div>
-    <div class="panel"><div class="eyebrow" style="margin-bottom:10px">Diamond B</div><div id="fB"></div></div>
-  </div>
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Compare</span><span class="status">size · price · resale · verdict</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>Diamond A</h3><div id="fA"></div><h3 style="margin-top:20px">Diamond B</h3><div id="fB"></div></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <div class="chips" style="margin:14px 0 0"><span class="small" style="align-self:center">Quick comparisons:</span>
     <button class="chip" data-p="1|Round|G|VS2|Natural;0.9|Round|G|VS2|Natural">1.00 ct vs 0.90 ct</button>
     <button class="chip" data-p="1|Round|G|VS2|Natural;1|Round|G|VS2|Lab-grown">Natural vs lab-grown</button>
@@ -33,7 +37,6 @@
     <button class="chip" data-p="1.5|Round|G|VS2|Natural;1.5|Oval|G|VS2|Natural">Round vs oval, same weight</button>
   </div>
   <div class="grid g2" style="margin-top:22px" id="out"></div>
-  <div id="verdict" class="panel" style="margin-top:18px;display:none"></div>
   <div id="shop"></div>
   <section class="narrow legal" style="margin-top:40px">
     <h2>How to read this</h2>
@@ -47,14 +50,14 @@
     <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
     <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
 </div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewellery. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
-<script src="assets/data.js?v=28aefa35"></script>
-<script src="assets/analytics.js?v=28aefa35"></script>
-<script src="assets/spot.js?v=28aefa35"></script>
-<script src="assets/ticker.js?v=28aefa35"></script>
-<script src="assets/logo.js?v=28aefa35"></script>
-<script src="assets/nav.js?v=28aefa35"></script>
-<script src="assets/partners.js?v=28aefa35"></script>
-<script src="assets/shapes.js?v=28aefa35"></script>
+<script src="assets/data.js?v=270d105c"></script>
+<script src="assets/analytics.js?v=270d105c"></script>
+<script src="assets/spot.js?v=270d105c"></script>
+<script src="assets/ticker.js?v=270d105c"></script>
+<script src="assets/logo.js?v=270d105c"></script>
+<script src="assets/nav.js?v=270d105c"></script>
+<script src="assets/partners.js?v=270d105c"></script>
+<script src="assets/shapes.js?v=270d105c"></script>
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 
@@ -63,7 +66,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   const money=n=>'$'+Math.round(n).toLocaleString('en-US');
   const SH=['Round','Oval','Princess','Cushion','Emerald','Pear','Marquise','Radiant','Asscher','Heart'];
   function form(id, d){
-    return `<div class="grid g2" style="gap:10px">
+    return `<div class="grid g3" style="gap:10px">
       <div class="field"><label>Carat</label><input type="number" id="${id}ct" value="${d.ct}" step="0.05" min="0.1" max="10"></div>
       <div class="field"><label>Shape</label><select id="${id}sh">${SH.map(s=>`<option${s===d.sh?' selected':''}>${s}</option>`).join('')}</select></div>
       <div class="field"><label>Colour</label><select id="${id}co">${Object.keys(COLOR_MULT).map(c=>`<option${c===d.co?' selected':''}>${c}</option>`).join('')}</select></div>
@@ -96,7 +99,9 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     else if(area<0.87 && dp>-15) verdict+=`B shows ${((1/area-1)*100).toFixed(0)}% more face-up area for ${dp>0?'less':'little more'} money. <strong>B is the better buy for visible size.</strong>`;
     else verdict+=`The price tracks the visible size fairly closely here; choose on shape and cut quality rather than on the numbers.`;
     if(A.origin!==B.origin) verdict+=` Note the resale row: the lab-grown stone keeps ${Math.round(rmid(A.origin==='Lab-grown'?va:vb)/mid(A.origin==='Lab-grown'?va:vb)*100)}% against ${Math.round(rmid(A.origin==='Lab-grown'?vb:va)/mid(A.origin==='Lab-grown'?vb:va)*100)}% for natural. Buy lab-grown to wear, not to hold.`;
-    $('verdict').style.display='block'; $('verdict').innerHTML=verdict+'</p>';
+    $('cOut').innerHTML=`<div class="lab">Diamond A</div><div class="big" style="font-size:clamp(26px,4vw,36px)">${money(va.retailLow)}–${money(va.retailHigh)}</div><div class="sub">${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()} · ${A.color}/${A.clarity} · resells ${money(va.resaleLow)}–${money(va.resaleHigh)}</div>
+      <div class="lab" style="margin-top:18px">Diamond B</div><div class="big" style="font-size:clamp(26px,4vw,36px)">${money(vb.retailLow)}–${money(vb.retailHigh)}</div><div class="sub">${B.carat.toFixed(2)} ct ${B.shape.toLowerCase()} · ${B.color}/${B.clarity} · resells ${money(vb.resaleLow)}–${money(vb.resaleHigh)}</div>
+      <div class="note" style="margin-top:18px;color:#F6F1E6;font-size:14px;line-height:1.55">${verdict.replace('<h3>Verdict</h3><p style="margin-top:8px">','')}</div>`;
     $('shop').innerHTML=(typeof BLUE_NILE!=='undefined')?BLUE_NILE.card({shape:A.shape,carat:A.carat,color:A.color,clarity:A.clarity,lab:A.origin==='Lab-grown'},{title:'Real stones matching A and B',
       sub:`A: ${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()}, ${A.color}/${A.clarity} and up · B: ${B.carat.toFixed(2)} ct ${B.shape.toLowerCase()}, ${B.color}/${B.clarity} and up. Filtered to each spec at Blue Nile.`,
       natLabel:`Like A — ${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()}${A.origin==='Lab-grown'?' (lab)':''} →`, labLabel:`Like A — lab-grown →`,

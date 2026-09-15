@@ -729,3 +729,96 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .bn-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 .bn-disc{font-size:12px;color:var(--ink-3);margin:12px 0 0}
 @media(max-width:560px){.bn-logo{display:none}}
+
+/* ---------- most looked up ---------- */
+.ml-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.ml-col{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 16px}
+.ml-col h3{font-size:18px;margin-bottom:10px}
+.ml-col h3 a{color:var(--ink);text-decoration:none}
+.ml-chips{display:flex;flex-wrap:wrap;gap:6px}
+.ml-chips a{font-size:13px;padding:6px 11px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);color:var(--ink-2);text-decoration:none;white-space:nowrap}
+.ml-chips a:hover{border-color:var(--gold);color:var(--gold-2);background:var(--gold-dim)}
+.ml-all{display:inline-block;margin-top:12px;font-size:13px;font-weight:600;color:var(--gold-2);text-decoration:none}
+
+/* ================================================================
+   v3 — the tools-company pass. Restraint: one accent, rationed; hairlines
+   over boxes; photography as atmosphere, never as merchandise.
+   ================================================================ */
+:root{--ink:#16130F;--ink-2:#4F4A42;--ink-3:#847D72;--line:#E9E4DA;--bg:#F9F7F3}
+
+/* nav: small, tracked, uppercase — the category convention */
+.nav a,.nav .navtop{font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;color:var(--ink-2)}
+.nav a.on,.nav .navgroup.on>.navtop{color:var(--ink)}
+.navmenu a{text-transform:none;letter-spacing:0;font-size:14px;font-weight:500}
+.logo{font-size:24px;letter-spacing:.01em}
+
+/* ticker: quiet, ivory, hairlined — a data strip, not a billboard */
+.ticker{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ticker::before{background:linear-gradient(90deg,#fff,transparent)}
+.ticker::after{background:linear-gradient(270deg,#fff,transparent)}
+.tick{padding:9px 20px}
+.tick .sym{color:var(--ink-3);font-size:10.5px}
+.tick .px{color:var(--ink);font-size:15px}
+.tick .tag{border-color:var(--line);color:var(--ink-3);background:transparent}
+
+/* accent rationing */
+.eyebrow{color:var(--gold-2)}
+.btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.trust-bar .n{color:var(--ink)}
+.tool2{border-color:transparent;background:#fff;box-shadow:0 1px 0 rgba(22,19,15,.04),0 0 0 1px rgba(22,19,15,.05)}
+.tool2:hover{box-shadow:0 14px 34px rgba(22,19,15,.09),0 0 0 1px rgba(22,19,15,.08)}
+.tool2 .go{color:var(--ink);letter-spacing:.02em}
+.tool2:hover .go{color:var(--gold-2)}
+.tool2 .vis{background:var(--bg)}
+.family{margin-top:64px}
+.family-head{border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:22px}
+.family-head h2{font-size:30px}
+.ml-col h3 a:hover{color:var(--gold-2)}
+.trust2 div{border:0;background:transparent;padding:6px 0}
+.trust2{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;margin:72px 0 0}
+
+/* hero v3: photography with a scrim, copy on the ground, the live instrument over the photo */
+.hero3{position:relative;margin:0 calc(50% - 50vw);padding:0;background:var(--bg)}
+.hero3 .ph{position:absolute;inset:0 0 0 46%;background:url(img/diamond.jpg) center/cover no-repeat}
+@supports (background-image:url(img/diamond.webp)){.hero3 .ph{background-image:url(img/diamond.webp)}}
+.hero3 .ph::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(249,247,243,.92) 12%,rgba(249,247,243,0) 45%)}
+.hero3 .ph::after{content:'';position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(180deg,rgba(249,247,243,0),rgba(249,247,243,.65))}
+.hero3 .in{position:relative;max-width:var(--maxw);margin:0 auto;padding:84px 20px 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;min-height:640px}
+.hero3 .copy{align-self:center}
+.hero3 h1{font-size:clamp(40px,5.4vw,66px);margin-bottom:18px}
+.hero3 .lede{max-width:48ch}
+.hero3 .showcase{max-width:400px;justify-self:end;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-color:rgba(255,255,255,.7)}
+@media(max-width:900px){
+  .hero3 .ph{position:relative;inset:auto;height:300px}
+  .hero3 .ph::before{background:linear-gradient(180deg,rgba(249,247,243,0) 40%,var(--bg) 100%)}
+  .hero3 .in{grid-template-columns:1fr;padding:12px 20px 40px;min-height:0;gap:20px}
+  .hero3 .copy{text-align:center}.hero3 .lede{margin:0 auto}
+  .hero3 .showcase{max-width:none;justify-self:stretch;background:#fff}
+}
+
+/* section moods */
+.mood{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.mood .img{aspect-ratio:1;border-radius:20px;background-size:cover;background-position:center;box-shadow:var(--shadow-lg)}
+.mood .img.gems{background-image:url(img/gems.jpg)}
+.mood .img.gold{background-image:url(img/gold.jpg)}
+@supports (background-image:url(img/gems.webp)){.mood .img.gems{background-image:url(img/gems.webp)}.mood .img.gold{background-image:url(img/gold.webp)}}
+@media(max-width:820px){.mood{grid-template-columns:1fr;gap:22px}.mood .img{aspect-ratio:16/10}}
+.hero3 .ph{background-position:82% 45%}
+.hero3 .showcase{justify-self:start;max-width:380px}
+@media(min-width:901px){.hero3 .in{grid-template-columns:1fr .9fr}}
+@media(max-width:900px){.hero3 .ph{background-position:center 40%}}
+/* most looked up: editorial columns, not boxes */
+.ml-grid{gap:0}
+.ml-col{background:transparent;border:0;border-left:1px solid var(--line);border-radius:0;padding:4px 18px 4px 22px}
+.ml-col:first-child{border-left:0;padding-left:0}
+.ml-col h3{font-size:17px;margin-bottom:12px}
+.ml-chips a{background:transparent;border-color:var(--line-2)}
+@media(max-width:820px){.ml-grid{gap:18px}.ml-col{border-left:0;padding:0;border-top:1px solid var(--line);padding-top:14px}.ml-col:first-child{border-top:0;padding-top:0}}
+/* trust strip: four stacked items */
+.trust2{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.trust2 div{display:block}
+.trust2 svg{display:block;margin:0 0 10px}
+.trust2 b{font-size:15px;margin-bottom:4px}
+@media(max-width:820px){.trust2{grid-template-columns:1fr 1fr;gap:20px}}
+@media(min-width:1000px){.ml-grid{grid-template-columns:1.9fr 1.15fr 1fr .75fr 1.05fr}}

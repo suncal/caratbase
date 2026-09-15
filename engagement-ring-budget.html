@@ -7,7 +7,7 @@
 <meta name="description" content="The "two months' salary" rule was a 1930s advertisement. This calculator shows what your income and savings actually support, and exactly what each budget buys — natural or lab-grown.">
 <link rel="canonical" href="https://caratbase.com/engagement-ring-budget.html">
 <meta property="og:title" content="How Much Should You Spend on an Engagement Ring? A Calculator With No Rule | CaratBase"><meta property="og:description" content="The "two months' salary" rule was a 1930s advertisement. This calculator shows what your income and savings actually support, and exactly what each budget buys — natural or lab-grown."><meta property="og:url" content="https://caratbase.com/engagement-ring-budget.html">
-<link rel="stylesheet" href="assets/style.css?v=28aefa35">
+<link rel="stylesheet" href="assets/style.css?v=270d105c">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is the two months salary rule real?", "acceptedAnswer": {"@type": "Answer", "text": "No. It was a De Beers advertising slogan from the 1930s (raised to three months in the 1980s). There is no financial basis for it. The median US engagement ring spend is around $5,000\u20136,000 and has been falling as lab-grown diamonds became mainstream."}}, {"@type": "Question", "name": "What is a reasonable amount to spend on an engagement ring?", "acceptedAnswer": {"@type": "Answer", "text": "A common-sense range is what you can pay in full from savings without touching an emergency fund \u2014 often between two and six weeks of take-home pay. Anything financed at interest costs more than the ring will ever be worth."}}]}</script>
 </head>
@@ -22,13 +22,18 @@
     <p class="lede">There is no rule. "Two months' salary" was written by an advertising agency for De Beers in the 1930s, and "three months" was the 1980s update. What follows is arithmetic instead: what your money can carry without debt, and what that buys.</p>
   </div>
 
-  <div class="panel" style="margin-top:8px"><div class="grid g3" style="gap:10px">
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Ring budget</span><span class="status">no rule · your numbers</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>Your numbers</h3>
     <div class="field"><label>Annual take-home pay (after tax)</label><input type="number" id="inc" value="60000" step="1000" min="0"></div>
     <div class="field"><label>Savings you could use without borrowing</label><input type="number" id="sav" value="6000" step="500" min="0"></div>
     <div class="field"><label>Currency</label><select id="cur"><option value="$">$ US dollar</option><option value="£">£ Pound</option><option value="€">€ Euro</option><option value="₹">₹ Rupee</option><option value="A$">A$</option><option value="C$">C$</option></select></div>
-  </div></div>
-  <div class="grid g3" style="margin-top:22px" id="bands"></div>
-  <p class="small" style="margin-top:12px">Three reference points, none of them rules. The advertising figure is included only so you can see how far it is from the others.</p>
+    <p class="small">Nothing is stored or sent anywhere. The arithmetic runs on your device.</p></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <h2 style="margin-top:36px">What the sensible figure buys</h2>
   <p class="small" style="margin-bottom:12px">Priced with our model at today's rates. Natural stones resell for 25–40% of retail; lab-grown for 5–12%.</p>
   <div class="grid g3" id="buys"></div>
@@ -45,14 +50,14 @@
     <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
     <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
 </div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewellery. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
-<script src="assets/data.js?v=28aefa35"></script>
-<script src="assets/analytics.js?v=28aefa35"></script>
-<script src="assets/spot.js?v=28aefa35"></script>
-<script src="assets/ticker.js?v=28aefa35"></script>
-<script src="assets/logo.js?v=28aefa35"></script>
-<script src="assets/nav.js?v=28aefa35"></script>
-<script src="assets/partners.js?v=28aefa35"></script>
-<script src="assets/shapes.js?v=28aefa35"></script>
+<script src="assets/data.js?v=270d105c"></script>
+<script src="assets/analytics.js?v=270d105c"></script>
+<script src="assets/spot.js?v=270d105c"></script>
+<script src="assets/ticker.js?v=270d105c"></script>
+<script src="assets/logo.js?v=270d105c"></script>
+<script src="assets/nav.js?v=270d105c"></script>
+<script src="assets/partners.js?v=270d105c"></script>
+<script src="assets/shapes.js?v=270d105c"></script>
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 
@@ -62,9 +67,9 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   function calc(){
     C=$('cur').value; const inc=parseFloat($('inc').value)||0, sav=parseFloat($('sav').value)||0; const wk=inc/52;
     const modest=Math.max(300, Math.min(wk*2, sav)), sensible=Math.max(300, Math.min(wk*4, sav)), stretch=Math.max(300, Math.min(wk*6, sav)); const ad=inc/12*2;
-    $('bands').innerHTML=[['Modest','About two weeks of take-home, paid in full.',modest,'good'],['Sensible','About a month of take-home, paid in full.',sensible,'gold'],['Stretch','Six weeks of take-home. Only from savings.',stretch,'warn']].map(([t,s,v,c])=>
-      `<div class="panel"><div class="eyebrow">${t}</div><div style="font-family:var(--serif);font-size:34px;font-weight:700;color:var(--${c==='gold'?'gold-2':c});margin:8px 0 4px">${money(v)}</div><p class="small">${s}${v>=sav&&sav>0&&v<wk*(t==='Modest'?2:t==='Sensible'?4:6)?' Capped at your savings.':''}</p></div>`).join('')
-      + `<div class="panel" style="grid-column:1/-1;background:var(--panel-2)"><div class="small"><strong>The advertisement:</strong> "two months' salary" would be <strong>${money(ad)}</strong> — ${(ad/sensible).toFixed(1)}× the sensible figure. It is a slogan, not a benchmark.</div></div>`;
+    $('cOut').innerHTML=`<div class="lab">A sensible budget</div><div class="big">${money(sensible)}</div><div class="sub">about a month of take-home, paid in full from savings</div>
+      <div class="split"><div><div class="lab">Modest</div><div class="v">${money(modest)}</div></div><div><div class="lab">Stretch</div><div class="v">${money(stretch)}</div></div></div>
+      <div class="note">"Two months' salary" would be ${money(ad)} — an advertising slogan from the 1930s, ${(ad/sensible).toFixed(1)}× this figure.</div>`;
     const b=sensible; const spec=[['Biggest natural',{shape:'Round',color:'J',clarity:'SI1',cut:'Very Good',origin:'Natural',cert:'GIA'}],['Balanced natural',{shape:'Round',color:'G',clarity:'VS2',cut:'Very Good',origin:'Natural',cert:'GIA'}],['Lab-grown, top grade',{shape:'Round',color:'F',clarity:'VS1',cut:'Excellent',origin:'Lab-grown',cert:'IGI'}]];
     const usd=b*({'$':1,'£':1.27,'€':1.08,'₹':0.012,'A$':0.66,'C$':0.73}[C]||1);
     $('buys').innerHTML=spec.map(([t,s])=>{ const r=caratForBudget(usd,s); if(!r) return `<div class="panel"><h3>${t}</h3><p class="small">Below what the market offers at this grade.</p></div>`; const d=shapeDims(s.shape,r.carat);

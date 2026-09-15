@@ -62,10 +62,14 @@ PAGES['compare.html'] = dict(
   schema=faq([('Is a 0.9 carat diamond much smaller than a 1 carat?','No. Linear size scales with the cube root of weight, so a 0.90 ct round is about 6.27 mm across against 6.5 mm for a 1.00 ct — 3.5% shorter — while costing roughly 25% less because it sits below the 1 carat price step.'),
               ('Which is better value, a higher colour or a higher clarity?','Below about G colour and VS2 clarity the differences are invisible without a loupe. For the same money, weight and cut quality are what you can actually see.')]),
   body='''
-  <div class="grid g2" style="margin-top:8px">
-    <div class="panel"><div class="eyebrow" style="margin-bottom:10px">Diamond A</div><div id="fA"></div></div>
-    <div class="panel"><div class="eyebrow" style="margin-bottom:10px">Diamond B</div><div id="fB"></div></div>
-  </div>
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Compare</span><span class="status">size · price · resale · verdict</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>Diamond A</h3><div id="fA"></div><h3 style="margin-top:20px">Diamond B</h3><div id="fB"></div></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <div class="chips" style="margin:14px 0 0"><span class="small" style="align-self:center">Quick comparisons:</span>
     <button class="chip" data-p="1|Round|G|VS2|Natural;0.9|Round|G|VS2|Natural">1.00 ct vs 0.90 ct</button>
     <button class="chip" data-p="1|Round|G|VS2|Natural;1|Round|G|VS2|Lab-grown">Natural vs lab-grown</button>
@@ -73,7 +77,6 @@ PAGES['compare.html'] = dict(
     <button class="chip" data-p="1.5|Round|G|VS2|Natural;1.5|Oval|G|VS2|Natural">Round vs oval, same weight</button>
   </div>
   <div class="grid g2" style="margin-top:22px" id="out"></div>
-  <div id="verdict" class="panel" style="margin-top:18px;display:none"></div>
   <div id="shop"></div>
   <section class="narrow legal" style="margin-top:40px">
     <h2>How to read this</h2>
@@ -86,7 +89,7 @@ PAGES['compare.html'] = dict(
   const money=n=>'$'+Math.round(n).toLocaleString('en-US');
   const SH=['Round','Oval','Princess','Cushion','Emerald','Pear','Marquise','Radiant','Asscher','Heart'];
   function form(id, d){
-    return `<div class="grid g2" style="gap:10px">
+    return `<div class="grid g3" style="gap:10px">
       <div class="field"><label>Carat</label><input type="number" id="${id}ct" value="${d.ct}" step="0.05" min="0.1" max="10"></div>
       <div class="field"><label>Shape</label><select id="${id}sh">${SH.map(s=>`<option${s===d.sh?' selected':''}>${s}</option>`).join('')}</select></div>
       <div class="field"><label>Colour</label><select id="${id}co">${Object.keys(COLOR_MULT).map(c=>`<option${c===d.co?' selected':''}>${c}</option>`).join('')}</select></div>
@@ -119,7 +122,9 @@ PAGES['compare.html'] = dict(
     else if(area<0.87 && dp>-15) verdict+=`B shows ${((1/area-1)*100).toFixed(0)}% more face-up area for ${dp>0?'less':'little more'} money. <strong>B is the better buy for visible size.</strong>`;
     else verdict+=`The price tracks the visible size fairly closely here; choose on shape and cut quality rather than on the numbers.`;
     if(A.origin!==B.origin) verdict+=` Note the resale row: the lab-grown stone keeps ${Math.round(rmid(A.origin==='Lab-grown'?va:vb)/mid(A.origin==='Lab-grown'?va:vb)*100)}% against ${Math.round(rmid(A.origin==='Lab-grown'?vb:va)/mid(A.origin==='Lab-grown'?vb:va)*100)}% for natural. Buy lab-grown to wear, not to hold.`;
-    $('verdict').style.display='block'; $('verdict').innerHTML=verdict+'</p>';
+    $('cOut').innerHTML=`<div class="lab">Diamond A</div><div class="big" style="font-size:clamp(26px,4vw,36px)">${money(va.retailLow)}–${money(va.retailHigh)}</div><div class="sub">${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()} · ${A.color}/${A.clarity} · resells ${money(va.resaleLow)}–${money(va.resaleHigh)}</div>
+      <div class="lab" style="margin-top:18px">Diamond B</div><div class="big" style="font-size:clamp(26px,4vw,36px)">${money(vb.retailLow)}–${money(vb.retailHigh)}</div><div class="sub">${B.carat.toFixed(2)} ct ${B.shape.toLowerCase()} · ${B.color}/${B.clarity} · resells ${money(vb.resaleLow)}–${money(vb.resaleHigh)}</div>
+      <div class="note" style="margin-top:18px;color:#F6F1E6;font-size:14px;line-height:1.55">${verdict.replace('<h3>Verdict</h3><p style="margin-top:8px">','')}</div>`;
     $('shop').innerHTML=(typeof BLUE_NILE!=='undefined')?BLUE_NILE.card({shape:A.shape,carat:A.carat,color:A.color,clarity:A.clarity,lab:A.origin==='Lab-grown'},{title:'Real stones matching A and B',
       sub:`A: ${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()}, ${A.color}/${A.clarity} and up · B: ${B.carat.toFixed(2)} ct ${B.shape.toLowerCase()}, ${B.color}/${B.clarity} and up. Filtered to each spec at Blue Nile.`,
       natLabel:`Like A — ${A.carat.toFixed(2)} ct ${A.shape.toLowerCase()}${A.origin==='Lab-grown'?' (lab)':''} →`, labLabel:`Like A — lab-grown →`,
@@ -143,12 +148,19 @@ PAGES['lab-vs-natural.html'] = dict(
               ('Do lab-grown diamonds hold their value?','No. Lab-grown resale is typically 5–12% of retail, against 25–40% for natural, and lab-grown prices have fallen every year since 2022 as production has scaled.'),
               ('Can anyone tell a lab-grown diamond from a natural one?','Not by eye or loupe. Laboratories use spectroscopy, and graded stones are laser-inscribed with their origin on the girdle.')]),
   body='''
-  <div class="panel" style="margin-top:8px"><div class="grid g2" style="gap:10px">
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Lab-grown vs natural</span><span class="status">same stone, both ways</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>The stone</h3><div class="grid g2" style="gap:12px">
     <div class="field"><label>Carat</label><input type="number" id="ct" value="1" step="0.05" min="0.1" max="10"></div>
     <div class="field"><label>Shape</label><select id="sh"></select></div>
     <div class="field"><label>Colour</label><select id="co"></select></div>
     <div class="field"><label>Clarity</label><select id="cl"></select></div>
-  </div></div>
+  </div><p class="small" style="margin-top:8px">Very Good cut; natural graded GIA, lab-grown IGI.</p></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <div class="grid g2" style="margin-top:22px" id="out"></div>
   <div class="panel" style="margin-top:18px" id="same"></div>
   <div id="shop"></div>
@@ -174,6 +186,9 @@ PAGES['lab-vs-natural.html'] = dict(
       <div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--gold-2);margin-top:8px">${money(v.retailLow)}–${money(v.retailHigh)}</div>
       <div class="small" style="color:var(--bad);font-weight:600">Resells for ${money(v.resaleLow)}–${money(v.resaleHigh)} · you keep ${Math.round((v.resaleLow+v.resaleHigh)/2/mid(v)*100)}%</div></div>`;
     $('out').innerHTML=card('Natural',N,false)+card('Lab-grown',L,true);
+    $('cOut').innerHTML=`<div class="lab">Natural — retail</div><div class="big">${money(N.retailLow)}–${money(N.retailHigh)}</div><div class="sub">resells for ${money(N.resaleLow)}–${money(N.resaleHigh)}</div>
+      <div class="lab" style="margin-top:18px">Lab-grown — retail</div><div class="big" style="color:#9CCFE0">${money(L.retailLow)}–${money(L.retailHigh)}</div><div class="sub">resells for ${money(L.resaleLow)}–${money(L.resaleHigh)}</div>
+      <div class="split"><div><div class="lab">The difference</div><div class="v">${money(mid(N)-mid(L))}</div></div><div><div class="lab">Lab-grown is</div><div class="v">${Math.round((1-mid(L)/mid(N))*100)}% cheaper</div></div></div>`;
     const big=caratForBudget(mid(N),{shape:sh,color:co,clarity:cl,cut:'Very Good',origin:'Lab-grown',cert:'IGI'});
     const saving=mid(N)-mid(L);
     $('same').innerHTML=`<h3>The same money, the other way</h3><p style="margin-top:8px">The natural stone costs about <strong>${money(saving)} more</strong> — ${Math.round(saving/mid(N)*100)}% of its price. Spent on lab-grown instead, ${money(mid(N))} buys roughly a <strong>${big?big.carat.toFixed(2):'—'} ct</strong> stone of the same grade, about ${big?shapeDims(sh,big.carat).l:'—'} mm across against ${d.l} mm. Five years on, the natural stone would typically fetch ${money(N.resaleLow)}–${money(N.resaleHigh)}; the lab-grown one ${money(L.resaleLow)}–${money(L.resaleHigh)}, and likely less.</p>`;
@@ -192,13 +207,18 @@ PAGES['engagement-ring-budget.html'] = dict(
   schema=faq([('Is the two months salary rule real?','No. It was a De Beers advertising slogan from the 1930s (raised to three months in the 1980s). There is no financial basis for it. The median US engagement ring spend is around $5,000–6,000 and has been falling as lab-grown diamonds became mainstream.'),
               ('What is a reasonable amount to spend on an engagement ring?','A common-sense range is what you can pay in full from savings without touching an emergency fund — often between two and six weeks of take-home pay. Anything financed at interest costs more than the ring will ever be worth.')]),
   body='''
-  <div class="panel" style="margin-top:8px"><div class="grid g3" style="gap:10px">
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Ring budget</span><span class="status">no rule · your numbers</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>Your numbers</h3>
     <div class="field"><label>Annual take-home pay (after tax)</label><input type="number" id="inc" value="60000" step="1000" min="0"></div>
     <div class="field"><label>Savings you could use without borrowing</label><input type="number" id="sav" value="6000" step="500" min="0"></div>
     <div class="field"><label>Currency</label><select id="cur"><option value="$">$ US dollar</option><option value="£">£ Pound</option><option value="€">€ Euro</option><option value="₹">₹ Rupee</option><option value="A$">A$</option><option value="C$">C$</option></select></div>
-  </div></div>
-  <div class="grid g3" style="margin-top:22px" id="bands"></div>
-  <p class="small" style="margin-top:12px">Three reference points, none of them rules. The advertising figure is included only so you can see how far it is from the others.</p>
+    <p class="small">Nothing is stored or sent anywhere. The arithmetic runs on your device.</p></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <h2 style="margin-top:36px">What the sensible figure buys</h2>
   <p class="small" style="margin-bottom:12px">Priced with our model at today's rates. Natural stones resell for 25–40% of retail; lab-grown for 5–12%.</p>
   <div class="grid g3" id="buys"></div>
@@ -215,9 +235,9 @@ PAGES['engagement-ring-budget.html'] = dict(
   function calc(){
     C=$('cur').value; const inc=parseFloat($('inc').value)||0, sav=parseFloat($('sav').value)||0; const wk=inc/52;
     const modest=Math.max(300, Math.min(wk*2, sav)), sensible=Math.max(300, Math.min(wk*4, sav)), stretch=Math.max(300, Math.min(wk*6, sav)); const ad=inc/12*2;
-    $('bands').innerHTML=[['Modest','About two weeks of take-home, paid in full.',modest,'good'],['Sensible','About a month of take-home, paid in full.',sensible,'gold'],['Stretch','Six weeks of take-home. Only from savings.',stretch,'warn']].map(([t,s,v,c])=>
-      `<div class="panel"><div class="eyebrow">${t}</div><div style="font-family:var(--serif);font-size:34px;font-weight:700;color:var(--${c==='gold'?'gold-2':c});margin:8px 0 4px">${money(v)}</div><p class="small">${s}${v>=sav&&sav>0&&v<wk*(t==='Modest'?2:t==='Sensible'?4:6)?' Capped at your savings.':''}</p></div>`).join('')
-      + `<div class="panel" style="grid-column:1/-1;background:var(--panel-2)"><div class="small"><strong>The advertisement:</strong> "two months' salary" would be <strong>${money(ad)}</strong> — ${(ad/sensible).toFixed(1)}× the sensible figure. It is a slogan, not a benchmark.</div></div>`;
+    $('cOut').innerHTML=`<div class="lab">A sensible budget</div><div class="big">${money(sensible)}</div><div class="sub">about a month of take-home, paid in full from savings</div>
+      <div class="split"><div><div class="lab">Modest</div><div class="v">${money(modest)}</div></div><div><div class="lab">Stretch</div><div class="v">${money(stretch)}</div></div></div>
+      <div class="note">"Two months' salary" would be ${money(ad)} — an advertising slogan from the 1930s, ${(ad/sensible).toFixed(1)}× this figure.</div>`;
     const b=sensible; const spec=[['Biggest natural',{shape:'Round',color:'J',clarity:'SI1',cut:'Very Good',origin:'Natural',cert:'GIA'}],['Balanced natural',{shape:'Round',color:'G',clarity:'VS2',cut:'Very Good',origin:'Natural',cert:'GIA'}],['Lab-grown, top grade',{shape:'Round',color:'F',clarity:'VS1',cut:'Excellent',origin:'Lab-grown',cert:'IGI'}]];
     const usd=b*({'$':1,'£':1.27,'€':1.08,'₹':0.012,'A$':0.66,'C$':0.73}[C]||1);
     $('buys').innerHTML=spec.map(([t,s])=>{ const r=caratForBudget(usd,s); if(!r) return `<div class="panel"><h3>${t}</h3><p class="small">Below what the market offers at this grade.</p></div>`; const d=shapeDims(s.shape,r.carat);
@@ -379,11 +399,18 @@ PAGES['insurance-cost.html'] = dict(
   schema=faq([('How much does it cost to insure an engagement ring?','Typically 1–2% of the ring\'s value per year with a specialist jewellery insurer — $50–100 a year for a $5,000 ring — usually with no deductible and cover for loss, theft and mysterious disappearance. A homeowner\'s rider is often 0.5–1.5% but with a deductible and narrower cover.'),
               ('Is it worth insuring jewellery worth less than $1,000?','Usually not. At 1.5% a year the premium over a decade approaches a fifth of the value, and most people would rather absorb a loss of that size than administer a policy. Photograph it, keep the receipt, and self-insure.')]),
   body='''
-  <div class="panel" style="margin-top:8px"><div class="grid g3" style="gap:10px">
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Insurance cost</span><span class="status">specialist · rider · self-insure</span></div>
+    <div class="console-body">
+      <div class="console-in"><h3>The piece</h3>
     <div class="field"><label>Replacement value</label><input type="number" id="val" value="6000" step="100" min="0"></div>
-    <div class="field"><label>Where you live</label><select id="reg"><option value="1">United States</option><option value="1.1">United Kingdom</option><option value="1.05">Europe</option><option value="1.15">Australia / Canada</option></select></div>
-    <div class="field"><label>Currency</label><select id="cur"><option>$</option><option>£</option><option>€</option><option>A$</option><option>C$</option></select></div>
-  </div></div>
+    <div class="grid g2" style="gap:12px"><div class="field"><label>Where you live</label><select id="reg"><option value="1">United States</option><option value="1.1">United Kingdom</option><option value="1.05">Europe</option><option value="1.15">Australia / Canada</option></select></div>
+    <div class="field"><label>Currency</label><select id="cur"><option>$</option><option>£</option><option>€</option><option>A$</option><option>C$</option></select></div></div>
+    <p class="small">Not sure of the value? <a href="value.html">Value the piece first</a> — the replacement figure is the retail number.</p></div>
+      <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
   <div class="grid g3" style="margin-top:22px" id="out"></div>
   <div class="panel" style="margin-top:18px" id="verdict"></div>
   <div id="partners" style="margin-top:22px"></div>
@@ -407,6 +434,9 @@ PAGES['insurance-cost.html'] = dict(
     else if(v<3000) msg=`<h3>Borderline — a rider if you already have a home policy</h3><p style="margin-top:8px">A specialist policy costs ${money(spec[0])}–${money(spec[1])} a year against a replacement cost of ${money(v)}. Reasonable if losing it would hurt; a rider at ${money(rider[0])}–${money(rider[1])} is the cheaper route if your home insurer offers one.</p>`;
     else msg=`<h3>Worth insuring, and worth a specialist policy</h3><p style="margin-top:8px">${money(spec[0])}–${money(spec[1])} a year for a ${money(v)} piece is ${(spec[1]/v*100).toFixed(1)}% at most, with no deductible and agreed-value replacement. Above about ${money(3000)} the gap between a specialist policy and a home rider — deductible, mysterious disappearance, worldwide cover — is worth the difference in premium.</p>`;
     $('verdict').innerHTML=msg;
+    $('cOut').innerHTML=`<div class="lab">Specialist policy, per year</div><div class="big">${money(spec[0])}–${money(spec[1])}</div><div class="sub">${(spec[0]/v*100).toFixed(1)}–${(spec[1]/v*100).toFixed(1)}% of ${money(v)} · no deductible · agreed value</div>
+      <div class="split"><div><div class="lab">Home policy rider</div><div class="v">${money(rider[0])}–${money(rider[1])}</div></div><div><div class="lab">Over ten years</div><div class="v">${money(spec[1]*10)}</div></div></div>
+      <div class="note">${v<1000?'At this value, self-insuring is usually the better answer.':v<3000?'Borderline — a rider is the cheaper route if your home insurer offers one.':'Worth a specialist policy: the extra cover is worth the premium at this value.'}</div>`;
     if(window.cbTrack) cbTrack('tool_use',{tool:'insurance_cost',v});
   }
   ['val','reg','cur'].forEach(id=>$(id).addEventListener('input',calc)); calc();
