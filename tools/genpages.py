@@ -97,7 +97,7 @@ SHELL = '''<!doctype html>
     <h1>{h1}</h1>
   </div>
 
-  {answer_box}
+  {page_top}
 
   <div class="legal{bodycls}">{body}</div>
 
@@ -142,6 +142,12 @@ def write(url, **kw):
     # '/slug/' not '/slug/index.html'. Two URLs, one page, one canonical.
     kw['url'] = url.replace('/index.html', '/')
     kw['answer_box'] = f'<div class="answer-box">{kw["answer"]}</div>' if kw.get('answer') else ''
+    img = kw.get('img')
+    if img and (ROOT / 'assets/img' / img).exists():
+        kw['page_top'] = (f'<div class="page-top">{kw["answer_box"]}<div class="pimg" role="img" aria-label="{kw.get("img_alt","")}" '
+                          f'style="background-image:url({kw["up"]}assets/img/{img})"></div></div>')
+    else:
+        kw['page_top'] = kw['answer_box']
     kw['bodycls'] = ' wide' if kw.get('wide') else ''
     p.write_text(SHELL.format(**kw))
     return url
@@ -391,7 +397,8 @@ def build_hallmarks():
                            f"<a href=\"../{re.sub(r'[^a-z0-9]+','-',x['code'].lower()).strip('-')}/\">{x['code']}</a>",
                            x['purity'], {'solid':'Solid metal','filled':'Partial','plated':'Plated only','lab':'Lab diamond','none':'No metal value'}.get(x['value'],'')])
                            for x in family[:8]]))
-        urls.append(write(slug,
+        fam = 'gold.jpg' if 'gold' in s['metal'].lower() and s['value']=='solid' else 'silver.jpg' if any(m in s['metal'].lower() for m in ('silver','platinum','palladium')) else None
+        urls.append(write(slug, img=fam, img_alt=s['metal'],
           title=f"What Does {code} Mean on Jewellery? {s['metal']} — {s['purity']} | CaratBase",
           desc=f"{code} means {s['purity']}. {s['worth'][:100]} "
                + (f"Worth ${per_g:,.2f} per gram today." if per_g else "What it is, and what it is worth."),
@@ -470,7 +477,7 @@ def build_gold():
         item_rows = [tr([n, f"#~{g} g", '#' + money(per_g*g), f"#{money(per_g*g*0.7)} – {money(per_g*g*0.9)}"])
                      for n, g in items]
         alloy_g = round((1 - pur) * 10, 2)
-        urls.append(write(f"gold-price/{k.lower()}/index.html",
+        urls.append(write(f"gold-price/{k.lower()}/index.html", img=f'karat/{k.lower()}.jpg', img_alt=f'{k} gold jewellery',
           title=f"{k} Gold Price Per Gram Today — ${per_g:,.2f} | CaratBase",
           desc=f"{k} gold is worth ${per_g:,.2f} per gram today ({pur*100:.1f}% pure). Price per "
                f"tola, pennyweight and ounce, what common pieces are worth, and what a buyer will "
@@ -674,7 +681,7 @@ def build_diamonds():
             alt_rows.append(tr([f"Lab-grown twin — {ctxt} ct {s.lower()}, G / VS2",
                                 '#' + money(mid(lab)), f"#{dim['l']} × {dim['w']} mm"]))
 
-            urls.append(write(slug,
+            urls.append(write(slug, img=f'shapes/{s.lower()}.jpg', img_alt=f'A loose {s.lower()} cut diamond',
               title=f"{ctxt} Carat {s} Diamond — Size in MM, Price &amp; Resale Value | CaratBase",
               desc=f"A {ctxt} carat {s.lower()} diamond measures {dim['l']}×{dim['w']}mm and costs "
                    f"{money(v['retailLow'])}–{money(v['retailHigh'])} at retail. Real resale value "
@@ -816,7 +823,7 @@ def build_gems():
         ratio = round(mid(best) / max(1, mid(worst)))
         ppc5 = d['cts'][-1]['ppc']; ppc1 = d['cts'][1]['ppc']
         per_ct_climb = round(ppc5 / ppc1, 1)
-        urls.append(write(f"gemstone/{slug_n}/index.html",
+        urls.append(write(f"gemstone/{slug_n}/index.html", img=f'stones/{slug_n}.jpg', img_alt=f'A loose {n.lower()}',
           title=f"{n} Value — What Is a 2 Carat {n} Worth? | CaratBase",
           desc=f"A fine 2 carat {n.lower()} is worth {money(v['retailLow'])}–{money(v['retailHigh'])} "
                f"at retail. Value by carat, quality, treatment and origin — treatment changes it "

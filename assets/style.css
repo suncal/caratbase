@@ -867,3 +867,8 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 .partner-block{border:0;background:transparent;padding:0}
 .legal.wide{max-width:none}
 .legal.wide .mood .lede{font-size:17px}
+/* page image beside the answer */
+.page-top{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:stretch;margin-bottom:8px}
+.page-top .answer-box{margin-bottom:0}
+.pimg{border-radius:18px;background-size:cover;background-position:center;min-height:240px;box-shadow:var(--shadow-lg)}
+@media(max-width:760px){.page-top{grid-template-columns:1fr}.pimg{aspect-ratio:16/10;min-height:0}}
