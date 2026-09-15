@@ -549,7 +549,7 @@ def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
     url = 'https://www.bluenile.com' + ('/diamonds/lab-grown-diamonds' if lab else '/diamonds') + '?' + q + '&' + BN_AFF
     spec = json.dumps({'shape':shape,'carat':ct,'color':color,'clarity':clarity,'lab':lab})
     return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="sponsored noopener noreferrer" '
-            f'class="btn btn-lg" style="margin-top:12px">{label}</a>')
+            f'class="btn btn-ghost btn-lg" style="margin-top:12px;border-color:var(--gold);color:var(--gold-2);background:var(--gold-dim)">{label}</a>')
 
 def stone_cards(key, ctxt, s):
     """Two natural + one lab-grown stone from the Blue Nile feed, matched to this page. Empty
