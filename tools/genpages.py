@@ -108,7 +108,7 @@ SHELL = '''<!doctype html>
 <footer class="site-foot"><div class="wrap foot-in">
   <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewellery valuation reference.</div>
   <div style="display:flex;gap:20px;flex-wrap:wrap">
-    <a href="{up}methodology.html">How we value</a><a href="{up}disclaimer.html">Disclaimer</a>
+    <a href="{up}widgets.html">Widgets</a><a href="{up}methodology.html">How we value</a><a href="{up}disclaimer.html">Disclaimer</a>
     <a href="{up}privacy.html">Privacy</a><a href="{up}terms.html">Terms</a></div>
 </div><div class="wrap"><p class="disclaimer">{footnote}</p></div></footer>
 <script src="{up}assets/data.js"></script>
@@ -998,7 +998,7 @@ def main():
     # Sitemaps: one per section plus an index at the old URL, so Search Console reports
     # indexing per section and the existing submission keeps working unchanged.
     core = ['', 'value.html','gemstone.html','budget.html','metals.html','stamp.html',
-            'size.html','ring-size.html','measure.html','vault.html','methodology.html',
+            'size.html','ring-size.html','measure.html','widgets.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):
         loc = f'{BASE}/{u}'.replace('/index.html','/')

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gold calculator — CaratBase widget</title>
+<meta name="robots" content="noindex">
+<base href="/">
+<link rel="stylesheet" href="embed/embed.css">
+</head>
+<body data-widget="gold">
+<div class="cb">
+  <h1>What is my gold worth?</h1>
+  <div class="row">
+    <div><label>Weight</label><input type="number" id="wt" value="10" step="0.1" min="0"></div>
+    <div><label>Unit</label>
+      <select id="unit"><option value="1">grams</option><option value="1.5552">pennyweight (dwt)</option><option value="11.6638">tola</option><option value="28.3495">ounces</option><option value="31.1035">troy ounces</option></select></div>
+    <div><label>Purity</label>
+      <select id="k"><option>24K</option><option>22K</option><option selected>18K</option><option>14K</option><option>10K</option><option>9K</option><option>Platinum</option><option>Silver 925</option></select></div>
+  </div>
+  <div class="out">
+    <div class="big" id="oVal">—</div>
+    <p class="note">Metal value at spot. A buyer will typically offer <strong id="oOffer">—</strong>.</p>
+    <div class="grid">
+      <div class="stat"><div class="k">Spot per gram</div><div class="v" id="oSpot">—</div></div>
+      <div class="stat"><div class="k">Pure metal in it</div><div class="v" id="oPure">—</div></div>
+    </div>
+    <p class="live" id="oLive"></p>
+  </div>
+  <a class="more" id="more" href="https://caratbase.com/metals.html">Full calculator — estimate weight from a ring size, silver, platinum →</a>
+  <p class="attrib">Powered by <a href="https://caratbase.com/metals.html">CaratBase</a></p>
+</div>
+<script src="assets/data.js?v=27f6d40f"></script>
+<script src="assets/analytics.js?v=27f6d40f"></script>
+<script src="assets/spot.js?v=27f6d40f"></script>
+<script src="embed/common.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  let live=false, t;
+  function calc(){
+    const g=(parseFloat($('wt').value)||0)*parseFloat($('unit').value), k=$('k').value;
+    const v=valueMetal(k,g);
+    const spot=k==='Platinum'?METAL_SPOT.platinum*0.95:k==='Silver 925'?METAL_SPOT.silver*0.925:METAL_SPOT.gold*(KARAT_PURITY[k]||0);
+    const pur=k==='Platinum'?0.95:k==='Silver 925'?0.925:(KARAT_PURITY[k]||0);
+    $('oVal').textContent=v?money(v):'—';
+    $('oOffer').textContent=v?money(v*0.7)+'–'+money(v*0.9):'—';
+    $('oSpot').textContent='$'+spot.toFixed(2);
+    $('oPure').textContent=(g*pur).toFixed(2)+' g';
+    $('oLive').textContent=live?'● Live price':'Price as of today';
+    const slug={'24K':'24k','22K':'22k','18K':'18k','14K':'14k','10K':'10k','9K':'9k'}[k];
+    $('more').href='https://caratbase.com/'+(slug?'gold-price/'+slug+'/':'metals.html');
+    clearTimeout(t); t=setTimeout(()=>cbEmbedUse({k,g:+g.toFixed(1)}),800);
+  }
+  ['wt','unit','k'].forEach(id=>$(id).oninput=calc);
+  document.addEventListener('cb:spot',e=>{live=!!(e.detail&&e.detail.live); calc();});
+  calc();
+})();
+</script>
+</body></html>

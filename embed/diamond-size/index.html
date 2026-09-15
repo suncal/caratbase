@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diamond size chart — CaratBase widget</title>
+<meta name="robots" content="noindex">
+<base href="/">
+<link rel="stylesheet" href="embed/embed.css">
+</head>
+<body data-widget="diamond-size">
+<div class="cb">
+  <h1>How big is a diamond?</h1>
+  <div class="row">
+    <div><label>Shape</label>
+      <select id="shape"><option>Round</option><option>Oval</option><option>Princess</option><option>Cushion</option><option>Emerald</option><option>Pear</option><option>Marquise</option><option>Radiant</option><option>Asscher</option><option>Heart</option></select></div>
+    <div><label>Carat</label><input type="number" id="ct" value="1" step="0.05" min="0.1" max="10"></div>
+  </div>
+  <input type="range" id="ctr" min="0.2" max="5" step="0.05" value="1" aria-label="Carat">
+  <div class="out">
+    <div class="fig">
+      <div id="fig"></div>
+      <div>
+        <div class="big"><span id="oL">6.5</span> × <span id="oW">6.5</span> <small>mm</small></div>
+        <p class="note" id="oNote"></p>
+        <div class="grid">
+          <div class="stat"><div class="k">Face-up area</div><div class="v" id="oArea"></div></div>
+          <div class="stat"><div class="k">Retail, G / VS2</div><div class="v" id="oPrice"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="more" id="more" href="https://caratbase.com/diamond/1-carat-round/">Price by colour and clarity, and what it resells for →</a>
+  <p class="attrib">Powered by <a href="https://caratbase.com/size.html">CaratBase</a></p>
+</div>
+<script src="assets/data.js?v=27f6d40f"></script>
+<script src="assets/shapes.js?v=27f6d40f"></script>
+<script src="assets/analytics.js?v=27f6d40f"></script>
+<script src="embed/common.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const PAGES=[0.25,0.5,0.75,1,1.25,1.5,2,2.5,3,4,5];
+  const money=n=>'$'+Math.round(n).toLocaleString('en-US');
+  let t;
+  function draw(){
+    const s=$('shape').value, ct=Math.max(0.1,parseFloat($('ct').value)||1);
+    const d=shapeDims(s,ct);
+    $('oL').textContent=d.l; $('oW').textContent=d.w; $('oNote').textContent=d.note;
+    $('oArea').textContent=(d.l*d.w).toFixed(0)+' mm²';
+    const v=valueDiamond({carat:ct,shape:s,color:'G',clarity:'VS2',cut:'Very Good',origin:'Natural',cert:'GIA'});
+    $('oPrice').textContent=money(v.retailLow)+'–'+money(v.retailHigh);
+    $('fig').innerHTML=shapeOnFinger(s,ct);
+    const near=PAGES.reduce((a,b)=>Math.abs(b-ct)<Math.abs(a-ct)?b:a);
+    $('more').href='https://caratbase.com/diamond/'+String(near).replace('.','-')+'-carat-'+s.toLowerCase()+'/';
+    clearTimeout(t); t=setTimeout(()=>cbEmbedUse({shape:s,ct}),800);
+  }
+  $('shape').onchange=draw;
+  $('ct').oninput=()=>{$('ctr').value=$('ct').value; draw();};
+  $('ctr').oninput=()=>{$('ct').value=$('ctr').value; draw();};
+  draw();
+})();
+</script>
+</body></html>

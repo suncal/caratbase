@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ring size converter — CaratBase widget</title>
+<meta name="robots" content="noindex">
+<base href="/">
+<link rel="stylesheet" href="embed/embed.css">
+</head>
+<body data-widget="ring-size">
+<div class="cb">
+  <h1>Find your ring size</h1>
+  <div class="tabs">
+    <button class="tab on" data-pane="p1">I know my size</button>
+    <button class="tab" data-pane="p2">Measure a ring</button>
+    <button class="tab" data-pane="p3">Measure my finger</button>
+  </div>
+  <div class="pane on" id="p1">
+    <div class="row">
+      <div><label>System</label>
+        <select id="sys"><option value="us">US / Canada</option><option value="uk">UK / Australia</option><option value="eu">Europe (ISO)</option><option value="jp">India / Japan</option></select></div>
+      <div><label>Size</label><select id="val"></select></div>
+    </div>
+  </div>
+  <div class="pane" id="p2">
+    <div class="row"><div><label>Inside diameter of a ring that fits (mm)</label><input type="number" id="dia" step="0.1" min="12" max="24" placeholder="e.g. 17.3"></div></div>
+    <p class="note">Lay the ring flat and measure straight across the inside of the band.</p>
+  </div>
+  <div class="pane" id="p3">
+    <div class="row"><div><label>Finger circumference (mm)</label><input type="number" id="circ" step="0.5" min="40" max="76" placeholder="e.g. 54.5"></div></div>
+    <p class="note">Wrap a strip of paper around the base of the finger, mark the overlap, measure the length. Do it at the end of the day.</p>
+  </div>
+  <div class="out">
+    <div class="big">US <span id="oUS">6</span> <small id="oFit"></small></div>
+    <div class="grid" id="oGrid"></div>
+  </div>
+  <a class="more" id="more" href="https://caratbase.com/ring-size.html">No ruler? Measure on your screen with a bank card →</a>
+  <p class="attrib">Powered by <a href="https://caratbase.com/ring-size.html">CaratBase</a></p>
+</div>
+<script src="assets/ringdata.js?v=27f6d40f"></script>
+<script src="assets/analytics.js?v=27f6d40f"></script>
+<script src="embed/common.js"></script>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const F={us:'us',uk:'uk',eu:'eu',jp:'jp'};
+  function paint(r, fit){
+    $('oUS').textContent=r.us; $('oFit').textContent=fit||'';
+    $('oGrid').innerHTML=[['UK / AU',r.uk],['Europe',r.eu],['India / Japan',r.jp??'—'],['Diameter',r.dia.toFixed(2)+' mm'],['Circumference',r.circ.toFixed(1)+' mm']]
+      .map(([k,v])=>`<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+    const slug='ring-size/us-'+String(r.us).replace('.','-')+'/';
+    $('more').href='https://caratbase.com/'+(Number.isInteger(r.us*2)?slug:'ring-size.html');
+  }
+  function fill(){
+    const f=F[$('sys').value];
+    $('val').innerHTML=RING_SIZES.filter(r=>r[f]!=null).map(r=>`<option value="${r.us}"${r.us===6?' selected':''}>${r[f]}</option>`).join('');
+    conv();
+  }
+  function conv(){ const r=RING_SIZES.find(r=>r.us===parseFloat($('val').value)); if(r){paint(r,''); cbEmbedUse({mode:'convert'});} }
+  function near(v,field){ let best=null,d=1e9; for(const r of RING_SIZES){const x=Math.abs(r[field]-v); if(x<d){d=x;best=r;}} return best; }
+  $('sys').onchange=fill; $('val').onchange=conv;
+  $('dia').oninput=()=>{const v=parseFloat($('dia').value); if(!v) return; const r=near(v,'dia'); paint(r, Math.abs(r.dia-v)<0.12?'':'(closest)'); cbEmbedUse({mode:'ring'});};
+  $('circ').oninput=()=>{const v=parseFloat($('circ').value); if(!v) return; const r=near(v,'circ'); paint(r, Math.abs(r.circ-v)<0.4?'':'(closest)'); cbEmbedUse({mode:'finger'});};
+  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab,.pane').forEach(x=>x.classList.remove('on')); t.classList.add('on'); $(t.dataset.pane).classList.add('on');});
+  fill();
+})();
+</script>
+</body></html>
