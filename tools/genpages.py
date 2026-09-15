@@ -113,6 +113,7 @@ SHELL = '''<!doctype html>
 </div><div class="wrap"><p class="disclaimer">{footnote}</p></div></footer>
 <script src="{up}assets/data.js"></script>
 <script src="{up}assets/analytics.js"></script>
+<script src="{up}assets/partners.js"></script>
 <script src="{up}assets/logo.js"></script>
 <script src="{up}assets/nav.js"></script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
@@ -533,6 +534,22 @@ def build_gold():
     return urls
 
 # ================================================================ DIAMOND CARAT x SHAPE
+BN_SHAPE = {'Round':'round-cut','Oval':'oval-cut','Princess':'princess-cut','Cushion':'cushion-cut',
+            'Emerald':'emerald-cut','Pear':'pear-cut','Marquise':'marquise-cut','Radiant':'radiant-cut',
+            'Asscher':'asscher-cut','Heart':'heart-cut'}
+BN_COLORS  = ['K','J','I','H','G','F','E','D']
+BN_CLARITY = ['SI2','SI1','VS2','VS1','VVS2','VVS1','IF','FL']
+def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
+    """Plain Blue Nile deep link, same scheme as BLUE_NILE.search() in partners.js, which
+    upgrades it to a tracked link at runtime once the programme is active."""
+    q = (f"Shape={BN_SHAPE[shape]}&CaratFrom={ct*0.95:.2f}&CaratTo={ct*1.10:.2f}"
+         f"&Color={','.join(BN_COLORS[BN_COLORS.index(color):])}"
+         f"&Clarity={','.join(BN_CLARITY[BN_CLARITY.index(clarity):])}")
+    url = 'https://www.bluenile.com' + ('/diamonds/lab-grown-diamonds' if lab else '/diamonds') + '?' + q
+    spec = json.dumps({'shape':shape,'carat':ct,'color':color,'clarity':clarity,'lab':lab})
+    return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="noopener noreferrer" '
+            f'class="btn btn-lg" style="margin-top:12px">{label}</a>')
+
 def build_diamonds():
     cts = [0.25,0.5,0.75,1,1.25,1.5,2,2.5,3,4,5]
     shapes = ['Round','Oval','Princess','Cushion','Emerald','Pear','Marquise','Radiant','Asscher','Heart']
@@ -653,6 +670,7 @@ def build_diamonds():
     {tbl(['Colour'] + ['#' + cl for cl in clars], grid_rows)}
     <p>Above about G colour and VS2 clarity, almost nothing you pay for is visible without a loupe.
     Cut is the one grade worth protecting: a badly cut {s.lower()} looks dull whatever else is true of it.</p>
+    {bn_link(s, c, 'G', 'VS2', False, f'See {ctxt} ct {s.lower()} diamonds, G–D colour, VS2 and up, at Blue Nile →')}
 
     <h2>The price step just below {ctxt} carat</h2>
     {cliff}
@@ -663,6 +681,7 @@ def build_diamonds():
     <p>The lab-grown figure is not a typo. Lab-grown prices fell by roughly 85% between 2022 and
     2025 and resale is 5–12% of retail, so the saving is real at the counter and is gone the day
     after. Buy lab-grown to wear it; never as a store of value.</p>
+    {bn_link(s, c, 'G', 'VS2', True, f'See lab-grown {ctxt} ct {s.lower()} diamonds at Blue Nile →')}
 
     <h2>Price and the resale gap</h2>
     {tbl(['Where you sell', '#Typical offer', '#Share of retail'], [

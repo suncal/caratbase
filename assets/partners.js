@@ -70,6 +70,40 @@ const PARTNERS = {
   ]
 };
 
+/* Blue Nile deep links. Parameter scheme verified against the live site 2026-09-15:
+ *   /diamonds?Shape=oval-cut&CaratFrom=1.4&CaratTo=1.6&Color=G,F,E,D&Clarity=VS2,VS1,VVS2,VVS1,IF,FL
+ *   /diamonds/lab-grown-diamonds?…same parameters…
+ * A visitor who has just priced a 1.5 ct oval G/VS2 lands on exactly those stones.
+ *
+ * TO ACTIVATE (R2Net affiliate programme, Post Affiliate Pro): after approval, copy the
+ * tracking-link template from the affiliate dashboard into `template`, keeping {url} where
+ * the destination goes. Typical shape:
+ *   https://affiliates.r2net.com/scripts/XXXX?a_aid=YOUR_ID&a_bid=YOUR_BANNER&desturl={url}
+ * Until then every link is the plain Blue Nile URL — useful, untracked, undisclosed. */
+const BLUE_NILE = {
+  template: '',
+  shape:   {Round:'round-cut', Oval:'oval-cut', Princess:'princess-cut', Cushion:'cushion-cut',
+            Emerald:'emerald-cut', Pear:'pear-cut', Marquise:'marquise-cut', Radiant:'radiant-cut',
+            Asscher:'asscher-cut', Heart:'heart-cut'},
+  colors:  ['K','J','I','H','G','F','E','D'],
+  clarity: ['SI2','SI1','VS2','VS1','VVS2','VVS1','IF','FL'],
+
+  /* Stones matching a page's spec: this colour and better, this clarity and better,
+     a carat window from 5% under (the value stones just below a round number) to 10% over. */
+  search(o){
+    const q = new URLSearchParams();
+    q.set('Shape', this.shape[o.shape] || 'round-cut');
+    const ct = parseFloat(o.carat) || 1;
+    q.set('CaratFrom', (ct * 0.95).toFixed(2)); q.set('CaratTo', (ct * 1.10).toFixed(2));
+    const ci = this.colors.indexOf(o.color || 'G');   if(ci >= 0) q.set('Color',   this.colors.slice(ci).join(','));
+    const li = this.clarity.indexOf(o.clarity || 'VS2'); if(li >= 0) q.set('Clarity', this.clarity.slice(li).join(','));
+    const path = o.lab ? '/diamonds/lab-grown-diamonds' : '/diamonds';
+    return this.wrap('https://www.bluenile.com' + path + '?' + q.toString());
+  },
+  wrap(url){ return this.template ? this.template.replace('{url}', encodeURIComponent(url)) : url; },
+  active(){ return !!this.template; }
+};
+
 /* Display advertising. Left off until there is enough traffic to be accepted, and until
    ads would not be the most valuable thing in the space they occupy. */
 const ADS = {
@@ -82,7 +116,30 @@ const Partners = {
   link(p){ return p.aff || p.url; },
   isAffiliate(p){ return !!p.aff; },
   anyAffiliate(){
-    return Object.values(PARTNERS).flat().some(p => p && p.aff);
+    return Object.values(PARTNERS).flat().some(p => p && p.aff) || BLUE_NILE.active();
+  },
+
+  /* Generated diamond pages carry plain Blue Nile links as <a data-bn='{"shape":…}'>. When
+     the programme is switched on, rewrite them to tracked links, mark them sponsored, and
+     add the disclosure — all from this one file, no page rebuild. */
+  upgradeDeepLinks(){
+    const links = document.querySelectorAll('a[data-bn]');
+    if(!links.length) return;
+    links.forEach(a => {
+      a.addEventListener('click', () => { if(window.cbTrack) cbTrack('partner_click',
+        {partner:'Blue Nile', group:'deeplink', page:location.pathname}); });
+      if(!BLUE_NILE.active()) return;
+      try { a.href = BLUE_NILE.search(JSON.parse(a.dataset.bn)); } catch {}
+      a.rel = 'sponsored noopener noreferrer';
+    });
+    if(BLUE_NILE.active() && !document.querySelector('.bn-disclosure')){
+      const p = document.createElement('p');
+      p.className = 'small bn-disclosure';
+      p.style.cssText = 'margin-top:12px;padding-top:10px;border-top:1px solid var(--line)';
+      p.textContent = 'Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not change the figures on this page.';
+      const last = links[links.length - 1];
+      (last.closest('section') || last.parentElement).appendChild(p);
+    }
   },
 
   /* A block of options, never a single "best" one. The spread between buyers is the
@@ -143,3 +200,5 @@ const Partners = {
       data-full-width-responsive="true"></ins>`;
   }
 };
+
+if(typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', () => Partners.upgradeDeepLinks());
