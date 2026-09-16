@@ -1,4 +1,4 @@
-/* CaratBase — coloured stone and pearl calculator UI */
+/* CaratBase — colored stone and pearl calculator UI */
 (function(){
   const $=id=>document.getElementById(id);
   if(!$('gType')) return;
@@ -35,7 +35,7 @@
       warn.style.display='block';
       warn.innerHTML=`<div class="pill pill-bad">Read this before believing the number</div>
         <p class="small" style="margin-top:10px">You have selected <strong>Exceptional</strong>,
-        which is auction-house material — top colour, untreated, certified origin. Genuinely
+        which is auction-house material — top color, untreated, certified origin. Genuinely
         exceptional stones are rare enough that estimates for them are the least reliable
         figures on this site, and they need a specialist rather than a calculator. If you are
         not certain your stone is in this class, try <strong>Fine</strong> instead.</p>`;
@@ -50,7 +50,7 @@
       warn.style.display='block';
       warn.innerHTML=`<div class="pill pill-bad">Handle with care</div>
         <p class="small" style="margin-top:10px">Fracture-filled, dyed and diffusion-treated
-        stones can be damaged by ordinary jewellery repair — a jeweller's torch will destroy a
+        stones can be damaged by ordinary jewelry repair — a jeweler's torch will destroy a
         glass-filled ruby. Tell anyone who works on the piece.</p>`;
     } else warn.style.display='none';
 

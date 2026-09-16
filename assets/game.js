@@ -21,7 +21,7 @@ function diamondSVG(mm){
     facets+=`<line x1="${mx.toFixed(2)}" y1="${my.toFixed(2)}" x2="${g[0].toFixed(2)}" y2="${g[1].toFixed(2)}"/>`;});
 
   return `<svg viewBox="0 0 ${VB} ${VB}" xmlns="http://www.w3.org/2000/svg" role="img"
-    aria-label="A ${mm} millimetre diamond drawn to true scale on a ring finger">
+    aria-label="A ${mm} millimeter diamond drawn to true scale on a ring finger">
   <defs>
     <linearGradient id="fing${uid}" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#E7DBCF"/><stop offset=".42" stop-color="#F6EDE4"/>
@@ -175,7 +175,7 @@ const Hist={
 
     const keepPct=Math.round(val.resaleHigh/val.retailHigh*100);
     document.getElementById('rSpec').innerHTML=
-      `${stone.origin} ${stone.shape.toLowerCase()} brilliant · ${stone.color} colour ·
+      `${stone.origin} ${stone.shape.toLowerCase()} brilliant · ${stone.color} color ·
        ${stone.clarity} · ${stone.cut} cut · ${stone.cert} · ${stone.mm} mm across.
        <strong style="color:var(--ink-2)">Resells for about ${keepPct}% of retail.</strong>
        ${val.isLab?' Lab-grown stones currently have very little secondary market.':''}`;

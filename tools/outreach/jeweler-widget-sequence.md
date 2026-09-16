@@ -1,17 +1,17 @@
-# Jeweller outreach — free widget → backlink
+# Jeweler outreach — free widget → backlink
 
-**Goal:** get independent jewellers to paste the ring sizer onto their site. Each one is a
+**Goal:** get independent jewelers to paste the ring sizer onto their site. Each one is a
 relevant, editorially-placed backlink, which is the thing Google is waiting for before it
-crawls the 234 pages it has already discovered. Secondary: every embed is a jeweller who has
+crawls the 234 pages it has already discovered. Secondary: every embed is a jeweler who has
 now heard of CaratBase — the lead-buyer list for later.
 
-**Who:** independent jewellers with their own website and no ring sizer on it (most).
+**Who:** independent jewelers with their own website and no ring sizer on it (most).
 Check before sending: open their site, search "ring size". If they have a chart image or
 nothing, they qualify. If they have an interactive sizer, skip.
 
 **Where the list comes from (no scraping needed):**
 - Jewelers of America member directory (jewelers.org) — US independents, ~8,000
-- National Association of Jewellers (naj.co.uk) member list — UK
+- National Association of Jewelers (naj.co.uk) member list — UK
 - Instantly's lead finder filtered: industry "Jewelry", company size 1–20, has website
 - Wedding directories (The Knot / Hitched vendor lists) — engagement ring retailers
 
@@ -30,11 +30,11 @@ than 5 embed, the copy is wrong; if 10+, scale to all five inboxes.
 Hi {{firstName}},
 
 I was on {{website}} looking at the {{something specific — a collection, a ring}} and
-noticed there's no ring size finder on the site. Every jeweller I talk to says "what size
+noticed there's no ring size finder on the site. Every jeweler I talk to says "what size
 am I?" is their most common email.
 
 I built a free one. It converts US/UK/EU/Indian sizes, finds a size from a ring's inside
-diameter or a finger measurement, and matches your brand colour. It's two lines of code:
+diameter or a finger measurement, and matches your brand color. It's two lines of code:
 
 https://caratbase.com/widgets.html
 
@@ -88,7 +88,7 @@ Sunny
 - **"Squarespace / Wix?"** → Add an Embed / HTML block → paste.
 - **"Can I remove the powered-by line?"** → No — that's the only condition, and it's how the
   project stays free. Polite, firm, one sentence.
-- **"Can you make it match our font / colours?"** → `data-accent="#hex"` for the colour.
+- **"Can you make it match our font / colors?"** → `data-accent="#hex"` for the color.
   Fonts follow theirs already (system font stack).
 - **"Do you sell leads / can you send us customers?"** → This is the lead-sales conversation.
   Log it. Answer: "Not yet — we're building the audience first. Can I come back to you when

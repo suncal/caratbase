@@ -95,7 +95,7 @@
     $('oKeep').textContent   = keep+'%';
 
     /* Where the money actually is. Almost nobody guesses this correctly. */
-    const rows = [[`Centre stone — ${o.carat} ct ${o.origin.toLowerCase()}`,
+    const rows = [[`Center stone — ${o.carat} ct ${o.origin.toLowerCase()}`,
                    v.retailLow, v.retailHigh, v.resaleLow, v.resaleHigh]];
     if(side) rows.push([`Side stones — ${side.count} × ${o.sideMm} mm (${side.totalCt} ct total)`,
                         sideRL, sideRH, sideSL, sideSH]);
@@ -112,13 +112,13 @@
          priced at its own tiny per-carat rate rather than as one big stone — so they add about
          <strong style="color:var(--ink)">${fmt(sideRH)}</strong>, roughly
          <strong style="color:var(--ink)">${Math.round(sideRH/retailHi*100)}%</strong> of the ring.
-         Most of what a halo or pavé costs is the setting and the labour of fitting them, not the
+         Most of what a halo or pavé costs is the setting and the labor of fitting them, not the
          diamonds.`
       : '';
 
     $('oNote').innerHTML = v.isLab
       ? 'Lab-grown stones have very little secondary market at present. The metal in the setting may be worth more than the diamond.'
-      : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} colour, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}${o.certNo?' #'+o.certNo:''}. Materials only — it excludes the jeweller's making and setting charges.`;
+      : `Based on a ${o.carat} ct ${o.shape.toLowerCase()} ${o.origin.toLowerCase()} diamond, ${o.color} color, ${o.clarity}, ${o.cut} cut${o.cert==='None'?', uncertified (discounted for grading risk)':', '+o.cert+' certified'}${o.certNo?' #'+o.certNo:''}. Materials only — it excludes the jeweler's making and setting charges.`;
 
     /* A valuation is also a specification. Someone pricing a 1.2 ct oval H VS1 usually
        wants to know what one costs to buy today — and that click is the one that pays. */
@@ -228,7 +228,7 @@
       Math.abs(Math.round(parseFloat(o.carat)*1000)).toString(36).toUpperCase();
 
     const kv=(k,val)=>`<div><div class="k">${k}</div><div class="v">${val}</div></div>`;
-    const rows=[[`Centre stone — ${o.carat} ct ${o.shape.toLowerCase()}`,v.retailLow,v.retailHigh,v.resaleLow,v.resaleHigh]];
+    const rows=[[`Center stone — ${o.carat} ct ${o.shape.toLowerCase()}`,v.retailLow,v.retailHigh,v.resaleLow,v.resaleHigh]];
     if(side) rows.push([`Side stones — ${side.count} × ${o.sideMm} mm (${side.totalCt} ct)`,sRL,sRH,sSL,sSH]);
     if(metal) rows.push([`Setting — ${o.grams} g ${o.karat}`,metal,metal,metal,metal]);
 
@@ -242,7 +242,7 @@
       </div>
 
       <div class="rep-sec"><h3>The piece</h3><div class="rep-kv">
-        ${kv('Carat weight',o.carat+' ct')}${kv('Shape',o.shape)}${kv('Colour',o.color)}
+        ${kv('Carat weight',o.carat+' ct')}${kv('Shape',o.shape)}${kv('Color',o.color)}
         ${kv('Clarity',o.clarity)}${kv('Cut',o.cut)}${kv('Origin',o.origin)}
         ${kv('Certificate',o.cert)}${o.certNo?kv('Report number',o.certNo):''}
         ${o.karat&&o.karat!=='None / not sure'?kv('Setting metal',o.karat):''}
@@ -267,8 +267,8 @@
 
       <div class="rep-sec"><h3>How these figures were reached</h3>
         <p class="rep-note">
-          Retail is modelled from published market prices for the stated specification, using
-          per-carat rates that step at each recognised size threshold, adjusted for colour,
+          Retail is modeled from published market prices for the stated specification, using
+          per-carat rates that step at each recognized size threshold, adjusted for color,
           clarity, cut and shape. Side stones are priced individually at melee rates rather
           than as a combined weight, which is why they contribute far less than their total
           carat suggests. Metal is valued at the spot price on the date above
@@ -280,7 +280,7 @@
       <div class="rep-sec"><h3>Important</h3>
         <p class="rep-note">
           This is an estimate produced from a price model, not a physical inspection.
-          CaratBase is not a licensed appraiser, does not buy or sell jewellery, and this
+          CaratBase is not a licensed appraiser, does not buy or sell jewelry, and this
           document is not a formal appraisal, an offer, a guarantee of value, or financial
           advice. Insurers and courts will normally require a certified appraisal from a
           qualified professional. Figures are in US dollars.
@@ -309,7 +309,7 @@
     if(intent==='insure'){
       Partners.mount(box,'insurance',{
         title:'Insuring it',
-        intro:`Most household contents policies cap jewellery well below ${est}, and many exclude loss away from home entirely. Specialist cover typically runs 1–2% of the insured value per year.`,
+        intro:`Most household contents policies cap jewelry well below ${est}, and many exclude loss away from home entirely. Specialist cover typically runs 1–2% of the insured value per year.`,
         footer:'Both will want a documented value. Download the report above as a starting point — for an expensive piece they will also want a certified appraisal.'});
     } else if(intent==='sell'){
       Partners.mount(box,'buyers',{

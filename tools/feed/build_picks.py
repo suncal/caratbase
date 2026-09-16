@@ -5,7 +5,7 @@ Turn the Blue Nile product feed into per-page stone picks.
     python3 tools/feed/build_picks.py <feed.csv|feed.xml|feed.json>   -> assets/picks.json
 
 Heath's brief: point each page at 2–3 specific stones, a mix of natural and lab. For every
-carat × shape page this selects, from stones matching the page's grade (G colour or better,
+carat × shape page this selects, from stones matching the page's grade (G color or better,
 VS2 or better, Very Good cut or better, carat from 5% under to 10% over):
   - the 2 cheapest natural stones
   - the 1 cheapest lab-grown stone
@@ -13,7 +13,7 @@ Cheapest-that-qualifies is the honest pick — it is the stone the page's own pr
 is good value, and a reader can see for themselves why it was chosen.
 
 FIELD MAPPING: the feed's column names are unknown until Blake sends it. Edit FIELDS below
-to map them; everything else stays the same. Values are normalised (shape names, grades,
+to map them; everything else stays the same. Values are normalized (shape names, grades,
 'lab'/'natural') so the mapping is the only thing that should ever need touching.
 """
 import csv, json, pathlib, re, sys
@@ -27,7 +27,7 @@ FIELDS = {
     'id':      ['id', 'product_id', 'sku', 'stock_id'],
     'shape':   ['shape', 'diamond_shape'],
     'carat':   ['carat', 'carat_weight', 'weight'],
-    'color':   ['color', 'colour'],
+    'color':   ['color', 'color'],
     'clarity': ['clarity'],
     'cut':     ['cut', 'cut_grade'],
     'price':   ['price', 'sale_price', 'retail_price'],
@@ -65,7 +65,7 @@ def norm_shape(s):
         if sh.lower() in s: return sh
     return None
 
-def normalise(row):
+def normalize(row):
     shape = norm_shape(pick(row, 'shape'))
     try: carat = float(re.sub(r'[^\d.]', '', pick(row, 'carat')))
     except ValueError: carat = None
@@ -89,7 +89,7 @@ def qualifies(s, ct):
 
 def main(path):
     raw = load(path)
-    stones = [x for x in (normalise(r) for r in raw) if x]
+    stones = [x for x in (normalize(r) for r in raw) if x]
     print(f'{len(raw)} rows in feed, {len(stones)} usable stones')
     picks = {}
     for ct in CTS:

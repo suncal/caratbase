@@ -19,20 +19,20 @@ const PARTNERS = {
   /* People about to BUY — budget calculator, ring sizer, size charts. */
   retail: [
     {name:'Blue Nile',       url:'https://www.bluenile.com',      aff:'https://www.bluenile.com/?a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates',
-     note:'The largest online inventory. Programme terms as approved 2026-09-15: 3.5% on all sales (James Allen stones included).'},
+     note:'The largest online inventory. Program terms as approved 2026-09-15: 3.5% on all sales (James Allen stones included).'},
     {name:'James Allen',     url:'https://www.jamesallen.com',    aff:'',
      note:'360-degree video on every stone, which is the closest thing to seeing it in person. 5%, 60-day cookie.'},
     {name:'Brilliant Earth', url:'https://www.brilliantearth.com',aff:'',
-     note:'Traceable sourcing. 5% on bridal, 7% on fine jewellery, 30-day cookie.'}
+     note:'Traceable sourcing. 5% on bridal, 7% on fine jewelry, 30-day cookie.'}
   ],
 
   /* People who OWN it — valuation, vault. The highest-converting money event we have,
      and the only one that renews every year. */
   insurance: [
     {name:'BriteCo',         url:'https://brite.co',              aff:'',
-     note:'Jewellery-specific cover, $0 deductible. Gives its appraisal software to jewellers free, funded by referrals — which tells you what a referral is worth.'},
+     note:'Jewelry-specific cover, $0 deductible. Gives its appraisal software to jewelers free, funded by referrals — which tells you what a referral is worth.'},
     {name:'Jewelers Mutual', url:'https://www.jewelersmutual.com',aff:'',
-     note:'The oldest specialist jewellery insurer in the US. $0 deductible.'}
+     note:'The oldest specialist jewelry insurer in the US. $0 deductible.'}
   ],
 
   /* People SELLING. Never one buyer — the spread between them is the whole point. */
@@ -42,7 +42,7 @@ const PARTNERS = {
     {name:'myGemma',         url:'https://www.mygemma.com',       aff:'',
      note:'Formerly WP Diamonds. Direct offer rather than auction — faster, usually lower.'},
     {name:'Diamond Banc',    url:'https://diamondbanc.com',       aff:'',
-     note:'Buys outright and also lends against jewellery if you want it back.'}
+     note:'Buys outright and also lends against jewelry if you want it back.'}
   ],
 
   /* Scrap gold and silver. */
@@ -51,13 +51,13 @@ const PARTNERS = {
      note:'Insured shipping, pays on approval. Compare its offer against the figure above before accepting.'}
   ],
 
-  /* Coloured stones — a report is often worth more than it costs. Not affiliate; these
+  /* Colored stones — a report is often worth more than it costs. Not affiliate; these
      are simply the right places to send someone. */
   labs: [
     {name:'GIA',             url:'https://www.gia.edu/gem-lab-service/identification-report', aff:'',
-     note:'Identification and treatment reports. The most widely recognised name in the trade.'},
+     note:'Identification and treatment reports. The most widely recognized name in the trade.'},
     {name:'AGL',             url:'https://www.aglgemlab.com',     aff:'',
-     note:'American Gemological Laboratories — the specialist most respected for coloured stone origin.'}
+     note:'American Gemological Laboratories — the specialist most respected for colored stone origin.'}
   ],
 
   /* Appraisers. Deliberately a professional body rather than a company: the honest answer
@@ -75,7 +75,7 @@ const PARTNERS = {
  *   /diamonds/lab-grown-diamonds?…same parameters…
  * A visitor who has just priced a 1.5 ct oval G/VS2 lands on exactly those stones.
  *
- * TO ACTIVATE (R2Net affiliate programme, Post Affiliate Pro): after approval, copy the
+ * TO ACTIVATE (R2Net affiliate program, Post Affiliate Pro): after approval, copy the
  * tracking-link template from the affiliate dashboard into `template`, keeping {url} where
  * the destination goes. Typical shape:
  *   https://affiliates.r2net.com/scripts/XXXX?a_aid=YOUR_ID&a_bid=YOUR_BANNER&desturl={url}
@@ -88,7 +88,7 @@ const BLUE_NILE = {
   colors:  ['K','J','I','H','G','F','E','D'],
   clarity: ['SI2','SI1','VS2','VS1','VVS2','VVS1','IF','FL'],
 
-  /* Stones matching a page's spec: this colour and better, this clarity and better,
+  /* Stones matching a page's spec: this color and better, this clarity and better,
      a carat window from 5% under (the value stones just below a round number) to 10% over. */
   search(o){
     const q = new URLSearchParams();
@@ -127,7 +127,7 @@ const BLUE_NILE = {
   button(o, label, opts){
     const x = opts || {};
     const url = this.search(o);
-    const grade = [o.color ? o.color + ' colour and up' : null, o.clarity ? o.clarity + ' and up' : null].filter(Boolean).join(', ');
+    const grade = [o.color ? o.color + ' color and up' : null, o.clarity ? o.clarity + ' and up' : null].filter(Boolean).join(', ');
     const sub = x.sub || `${o.lab ? 'Lab-grown' : 'Natural'}${grade ? ' · ' + grade : ''} · filtered at Blue Nile`;
     return `<a href="${url}" target="_blank" rel="sponsored noopener noreferrer" data-bn-item="1" class="bn-cta${x.small ? ' sm' : ''}">
       <span class="bn-mark">Blue Nile</span><span class="bn-txt"><b>${label}</b><small>${sub}</small></span><span class="bn-arrow">→</span></a>`;
@@ -158,7 +158,7 @@ const Partners = {
   },
 
   /* Generated diamond pages carry plain Blue Nile links as <a data-bn='{"shape":…}'>. When
-     the programme is switched on, rewrite them to tracked links, mark them sponsored, and
+     the program is switched on, rewrite them to tracked links, mark them sponsored, and
      add the disclosure — all from this one file, no page rebuild. */
   upgradeDeepLinks(){
     const links = document.querySelectorAll('a[data-bn], a[data-bn-item]');
@@ -226,8 +226,8 @@ const Partners = {
       }));
   },
 
-  /* Ad slot. Renders nothing at all until a provider is configured — an empty grey box
-     labelled "advertisement" is worse than no box. */
+  /* Ad slot. Renders nothing at all until a provider is configured — an empty gray box
+     labeled "advertisement" is worse than no box. */
   adSlot(){
     if(!ADS.adsense.enabled || !ADS.adsense.client) return '';
     return `<ins class="adsbygoogle" style="display:block"

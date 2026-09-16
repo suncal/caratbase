@@ -10,22 +10,22 @@ const STAMPS = [
    value:'solid', note:'The UK and Commonwealth entry-level gold standard. Legal to call gold in the UK, but NOT in the US, where 10K is the legal minimum.',
    worth:'Solid gold. Scrap value is real but modest — a little over a third of the piece weight is actual gold.'},
   {code:'417',  alias:['10k','10kt','.417'], metal:'Gold', purity:'10K · 41.7% gold',
-   value:'solid', note:'The lowest purity that can legally be sold as "gold" in the United States. Very common in American mass-market jewellery.',
+   value:'solid', note:'The lowest purity that can legally be sold as "gold" in the United States. Very common in American mass-market jewelry.',
    worth:'Solid gold. Durable and cheap — often used for class rings and chain.'},
   {code:'585',  alias:['14k','14kt','583','.585'], metal:'Gold', purity:'14K · 58.5% gold',
-   value:'solid', note:'The single most common gold standard in the US — the default for engagement rings and fine jewellery. A stamp of 583 rather than 585 usually indicates older Soviet or Eastern European origin.',
+   value:'solid', note:'The single most common gold standard in the US — the default for engagement rings and fine jewelry. A stamp of 583 rather than 585 usually indicates older Soviet or Eastern European origin.',
    worth:'Solid gold, and the sweet spot of durability and value. Just over half the weight is pure gold.'},
   {code:'750',  alias:['18k','18kt','.750'], metal:'Gold', purity:'18K · 75% gold',
-   value:'solid', note:'The European fine-jewellery standard and the mark of most luxury houses — Cartier, Tiffany, Van Cleef. Richer yellow than 14K.',
+   value:'solid', note:'The European fine-jewelry standard and the mark of most luxury houses — Cartier, Tiffany, Van Cleef. Richer yellow than 14K.',
    worth:'Solid gold, high value. Three quarters of the metal weight is pure gold.'},
   {code:'875',  alias:['21k','21kt'], metal:'Gold', purity:'21K · 87.5% gold',
-   value:'solid', note:'Common in the Gulf states and parts of the Middle East. Rare in Western jewellery.',
+   value:'solid', note:'Common in the Gulf states and parts of the Middle East. Rare in Western jewelry.',
    worth:'Solid gold, very high value. Soft — bends more easily than 14K or 18K.'},
   {code:'916',  alias:['22k','22kt','917','.916'], metal:'Gold', purity:'22K · 91.6% gold',
    value:'solid', note:'The Indian and South Asian gold standard, and the basis of BIS hallmarking in India. Also common across the Middle East.',
    worth:'Solid gold, very high value — often bought as a store of wealth rather than as fashion.'},
   {code:'999',  alias:['24k','24kt','990','.999','9999'], metal:'Gold or fine silver', purity:'24K · 99.9% pure',
-   value:'solid', note:'Pure metal. On gold this is bullion-grade — too soft for most jewellery, so it usually indicates a bar, coin, or an investment piece. On silver, 999 means fine silver rather than sterling.',
+   value:'solid', note:'Pure metal. On gold this is bullion-grade — too soft for most jewelry, so it usually indicates a bar, coin, or an investment piece. On silver, 999 means fine silver rather than sterling.',
    worth:'Maximum metal value. Check whether the piece is gold or silver before assuming — the same number is used for both.'},
 
   /* ---- SILVER ---- */
@@ -47,7 +47,7 @@ const STAMPS = [
 
   /* ---- PLATINUM & PALLADIUM ---- */
   {code:'PT950', alias:['950','plat','platinum','pt','950pt','irid plat','10% irid'], metal:'Platinum', purity:'95% platinum',
-   value:'solid', note:'The US platinum standard for fine jewellery. "IRID PLAT" or "10% IRID" indicates an older piece alloyed with iridium — typical of Art Deco and mid-century settings.',
+   value:'solid', note:'The US platinum standard for fine jewelry. "IRID PLAT" or "10% IRID" indicates an older piece alloyed with iridium — typical of Art Deco and mid-century settings.',
    worth:'High metal value and dense, so pieces weigh more than they look. Older iridium-alloy settings can carry significant antique premium.'},
   {code:'PT900', alias:['900pt','850','pt850'], metal:'Platinum', purity:'85–90% platinum',
    value:'solid', note:'Lower platinum standards, more common in Japanese and older European work.',
@@ -70,8 +70,8 @@ const STAMPS = [
    value:'filled', note:'Vermeil is sterling silver with a gold layer of at least 2.5 microns. Legally it must have a real silver base — that is what separates it from plating.',
    worth:'Worth the silver underneath. The gold layer adds little to scrap value but a lot to appearance.', warn:true},
   {code:'EPNS', alias:['epns','nickel silver','german silver','alpaca','ns','a1','silver plated','sp'], metal:'Base metal', purity:'No silver content',
-   value:'none', note:'Electroplated nickel silver, German silver, alpaca and nickel silver all contain NO silver whatsoever. The word "silver" in these names refers to the colour, not the metal. "A1" indicates a plating grade.',
-   worth:'No precious metal value at all. This is the single most common source of disappointment in inherited jewellery.', warn:true},
+   value:'none', note:'Electroplated nickel silver, German silver, alpaca and nickel silver all contain NO silver whatsoever. The word "silver" in these names refers to the color, not the metal. "A1" indicates a plating grade.',
+   worth:'No precious metal value at all. This is the single most common source of disappointment in inherited jewelry.', warn:true},
 
   /* ---- OTHER MARKS ---- */
   {code:'KP',   alias:['plumb','14kp','18kp','10kp'], metal:'Gold', purity:'Karat plumb — exact',
@@ -87,7 +87,7 @@ const STAMPS = [
    value:'lab', note:'A real diamond, chemically identical to mined, but grown in a laboratory. Since 2023 the required disclosure has usually been stamped on the girdle of the stone or on the ring shank.',
    worth:'Physically a real diamond — but lab-grown prices have collapsed as production scaled, and resale is currently very weak. See our valuation tool for the current spread.', warn:true},
   {code:'STAINLESS', alias:['stainless','stnls','316l','ti','titanium','tungsten'], metal:'Base metal', purity:'Non-precious',
-   value:'none', note:'Stainless steel, titanium and tungsten are durable modern jewellery metals with no precious content.',
+   value:'none', note:'Stainless steel, titanium and tungsten are durable modern jewelry metals with no precious content.',
    worth:'No scrap value. Common in men’s wedding bands.', warn:true},
   {code:'BIS',  alias:['bis','huid','hallmark india','bis916'], metal:'Gold (India)', purity:'BIS certified',
    value:'solid', note:'The Indian Bureau of Indian Standards hallmark. Since 2021 it comprises three marks: the BIS triangle logo, the purity grade (such as 22K916), and a six-character alphanumeric HUID unique to that piece.',
@@ -99,7 +99,7 @@ const STAMPS = [
 
 /* ---------------------------------------------------------------
    2. DIAMOND VALUATION ENGINE
-   Baseline: natural, round brilliant, GIA, G colour, VS2 clarity,
+   Baseline: natural, round brilliant, GIA, G color, VS2 clarity,
    Very Good cut. All figures are estimates in USD.
    --------------------------------------------------------------- */
 
@@ -248,13 +248,13 @@ function caratForBudget(budget, spec){
 const BUDGET_STRATEGIES = [
   {key:'size',   label:'Go for size',
    spec:{color:'J', clarity:'SI2', cut:'Very Good', shape:'Oval',  origin:'Natural', cert:'GIA'},
-   note:'Lower colour and clarity, and an elongated shape that spreads wider. Faces up much larger; a warm tint is visible against white metal.'},
+   note:'Lower color and clarity, and an elongated shape that spreads wider. Faces up much larger; a warm tint is visible against white metal.'},
   {key:'balance',label:'The balanced pick',
    spec:{color:'G', clarity:'VS2', cut:'Excellent', shape:'Round', origin:'Natural', cert:'GIA'},
-   note:'Eye-clean, no visible tint, excellent cut. The specification most jewellers steer people toward, and the easiest to resell.'},
+   note:'Eye-clean, no visible tint, excellent cut. The specification most jewelers steer people toward, and the easiest to resell.'},
   {key:'quality',label:'Go for quality',
    spec:{color:'D', clarity:'VVS1', cut:'Excellent', shape:'Round', origin:'Natural', cert:'GIA'},
-   note:'Top colour and near-flawless. Almost none of this is visible without a loupe, which is why it buys so much less stone.'},
+   note:'Top color and near-flawless. Almost none of this is visible without a loupe, which is why it buys so much less stone.'},
   {key:'lab',    label:'Lab-grown',
    spec:{color:'F', clarity:'VS1', cut:'Excellent', shape:'Round', origin:'Lab-grown', cert:'IGI'},
    note:'A real diamond, chemically identical, for a fraction of the money. Resale is currently very weak, so buy it to wear rather than to hold value.'}

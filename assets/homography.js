@@ -2,13 +2,13 @@
  *
  * The problem with "hold a coin next to it and compare" is that a phone is never exactly
  * square to the subject. Photograph a ring beside a bank card at any realistic angle and a
- * naive pixels-per-millimetre ratio is wrong — usually by 5-15%, and worse near the frame
+ * naive pixels-per-millimeter ratio is wrong — usually by 5-15%, and worse near the frame
  * edges, which on a 1 ct stone is a couple of hundred dollars of error.
  *
  * So instead of a ratio we solve the actual projective transform. The user marks the four
  * corners of the card; because an ISO/IEC 7810 ID-1 card is exactly 85.60 x 53.98 mm, those
  * four correspondences fully determine the homography between the photo plane and the real
- * plane. Any point marked afterwards is mapped through it and measured in true millimetres.
+ * plane. Any point marked afterwards is mapped through it and measured in true millimeters.
  *
  * This is the standard Direct Linear Transform, done in plain arithmetic — no library, no
  * model, nothing leaves the device.
@@ -35,7 +35,7 @@ function solveLinear(A, b) {
 }
 
 /**
- * Homography mapping four image points to the card's true corners in millimetres.
+ * Homography mapping four image points to the card's true corners in millimeters.
  * src order must be: top-left, top-right, bottom-right, bottom-left of the card.
  */
 function cardHomography(src) {
@@ -51,14 +51,14 @@ function cardHomography(src) {
   return [h[0], h[1], h[2], h[3], h[4], h[5], h[6], h[7], 1];
 }
 
-/* Map an image point into real-world millimetres. */
+/* Map an image point into real-world millimeters. */
 function applyH(H, p) {
   const [x, y] = p;
   const w = H[6] * x + H[7] * y + H[8];
   return [(H[0] * x + H[1] * y + H[2]) / w, (H[3] * x + H[4] * y + H[5]) / w];
 }
 
-/* True distance in millimetres between two points marked on the photo. */
+/* True distance in millimeters between two points marked on the photo. */
 function measureMm(H, p1, p2) {
   const a = applyH(H, p1), b2 = applyH(H, p2);
   return Math.hypot(b2[0] - a[0], b2[1] - a[1]);

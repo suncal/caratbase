@@ -28,14 +28,14 @@
     }
 
     $('bBig').textContent=size.r.carat.toFixed(2)+' ct';
-    $('bBigSub').textContent='natural, if you prioritise size over colour and clarity';
+    $('bBigSub').textContent='natural, if you prioritize size over color and clarity';
     $('bBalanced').textContent=bal.r.carat.toFixed(2)+' ct';
     $('bTop').textContent=top.r?top.r.carat.toFixed(2)+' ct':'—';
 
     const mult=top.r?(size.r.carat/top.r.carat):null;
     $('bNote').innerHTML= mult
       ? `The same ${fmt(b)} buys <strong style="color:#E8D19A">${mult.toFixed(1)}× more stone</strong>
-         if you spend it on carat rather than on the top colour and clarity grades — almost
+         if you spend it on carat rather than on the top color and clarity grades — almost
          none of which is visible without a loupe. A lab-grown stone at good quality would be
          about ${lab.r?lab.r.carat.toFixed(2)+' ct':'—'}, though it resells for very little.`
       : '';

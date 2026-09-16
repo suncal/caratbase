@@ -9,7 +9,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 KEYF = pathlib.Path('/Users/priyankarchakraborty/Trading/lumen/cloud/.owner_key.json')
 d = json.loads(KEYF.read_text()); KEY = d.get('key') or list(d.values())[0]
 API = 'https://lumen-cloud.sunnyatlanta20.workers.dev'
-STYLE = ' Warm ivory linen surface, soft diffused daylight from the left, shallow depth of field, calm cream and warm-grey palette, refined luxury still life, macro lens, no text, no hands, no logo, nothing else in frame.'
+STYLE = ' Warm ivory linen surface, soft diffused daylight from the left, shallow depth of field, calm cream and warm-gray palette, refined luxury still life, macro lens, no text, no hands, no logo, nothing else in frame.'
 
 GEMS = {
  'ruby': 'a single loose cushion-cut ruby, vivid pigeon-blood red with deep saturation',
@@ -17,12 +17,12 @@ GEMS = {
  'pink-sapphire': 'a single loose oval pink sapphire, clear vivid pink',
  'yellow-sapphire': 'a single loose cushion-cut yellow sapphire, clean bright canary yellow',
  'emerald': 'a single loose emerald-cut emerald, deep vivid green with a soft garden of inclusions',
- 'alexandrite': 'a single loose oval alexandrite showing its colour change, teal green with a hint of purple-red at the edge',
+ 'alexandrite': 'a single loose oval alexandrite showing its color change, teal green with a hint of purple-red at the edge',
  'spinel': 'a single loose cushion-cut red spinel, bright cherry red, very clean',
  'paraiba-tourmaline': 'a single loose oval paraiba tourmaline, electric neon turquoise blue glowing from within',
  'tanzanite': 'a single loose cushion-cut tanzanite, deep violet-blue',
  'aquamarine': 'a single loose emerald-cut aquamarine, pale clear sea blue',
- 'tourmaline': 'a single loose elongated tourmaline crystal cut, vivid green shading to pink at one end, watermelon colouring',
+ 'tourmaline': 'a single loose elongated tourmaline crystal cut, vivid green shading to pink at one end, watermelon coloring',
  'tsavorite-garnet': 'a single loose cushion-cut tsavorite garnet, vivid grass green',
  'garnet': 'a single loose round rhodolite garnet, deep wine red with a purple flash',
  'peridot': 'a single loose oval peridot, bright olive green',
@@ -30,13 +30,13 @@ GEMS = {
  'citrine': 'a single loose oval citrine, warm honey orange-yellow',
  'blue-topaz': 'a single loose emerald-cut swiss blue topaz, clear bright sky blue',
  'imperial-topaz': 'a single loose oval imperial topaz, peachy golden orange',
- 'opal-black': 'a single polished black opal cabochon, dark body with vivid red, green and blue play of colour',
- 'opal-white': 'a single polished white opal cabochon, milky body with soft pastel play of colour',
+ 'opal-black': 'a single polished black opal cabochon, dark body with vivid red, green and blue play of color',
+ 'opal-white': 'a single polished white opal cabochon, milky body with soft pastel play of color',
  'jade-jadeite': 'a single polished oval jadeite cabochon, translucent vivid imperial green',
 }
-SHAPES = {s: f'a single loose {s} cut white diamond, colourless and brilliant, facets catching soft light, standing on its pavilion tip' for s in
+SHAPES = {s: f'a single loose {s} cut white diamond, colorless and brilliant, facets catching soft light, standing on its pavilion tip' for s in
           ['round','oval','princess','cushion','emerald','pear','marquise','radiant','asscher','heart']}
-SHAPES['round'] = 'a single loose round brilliant cut white diamond, colourless, facets catching soft light, viewed face-up at a slight angle'
+SHAPES['round'] = 'a single loose round brilliant cut white diamond, colorless, facets catching soft light, viewed face-up at a slight angle'
 KARAT = {
  '24k': 'a small stack of pure 24 karat gold coins and a smooth bar, deep saturated butter-yellow gold',
  '22k': 'two traditional 22 karat gold bangles, rich warm deep yellow gold',

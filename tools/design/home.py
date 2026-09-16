@@ -8,17 +8,17 @@ start = s.index('<!-- ================= HERO ================= -->')
 end = s.index('<!-- ================= WHY ================= -->')
 hero = '''<!-- ================= HERO ================= -->
 <section class="hero3">
-  <div class="ph" role="img" aria-label="A round brilliant diamond held in jeweller's tweezers"></div>
+  <div class="ph" role="img" aria-label="A round brilliant diamond held in jeweler's tweezers"></div>
   <div class="in">
     <div class="copy">
-      <div class="eyebrow live-dot">The jewellery reference · live prices</div>
+      <div class="eyebrow live-dot">The jewelry reference · live prices</div>
       <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
       <p class="lede">
         Free tools for anything you own or are about to buy — with the number the trade
         keeps to itself: what a diamond really fetches when you sell it.
       </p>
       <div class="hero-cta">
-        <a href="value.html" class="btn btn-gold btn-lg">Value my jewellery</a>
+        <a href="value.html" class="btn btn-gold btn-lg">Value my jewelry</a>
         <a href="compare.html" class="btn btn-ghost btn-lg">Compare two diamonds</a>
       </div>
       <label class="searchbar" for="homeSearch">

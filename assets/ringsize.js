@@ -139,7 +139,7 @@
       $('gaugeWrap').querySelectorAll('.gauge').forEach(x=>x.classList.remove('picked'));
       g.classList.add('picked');
       const row=RING_SIZES.find(r=>r.us===parseFloat(g.dataset.us));
-      if(row) paint(row,'Measured on screen — worth confirming with a jeweller before you buy.');
+      if(row) paint(row,'Measured on screen — worth confirming with a jeweler before you buy.');
     }));
   }
 
@@ -222,7 +222,7 @@
   });
 
   /* ---------- sharing ----------
-     Everything a jeweller needs travels in the message itself, so the recipient never
+     Everything a jeweler needs travels in the message itself, so the recipient never
      has to trust a conversion or even open the link. */
   function shareUrl(){
     const name=$('saveName').value.trim();
@@ -281,7 +281,7 @@
           .map(([k,v])=>`<div class="stat"><div class="k">${k}</div>
             <div class="v" style="font-size:22px">${v}</div></div>`).join('')}
       </div>
-      <p class="small" style="margin-top:16px">Every system is shown so any jeweller,
+      <p class="small" style="margin-top:16px">Every system is shown so any jeweler,
         anywhere, can use it. Measure your own below.</p>`;
     paint(row,'');
     if(name) $('saveName').value=name;

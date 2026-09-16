@@ -28,7 +28,7 @@ def card(href, key, h3, p, go, hero=False):
 
 FAMILIES = [
  ('Value what you own', 'Retail, and the honest resale figure.', [
-   ('value.html','diamond','Value my diamond &amp; jewellery','Centre stone, side stones and the metal, priced as a whole piece — the retail figure a jeweller would charge and the resale range you would actually be offered.','Start a valuation', True),
+   ('value.html','diamond','Value my diamond &amp; jewelry','Center stone, side stones and the metal, priced as a whole piece — the retail figure a jeweler would charge and the resale range you would actually be offered.','Start a valuation', True),
    ('gemstone.html','gems','Gemstones &amp; pearls','Ruby, sapphire, emerald, tanzanite and more. Treatment matters more than size, and this shows you by how much.','Value a gemstone', False),
    ('metals.html','gold','Gold &amp; metal prices','Live spot per gram, every karat, and what a scrap buyer will really offer.',"Today's prices", False),
    ('stamp.html','stamp','Hallmark lookup','925, 750, 585, GF, EPNS — what the stamp inside the band means, and whether there is any metal value.','Decode a stamp', False),
@@ -39,19 +39,19 @@ FAMILIES = [
    ('lab-vs-natural.html','lab','Lab-grown vs natural','The same stone both ways — what each costs today, and what each is worth in five years.','See both', False),
    ('engagement-ring-budget.html','engage','How much to spend on a ring','There is no rule. What your income actually supports, and what that money buys.','Work it out', False),
    ('diamond-price-per-carat.html','ppc','Diamond price per carat','Why a 1 carat stone costs far more than two half carats — the whole curve, with the cliffs.','See the chart', False),
-   ('diamond-color-chart.html','color','Diamond colour chart','D to K on the same 1 carat stone: what you can see, and what each step costs.','See the scale', False),
+   ('diamond-color-chart.html','color','Diamond color chart','D to K on the same 1 carat stone: what you can see, and what each step costs.','See the scale', False),
    ('diamond-clarity-chart.html','clarity','Diamond clarity chart','FL to I1: what is visible to the eye, what needs a loupe, and the price of each grade.','See the grades', False)]),
  ('Measure it', 'No ruler, no scales, no appointment.', [
    ('ring-size.html','ring','Ring sizer','Four ways to measure, including circles drawn true to life on your screen, calibrated against any bank card.','Find my size', False),
-   ('measure.html','photo','Measure from a photo','Photograph your ring beside a bank card and get its true size in millimetres — corrected for camera angle.','Measure from a photo', False),
-   ('size.html','size','Carat size chart','What a carat actually looks like: true millimetre sizes for every weight and shape, drawn on a finger.','See the sizes', False)]),
+   ('measure.html','photo','Measure from a photo','Photograph your ring beside a bank card and get its true size in millimeters — corrected for camera angle.','Measure from a photo', False),
+   ('size.html','size','Carat size chart','What a carat actually looks like: true millimeter sizes for every weight and shape, drawn on a finger.','See the sizes', False)]),
  ('Reference', 'The answers people look up most.', [
    ('birthstones.html','birth','Birthstones by month',"Every month's stone, what it is worth, and the honest alternative when the classic is out of reach.",'See all twelve', False),
-   ('insurance-cost.html','insure','Jewellery insurance cost','What cover should cost for a piece of your value, and when it is not worth insuring at all.','Estimate it', False),
+   ('insurance-cost.html','insure','Jewelry insurance cost','What cover should cost for a piece of your value, and when it is not worth insuring at all.','Estimate it', False),
    ('diamond/','diamond','Diamond sizes &amp; prices','Every carat weight in every shape — 110 pages of size, price by grade, and resale.','Browse', False),
    ('ring-size/','ring','Ring size charts','Every size in US, UK, EU, India and Japan with diameter and circumference.','All sizes', False),
    ('hallmark/','stamp','Hallmarks explained','All 27 marks: metal, purity, and whether the piece is worth anything by weight.','All marks', False),
-   ('widgets.html','widget','Free widgets for your site',"Ring sizer, diamond size chart and gold calculator for any jeweller's website. Two lines of code.",'Get the code', False)]),
+   ('widgets.html','widget','Free widgets for your site',"Ring sizer, diamond size chart and gold calculator for any jeweler's website. Two lines of code.",'Get the code', False)]),
 ]
 def families_html():
     out = []

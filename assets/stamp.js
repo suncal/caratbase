@@ -70,7 +70,7 @@
         <p class="small" style="margin-top:8px">Marks can be worn or partially struck. Try just the
         digits, or look for a second mark elsewhere on the piece — many items carry a purity mark
         and a separate maker's mark. If there is no stamp at all, that does not always mean the
-        piece is fake; older and handmade jewellery is often unmarked.</p></div>`;
+        piece is fake; older and handmade jewelry is often unmarked.</p></div>`;
       return;
     }
     paintOut(hits[0]);

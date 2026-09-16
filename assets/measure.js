@@ -9,7 +9,7 @@
   let img=null, phase='card', card=[], span=[], drag=null, H=null, mode='ring';
 
   const MODES={
-    ring:   {label:'Ring inner diameter', help:'Drag the two points across the <strong>inside</strong> of the band, through the centre.'},
+    ring:   {label:'Ring inner diameter', help:'Drag the two points across the <strong>inside</strong> of the band, through the center.'},
     stone:  {label:'Diamond / stone width', help:'Drag the two points across the widest part of the stone, edge to edge.'},
     band:   {label:'Band width',           help:'Drag the two points across the width of the band, from edge to edge.'}
   };
@@ -164,7 +164,7 @@
       $('outWorth').textContent=v?fmt(v.retailLow)+'–'+fmt(v.retailHigh):'—';
       $('outNote').innerHTML='Carat estimated from diameter for a round brilliant, and weight '+
         'rises with the <em>cube</em> of the width — so measure carefully. '+
-        '<a href="value.html">Value it properly</a> with colour and clarity.';
+        '<a href="value.html">Value it properly</a> with color and clarity.';
     } else {
       $('outSub').textContent='width of the band';
       $('outReads').textContent=mm.toFixed(1)+' mm wide';

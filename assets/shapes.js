@@ -25,7 +25,7 @@ function shapeDims(shape, ct){
   return { l:+(base.l*k).toFixed(2), w:+(base.w*k).toFixed(2), note:base.note };
 }
 
-/* Outline for one shape, centred on (cx,cy), in mm units. */
+/* Outline for one shape, centered on (cx,cy), in mm units. */
 function shapeOutline(shape, cx, cy, L, W){
   const hl=L/2, hw=W/2, n=(x)=>x.toFixed(2);
   switch(shape){
@@ -69,7 +69,7 @@ function shapeOnFinger(shape, ct){
   const body=shapeOutline(shape,cx,cy,d.l,d.w);
   const fill=body.replace('<','<').replace('/>',` fill="url(#st${uid})" stroke="#3E7C95" stroke-width=".2"/>`);
   return `<svg viewBox="0 0 ${VB} ${VB}" xmlns="http://www.w3.org/2000/svg" role="img"
-    aria-label="A ${ct} carat ${shape.toLowerCase()} diamond at true scale, ${d.l} by ${d.w} millimetres">
+    aria-label="A ${ct} carat ${shape.toLowerCase()} diamond at true scale, ${d.l} by ${d.w} millimeters">
     <defs>
       <linearGradient id="fg${uid}" x1="0" y1="0" x2="1" y2="0">
         <stop offset="0" stop-color="#E7DBCF"/><stop offset=".42" stop-color="#F6EDE4"/>

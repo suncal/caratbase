@@ -40,11 +40,11 @@ def shell(name, title, desc, eyebrow, h1, lede, body, script='', scripts=(), sch
 {body}
 </main>
 <footer class="site-foot"><div class="wrap foot-in">
-  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewellery valuation reference.</div>
+  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewelry valuation reference.</div>
   <div style="display:flex;gap:20px;flex-wrap:wrap">
     <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
     <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
-</div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewellery. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
+</div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewelry. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
 {sc}<script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 {script}
@@ -64,7 +64,7 @@ PAGES['compare.html'] = dict(
   eyebrow='Compare', h1='Compare two diamonds', lede='Two specifications, side by side, with everything that actually differs: how big each looks, what each costs, what each fetches back, and which one is the better buy for the money.',
   scripts=('shapes.js',),
   schema=faq([('Is a 0.9 carat diamond much smaller than a 1 carat?','No. Linear size scales with the cube root of weight, so a 0.90 ct round is about 6.27 mm across against 6.5 mm for a 1.00 ct — 3.5% shorter — while costing roughly 25% less because it sits below the 1 carat price step.'),
-              ('Which is better value, a higher colour or a higher clarity?','Below about G colour and VS2 clarity the differences are invisible without a loupe. For the same money, weight and cut quality are what you can actually see.')]),
+              ('Which is better value, a higher color or a higher clarity?','Below about G color and VS2 clarity the differences are invisible without a loupe. For the same money, weight and cut quality are what you can actually see.')]),
   body='''
 
   <section class="console">
@@ -96,7 +96,7 @@ PAGES['compare.html'] = dict(
     return `<div class="grid g3" style="gap:10px">
       <div class="field"><label>Carat</label><input type="number" id="${id}ct" value="${d.ct}" step="0.05" min="0.1" max="10"></div>
       <div class="field"><label>Shape</label><select id="${id}sh">${SH.map(s=>`<option${s===d.sh?' selected':''}>${s}</option>`).join('')}</select></div>
-      <div class="field"><label>Colour</label><select id="${id}co">${Object.keys(COLOR_MULT).map(c=>`<option${c===d.co?' selected':''}>${c}</option>`).join('')}</select></div>
+      <div class="field"><label>Color</label><select id="${id}co">${Object.keys(COLOR_MULT).map(c=>`<option${c===d.co?' selected':''}>${c}</option>`).join('')}</select></div>
       <div class="field"><label>Clarity</label><select id="${id}cl">${Object.keys(CLARITY_MULT).map(c=>`<option${c===d.cl?' selected':''}>${c}</option>`).join('')}</select></div>
       <div class="field"><label>Cut</label><select id="${id}cu">${Object.keys(CUT_MULT).map(c=>`<option${c==='Very Good'?' selected':''}>${c}</option>`).join('')}</select></div>
       <div class="field"><label>Origin</label><select id="${id}or"><option${d.or==='Natural'?' selected':''}>Natural</option><option${d.or==='Lab-grown'?' selected':''}>Lab-grown</option></select></div>
@@ -159,7 +159,7 @@ PAGES['lab-vs-natural.html'] = dict(
       <div class="console-in"><h3>The stone</h3><div class="grid g2" style="gap:12px">
     <div class="field"><label>Carat</label><input type="number" id="ct" value="1" step="0.05" min="0.1" max="10"></div>
     <div class="field"><label>Shape</label><select id="sh"></select></div>
-    <div class="field"><label>Colour</label><select id="co"></select></div>
+    <div class="field"><label>Color</label><select id="co"></select></div>
     <div class="field"><label>Clarity</label><select id="cl"></select></div>
   </div><p class="small" style="margin-top:8px">Very Good cut; natural graded GIA, lab-grown IGI.</p></div>
       <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
@@ -258,12 +258,12 @@ PAGES['diamond-price-per-carat.html'] = dict(
   title='Diamond Price Per Carat Chart 2026 — Why 1 Carat Costs More Than Two Halves | CaratBase',
   desc='Diamond price per carat from 0.25 to 5 carats, natural and lab-grown, with the price steps at 0.5, 1, 1.5 and 2 carats that make a stone just under a round number the classic value buy.',
   eyebrow='Price per carat', h1='Diamond price per carat', lede='Price per carat is not flat — it climbs with weight, in steps. A 1.00 carat stone costs about 30% more per carat than a 0.95 carat one, and a 2 carat stone costs far more than two 1 carat stones. The chart is the whole argument.',
-  schema=faq([('How much is a diamond per carat?','For a G colour, VS2 clarity, well-cut natural round: about $1,900 per carat at 0.3 ct, $5,200 at 1 ct, $8,500 at 2 ct and $14,000 at 4 ct and above. Lab-grown is about 15% of these figures.'),
+  schema=faq([('How much is a diamond per carat?','For a G color, VS2 clarity, well-cut natural round: about $1,900 per carat at 0.3 ct, $5,200 at 1 ct, $8,500 at 2 ct and $14,000 at 4 ct and above. Lab-grown is about 15% of these figures.'),
               ('Why does a 1 carat diamond cost more than two half-carat diamonds?','Large clean rough is much rarer than small, and 1.00 carat is a weight buyers ask for by name, so it sits in a higher per-carat bracket. Two 0.5 ct stones cost roughly half of one 1 ct stone.')]),
   body='''
   <div class="panel" style="margin-top:8px">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px">
-      <h2 style="font-size:22px">Price per carat by weight — G colour, VS2, Very Good cut, round</h2>
+      <h2 style="font-size:22px">Price per carat by weight — G color, VS2, Very Good cut, round</h2>
       <label class="small" style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="lab"> Show lab-grown</label>
     </div>
     <div id="chart"></div>
@@ -274,8 +274,8 @@ PAGES['diamond-price-per-carat.html'] = dict(
   <div id="shop"></div>
   <section class="narrow legal" style="margin-top:40px">
     <h2>How to use this</h2>
-    <p>Decide the visible size you want in millimetres — the <a href="size.html">size chart</a> shows every weight to scale — then buy the weight just under the nearest step. A 0.90 ct round is 6.27 mm across; a 1.00 ct is 6.50 mm. Nobody can see 0.23 mm on a hand, and the price difference is about a quarter of the stone.</p>
-    <p>Per-carat figures move with colour and clarity in the same proportions at every weight, so the shape of the curve is the same whatever grade you buy. See the <a href="diamond-color-chart.html">colour chart</a> and <a href="diamond-clarity-chart.html">clarity chart</a> for those multipliers.</p>
+    <p>Decide the visible size you want in millimeters — the <a href="size.html">size chart</a> shows every weight to scale — then buy the weight just under the nearest step. A 0.90 ct round is 6.27 mm across; a 1.00 ct is 6.50 mm. Nobody can see 0.23 mm on a hand, and the price difference is about a quarter of the stone.</p>
+    <p>Per-carat figures move with color and clarity in the same proportions at every weight, so the shape of the curve is the same whatever grade you buy. See the <a href="diamond-color-chart.html">color chart</a> and <a href="diamond-clarity-chart.html">clarity chart</a> for those multipliers.</p>
   </section>''',
   script=r'''
 (function(){
@@ -302,42 +302,42 @@ PAGES['diamond-price-per-carat.html'] = dict(
   $('shop').innerHTML=(typeof BLUE_NILE!=='undefined')?BLUE_NILE.card({shape:'Round',carat:0.9,color:'G',clarity:'VS2'},{title:'The value buy — 0.90 ct rounds, G/VS2 and up',sub:'Just under the 1 carat step: 6.27 mm across against 6.50 mm, at about three quarters of the price.'}):'';
 })();''')
 
-# ---------------------------------------------------------------- COLOUR CHART
+# ---------------------------------------------------------------- COLOR CHART
 PAGES['diamond-color-chart.html'] = dict(
   title='Diamond Color Chart — D to K Explained With Prices | CaratBase',
-  desc='Every diamond colour grade from D to K on the same 1 carat stone: what the tint looks like, when it is visible, which metal hides it, and what each step up costs in dollars.',
-  eyebrow='Colour', h1='Diamond colour chart, with prices', lede='Colour grades run from D (no tint) to Z (obviously yellow). The scale below shows the grades people actually buy, D to K, priced on the same 1 carat round VS2 stone — so the cost of each letter is visible next to the letter itself.',
-  schema=faq([('What is the best diamond colour to buy?','G or H. Both look white to the eye in any setting, and the price difference from D is 25–35%. In yellow or rose gold, I or J also read white because the metal warms every stone.'),
-              ('Can you see the difference between D and G colour?','Not face-up in a setting. D, E and F are graded colourless and G to J near-colourless; a G stone next to a D looks identical unless both are loose, upside down, on white paper under a lamp.')]),
+  desc='Every diamond color grade from D to K on the same 1 carat stone: what the tint looks like, when it is visible, which metal hides it, and what each step up costs in dollars.',
+  eyebrow='Color', h1='Diamond color chart, with prices', lede='Color grades run from D (no tint) to Z (obviously yellow). The scale below shows the grades people actually buy, D to K, priced on the same 1 carat round VS2 stone — so the cost of each letter is visible next to the letter itself.',
+  schema=faq([('What is the best diamond color to buy?','G or H. Both look white to the eye in any setting, and the price difference from D is 25–35%. In yellow or rose gold, I or J also read white because the metal warms every stone.'),
+              ('Can you see the difference between D and G color?','Not face-up in a setting. D, E and F are graded colorless and G to J near-colorless; a G stone next to a D looks identical unless both are loose, upside down, on white paper under a lamp.')]),
   body='''
   <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:8px" id="sw"></div>
-  <p class="small" style="margin-top:10px">Tints exaggerated so the progression is visible on a screen; in a ring, D to H look the same colour.</p>
+  <p class="small" style="margin-top:10px">Tints exaggerated so the progression is visible on a screen; in a ring, D to H look the same color.</p>
   <h2 style="margin-top:36px">What each grade costs — 1 carat round, VS2, Very Good cut</h2>
   <div class="table-scroll" style="margin-top:10px"><table id="tbl"><thead><tr><th>Grade</th><th>Group</th><th>What you see</th><th class="num">Retail</th><th class="num">vs. G</th></tr></thead><tbody></tbody></table></div>
   <div id="shop"></div>
   <section class="narrow legal" style="margin-top:40px">
-    <h2>Which colour to buy</h2>
-    <p><strong>White gold or platinum:</strong> G or H. The metal is cold and white, so a warmer stone shows against it — but G and H do not. <strong>Yellow or rose gold:</strong> I or J. The metal warms every stone, so a colourless one gains nothing and a near-colourless one loses nothing. Spending on D–F in yellow gold is paying for a difference the setting erases.</p>
-    <p><strong>Larger stones show more colour</strong> because there is more material for light to travel through. Above 2 carats, go one grade higher than you would at 1 carat. <strong>Elongated shapes</strong> (oval, pear, marquise) concentrate colour at the tips; step cuts (emerald, Asscher) hide less than brilliants. Fluorescence, listed on the certificate, can make an I–K stone look a grade whiter in daylight; it is a discount on the certificate and an upgrade on the hand.</p>
+    <h2>Which color to buy</h2>
+    <p><strong>White gold or platinum:</strong> G or H. The metal is cold and white, so a warmer stone shows against it — but G and H do not. <strong>Yellow or rose gold:</strong> I or J. The metal warms every stone, so a colorless one gains nothing and a near-colorless one loses nothing. Spending on D–F in yellow gold is paying for a difference the setting erases.</p>
+    <p><strong>Larger stones show more color</strong> because there is more material for light to travel through. Above 2 carats, go one grade higher than you would at 1 carat. <strong>Elongated shapes</strong> (oval, pear, marquise) concentrate color at the tips; step cuts (emerald, Asscher) hide less than brilliants. Fluorescence, listed on the certificate, can make an I–K stone look a grade whiter in daylight; it is a discount on the certificate and an upgrade on the hand.</p>
   </section>''',
   script=r'''
 (function(){
   const $=id=>document.getElementById(id); const money=n=>'$'+Math.round(n).toLocaleString('en-US');
-  const G=[['D','Colourless','Icy white. The top grade; a premium for rarity you cannot see.','#FFFFFF'],['E','Colourless','Identical to D face-up.','#FEFEFC'],['F','Colourless','The last colourless grade; still no visible tint.','#FDFCF8'],
-    ['G','Near-colourless','The value grade. Looks white in any metal.','#FBF9F1'],['H','Near-colourless','White face-up; faint warmth only loose, on white.','#F9F5E9'],['I','Near-colourless','Slight warmth in white gold; white in yellow.','#F6F0DD'],
-    ['J','Near-colourless','Warm in white metal; excellent in yellow or rose gold.','#F3EBD0'],['K','Faint','Visible warmth. Best in yellow gold, small sizes.','#EFE4BF']];
+  const G=[['D','Colorless','Icy white. The top grade; a premium for rarity you cannot see.','#FFFFFF'],['E','Colorless','Identical to D face-up.','#FEFEFC'],['F','Colorless','The last colorless grade; still no visible tint.','#FDFCF8'],
+    ['G','Near-colorless','The value grade. Looks white in any metal.','#FBF9F1'],['H','Near-colorless','White face-up; faint warmth only loose, on white.','#F9F5E9'],['I','Near-colorless','Slight warmth in white gold; white in yellow.','#F6F0DD'],
+    ['J','Near-colorless','Warm in white metal; excellent in yellow or rose gold.','#F3EBD0'],['K','Faint','Visible warmth. Best in yellow gold, small sizes.','#EFE4BF']];
   const spec={shape:'Round',carat:1,clarity:'VS2',cut:'Very Good',origin:'Natural',cert:'GIA'}; const mid=v=>(v.retailLow+v.retailHigh)/2; const g=mid(valueDiamond({...spec,color:'G'}));
   $('sw').innerHTML=G.map(([l,grp,_,c])=>`<div class="panel" style="text-align:center;padding:14px 8px"><div style="width:64px;height:64px;margin:0 auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,${c} 55%,${c} 100%);border:1px solid var(--line-2);box-shadow:inset 0 -6px 12px rgba(0,0,0,.05)"></div><div style="font-family:var(--serif);font-size:28px;font-weight:700;margin-top:8px">${l}</div><div class="small">${grp}</div></div>`).join('');
   $('tbl').querySelector('tbody').innerHTML=G.map(([l,grp,txt])=>{ const v=valueDiamond({...spec,color:l}); const d=(mid(v)/g-1)*100;
     return `<tr${l==='G'?' style="background:var(--gold-dim)"':''}><td><strong>${l}</strong></td><td>${grp}</td><td>${txt}</td><td class="num">${money(v.retailLow)}–${money(v.retailHigh)}</td><td class="num" style="color:${d>0?'var(--bad)':d<0?'var(--good)':'inherit'}">${d>0?'+':''}${d.toFixed(0)}%</td></tr>`; }).join('');
-  $('shop').innerHTML=(typeof BLUE_NILE!=='undefined')?BLUE_NILE.card({shape:'Round',carat:1,color:'H',clarity:'VS2'},{title:'The value grades — 1 ct rounds, H colour and up, VS2 and up',sub:'G and H look white in any setting. This filter starts there.'}):'';
+  $('shop').innerHTML=(typeof BLUE_NILE!=='undefined')?BLUE_NILE.card({shape:'Round',carat:1,color:'H',clarity:'VS2'},{title:'The value grades — 1 ct rounds, H color and up, VS2 and up',sub:'G and H look white in any setting. This filter starts there.'}):'';
 })();''')
 
 # ---------------------------------------------------------------- CLARITY CHART
 PAGES['diamond-clarity-chart.html'] = dict(
   title='Diamond Clarity Chart — FL to I1 Explained With Prices | CaratBase',
   desc='Every diamond clarity grade from Flawless to I1: what is visible to the naked eye, what needs a loupe, and what each grade costs on the same 1 carat stone.',
-  eyebrow='Clarity', h1='Diamond clarity chart, with prices', lede='Clarity grades describe inclusions under 10× magnification. Most of the scale is invisible to a person looking at a ring — which is exactly why it is the grade where money is most often wasted. Priced below on the same 1 carat G colour round.',
+  eyebrow='Clarity', h1='Diamond clarity chart, with prices', lede='Clarity grades describe inclusions under 10× magnification. Most of the scale is invisible to a person looking at a ring — which is exactly why it is the grade where money is most often wasted. Priced below on the same 1 carat G color round.',
   schema=faq([('What clarity is eye-clean?','VS2 and above are eye-clean in virtually every stone; SI1 is usually eye-clean in rounds under 1.5 carats; SI2 sometimes. Below SI2, inclusions are generally visible without magnification.'),
               ('Is VVS clarity worth the money?','Not for appearance. VVS1 and VS2 look identical to the eye; the difference is only under a loupe. VVS commands a premium for rarity, which matters for resale of large stones but not for how the ring looks.')]),
   body='''
@@ -362,8 +362,8 @@ PAGES['diamond-clarity-chart.html'] = dict(
 # ---------------------------------------------------------------- BIRTHSTONES + ANNIVERSARIES
 PAGES['birthstones.html'] = dict(
   title='Birthstones by Month — Every Stone, What It Costs, and the Honest Alternative | CaratBase',
-  desc='All twelve birthstones with colour, hardness, what a fine 1 carat stone is worth today, and the affordable alternative when the classic is out of reach. Plus anniversary gemstones by year.',
-  eyebrow='Reference', h1='Birthstones by month', lede='The modern list was fixed by the American jewellers\' association in 1912 and has gained a few alternates since. Each month below gives the traditional stone, how hard it wears, what a fine 1 carat example costs at today\'s rates, and the sensible substitute when the classic is priced out of reach.',
+  desc='All twelve birthstones with color, hardness, what a fine 1 carat stone is worth today, and the affordable alternative when the classic is out of reach. Plus anniversary gemstones by year.',
+  eyebrow='Reference', h1='Birthstones by month', lede='The modern list was fixed by the American jewelers\' association in 1912 and has gained a few alternates since. Each month below gives the traditional stone, how hard it wears, what a fine 1 carat example costs at today\'s rates, and the sensible substitute when the classic is priced out of reach.',
   schema=faq([('What are the birthstones for each month?','January garnet, February amethyst, March aquamarine, April diamond, May emerald, June pearl or alexandrite, July ruby, August peridot, September sapphire, October opal or tourmaline, November topaz or citrine, December tanzanite, turquoise or blue zircon.'),
               ('Which birthstone is the most expensive?','April (diamond), May (emerald), July (ruby) and September (sapphire) are the costly months; a fine 1 carat ruby or emerald runs into the thousands. Amethyst, citrine, peridot and garnet are the affordable months — fine stones for well under $100 a carat.')]),
   scripts=('gems.js','shapes.js'),
@@ -381,11 +381,11 @@ PAGES['birthstones.html'] = dict(
   const $=id=>document.getElementById(id); const money=n=>'$'+Math.round(n).toLocaleString('en-US');
   const price=(t)=>{ if(t==='Diamond'){ const v=valueDiamond({carat:1,shape:'Round',color:'G',clarity:'VS2',cut:'Very Good',origin:'Natural',cert:'GIA'}); return [v.retailLow,v.retailHigh]; }
     if(!GEMS[t]) return null; const o=Object.keys(GEMS[t].origins).slice(-1)[0]; const v=valueGem({type:t,carat:1,tier:'Fine',treatment:t==='Emerald'?'Oiled — minor (emerald)':'Heated (standard)',origin:o}); return [v.retailLow,v.retailHigh]; };
-  const M=[['January','Garnet','#B22222',7,'Garnet','Deep red; the affordable classic.','—'],['February','Amethyst','#9966CC',7,'Amethyst','Purple quartz. Fine colour is cheap because supply is huge.','—'],
+  const M=[['January','Garnet','#B22222',7,'Garnet','Deep red; the affordable classic.','—'],['February','Amethyst','#9966CC',7,'Amethyst','Purple quartz. Fine color is cheap because supply is huge.','—'],
     ['March','Aquamarine','#7FDBD4',7.5,'Aquamarine','Pale sea-blue beryl. Also bloodstone.','Blue topaz'],['April','Diamond','#F5F5F5',10,'Diamond','The priciest month by far.','White sapphire, or lab-grown diamond'],
-    ['May','Emerald','#50C878',7.5,'Emerald','Nearly always oiled; treatment drives the price.','Tsavorite garnet, green tourmaline'],['June','Pearl · Alexandrite','#F0E4D0',8.5,'Alexandrite','Alexandrite (priced here) is rare and colour-changing, hardness 8.5. Pearl is soft — 2.5 to 4.5 — and priced by size and lustre, not carat.','Moonstone; cultured pearl'],
+    ['May','Emerald','#50C878',7.5,'Emerald','Nearly always oiled; treatment drives the price.','Tsavorite garnet, green tourmaline'],['June','Pearl · Alexandrite','#F0E4D0',8.5,'Alexandrite','Alexandrite (priced here) is rare and color-changing, hardness 8.5. Pearl is soft — 2.5 to 4.5 — and priced by size and lustre, not carat.','Moonstone; cultured pearl'],
     ['July','Ruby','#E0115F',9,'Ruby','Red corundum. Burmese unheated is the world\'s dearest stone per carat.','Red spinel, rhodolite garnet'],['August','Peridot','#9ACD32',6.5,'Peridot','Olive green; inexpensive and bright.','Spinel'],
-    ['September','Sapphire','#0F52BA',9,'Blue sapphire','Blue corundum; Kashmir and Ceylon carry premiums.','Blue spinel, tanzanite'],['October','Opal · Tourmaline','#FF7F50',6,'Tourmaline','Opal is fragile; tourmaline comes in every colour.','Pink tourmaline'],
+    ['September','Sapphire','#0F52BA',9,'Blue sapphire','Blue corundum; Kashmir and Ceylon carry premiums.','Blue spinel, tanzanite'],['October','Opal · Tourmaline','#FF7F50',6,'Tourmaline','Opal is fragile; tourmaline comes in every color.','Pink tourmaline'],
     ['November','Topaz · Citrine','#FFC87C',8,'Citrine','Imperial topaz is the fine stone; citrine the everyday one.','Citrine'],['December','Tanzanite · Turquoise · Zircon','#40E0D0',6.5,'Tanzanite','Tanzanite from one hill in Tanzania; turquoise is soft.','Blue zircon, blue topaz']];
   $('months').innerHTML=M.map(([m,stone,c,h,pt,note,alt])=>{ const p=price(pt); return `<div class="panel"><div style="display:flex;justify-content:space-between;align-items:center"><div class="eyebrow">${m}</div><div style="width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,${c} 60%);border:1px solid var(--line-2)"></div></div>
     <h3 style="margin-top:6px">${stone}</h3><p class="small" style="margin-top:4px">${note}</p>
@@ -397,11 +397,11 @@ PAGES['birthstones.html'] = dict(
 
 # ---------------------------------------------------------------- INSURANCE COST
 PAGES['insurance-cost.html'] = dict(
-  title='Jewellery Insurance Cost Calculator — What Cover Should Cost, and When to Skip It | CaratBase',
-  desc='Estimate what insuring a ring or piece of jewellery should cost per year, compare a specialist policy with a homeowner\'s rider, and see when self-insuring is the better answer.',
-  eyebrow='Insurance', h1='What should jewellery insurance cost?', lede='Specialist jewellery cover typically runs 1–2% of the insured value per year, with no deductible. A rider on a home policy is cheaper but narrower. Enter the value and see both — and the point below which insuring is not worth the paperwork.',
-  schema=faq([('How much does it cost to insure an engagement ring?','Typically 1–2% of the ring\'s value per year with a specialist jewellery insurer — $50–100 a year for a $5,000 ring — usually with no deductible and cover for loss, theft and mysterious disappearance. A homeowner\'s rider is often 0.5–1.5% but with a deductible and narrower cover.'),
-              ('Is it worth insuring jewellery worth less than $1,000?','Usually not. At 1.5% a year the premium over a decade approaches a fifth of the value, and most people would rather absorb a loss of that size than administer a policy. Photograph it, keep the receipt, and self-insure.')]),
+  title='Jewelry Insurance Cost Calculator — What Cover Should Cost, and When to Skip It | CaratBase',
+  desc='Estimate what insuring a ring or piece of jewelry should cost per year, compare a specialist policy with a homeowner\'s rider, and see when self-insuring is the better answer.',
+  eyebrow='Insurance', h1='What should jewelry insurance cost?', lede='Specialist jewelry cover typically runs 1–2% of the insured value per year, with no deductible. A rider on a home policy is cheaper but narrower. Enter the value and see both — and the point below which insuring is not worth the paperwork.',
+  schema=faq([('How much does it cost to insure an engagement ring?','Typically 1–2% of the ring\'s value per year with a specialist jewelry insurer — $50–100 a year for a $5,000 ring — usually with no deductible and cover for loss, theft and mysterious disappearance. A homeowner\'s rider is often 0.5–1.5% but with a deductible and narrower cover.'),
+              ('Is it worth insuring jewelry worth less than $1,000?','Usually not. At 1.5% a year the premium over a decade approaches a fifth of the value, and most people would rather absorb a loss of that size than administer a policy. Photograph it, keep the receipt, and self-insure.')]),
   body='''
 
   <section class="console">
@@ -429,7 +429,7 @@ PAGES['insurance-cost.html'] = dict(
   function calc(){
     C=$('cur').value; const v=parseFloat($('val').value)||0, r=parseFloat($('reg').value);
     const spec=[v*0.01*r, v*0.02*r], rider=[v*0.005*r, v*0.015*r];
-    $('out').innerHTML=[['Specialist jewellery policy',spec,'No deductible. Loss, theft, damage, mysterious disappearance, worldwide. Agreed value.'],
+    $('out').innerHTML=[['Specialist jewelry policy',spec,'No deductible. Loss, theft, damage, mysterious disappearance, worldwide. Agreed value.'],
       ['Homeowner\'s or renter\'s rider',rider,'Cheaper, but a deductible applies, cover is often narrower, and a claim can raise your home premium.'],
       ['Self-insure',[0,0],'Photograph it, keep the receipt and the certificate, put the premium aside instead.']].map(([t,p,s])=>
       `<div class="panel"><div class="eyebrow">${t}</div><div style="font-family:var(--serif);font-size:32px;font-weight:700;color:var(--gold-2);margin:8px 0 4px">${p[1]?money(p[0])+'–'+money(p[1]):'—'}<small style="font-size:14px;color:var(--ink-3);font-weight:500"> /year</small></div><p class="small">${s}</p></div>`).join('');
@@ -444,7 +444,7 @@ PAGES['insurance-cost.html'] = dict(
     if(window.cbTrack) cbTrack('tool_use',{tool:'insurance_cost',v});
   }
   ['val','reg','cur'].forEach(id=>$(id).addEventListener('input',calc)); calc();
-  if(window.Partners) Partners.mount('partners','insurance',{title:'Specialist jewellery insurers',intro:'Both quote online in minutes and cover the things a home policy usually excludes.'});
+  if(window.Partners) Partners.mount('partners','insurance',{title:'Specialist jewelry insurers',intro:'Both quote online in minutes and cover the things a home policy usually excludes.'});
 })();''')
 
 # ---------------------------------------------------------------- TOOLS INDEX
@@ -467,27 +467,27 @@ PAGES['404.html'] = dict(
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <input id="homeSearch" type="search" placeholder="Search — ring size 7, 925, 1.5 carat oval, 18k…" autocomplete="off"><span class="kbd">⌘K</span></label>
   <div class="grid g3">
-    <a class="panel" href="value.html" style="text-decoration:none;color:inherit"><h3>Value my jewellery</h3><p class="small" style="margin-top:6px">Retail, and what it really resells for.</p></a>
+    <a class="panel" href="value.html" style="text-decoration:none;color:inherit"><h3>Value my jewelry</h3><p class="small" style="margin-top:6px">Retail, and what it really resells for.</p></a>
     <a class="panel" href="ring-size.html" style="text-decoration:none;color:inherit"><h3>Find my ring size</h3><p class="small" style="margin-top:6px">Four ways, five systems.</p></a>
     <a class="panel" href="tools.html" style="text-decoration:none;color:inherit"><h3>All tools</h3><p class="small" style="margin-top:6px">Everything, in one place.</p></a>
   </div>''',
   script='', extra_head='<meta name="robots" content="noindex">')
 
 PAGES['about.html'] = dict(
-  title='About CaratBase — The Independent Jewellery Reference',
+  title='About CaratBase — The Independent Jewelry Reference',
   desc='Who runs CaratBase, why it exists, how it is paid for, and what it will never do. Independent, private, and every number shown working.',
-  eyebrow='About', h1='The independent jewellery reference', lede='CaratBase exists because the one number a jewellery owner most needs — what a piece actually fetches when sold — is the one number the trade does not publish. We publish it, with the working shown.',
+  eyebrow='About', h1='The independent jewelry reference', lede='CaratBase exists because the one number a jewelry owner most needs — what a piece actually fetches when sold — is the one number the trade does not publish. We publish it, with the working shown.',
   body='''
   <section class="narrow legal">
     <h2>What it is</h2>
-    <p>A set of free calculators and around 250 reference pages covering diamonds, coloured stones, gold and metals, ring sizes and hallmarks. Every figure comes from our own price model, which is <a href="methodology.html">published in full</a>, and metal prices come from the live market. Nothing here is copied from a retailer.</p>
+    <p>A set of free calculators and around 250 reference pages covering diamonds, colored stones, gold and metals, ring sizes and hallmarks. Every figure comes from our own price model, which is <a href="methodology.html">published in full</a>, and metal prices come from the live market. Nothing here is copied from a retailer.</p>
     <h2>Who</h2>
-    <p>CaratBase is built and run by Priyankar Chakraborty, trading as CaratBase, from Georgia in the United States. It is not owned by, funded by, or affiliated with any jeweller, retailer, laboratory or insurer.</p>
+    <p>CaratBase is built and run by Priyankar Chakraborty, trading as CaratBase, from Georgia in the United States. It is not owned by, funded by, or affiliated with any jeweler, retailer, laboratory or insurer.</p>
     <h2>How it is paid for</h2>
     <p>Some links to retailers and insurers earn a commission if you buy. Every such link says so beside it, and it never changes a figure on the page — the valuation model does not know the links exist. We do not run display advertising, sell your data, or take payment to recommend anyone. If a partner stopped being the honest answer, the link would come out regardless of what it paid.</p>
     <h2>What it will never do</h2>
-    <p>Buy or sell jewellery. Issue an appraisal — a document for insurance or probate needs a qualified appraiser who has handled the piece. Track you: there is no account, no cookie banner because there are no tracking cookies, and your vault lives on your own device.</p>
-    <h2>For jewellers and publishers</h2>
+    <p>Buy or sell jewelry. Issue an appraisal — a document for insurance or probate needs a qualified appraiser who has handled the piece. Track you: there is no account, no cookie banner because there are no tracking cookies, and your vault lives on your own device.</p>
+    <h2>For jewelers and publishers</h2>
     <p>The ring sizer, diamond size chart and gold calculator are available as <a href="widgets.html">free widgets</a> for any website. Retailers and laboratories interested in a data partnership can write to us.</p>
     <h2>Contact</h2>
     <p><a href="mailto:hello@caratbase.com">hello@caratbase.com</a> for anything general; <a href="mailto:privacy@caratbase.com">privacy@caratbase.com</a> for anything about your data. We read everything and reply to most.</p>

@@ -5,7 +5,7 @@ Create the CaratBase jeweller-widget campaign in Instantly (v2 API).
     INSTANTLY_API_KEY=... python3 tools/outreach/instantly_load.py            # create, paused
     INSTANTLY_API_KEY=... python3 tools/outreach/instantly_load.py --leads leads.csv
 
-Creates the 3-step sequence from jeweller-widget-sequence.md, attached to ONE warmed inbox at
+Creates the 3-step sequence from jeweler-widget-sequence.md, attached to ONE warmed inbox at
 40 sends/day, stop-on-reply, open/link tracking off (plain-text look). The campaign is left
 PAUSED — activate it from the Instantly UI once leads are loaded and you have eyeballed one.
 

@@ -22,7 +22,7 @@
     const paint=()=>{
       stage.innerHTML=shapeOnFinger(o.shape,o.ct);
       cap.innerHTML=`<div class="spec">${o.ct.toFixed(2)} ct ${o.shape.toLowerCase()}${o.lab?' · lab-grown':''}
-          <small>${o.color} colour · ${o.clarity} · ${d.l} × ${d.w} mm face-up</small></div>
+          <small>${o.color} color · ${o.clarity} · ${d.l} × ${d.w} mm face-up</small></div>
         <div class="nums"><div class="r">Retail <b>${money(v.retailLow)}–${money(v.retailHigh)}</b></div>
           <div class="s">Resells for ${money(v.resaleLow)}–${money(v.resaleHigh)}</div></div>`;
       dots.querySelectorAll('i').forEach((el,j)=>el.classList.toggle('on',j===k));

@@ -1,6 +1,6 @@
-/* CaratBase — coloured stones and pearls.
+/* CaratBase — colored stones and pearls.
  *
- * Coloured stones do not price like diamonds and treating them the same would be badly
+ * Colored stones do not price like diamonds and treating them the same would be badly
  * wrong. Four differences drive everything here:
  *
  *  1. There is no universal grading standard. No 4Cs, no single authority. Two labs can
@@ -8,9 +8,9 @@
  *  2. TREATMENT is usually the largest single factor. An unheated Burmese ruby and a
  *     glass-filled one of identical appearance differ by a factor of hundreds.
  *  3. ORIGIN carries real money — Kashmir sapphire, Mogok ruby, Colombian emerald — but
- *     only when a recognised lab has certified it. Claimed origin is worth nothing.
+ *     only when a recognized lab has certified it. Claimed origin is worth nothing.
  *  4. Price per carat climbs far more steeply with size than it does for diamonds,
- *     because large fine coloured stones are genuinely rare.
+ *     because large fine colored stones are genuinely rare.
  */
 
 /* Retail price per carat at 1 ct, by quality tier. */
@@ -40,21 +40,21 @@ const GEMS = {
 
 const GEM_TIERS = ['Commercial','Good','Fine','Exceptional'];
 const GEM_TIER_HELP = {
-  'Commercial':  'Included, pale or over-dark, visible flaws to the naked eye. Most high-street coloured stones sit here.',
-  'Good':        'Pleasant colour, minor visible inclusions, cut reasonably well. A nice everyday stone.',
-  'Fine':        'Strong saturated colour, eye-clean or nearly so, well cut. What a specialist dealer would stock.',
-  'Exceptional': 'Auction-house material — top colour, untreated, certified origin. Genuinely rare. If you are unsure, you are almost certainly not in this tier.'
+  'Commercial':  'Included, pale or over-dark, visible flaws to the naked eye. Most high-street colored stones sit here.',
+  'Good':        'Pleasant color, minor visible inclusions, cut reasonably well. A nice everyday stone.',
+  'Fine':        'Strong saturated color, eye-clean or nearly so, well cut. What a specialist dealer would stock.',
+  'Exceptional': 'Auction-house material — top color, untreated, certified origin. Genuinely rare. If you are unsure, you are almost certainly not in this tier.'
 };
 
 /* Treatment is usually the biggest lever on value, and the one owners least often know. */
 const GEM_TREATMENTS = {
-  'Not treated (lab certified)':   {mult:3.2, note:'Untreated stones of good colour are genuinely scarce and carry a large premium — but only when a recognised lab says so in writing.'},
+  'Not treated (lab certified)':   {mult:3.2, note:'Untreated stones of good color are genuinely scarce and carry a large premium — but only when a recognized lab says so in writing.'},
   'Heated (standard)':             {mult:1.0, note:'Heating is routine, permanent, accepted across the trade, and assumed unless a report says otherwise.'},
   'Oiled — minor (emerald)':       {mult:1.0, note:'Nearly every emerald is oiled. Minor oil is normal and does not meaningfully reduce value.'},
   'Oiled — moderate (emerald)':    {mult:0.62,note:'Moderate oil or resin indicates more fractures being masked, and buyers price accordingly.'},
   'Oiled — significant (emerald)': {mult:0.35,note:'Significant filling means substantial fractures. Value falls sharply and the stone is fragile.'},
-  'Diffusion treated':             {mult:0.16,note:'Colour driven into the surface rather than grown in. A fraction of the value of a naturally coloured stone.'},
-  'Fracture filled — glass':       {mult:0.04,note:'Lead-glass filled ruby is largely glass by volume. It has almost no resale value and can be destroyed by ordinary jewellery repair.'},
+  'Diffusion treated':             {mult:0.16,note:'Color driven into the surface rather than grown in. A fraction of the value of a naturally colored stone.'},
+  'Fracture filled — glass':       {mult:0.04,note:'Lead-glass filled ruby is largely glass by volume. It has almost no resale value and can be destroyed by ordinary jewelry repair.'},
   'Dyed':                          {mult:0.07,note:'Dye sits in fractures and fades. Very little value.'},
   'Irradiated':                    {mult:0.55,note:'Common in blue topaz and some others. Stable, but priced below untreated equivalents.'},
   'Unknown':                       {mult:0.55,note:'Without a report a buyer must assume the least favourable case, and prices for that risk. Getting a report is often worth more than it costs.'}
@@ -82,7 +82,7 @@ function valueGem(o){
   const ppc = g.tiers[tierIx] * gemSizeMult(ct) * combined;
   const retail = ppc * ct;
 
-  /* Coloured stone resale is weaker than diamond resale: no universal grading means a
+  /* Colored stone resale is weaker than diamond resale: no universal grading means a
      buyer carries more risk, and the market for any given stone is thinner. */
   const band = tierIx >= 2 ? [0.20,0.35] : [0.10,0.22];
   return {

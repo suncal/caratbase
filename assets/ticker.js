@@ -1,8 +1,8 @@
 /* CaratBase — price ticker.
    Metals are quoted from a live market, so they get real prices and a daily change.
    Diamonds are NOT: there is no exchange, no public tape and no live quote — which is
-   precisely why resale is so opaque. They are shown as modelled benchmarks and labelled
-   as such, because presenting a modelled figure as a market quote would be a lie. */
+   precisely why resale is so opaque. They are shown as modeled benchmarks and labeled
+   as such, because presenting a modeled figure as a market quote would be a lie. */
 (function(){
   const host=document.querySelector('.site-head');
   if(!host || typeof METAL_SPOT==='undefined') return;
@@ -33,7 +33,7 @@
           :`<span class="dl ${dp>=0?'up':'dn'}">${dp>=0?'▲':'▼'}${Math.abs(dp).toFixed(2)}%</span>`}</span>`);
     });
 
-    /* Diamond benchmarks — modelled, clearly badged, never dressed up as a quote. */
+    /* Diamond benchmarks — modeled, clearly badged, never dressed up as a quote. */
     if(!hasStones) return out;
     const bench=[
       ['1ct natural', {carat:1,   origin:'Natural'}],
