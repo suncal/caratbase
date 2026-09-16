@@ -1,0 +1,36 @@
+name: Bing URL submission
+on:
+  push:
+    branches: [main]
+    paths: ['**.html']
+  workflow_dispatch:
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - name: Submit changed pages to Bing (quota 100/day)
+        env:
+          BING_API_KEY: ${{ secrets.BING_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os, json, subprocess, urllib.request
+          key = os.environ.get('BING_API_KEY')
+          if not key: print('no key'); raise SystemExit(0)
+          changed = subprocess.run(['git','diff','--name-only','HEAD~1','HEAD'], capture_output=True, text=True).stdout.split()
+          urls = []
+          for f in changed:
+              if not f.endswith('.html') or f.startswith(('embed/','dashboard','404')): continue
+              u = 'https://caratbase.com/' + f.replace('index.html','')
+              urls.append(u)
+          urls = urls[:100]
+          if not urls: print('nothing changed'); raise SystemExit(0)
+          req = urllib.request.Request('https://ssl.bing.com/webmaster/api.svc/json/SubmitUrlBatch?apikey='+key,
+                data=json.dumps({'siteUrl':'https://caratbase.com/','urlList':urls}).encode(),
+                headers={'Content-Type':'application/json; charset=utf-8','User-Agent':'Mozilla/5.0'})
+          try:
+              with urllib.request.urlopen(req, timeout=60) as r: print('submitted', len(urls), 'status', r.status)
+          except urllib.error.HTTPError as e: print('bing said', e.code, e.read().decode()[:200])
+          PY
