@@ -935,3 +935,8 @@ main{counter-reset:fam}
 ::selection{background:#EFE3C2;color:var(--ink)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
 html{scrollbar-color:#CFC8BA transparent;scroll-behavior:smooth}
+/* accessibility: small text and eyebrows meet AA on the ivory ground */
+:root{--ink-3:#6E675C}
+.eyebrow{color:#8A6420}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px;z-index:1000;font-weight:600}
+.skip:focus{left:12px}

@@ -32,6 +32,8 @@
 
   /* On a phone eight links cannot sit in a header bar — they wrap over the logo and
      collide with the ticker. A toggle plus a sheet is the only thing that fits. */
+  const main=document.querySelector('main'); if(main && !main.id) main.id='main';
+  if(!document.querySelector('a.skip')){ const sk=document.createElement('a'); sk.className='skip'; sk.href='#main'; sk.textContent='Skip to content'; document.body.insertBefore(sk, document.body.firstChild); }
   const head=nav.parentElement;
   if(head && !head.querySelector('.navbtn')){
     const btn=document.createElement('button');
