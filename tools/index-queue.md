@@ -8,11 +8,11 @@ The list is ordered by likely search volume, one category interleaved with the n
 each day's quota seeds crawl interest across the whole site rather than one section.
 
 ## Done
+- [x] 2026-09-16  /gold-price/22k/  (quota exceeded after 1 — Google's manual quota for this property is ~1/day, not 10)
 - [x] 2026-09-04  /  /diamond/  /ring-size/  /hallmark/  /gemstone/  /gold-price/
 - [x] 2026-09-11  /hallmark/  /diamond/1-carat-round/  /ring-size/us-7/  /hallmark/925/
 
 ## Queue
-- [ ] /gold-price/22k/
 - [ ] /gemstone/ruby/
 - [ ] /diamond/2-carat-round/
 - [ ] /ring-size/us-6/
