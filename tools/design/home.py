@@ -11,7 +11,7 @@ hero = '''<!-- ================= HERO ================= -->
   <div class="ph" role="img" aria-label="A round brilliant diamond held in jeweller's tweezers"></div>
   <div class="in">
     <div class="copy">
-      <div class="eyebrow">The jewellery reference</div>
+      <div class="eyebrow live-dot">The jewellery reference · live prices</div>
       <h1>What is it <em style="color:var(--gold-2);font-style:normal">actually</em> worth?</h1>
       <p class="lede">
         Free tools for anything you own or are about to buy — with the number the trade

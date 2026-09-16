@@ -49,6 +49,10 @@
       sb.innerHTML='<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
       sb.addEventListener('click',()=>{ if(window.cbSearch) cbSearch.open(); });
       head.insertBefore(sb, btn);
+      if(!document.querySelector('script[src*="assets/motion.js"]')){
+        const mo=document.createElement('script'); const me2=document.querySelector('script[src*="assets/nav.js"]');
+        mo.src=(me2?me2.src.replace(/nav\.js.*$/,'motion.js'):'assets/motion.js'); document.body.appendChild(mo);
+      }
       if(!document.querySelector('script[src*="assets/search.js"]')){
         const sc=document.createElement('script'); const me=document.querySelector('script[src*="assets/nav.js"]');
         sc.src=(me?me.src.replace(/nav\.js.*$/,'search.js'):'assets/search.js'); document.body.appendChild(sc);
