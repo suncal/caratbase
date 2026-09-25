@@ -39,6 +39,72 @@ HL = ' style="background:var(--gold-dim);font-weight:600"'
 # ---------------------------------------------------------------- table helpers
 # A cell or header that starts with '#' is numeric and right-aligned.
 NUM = ' class="num"'
+ACRONYMS = {'GP','GEP','GF','EPNS','KP','CZ','LG','BIS','PT950','PT900','PD950','STAINLESS','VERMEIL','MOISSANITE','LION'}
+
+
+def clip(text, n):
+    """Trim to <= n chars on a word boundary, never mid-word, no ellipsis."""
+    text = ' '.join(text.split())
+    if len(text) <= n:
+        return text
+    cut = text[:n + 1].rsplit(' ', 1)[0]
+    return cut.rstrip(' ,;:-—')
+
+
+def sentences(text, n):
+    """Whole sentences from text, up to n chars. Never cuts mid-sentence."""
+    text = ' '.join(text.split())
+    out = ''
+    for part in re.split(r'(?<=[.!?])\s+', text):
+        cand = (out + ' ' + part).strip() if out else part
+        if len(cand) > n:
+            break
+        out = cand
+    return out
+
+
+def fit(parts, n=158):
+    """Join sentence fragments, dropping trailing ones that would exceed n."""
+    out = ''
+    for part in parts:
+        cand = (out + ' ' + part).strip() if out else part
+        if len(cand) > n:
+            break
+        out = cand
+    return out or clip(parts[0], n)
+
+
+def esc(v):
+    """Escape a string for use inside a double-quoted HTML attribute."""
+    return (str(v).replace('&', '&amp;').replace('"', '&quot;')
+            .replace('<', '&lt;').replace('>', '&gt;'))
+
+
+def _stamp_tag(s):
+    """Shortest descriptor that still identifies the stamp, for the title tag.
+    Titles must stay near 60 chars, so pick one field rather than clipping both."""
+    metal, purity = s['metal'].strip(), s['purity'].strip()
+    for cand in (purity, metal, f"{metal} — {purity}"):
+        if cand.strip(' \u2014') and len(cand) <= 30:
+            return cand
+    return clip(purity or metal, 30)
+
+
+def _tc(name):
+    """Title-case a display name without lowercasing existing caps (GIA, AAA)."""
+    return ' '.join(w if w[:1].isupper() and w[1:2].isupper() else w[:1].upper() + w[1:]
+                    for w in name.split())
+
+
+def stamp_label(code):
+    """Display form of a hallmark code: acronyms stay caps, real words get title case."""
+    if code in ACRONYMS and not code.isalpha():
+        return code
+    if code.isalpha() and len(code) > 3 and code not in ('EPNS',):
+        return code.capitalize()
+    return code
+
+
 def _cell(tag, c):
     c = str(c)
     return f'<{tag}{NUM if c.startswith("#") else ""}>{c.lstrip("#")}</{tag}>'
@@ -149,6 +215,17 @@ def write(url, **kw):
     else:
         kw['page_top'] = kw['answer_box']
     kw['bodycls'] = ' wide' if kw.get('wide') else ''
+    # title/desc land inside double-quoted attributes (description, og:*, twitter:*).
+    # Templates hand-escape '&', so only quotes need neutralising here.
+    # Google truncates titles near 60 chars. The brand suffix is the first thing
+    # worth losing: an unknown brand adds no CTR, and Google appends the site name
+    # itself. Keep it only when it fits.
+    t = str(kw.get('title', ''))
+    if len(t) > 65 and t.endswith(' | CaratBase'):
+        kw['title'] = t[:-len(' | CaratBase')]
+    for k in ('title', 'desc', 'img_alt'):
+        if k in kw:
+            kw[k] = str(kw[k]).replace('"', '&quot;')
     p.write_text(SHELL.format(**kw))
     return url
 
@@ -243,9 +320,9 @@ def build_ring_sizes():
         near = [x for x in all_us if abs(float(x['us'])-float(us)) <= 2 and x['us'] != us][:6]
         urls.append(write(slug,
           title=f"US Ring Size {us} in UK, EU &amp; India — {uk}, {eu}, {dia}mm | CaratBase",
-          desc=f"US ring size {us} is UK size {uk}, EU {eu} and Indian/Japanese size {jp or '—'}. "
-               f"Inside diameter {dia}mm, circumference {circ}mm. Band-width adjustments, what a "
-               f"band this size weighs, and a true-to-scale sizer.",
+          desc=fit([f"US ring size {us} is UK {uk}, EU {eu} and Indian/Japanese {jp or '—'}.",
+                    f"Inside diameter {dia}mm, circumference {circ}mm.",
+                    "Band-width adjustments and a true-to-scale sizer."]),
           eyebrow='Ring size conversion',
           h1=f"US ring size {us} in UK, Europe and India",
           crumb=f"US {us}", hub='ring-size/', hubname='Ring sizes',
@@ -289,9 +366,9 @@ def build_ring_sizes():
         near=[x for x in rows if abs(float(x['us'])-float(r['us']))<=1.5 and x['uk']!=uk][:6]
         urls.append(write(f"ring-size/uk-{slug_uk}/index.html",
           title=f"UK Ring Size {uk} in US &amp; EU — US {r['us']}, {r['dia']}mm | CaratBase",
-          desc=f"UK ring size {uk} is US size {r['us']} and European size {r['eu']}. "
-               f"Inside diameter {r['dia']}mm. Band-width adjustments, what a band this size "
-               f"weighs, and a true-to-scale ring sizer.",
+          desc=fit([f"UK ring size {uk} is US {r['us']} and European size {r['eu']}.",
+                    f"Inside diameter {r['dia']}mm.",
+                    "Band-width adjustments, band weight, and a true-to-scale sizer."]),
           eyebrow='Ring size conversion',
           h1=f"UK ring size {uk} in US and European sizes",
           crumb=f"UK {uk}", hub='ring-size/', hubname='Ring sizes',
@@ -399,9 +476,10 @@ def build_hallmarks():
                            for x in family[:8]]))
         fam = 'gold.jpg' if 'gold' in s['metal'].lower() and s['value']=='solid' else 'silver.jpg' if any(m in s['metal'].lower() for m in ('silver','platinum','palladium')) else None
         urls.append(write(slug, img=fam, img_alt=s['metal'],
-          title=f"What Does {code} Mean on Jewelry? {s['metal']} — {s['purity']} | CaratBase",
-          desc=f"{code} means {s['purity']}. {s['worth'][:100]} "
-               + (f"Worth ${per_g:,.2f} per gram today." if per_g else "What it is, and what it is worth."),
+          title=f"What Does {stamp_label(code)} Mean on Jewelry? {_stamp_tag(s)} | CaratBase",
+          desc=fit([f"{stamp_label(code)} means {s['purity']}.",
+                    sentences(s['worth'], 110),
+                    f"Worth ${per_g:,.2f} per gram today." if per_g else "What it is, and what it is worth."]),
           eyebrow='Hallmark meaning',
           h1=f"What does {code} mean on jewelry?",
           crumb=code, hub='hallmark/', hubname='Hallmarks',
@@ -683,10 +761,10 @@ def build_diamonds():
 
             urls.append(write(slug, img=f'shapes/{s.lower()}.jpg', img_alt=f'A loose {s.lower()} cut diamond',
               title=f"{ctxt} Carat {s} Diamond — Size in MM, Price &amp; Resale Value | CaratBase",
-              desc=f"A {ctxt} carat {s.lower()} diamond measures {dim['l']}×{dim['w']}mm and costs "
-                   f"{money(v['retailLow'])}–{money(v['retailHigh'])} at retail. Real resale value "
-                   f"{money(v['resaleLow'])}–{money(v['resaleHigh'])}. Price by color and clarity, "
-                   f"lab-grown equivalent, and every shape at this weight.",
+              desc=fit([f"A {ctxt} carat {s.lower()} diamond measures {dim['l']}×{dim['w']}mm and "
+                        f"costs {money(v['retailLow'])}–{money(v['retailHigh'])} at retail.",
+                        f"Real resale value {money(v['resaleLow'])}–{money(v['resaleHigh'])}.",
+                        "Price by color and clarity, plus the lab-grown equivalent."]),
               eyebrow='Diamond size and price',
               h1=f"{ctxt} carat {s.lower()} diamond: size, price and what it really resells for",
               crumb=f"{ctxt} ct {s.lower()}", hub='diamond/', hubname='Diamonds',
@@ -824,7 +902,7 @@ def build_gems():
         ppc5 = d['cts'][-1]['ppc']; ppc1 = d['cts'][1]['ppc']
         per_ct_climb = round(ppc5 / ppc1, 1)
         urls.append(write(f"gemstone/{slug_n}/index.html", img=f'stones/{slug_n}.jpg', img_alt=f'A loose {n.lower()}',
-          title=f"{n} Value — What Is a 2 Carat {n} Worth? | CaratBase",
+          title=f"{_tc(n)} Value — What Is a 2 Carat {_tc(n)} Worth? | CaratBase",
           desc=f"A fine 2 carat {n.lower()} is worth {money(v['retailLow'])}–{money(v['retailHigh'])} "
                f"at retail. Value by carat, quality, treatment and origin — treatment changes it "
                f"more than size does.",

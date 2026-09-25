@@ -8,6 +8,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>"
 
 def shell(name, title, desc, eyebrow, h1, lede, body, script='', scripts=(), schema=None, extra_head=''):
+    # desc goes into double-quoted meta attributes; prose legitimately contains
+    # quotes ("two months' salary"), which would otherwise close the attribute.
+    desc = desc.replace('"', '&quot;')
+    if len(title) > 65 and title.endswith(' | CaratBase'):
+        title = title[:-len(' | CaratBase')]
     sc = ''.join(f'<script src="assets/{s}"></script>\n' for s in ('data.js','analytics.js','spot.js','ticker.js','logo.js','nav.js','partners.js') + tuple(scripts))
     schema_tag = f'<script type="application/ld+json">{json.dumps(schema)}</script>' if schema else ''
     return f'''<!doctype html>
@@ -145,7 +150,7 @@ PAGES['compare.html'] = dict(
 # ---------------------------------------------------------------- LAB VS NATURAL
 PAGES['lab-vs-natural.html'] = dict(
   title='Lab-Grown vs Natural Diamond — Price Today and Value in Five Years | CaratBase',
-  desc='The same diamond both ways: what a lab-grown and a natural stone of identical size and grade cost today, what each resells for, and how far the same money goes in each.',
+  desc='The same diamond both ways: what a lab-grown and a natural stone of identical size and grade cost today, and what each one resells for.',
   eyebrow='Lab-grown vs natural', h1='Lab-grown or natural? The same stone, both ways', lede='Identical shape, weight and grade. One is grown in a reactor in weeks, the other in the mantle over a billion years — and they are chemically the same. The difference is entirely in what they cost and what they are worth later.',
   scripts=('shapes.js',),
   schema=faq([('How much cheaper is a lab-grown diamond?','A lab-grown diamond of the same size and grade costs roughly 85% less than a natural one at retail. A 1 carat G VS2 round is about $5,250 natural and about $740 lab-grown.'),
@@ -204,8 +209,8 @@ PAGES['lab-vs-natural.html'] = dict(
 
 # ---------------------------------------------------------------- ENGAGEMENT RING BUDGET
 PAGES['engagement-ring-budget.html'] = dict(
-  title='How Much Should You Spend on an Engagement Ring? A Calculator With No Rule | CaratBase',
-  desc='The "two months\' salary" rule was a 1930s advertisement. This calculator shows what your income and savings actually support, and exactly what each budget buys — natural or lab-grown.',
+  title='Engagement Ring Budget Calculator — What to Spend | CaratBase',
+  desc='The "two months\' salary" rule was a 1930s advert. This calculator shows what your income and savings actually support, and what each budget buys.',
   eyebrow='Engagement ring budget', h1='How much should you spend on an engagement ring?', lede='There is no rule. "Two months\' salary" was written by an advertising agency for De Beers in the 1930s, and "three months" was the 1980s update. What follows is arithmetic instead: what your money can carry without debt, and what that buys.',
   scripts=('shapes.js',),
   schema=faq([('Is the two months salary rule real?','No. It was a De Beers advertising slogan from the 1930s (raised to three months in the 1980s). There is no financial basis for it. The median US engagement ring spend is around $5,000–6,000 and has been falling as lab-grown diamonds became mainstream.'),
@@ -255,8 +260,8 @@ PAGES['engagement-ring-budget.html'] = dict(
 
 # ---------------------------------------------------------------- PRICE PER CARAT
 PAGES['diamond-price-per-carat.html'] = dict(
-  title='Diamond Price Per Carat Chart 2026 — Why 1 Carat Costs More Than Two Halves | CaratBase',
-  desc='Diamond price per carat from 0.25 to 5 carats, natural and lab-grown, with the price steps at 0.5, 1, 1.5 and 2 carats that make a stone just under a round number the classic value buy.',
+  title='Diamond Price Per Carat Chart 2026 — Every Carat Weight | CaratBase',
+  desc='Diamond price per carat from 0.25 to 5 carats, natural and lab-grown, plus the price cliffs at 1 and 2 carats that make a just-under stone the value buy.',
   eyebrow='Price per carat', h1='Diamond price per carat', lede='Price per carat is not flat — it climbs with weight, in steps. A 1.00 carat stone costs about 30% more per carat than a 0.95 carat one, and a 2 carat stone costs far more than two 1 carat stones. The chart is the whole argument.',
   schema=faq([('How much is a diamond per carat?','For a G color, VS2 clarity, well-cut natural round: about $1,900 per carat at 0.3 ct, $5,200 at 1 ct, $8,500 at 2 ct and $14,000 at 4 ct and above. Lab-grown is about 15% of these figures.'),
               ('Why does a 1 carat diamond cost more than two half-carat diamonds?','Large clean rough is much rarer than small, and 1.00 carat is a weight buyers ask for by name, so it sits in a higher per-carat bracket. Two 0.5 ct stones cost roughly half of one 1 ct stone.')]),
@@ -305,7 +310,7 @@ PAGES['diamond-price-per-carat.html'] = dict(
 # ---------------------------------------------------------------- COLOR CHART
 PAGES['diamond-color-chart.html'] = dict(
   title='Diamond Color Chart — D to K Explained With Prices | CaratBase',
-  desc='Every diamond color grade from D to K on the same 1 carat stone: what the tint looks like, when it is visible, which metal hides it, and what each step up costs in dollars.',
+  desc='Every diamond color grade from D to K on the same 1 carat stone: what the tint looks like, when it shows, which metal hides it, and what each step costs.',
   eyebrow='Color', h1='Diamond color chart, with prices', lede='Color grades run from D (no tint) to Z (obviously yellow). The scale below shows the grades people actually buy, D to K, priced on the same 1 carat round VS2 stone — so the cost of each letter is visible next to the letter itself.',
   schema=faq([('What is the best diamond color to buy?','G or H. Both look white to the eye in any setting, and the price difference from D is 25–35%. In yellow or rose gold, I or J also read white because the metal warms every stone.'),
               ('Can you see the difference between D and G color?','Not face-up in a setting. D, E and F are graded colorless and G to J near-colorless; a G stone next to a D looks identical unless both are loose, upside down, on white paper under a lamp.')]),
@@ -361,8 +366,8 @@ PAGES['diamond-clarity-chart.html'] = dict(
 
 # ---------------------------------------------------------------- BIRTHSTONES + ANNIVERSARIES
 PAGES['birthstones.html'] = dict(
-  title='Birthstones by Month — Every Stone, What It Costs, and the Honest Alternative | CaratBase',
-  desc='All twelve birthstones with color, hardness, what a fine 1 carat stone is worth today, and the affordable alternative when the classic is out of reach. Plus anniversary gemstones by year.',
+  title='Birthstones by Month — Every Stone and What It Costs | CaratBase',
+  desc='All twelve birthstones with color, hardness, what a fine 1 carat stone costs today, and the affordable alternative when the classic is out of reach.',
   eyebrow='Reference', h1='Birthstones by month', lede='The modern list was fixed by the American jewelers\' association in 1912 and has gained a few alternates since. Each month below gives the traditional stone, how hard it wears, what a fine 1 carat example costs at today\'s rates, and the sensible substitute when the classic is priced out of reach.',
   schema=faq([('What are the birthstones for each month?','January garnet, February amethyst, March aquamarine, April diamond, May emerald, June pearl or alexandrite, July ruby, August peridot, September sapphire, October opal or tourmaline, November topaz or citrine, December tanzanite, turquoise or blue zircon.'),
               ('Which birthstone is the most expensive?','April (diamond), May (emerald), July (ruby) and September (sapphire) are the costly months; a fine 1 carat ruby or emerald runs into the thousands. Amethyst, citrine, peridot and garnet are the affordable months — fine stones for well under $100 a carat.')]),
@@ -397,8 +402,8 @@ PAGES['birthstones.html'] = dict(
 
 # ---------------------------------------------------------------- INSURANCE COST
 PAGES['insurance-cost.html'] = dict(
-  title='Jewelry Insurance Cost Calculator — What Cover Should Cost, and When to Skip It | CaratBase',
-  desc='Estimate what insuring a ring or piece of jewelry should cost per year, compare a specialist policy with a homeowner\'s rider, and see when self-insuring is the better answer.',
+  title='Jewelry Insurance Cost Calculator — What Cover Costs | CaratBase',
+  desc='Estimate what insuring a ring should cost per year, compare a specialist policy with a homeowner\'s rider, and see when self-insuring is the better answer.',
   eyebrow='Insurance', h1='What should jewelry insurance cost?', lede='Specialist jewelry cover typically runs 1–2% of the insured value per year, with no deductible. A rider on a home policy is cheaper but narrower. Enter the value and see both — and the point below which insuring is not worth the paperwork.',
   schema=faq([('How much does it cost to insure an engagement ring?','Typically 1–2% of the ring\'s value per year with a specialist jewelry insurer — $50–100 a year for a $5,000 ring — usually with no deductible and cover for loss, theft and mysterious disappearance. A homeowner\'s rider is often 0.5–1.5% but with a deductible and narrower cover.'),
               ('Is it worth insuring jewelry worth less than $1,000?','Usually not. At 1.5% a year the premium over a decade approaches a fifth of the value, and most people would rather absorb a loss of that size than administer a policy. Photograph it, keep the receipt, and self-insure.')]),
