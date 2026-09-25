@@ -128,10 +128,10 @@ const RESALE_NATURAL = [0.25,0.40];
 const RESALE_LAB     = [0.05,0.12];
 
 /* Gold spot placeholder — refreshed by the daily metals job */
-const GOLD_SPOT_PER_G = 142.39;
+const GOLD_SPOT_PER_G = 136.94;
 const KARAT_PURITY = {'24K':0.999,'22K':0.916,'18K':0.750,'14K':0.585,'10K':0.417,'9K':0.375,'Platinum':0.95,'Silver 925':0.925,'None / not sure':0};
 /* Seed values. assets/spot.js overwrites these from metals.json on load. */
-const METAL_SPOT = {gold:142.39, platinum:57.26, silver:2.12}; /* USD per gram */
+const METAL_SPOT = {gold:136.94, platinum:56.26, silver:2.05}; /* USD per gram */
 
 function ppcFor(ct){ for(const b of PPC_BRACKETS){ if(ct<=b.max) return b.ppc; } return 14000; }
 

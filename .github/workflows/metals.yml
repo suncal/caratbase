@@ -77,10 +77,23 @@ jobs:
           }, indent=2) + '\n')
           print(json.dumps(new, indent=2))
           PY
+      # metals.json alone is not enough: the gold-price and hallmark pages bake
+      # today's per-gram figure into their titles and copy, so a price refresh
+      # that does not rebuild them leaves "Gold Price Per Gram Today" stale.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync data.js seeds and rebuild price-dependent pages
+        run: |
+          python3 tools/sync_prices.py
+          python3 tools/genpages.py
+          bash scripts/bump-assets.sh
+
       - name: Commit if changed
         run: |
           git config user.name  "caratbase-bot"
           git config user.email "bot@caratbase.com"
-          git add assets/metals.json
-          git diff --staged --quiet || git commit -m "chore: refresh metal prices"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: refresh metal prices and rebuild price pages"
           git push
