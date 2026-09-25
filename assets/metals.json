@@ -1,16 +1,16 @@
 {
-  "updated": "2026-09-24T11:39:24+00:00",
+  "updated": "2026-09-25T11:45:32+00:00",
   "source": "api.gold-api.com spot, Yahoo Finance futures fallback; converted per gram",
   "perGram": {
+    "gold": 138.335,
+    "silver": 2.0864,
+    "platinum": 57.164,
+    "palladium": 41.2816
+  },
+  "prevPerGram": {
     "gold": 136.9429,
     "silver": 2.0451,
     "platinum": 56.2638,
     "palladium": 41.3137
-  },
-  "prevPerGram": {
-    "gold": 138.4604,
-    "silver": 2.0954,
-    "platinum": 57.5177,
-    "palladium": 41.6352
   }
 }
