@@ -48,6 +48,64 @@
     <div class="stat"><div class="k">Your visitors' data</div><div class="v" style="font-size:20px">Not collected</div></div>
   </section>
 
+  <section id="pricing" style="margin-top:44px">
+    <h2>Two ways to run it</h2>
+    <p class="lede" style="margin-top:10px;margin-bottom:22px">
+      The free widget is genuinely free and always will be &mdash; the attribution line
+      beneath it is what pays for the project. Pro is for the case where that line is the
+      problem: a shop that does not want its visitors sent somewhere else, and would rather
+      keep the inquiries its own tools generate.
+    </p>
+    <div class="grid g2">
+      <div class="panel">
+        <div class="eyebrow">Free</div>
+        <div style="font-family:var(--serif);font-size:38px;font-weight:700;margin:8px 0 2px">$0</div>
+        <p class="small" style="margin-bottom:14px">No sign-up, no key, no expiry.</p>
+        <ul class="small" style="line-height:1.9;padding-left:18px">
+          <li>All three widgets, unlimited pages</li>
+          <li>Your brand color via <code>data-accent</code></li>
+          <li>Automatic height, mobile-friendly</li>
+          <li>&ldquo;Powered by CaratBase&rdquo; line beneath each widget</li>
+          <li>Widget links open CaratBase in a new tab</li>
+        </ul>
+      </div>
+      <div class="panel" style="border-color:var(--gold-2)">
+        <div class="eyebrow">Pro</div>
+        <div style="font-family:var(--serif);font-size:38px;font-weight:700;margin:8px 0 2px">$12<small style="font-size:15px;color:var(--ink-3);font-weight:500"> / month</small></div>
+        <p class="small" style="margin-bottom:14px">One domain. Cancel whenever; the widget drops back to free.</p>
+        <ul class="small" style="line-height:1.9;padding-left:18px">
+          <li>Everything in free</li>
+          <li><strong>No attribution line</strong></li>
+          <li><strong>Inquiries go to you</strong> &mdash; someone who uses your sizer and asks to be contacted is your lead, not ours</li>
+          <li><strong>Your call to action</strong> under the tool &mdash; &ldquo;Book a fitting&rdquo;, pointed anywhere on your site</li>
+          <li><strong>No links out</strong> &mdash; your visitors stay on your site</li>
+        </ul>
+        <a class="btn btn-gold" href="mailto:hello@caratbase.com?subject=CaratBase%20widget%20Pro" style="margin-top:14px">Ask for a key</a>
+      </div>
+    </div>
+    <p class="small" style="margin-top:16px">
+      Pro is keyed to one domain. Paste the key into the widget and the attribution
+      disappears; everything else keeps working exactly as before. If our license server is
+      ever unreachable the widget quietly falls back to the free tier rather than breaking,
+      so a paying customer sees an attribution line for a few minutes at worst.
+    </p>
+  </section>
+
+  <section class="narrow" style="margin-top:36px">
+    <h2>Using a Pro key</h2>
+    <p class="lede" style="margin-top:10px">Add <code>data-key</code> to the same div. Everything else stays as it is.</p>
+    <pre><code>&lt;div class="caratbase-widget" data-widget="ring-size"
+     data-key="cb_live_your_key_here"
+     data-cta="Book a fitting"
+     data-cta-url="https://yourshop.com/appointments"&gt;&lt;/div&gt;
+&lt;script async src="https://caratbase.com/embed.js"&gt;&lt;/script&gt;</code></pre>
+    <p class="small" style="margin-top:10px">
+      <code>data-cta</code> and <code>data-cta-url</code> are optional &mdash; leave them out
+      and the widget simply has no button. Your key also works on <code>localhost</code>, so
+      you can build against it before the page is live.
+    </p>
+  </section>
+
   <section>
     <h2>Ring size finder</h2>
     <p class="lede" style="margin-top:8px">Converts between US, UK, European and Indian/Japanese sizes, and finds a size from a ring's inside diameter or a finger's circumference. The most requested tool on any jeweler's site.</p>
@@ -90,10 +148,11 @@
   <section class="narrow" style="margin-top:20px">
     <h2>Terms, in plain words</h2>
     <p class="lede" style="margin-top:10px">
-      The widgets are free to use on any website, commercial or not. The one condition is the
-      small "Powered by CaratBase" line beneath each widget: leave it in place and unaltered.
-      That line is how the project pays for itself, and removing it is the only thing the
-      license forbids. We may update a widget's design or data at any time; we will never
+      The widgets are free to use on any website, commercial or not. The one condition on the
+      free tier is the small "Powered by CaratBase" line beneath each widget: leave it in
+      place and unaltered. That line is how the project pays for itself, and removing it
+      without a license is the only thing the license forbids. If you would rather not carry
+      it, that is exactly what <a href="#pricing">Pro</a> is for. We may update a widget's design or data at any time; we will never
       inject advertising into it or collect your visitors' personal data through it. If you
       need a widget removed from a page, delete the two lines and it is gone.
     </p>

@@ -31,3 +31,20 @@ body{font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica
 .cb .live{font-size:11px;color:var(--good);font-weight:600}
 .cb .bad{color:var(--bad)}
 @media (max-width:420px){.cb{padding:12px}.cb .fig{flex-direction:column;align-items:stretch}.cb .fig svg{width:100%;height:auto;max-height:180px}}
+
+/* Licensed widgets: the visitor stays on the licensee's site, so links out to
+   caratbase.com stop presenting themselves as links. */
+.cb-no-outbound a[href*="caratbase.com"]{
+  color:inherit;
+  text-decoration:none;
+  cursor:default;
+  pointer-events:none;
+}
+
+/* The licensee's own call to action, appended below the tool. */
+.cb-cta{
+  display:block;
+  margin:14px auto 0;
+  max-width:320px;
+  text-align:center;
+}

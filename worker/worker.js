@@ -5,6 +5,8 @@
  *   GET  /api/stats    realtime dashboard payload   (?key=DASH_KEY)
  *   GET  /api/leads    captured leads               (?key=DASH_KEY)
  *   POST /api/lead-status  update a lead's status   (?key=DASH_KEY)
+ *   GET  /api/license  resolve a widget license      (public, fails open to free)
+ *   POST /api/licenses mint / list / revoke licenses (?key=DASH_KEY)
  *
  * Free tier headroom: D1 allows 100k row writes/day, which is roughly
  * 100k pageviews/day. Well past the point this site starts paying for itself.
@@ -312,6 +314,118 @@ async function spotHandler(request, ctx) {
   return res;
 }
 
+
+/* ---------------------------------------------------------------------------
+   Widget licensing.
+
+   The free widget carries a "Powered by CaratBase" link, and that link is the price.
+   A license removes it and turns on the things a jeweler actually pays for: the leads
+   their own visitors generate go to them, and the widget stops sending those visitors
+   back to us.
+
+   Two deliberate design choices:
+
+   - This is client-side gating and we should be honest that it is. Anyone determined can
+     strip the badge from a free embed with a stylesheet. The point is not DRM; it is to
+     make paying easier than cheating and to keep a clean record of who is licensed.
+   - Resolution FAILS OPEN to the free tier. If D1 is slow, the key is wrong, or the whole
+     worker is down, the widget still renders with the badge. A paying customer seeing an
+     attribution link for an hour is a minor annoyance; a blank box on their site is a
+     catastrophe, and we would deserve to lose them for it.
+   --------------------------------------------------------------------------- */
+const PLAN_FEATURES = {
+  pro: ['no_badge', 'own_leads', 'custom_cta', 'no_outbound'],
+};
+
+function bareHost(h) {
+  return String(h || '').toLowerCase().replace(/^https?:\/\//, '').replace(/^www\./, '')
+    .split('/')[0].split(':')[0].replace(/[^a-z0-9.-]/g, '').slice(0, 120);
+}
+
+/* A license is bound to one domain. localhost and 127.0.0.1 always resolve so a customer
+   can build against their key before the site is live. */
+function domainMatches(licensed, asking) {
+  if (!licensed || !asking) return false;
+  if (asking === 'localhost' || asking === '127.0.0.1') return true;
+  return asking === licensed || asking.endsWith('.' + licensed);
+}
+
+async function licenseLookup(request, env, ch) {
+  const url = new URL(request.url);
+  const key = String(url.searchParams.get('key') || '').slice(0, 80);
+  const domain = bareHost(url.searchParams.get('domain'));
+  const free = { ok: false, plan: 'free', features: [] };
+  const headers = { ...JSON_HEADERS, 'cache-control': 'public, max-age=900', ...ch };
+
+  if (!key || !domain) return new Response(JSON.stringify(free), { headers });
+
+  let row;
+  try {
+    row = await env.DB.prepare(
+      `SELECT key, domain, plan, features, status, expires FROM licenses WHERE key = ?`
+    ).bind(key).first();
+  } catch {
+    return new Response(JSON.stringify(free), { headers });   // fail open
+  }
+
+  if (!row || row.status !== 'active') return new Response(JSON.stringify(free), { headers });
+  if (row.expires && Date.now() > row.expires) {
+    return new Response(JSON.stringify({ ...free, reason: 'expired' }), { headers });
+  }
+  if (!domainMatches(row.domain, domain)) {
+    return new Response(JSON.stringify({ ...free, reason: 'domain' }), { headers });
+  }
+
+  let features = PLAN_FEATURES[row.plan] || PLAN_FEATURES.pro;
+  if (row.features) { try { features = JSON.parse(row.features); } catch {} }
+
+  return new Response(JSON.stringify({ ok: true, plan: row.plan, features }), { headers });
+}
+
+/* Minting is a manual admin action on purpose. There is no payment provider wired up, so
+   the honest flow is: money arrives however it arrives, then you issue a key. When a
+   provider does exist, its webhook calls this same endpoint. */
+async function licenseAdmin(request, env, ch) {
+  let b;
+  try { b = await request.json(); } catch { return new Response('bad json', { status: 400, headers: ch }); }
+
+  const action = b.action || 'create';
+  const H = { ...JSON_HEADERS, ...ch };
+
+  if (action === 'list') {
+    const { results } = await env.DB.prepare(
+      `SELECT key, domain, plan, email, status, created, expires, notes
+         FROM licenses ORDER BY created DESC LIMIT 500`).all();
+    return new Response(JSON.stringify(results || []), { headers: H });
+  }
+
+  if (action === 'revoke' || action === 'pause' || action === 'activate') {
+    const status = action === 'revoke' ? 'revoked' : action === 'pause' ? 'paused' : 'active';
+    await env.DB.prepare(`UPDATE licenses SET status=? WHERE key=?`).bind(status, b.key).run();
+    return new Response(JSON.stringify({ ok: true, key: b.key, status }), { headers: H });
+  }
+
+  const domain = bareHost(b.domain);
+  if (!domain) return new Response(JSON.stringify({ ok: false, reason: 'domain required' }),
+    { status: 400, headers: H });
+
+  const key = 'cb_live_' + crypto.randomUUID().replace(/-/g, '').slice(0, 24);
+  await env.DB.prepare(
+    `INSERT INTO licenses (key,domain,plan,features,email,notes,status,created,expires)
+     VALUES (?,?,?,?,?,?, 'active', ?, ?)`
+  ).bind(
+    key, domain, b.plan || 'pro',
+    b.features ? JSON.stringify(b.features) : null,
+    (b.email || '').slice(0, 160) || null,
+    (b.notes || '').slice(0, 300) || null,
+    Date.now(),
+    b.expires ? Number(b.expires) : null
+  ).run();
+
+  return new Response(JSON.stringify({ ok: true, key, domain, plan: b.plan || 'pro' }),
+    { headers: H });
+}
+
 export default {
   /**
    * Retention, enforced rather than promised.
@@ -369,6 +483,11 @@ export default {
         }), { headers: { ...JSON_HEADERS, 'cache-control': 'public, max-age=300', ...ch } });
       }
 
+      // Public: the widget asks whether its key unlocks anything. Fails open to free.
+      if (url.pathname === '/api/license') {
+        return await licenseLookup(request, env, ch);
+      }
+
       if (url.pathname === '/api/capabilities') {
         return new Response(JSON.stringify({ email: !!(env.RESEND_API_KEY && env.MAIL_FROM) }),
           { headers: { ...JSON_HEADERS, ...ch } });
@@ -394,6 +513,11 @@ export default {
         const { results } = await env.DB.prepare(
           `SELECT * FROM leads ORDER BY ts DESC LIMIT 200`).all();
         return new Response(JSON.stringify(results || []), { headers: { ...JSON_HEADERS, ...ch } });
+      }
+
+      if (url.pathname === '/api/licenses' && request.method === 'POST') {
+        if (!authed) return new Response('unauthorized', { status: 401, headers: ch });
+        return await licenseAdmin(request, env, ch);
       }
 
       if (url.pathname === '/api/lead-status' && request.method === 'POST') {
