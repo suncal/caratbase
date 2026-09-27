@@ -43,7 +43,7 @@
       warn.style.display='block';
       warn.innerHTML=`<div class="pill">A report would likely pay for itself</div>
         <p class="small" style="margin-top:10px">With treatment unknown, a buyer has to assume
-        the least favourable case and prices for that risk — which is why the figure above is
+        the least favorable case and prices for that risk — which is why the figure above is
         held down. On a stone in this value range a laboratory report usually returns several
         times its cost.</p>`;
     } else if(/glass|Dyed|Diffusion/.test(o.treatment)){

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Create the CaratBase jeweller-widget campaign in Instantly (v2 API).
+Create the CaratBase jeweler-widget campaign in Instantly (v2 API).
 
     INSTANTLY_API_KEY=... python3 tools/outreach/instantly_load.py            # create, paused
     INSTANTLY_API_KEY=... python3 tools/outreach/instantly_load.py --leads leads.csv
@@ -19,7 +19,7 @@ KEY = os.environ.get('INSTANTLY_API_KEY') or sys.exit('set INSTANTLY_API_KEY')
 API = 'https://api.instantly.ai/api/v2'
 UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
 INBOX = os.environ.get('INSTANTLY_INBOX', 'david@veloexa.org')
-NAME = 'CaratBase — jeweller widgets'
+NAME = 'CaratBase — jeweler widgets'
 
 def call(method, path, body=None):
     req = urllib.request.Request(API + path, method=method,
@@ -36,9 +36,9 @@ def html(text):
 STEPS = [
   (0, 'ring sizer for {{website}}', """Hi {{first_name}},
 
-I was on {{website}} looking at {{personal}} and noticed there's no ring size finder on the site. Every jeweller I talk to says "what size am I?" is their most common email.
+I was on {{website}} looking at {{personal}} and noticed there's no ring size finder on the site. Every jeweler I talk to says "what size am I?" is their most common email.
 
-I built a free one. It converts US/UK/EU/Indian sizes, finds a size from a ring's inside diameter or a finger measurement, and matches your brand colour. It's two lines of code:
+I built a free one. It converts US/UK/EU/Indian sizes, finds a size from a ring's inside diameter or a finger measurement, and matches your brand color. It's two lines of code:
 
 https://caratbase.com/widgets.html
 

@@ -15,9 +15,19 @@ MAP = {
  'behaviour':'behavior','flavour':'flavor','humour':'humor','labour':'labor','savour':'savor','theatre':'theater','sombre':'somber','calibre':'caliber',
  'apologise':'apologize','summarise':'summarize','capitalise':'capitalize','optimise':'optimize','optimised':'optimized','normalise':'normalize','normalised':'normalized',
  'practise':'practice','aluminium':'aluminum','mould':'mold','tonne':'ton','kerb':'curb','pyjamas':'pajamas','cosy':'cozy','plough':'plow','draught':'draft',
+ 'favour':'favor','favours':'favors','favoured':'favored','favouring':'favoring','favourable':'favorable','favourably':'favorably','favourites':'favorites',
+ 'behaviours':'behaviors','flavours':'flavors','honours':'honors','labours':'labors','licences':'licenses','defences':'defenses',
+ 'organise':'organize','organised':'organized','organises':'organizes','organisations':'organizations','authorise':'authorize','authorises':'authorizes',
+ 'specialised':'specialized','specialises':'specializes','realised':'realized','realises':'realizes','minimised':'minimized','maximised':'maximized',
+ 'analysed':'analyzed','analysing':'analyzing','paralyse':'paralyze','summarised':'summarized','prioritised':'prioritized','customised':'customized',
+ 'dialogue':'dialog','travelling':'traveling','labelling':'labeling','modelling':'modeling','cancelling':'canceling','fuelled':'fueled',
+ 'amongst':'among','spelt':'spelled','fulfil':'fulfill','instalment':'installment','skilful':'skillful','marvellous':'marvelous',
+ 'speciality':'specialty','specialities':'specialties','cheque':'check','cheques':'checks','storey':'story','practising':'practicing',
+ 'vapour':'vapor','odour':'odor','armour':'armor','rumour':'rumor','valour':'valor','vigour':'vigor','harbour':'harbor','parlour':'parlor',
+ 'splendour':'splendor','endeavour':'endeavor','tumour':'tumor','pretence':'pretense','sceptical':'skeptical','manoeuvre':'maneuver',
 }
-FILES = [p for p in ROOT.glob('*.html') if p.name != 'dashboard.html'] + list(ROOT.glob('assets/*.js')) + \
-        [ROOT/'tools/genpages.py'] + list((ROOT/'tools/design').glob('*.py')) + list((ROOT/'tools/outreach').glob('*.md')) + \
+FILES = [p for p in ROOT.glob('*.html') if p.name != 'dashboard.html'] + list(ROOT.glob('assets/*.js')) + list(ROOT.glob('*.js')) + list(ROOT.glob('worker/*.js')) + \
+        [ROOT/'tools/genpages.py'] + list((ROOT/'tools/design').glob('*.py')) + list((ROOT/'tools/outreach').glob('*.md')) + list((ROOT/'tools/outreach').glob('*.py')) + \
         [ROOT/'tools/feed/build_picks.py', ROOT/'README.md'] + list(ROOT.glob('embed/*/index.html'))
 PAT = re.compile(r"\b(" + "|".join(re.escape(k) for k in sorted(MAP, key=len, reverse=True)) + r")\b", re.I)
 def fix(m):

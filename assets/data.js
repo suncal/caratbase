@@ -278,3 +278,142 @@ function bandWeight(insideDiaMm, widthMm, thicknessMm, karat){
   const grams = (mm3/1000) * rho;
   return { grams:+grams.toFixed(2), cm3:+(mm3/1000).toFixed(3), density:rho };
 }
+
+/* ---------------------------------------------------------------
+   3. GIA REPORT INTELLIGENCE
+   A GIA report states what a diamond IS. By policy it never states what it is
+   worth, and it carries three fields consumers routinely misread. This section
+   turns a report into a valuation plus the specific things worth knowing.
+
+   Fluorescence is the big one, and its effect flips sign with color grade.
+   Blue fluorescence is the complement of yellow, so in an already-colorless
+   stone it reads as a defect and is discounted, while in a tinted stone it
+   masks the tint and can make the diamond face up a grade whiter.
+   Trade discounts on D-F with strong blue commonly run 5-40%; ~12% is typical.
+   I-M with medium-to-very-strong fluorescence trades flat to a slight premium.
+   --------------------------------------------------------------- */
+const FLUO_GRADES = ['None', 'Faint', 'Medium', 'Strong', 'Very Strong'];
+
+const FLUO_MULT = {
+  /* colorless D-F: fluorescence is a discount */
+  high:  {None:1.00, Faint:0.99, Medium:0.95, Strong:0.88, 'Very Strong':0.82},
+  /* near-colorless G-H: largely neutral */
+  mid:   {None:1.00, Faint:1.00, Medium:0.99, Strong:0.97, 'Very Strong':0.94},
+  /* faint tint I-K: blue masks yellow, so flat to slightly positive */
+  tinted:{None:1.00, Faint:1.00, Medium:1.01, Strong:1.02, 'Very Strong':1.01},
+};
+
+function fluoBand(color){
+  if (['D','E','F'].includes(color)) return 'high';
+  if (['G','H'].includes(color))     return 'mid';
+  return 'tinted';
+}
+
+function fluoMultiplier(color, fluo){
+  return FLUO_MULT[fluoBand(color)][fluo] ?? 1;
+}
+
+/* GIA grades cut for round brilliants only. Fancy shapes carry polish and
+   symmetry but no overall cut grade, which is why "Excellent / Excellent" on a
+   fancy is a finish grade, not a verdict on how well the stone was cut.
+   GIA has said cut grades for marquise, oval and pear arrive in 2027. */
+const GIA_CUT_GRADED_SHAPES = ['Round'];
+const GIA_CUT_COMING_2027   = ['Oval', 'Pear', 'Marquise'];
+
+/* Weight sits just under a magic number: the same stone one hundredth heavier
+   crosses into a much higher price bracket. Works in the buyer's favor. */
+function caratCliff(ct){
+  for (const edge of [0.50, 0.70, 0.90, 1.00, 1.50, 2.00, 3.00]) {
+    if (ct >= edge - 0.06 && ct < edge) {
+      return {edge, below: +(edge - ct).toFixed(2)};
+    }
+  }
+  return null;
+}
+
+/* Value a stone described by a GIA report, and say what the report does not.
+   o: {shape, carat, color, clarity, cut, polish, symmetry, fluorescence, origin}
+   Returns the usual valuation plus `notes`, each {kind, head, body, effect}. */
+function valueGiaReport(o){
+  const ct = Math.max(0.01, parseFloat(o.carat) || 0);
+  if (!ct) return null;
+
+  const base = valueDiamond({
+    carat: ct, color: o.color, clarity: o.clarity,
+    cut: o.cut || 'Very Good', shape: o.shape,
+    origin: o.origin, cert: 'GIA',
+  });
+  if (!base) return null;
+
+  const fm = fluoMultiplier(o.color, o.fluorescence || 'None');
+  const v = {
+    retailLow:  Math.round(base.retailLow  * fm / 25) * 25,
+    retailHigh: Math.round(base.retailHigh * fm / 25) * 25,
+    resaleLow:  Math.round(base.resaleLow  * fm / 25) * 25,
+    resaleHigh: Math.round(base.resaleHigh * fm / 25) * 25,
+    isLab: base.isLab,
+    fluoMultiplier: fm,
+    notes: [],
+  };
+  const add = (kind, head, body, effect) => v.notes.push({kind, head, body, effect});
+
+  /* --- fluorescence --- */
+  const fl = o.fluorescence || 'None';
+  const band = fluoBand(o.color);
+  if (fl !== 'None' && fl !== 'Faint') {
+    const pct = Math.round(Math.abs(1 - fm) * 100);
+    if (band === 'high') {
+      add('cost', `${fl} fluorescence is costing you about ${pct}%`,
+        `In a ${o.color} color stone the trade treats blue fluorescence as a fault and discounts it — 5% to 40% depending on severity and how milky the stone faces up. It is the one grade on your report that moves the price without changing how most people see the diamond. A ${o.color} with strong fluorescence can price like a non-fluorescent stone several grades lower.`,
+        -pct);
+    } else if (band === 'tinted') {
+      add('good', `${fl} fluorescence is working in your favor`,
+        `Blue is the complement of yellow, so in a ${o.color} color stone the fluorescence masks the tint and the diamond can face up close to a grade whiter. Stones like yours trade flat to a slight premium, and you likely paid less than a non-fluorescent equivalent that looks the same.`,
+        +pct);
+    } else {
+      add('neutral', `${fl} fluorescence barely matters here`,
+        `At ${o.color} color the discount for fluorescence is small — the trade prices it at a few percent at most. Do not let anyone value your stone as if it were a serious fault.`,
+        -pct);
+    }
+  }
+
+  /* --- cut grade on fancy shapes --- */
+  if (!GIA_CUT_GRADED_SHAPES.includes(o.shape)) {
+    const coming = GIA_CUT_COMING_2027.includes(o.shape);
+    add('watch', `Your report has no cut grade — and that is normal`,
+      `GIA grades cut for round brilliants only. A ${o.shape.toLowerCase()} carries Polish and Symmetry but no overall cut grade, so "Excellent Polish, Excellent Symmetry" describes the finish, not how well the stone was cut for light. Two ${o.shape.toLowerCase()}s with identical reports can look very different. Judge it with your eyes and the proportions, not the grades.${coming ? ` GIA has said it will start grading cut on ${o.shape.toLowerCase()}s in 2027.` : ''}`,
+      0);
+  }
+
+  /* --- polish / symmetry drag --- */
+  const weak = ['Fair', 'Poor'];
+  if (weak.includes(o.polish) || weak.includes(o.symmetry)) {
+    add('cost', 'Weak finish grades hold the price down',
+      `Polish ${o.polish || '—'} and Symmetry ${o.symmetry || '—'}. Below Good, finish starts to show as softness and misaligned facets, and the stone is harder to resell whatever the color and clarity say.`,
+      -5);
+  }
+
+  /* --- the carat cliff --- */
+  const cliff = caratCliff(ct);
+  if (cliff) {
+    add('good', `You bought below the ${cliff.edge} carat cliff`,
+      `At ${ct} ct your stone sits ${cliff.below} ct under ${cliff.edge}, where price per carat steps up sharply. The difference is invisible on a hand — roughly a tenth of a millimeter — but it is the single biggest saving available in a diamond. Whoever bought this chose well.`,
+      0);
+  }
+
+  /* --- eye-clean clarity --- */
+  if (['VVS1', 'VVS2', 'IF', 'FL'].includes(o.clarity)) {
+    add('watch', 'You are paying for clarity nobody can see',
+      `${o.clarity} is well past the point where inclusions are visible without magnification. It holds value on paper, but a VS1 or VS2 looks identical in the hand for meaningfully less money. Worth knowing if you ever upgrade.`,
+      0);
+  }
+
+  /* --- lab-grown reality --- */
+  if (v.isLab) {
+    add('cost', 'A GIA report does not protect a lab-grown resale',
+      `The grades are real and independently verified, but lab-grown prices have fallen steadily as production scaled, and resale runs at a small fraction of retail regardless of who graded it. Value it for wearing, not for holding.`,
+      0);
+  }
+
+  return v;
+}

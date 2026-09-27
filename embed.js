@@ -2,7 +2,7 @@
    <div class="caratbase-widget" data-widget="ring-size"></div>
    <script async src="https://caratbase.com/embed.js"></script>
    Renders the widget in a sandboxed iframe sized to its content, and adds the
-   "Powered by CaratBase" attribution beneath it. The attribution is the licence. */
+   "Powered by CaratBase" attribution beneath it. The attribution is the license. */
 (function(){
   const BASE = 'https://caratbase.com';
   const WIDGETS = {

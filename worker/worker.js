@@ -320,7 +320,7 @@ export default {
    * addresses go after two years of silence. A policy that says that while nothing deletes
    * anything is worse than having no policy, so this runs nightly and actually does it.
    * Reported offers are exempt: they carry nothing identifying and their value is as a
-   * long-run record of what jewellery really sells for.
+   * long-run record of what jewelry really sells for.
    */
   async scheduled(event, env, ctx) {
     const MONTH = 2629800000;                    // average month in ms

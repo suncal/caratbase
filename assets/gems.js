@@ -57,7 +57,7 @@ const GEM_TREATMENTS = {
   'Fracture filled — glass':       {mult:0.04,note:'Lead-glass filled ruby is largely glass by volume. It has almost no resale value and can be destroyed by ordinary jewelry repair.'},
   'Dyed':                          {mult:0.07,note:'Dye sits in fractures and fades. Very little value.'},
   'Irradiated':                    {mult:0.55,note:'Common in blue topaz and some others. Stable, but priced below untreated equivalents.'},
-  'Unknown':                       {mult:0.55,note:'Without a report a buyer must assume the least favourable case, and prices for that risk. Getting a report is often worth more than it costs.'}
+  'Unknown':                       {mult:0.55,note:'Without a report a buyer must assume the least favorable case, and prices for that risk. Getting a report is often worth more than it costs.'}
 };
 
 /* Price per carat climbs much faster with size than it does for diamonds. */

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "caratbase",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4510"],
+      "port": 4510
+    }
+  ]
+}

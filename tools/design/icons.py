@@ -29,6 +29,7 @@ def card(href, key, h3, p, go, hero=False):
 FAMILIES = [
  ('Value what you own', 'Retail, and the honest resale figure.', [
    ('value.html','diamond','Value my diamond &amp; jewelry','Center stone, side stones and the metal, priced as a whole piece — the retail figure a jeweler would charge and the resale range you would actually be offered.','Start a valuation', True),
+   ('gia-report-value.html','diamond','Value it from a GIA report','Your report states what the diamond is and never what it is worth. Enter the grades for retail and resale — plus which of them are quietly costing you.','Read my report', False),
    ('gemstone.html','gems','Gemstones &amp; pearls','Ruby, sapphire, emerald, tanzanite and more. Treatment matters more than size, and this shows you by how much.','Value a gemstone', False),
    ('metals.html','gold','Gold &amp; metal prices','Live spot per gram, every karat, and what a scrap buyer will really offer.',"Today's prices", False),
    ('stamp.html','stamp','Hallmark lookup','925, 750, 585, GF, EPNS — what the stamp inside the band means, and whether there is any metal value.','Decode a stamp', False),

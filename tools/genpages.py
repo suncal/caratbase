@@ -953,7 +953,7 @@ def build_gems():
     <h2>When a report pays for itself</h2>
     <p>If your stone might be worth more than about $2,000, a laboratory report on treatment
     and origin usually returns several times its cost. Without one a buyer must assume the
-    least favourable case and price for that risk.</p>""",
+    least favorable case and price for that risk.</p>""",
           cta_h=f'Value your own {n.lower()}',
           cta_p='Enter the carat weight, quality, treatment and origin and get a figure matched '
                 'to your stone rather than this example.',
@@ -1134,6 +1134,7 @@ def build_hubs(built):
 # ================================================================ SEARCH INDEX
 TOOL_PAGES = {
   'value.html': 'diamond value calculator jewelry worth appraisal resale price ring',
+  'gia-report-value.html': 'gia report value calculator certificate check verify diamond worth grades fluorescence lost certificate gia vs igi',
   'gemstone.html': 'gemstone value ruby sapphire emerald pearl calculator',
   'metals.html': 'gold price calculator scrap silver platinum per gram karat',
   'budget.html': 'budget calculator what my money buys engagement ring',
@@ -1208,6 +1209,7 @@ def main():
             'size.html','ring-size.html','measure.html','compare.html','lab-vs-natural.html',
             'engagement-ring-budget.html','diamond-price-per-carat.html','diamond-color-chart.html',
             'diamond-clarity-chart.html','birthstones.html','insurance-cost.html','tools.html',
+            'gia-report-value.html',
             'widgets.html','about.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):

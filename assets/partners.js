@@ -237,3 +237,9 @@ const Partners = {
 };
 
 if(typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', () => Partners.upgradeDeepLinks());
+
+/* `const` at the top level of a classic script creates a script-scope binding, not a
+   window property, so `if (window.Partners)` guards were always false and the partner
+   blocks they protected never mounted. Export both explicitly. */
+window.BLUE_NILE = BLUE_NILE;
+window.Partners  = Partners;

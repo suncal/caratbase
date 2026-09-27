@@ -4,6 +4,7 @@ uses the site's real engines. Run: python3 tools/design/pages.py"""
 import pathlib, json, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import icons
+import gia
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>"
 
@@ -425,7 +426,7 @@ PAGES['insurance-cost.html'] = dict(
   <div id="partners" style="margin-top:22px"></div>
   <section class="narrow legal" style="margin-top:40px">
     <h2>What the policy has to say</h2>
-    <p><strong>Agreed value, not actual cash value.</strong> Agreed value pays the figure on the schedule; actual cash value pays what the insurer thinks a used ring is worth, which — as this site keeps pointing out — is a third of what you paid. <strong>Mysterious disappearance</strong> covers "it was on my hand and now it isn't", the most common loss. <strong>Worldwide cover</strong> matters if you travel. <strong>Replacement with like kind</strong>, not a cheque for a lower amount.</p>
+    <p><strong>Agreed value, not actual cash value.</strong> Agreed value pays the figure on the schedule; actual cash value pays what the insurer thinks a used ring is worth, which — as this site keeps pointing out — is a third of what you paid. <strong>Mysterious disappearance</strong> covers "it was on my hand and now it isn't", the most common loss. <strong>Worldwide cover</strong> matters if you travel. <strong>Replacement with like kind</strong>, not a check for a lower amount.</p>
     <p>You will need an appraisal or a detailed receipt. Our <a href="value.html">valuation report</a> is a starting point for that conversation, not a substitute for an appraiser's document.</p>
   </section>''',
   script=r'''
@@ -449,8 +450,11 @@ PAGES['insurance-cost.html'] = dict(
     if(window.cbTrack) cbTrack('tool_use',{tool:'insurance_cost',v});
   }
   ['val','reg','cur'].forEach(id=>$(id).addEventListener('input',calc)); calc();
-  if(window.Partners) Partners.mount('partners','insurance',{title:'Specialist jewelry insurers',intro:'Both quote online in minutes and cover the things a home policy usually excludes.'});
+  if(typeof Partners !== 'undefined') Partners.mount('partners','insurance',{title:'Specialist jewelry insurers',intro:'Both quote online in minutes and cover the things a home policy usually excludes.'});
 })();''')
+
+# ---------------------------------------------------------------- GIA REPORT
+PAGES['gia-report-value.html'] = gia.page(faq)
 
 # ---------------------------------------------------------------- TOOLS INDEX
 PAGES['tools.html'] = dict(
