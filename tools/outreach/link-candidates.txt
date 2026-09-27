@@ -1,0 +1,24 @@
+# Link prospects for CaratBase — resource pages that already link out to jewelry tools.
+# Gathered with a search tool (see SEED_QUERIES in prospect.py), analysed by:
+#   python3 tools/outreach/prospect.py --urls tools/outreach/link-candidates.txt
+# Add to this list as you find more; the script skips duplicates and social hosts.
+
+# --- links / resources pages (the primary targets) ---
+https://beyond4cs.com/faq/useful-links-and-resources/
+https://texasjewelers.org/estate-jewelry-silver-research-reference-sites/
+https://www.hallmarkresearch.com/html/links.htm
+https://www.polygon.net/jwl/public/trade-resources/online-resources-en.jsp
+https://www.langantiques.com/university/jewelry-identification/
+https://www.signedvintagejewelry.com/tools/
+https://www.925-1000.com/
+https://learningjewelry.com/
+https://www.americangemsociety.org/jewelry-and-diamond-appraisals/
+
+# --- pages that round up calculators (they list tools like ours by definition) ---
+https://moissanitebyaurelia.com/jewelry-calculators/
+https://www.bengarelick.com/blogs/news/how-to-calculate-the-price-of-gold-jewelry
+https://ringsizechartcalculator.com/
+https://myringsizecalculator.com/
+https://www.rockher.com/
+https://www.gemologyresources.com/
+https://dsfantiquejewelry.com/blogs/hallmarks/jewelry-hallmarks-guide-how-to-identify-authenticity-and-value
