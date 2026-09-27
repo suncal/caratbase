@@ -90,6 +90,7 @@ jobs:
           python3 tools/sync_prices.py
           python3 tools/genpages.py
           python3 tools/schema.py
+          python3 tools/checkjs.py
           bash scripts/bump-assets.sh
 
       - name: Commit if changed

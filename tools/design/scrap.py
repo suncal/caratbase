@@ -31,6 +31,29 @@ CHANNELS = [
      'back for it. Take this only if you need the money today.'),
 ]
 
+# Materials people actually turn up with, beyond plain karat jewelry. `purity` is the
+# fraction of pure gold by weight; `note` is what the calculator warns about.
+# Dental: most yellow crowns run about 16K (~67% gold); ADA Type III is 75-78%, Type IV
+# 60-70%, and both carry palladium and platinum that a general gold buyer ignores.
+# Gold-filled: 1/20 means 5% of the weight is the karat layer, so a 1/20 14K piece is
+# 5% x 58.5% = 2.9% gold. Real, but most counter buyers will not touch it.
+EXTRA_MATERIALS = [
+    ('Dental gold, typical crown (~16K)', 0.667, 'dental',
+     'Most yellow crowns run near 16 karat. Crowns also contain palladium and platinum, '
+     'which a general gold buyer does not assay and does not pay for.'),
+    ('Dental gold, ADA Type III (~18K)', 0.760, 'dental',
+     'Crown and inlay alloy, 75-78% gold plus palladium, platinum and silver.'),
+    ('Dental gold, ADA Type IV (~15K)', 0.650, 'dental',
+     'Bridge and partial alloy, 60-70% gold with up to 12% palladium.'),
+    ('Gold-filled 1/20 14K', 0.02925, 'filled',
+     'Five per cent of the weight is a bonded 14K layer, so 2.9% pure gold. Real, but '
+     'low grade: expect a refiner rather than a counter, and a lot fee.'),
+    ('Gold-filled 1/20 12K', 0.02500, 'filled',
+     'Five per cent of the weight is a bonded 12K layer, so 2.5% pure gold.'),
+    ('Gold-plated (GP, GEP, HGE)', 0.0, 'plated',
+     'Microns of gold over base metal. There is no recoverable value at jewelry scale.'),
+]
+
 UNITS = [
     ('Grams (g)', 'g', 1.0),
     ('Pennyweight (dwt)', 'dwt', 1.55517),
@@ -119,6 +142,21 @@ BODY = '''
   </section>
 
   <section class="section narrow">
+    <h2>Dental gold</h2>
+    <p>Dental alloys are not one thing. Most yellow crowns land near <strong>16 karat</strong>, about 67% gold; ADA Type III crown-and-inlay alloy runs 75&ndash;78%, and Type IV bridge alloy 60&ndash;70%. Across everything that turns up, the long-run average is nearer 11.5 karat. A single crown usually weighs about 3&nbsp;g, so a typical one carries roughly $150 of recoverable metal at current prices.</p>
+    <p><strong>The mistake that costs money:</strong> dental alloy also contains palladium and platinum, and a general cash-for-gold buyer assays for gold only. Those metals can be 20&ndash;30% of the total precious value of a crown, and a buyer who does not test for them will not pay for them. Sell dental scrap to a refiner who handles dental specifically &mdash; they assay the whole alloy and typically pay around 85% of spot after refining costs of 15&ndash;18%.</p>
+    <p>Porcelain fused to the metal is normal and is burned off in refining; you do not need to remove it, and you should not try. Nor does it need cleaning beyond the obvious.</p>
+  </section>
+
+  <section class="section narrow">
+    <h2>Gold-filled and gold-plated</h2>
+    <p>These two get confused constantly and they are not remotely the same thing.</p>
+    <p><strong>Gold-filled</strong> is stamped <strong>GF</strong>, usually as a fraction: <em>1/20 14K</em> means a bonded 14K layer making up one twentieth &mdash; 5% &mdash; of the total weight. So the piece is 5% &times; 58.5% = <strong>2.9% pure gold</strong>. That is real and recoverable, but it is low-grade scrap. Most counter buyers refuse gold-filled outright because processing it is not worth their time; refiners take it in quantity, usually with a lot fee. Do not expect the percentages in the table above to hold on a small lot.</p>
+    <p><strong>Gold-plated</strong> &mdash; stamped <strong>GP</strong>, <strong>GEP</strong>, <strong>HGE</strong> or nothing at all &mdash; is microns of gold over base metal. There is no recoverable value at jewelry scale. Nobody will weigh it, and no refiner will take it. If it still looks good, it is worth more worn than sold.</p>
+    <p>Not sure which you have? The <a href="stamp.html">hallmark lookup</a> decodes every one of those marks, and a <a href="class-ring-value-calculator.html">class ring</a> is its own special case &mdash; half of them are base metal under a trade name.</p>
+  </section>
+
+  <section class="section narrow">
     <h2>Before you hand anything over</h2>
     <p><strong>Know the melt value first.</strong> Walking in with a number is the difference between negotiating and accepting. That is what the calculator at the top is for.</p>
     <p><strong>Watch the weighing.</strong> The scale should face you, with the unit &mdash; g or dwt &mdash; visible next to the number. Ask them to weigh each karat separately; mixing 10K in with 18K and paying the whole lot at the low rate is the oldest deduction there is.</p>
@@ -131,32 +169,64 @@ BODY = '''
 SCRIPT = r'''
 (function(){
   var $ = function(id){ return document.getElementById(id); };
-  var UNITS = ''' + repr([[label, code, grams] for label, code, grams in UNITS]).replace("'", '"') + ''';
-  var CHANNELS = ''' + repr([[n, lo, hi] for n, lo, hi, _x in CHANNELS]).replace("'", '"') + ''';
+  var UNITS = __UNITS__;
+  var CHANNELS = __CHANNELS__;
   var KARATS = ['24K','22K','18K','14K','10K','9K','Platinum','Silver 925'];
+  /* label, purity, kind, note — dental, gold-filled and plated */
+  var EXTRA = __EXTRA__;
 
   function fillUnits(el){
     el.innerHTML = UNITS.map(function(u, i){ return '<option value="'+i+'">'+u[0]+'</option>'; }).join('');
   }
   function fillKarats(el){
-    el.innerHTML = KARATS.map(function(k){
-      return '<option'+(k==='14K'?' selected':'')+'>'+k+'</option>'; }).join('');
+    el.innerHTML =
+      '<optgroup label="Karat gold and silver">' +
+      KARATS.map(function(k){
+        return '<option value="'+k+'"'+(k==='14K'?' selected':'')+'>'+k+'</option>'; }).join('') +
+      '</optgroup><optgroup label="Dental, gold-filled and plated">' +
+      EXTRA.map(function(e, i){
+        return '<option value="x'+i+'">'+e[0]+'</option>'; }).join('') +
+      '</optgroup>';
+  }
+
+  /* A selection is either a plain karat code or "x<index>" into EXTRA. */
+  function material(v){
+    if(v && v.charAt(0) === 'x'){
+      var e = EXTRA[parseInt(v.slice(1), 10)];
+      return {label:e[0], purity:e[1], kind:e[2], note:e[3]};
+    }
+    return {label:v, purity:null, kind:'karat', note:''};
   }
   fillUnits($('sU')); fillUnits($('oU')); fillKarats($('sK')); fillKarats($('oK'));
   $('oU').value = '1';   /* default the checker to pennyweight — the unit people get caught by */
 
   /* Melt value of one gram at the given purity, using the live spot prices. */
-  function perGram(karat){
-    if(karat === 'Platinum')   return METAL_SPOT.platinum * 0.95;
-    if(karat === 'Silver 925') return METAL_SPOT.silver   * 0.925;
-    return METAL_SPOT.gold * (KARAT_PURITY[karat] || 0);
+  function perGram(v){
+    var m = material(v);
+    if(m.purity !== null) return METAL_SPOT.gold * m.purity;
+    if(v === 'Platinum')   return METAL_SPOT.platinum * 0.95;
+    if(v === 'Silver 925') return METAL_SPOT.silver   * 0.925;
+    return METAL_SPOT.gold * (KARAT_PURITY[v] || 0);
   }
 
   function calc(){
     var u = UNITS[parseInt($('sU').value, 10)] || UNITS[0];
     var grams = (parseFloat($('sW').value) || 0) * u[2];
     var k = $('sK').value;
+    var m = material(k);
     var melt = grams * perGram(k);
+
+    /* Plated is the one honest zero on this page. Say so plainly rather than
+       showing a payout ladder against a value that does not exist. */
+    if(m.kind === 'plated'){
+      $('sOut').innerHTML =
+        '<div class="lab">Recoverable value</div><div class="big">$0</div>' +
+        '<div class="sub">' + m.label + '</div>' +
+        '<div class="note">' + m.note + ' Scrap buyers will not weigh it, and a refiner ' +
+        'will not take it. If the piece still looks good, it is worth more worn than sold.</div>';
+      $('sChannels').innerHTML = '';
+      return;
+    }
 
     if(!melt){ $('sOut').innerHTML = '<div class="lab">Enter a weight</div>'; $('sChannels').innerHTML=''; return; }
 
@@ -164,14 +234,19 @@ SCRIPT = r'''
     $('sOut').innerHTML =
       '<div class="lab">Melt value — what the metal is worth</div>' +
       '<div class="big">' + fmt(melt) + '</div>' +
-      '<div class="sub">' + grams.toFixed(2) + ' g of ' + k + ' · ' + fmt(perGram(k)) + '/g · ' +
+      '<div class="sub">' + grams.toFixed(2) + ' g of ' + m.label + ' · ' + fmt(perGram(k)) + '/g · ' +
         fmt(perGram(k) * 1.55517) + '/dwt</div>' +
       '<div class="split">' +
         '<div><div class="lab">Best realistic offer</div><div class="v">' + fmt(melt*best[2]) + '</div></div>' +
         '<div><div class="lab">Worst</div><div class="v">' + fmt(melt*worst[1]) + '</div></div>' +
       '</div>' +
-      '<div class="note">Nobody pays melt. The spread between the best and worst offer on this lot is ' +
-        fmt(melt*best[2] - melt*worst[1]) + '. Get three quotes.</div>';
+      '<div class="note">' + (m.note ? m.note + ' ' : '') +
+        (m.kind === 'dental'
+          ? 'Sell dental scrap to a dental refiner, not a gold buyer: the palladium and platinum can be 20-30% of the total precious value and a general buyer pays for none of it.'
+          : m.kind === 'filled'
+          ? 'Gold-filled is real but low grade. Most counter buyers refuse it outright; a refiner will take it in quantity, usually with a lot fee, so the percentages below are optimistic for a small lot.'
+          : 'Nobody pays melt. The spread between the best and worst offer on this lot is ' +
+            fmt(melt*best[2] - melt*worst[1]) + '. Get three quotes.') + '</div>';
 
     $('sChannels').innerHTML = CHANNELS.map(function(c){
       return '<div class="panel"><div class="eyebrow">' + c[0] + '</div>' +
@@ -224,6 +299,15 @@ SCRIPT = r'''
 })();
 '''
 
+# Substituted after the fact so SCRIPT stays a single raw string end to end — see the
+# note in classring.py for why the r'''...''' + repr(...) + '''...''' form is a trap.
+for _token, _value in (
+    ('__UNITS__',    [[label, code, grams] for label, code, grams in UNITS]),
+    ('__CHANNELS__', [[n, lo, hi] for n, lo, hi, _x in CHANNELS]),
+    ('__EXTRA__',    [[l, pu, k, n] for l, pu, k, n in EXTRA_MATERIALS]),
+):
+    SCRIPT = SCRIPT.replace(_token, repr(_value).replace("'", '"'))
+
 
 def page(faq):
     return dict(
@@ -260,6 +344,19 @@ def page(faq):
              'decent stone is usually worth more intact than melted, and a scrap buyer pays for '
              'the metal only — any diamond in the setting is upside they keep. Scrap plain, '
              'broken, unfashionable or unmarked pieces; get anything else valued as jewelry first.'),
+            ('How much is a gold dental crown worth?',
+             'A typical yellow crown is about 16 karat (roughly 67% gold) and weighs around 3 g, '
+             'which comes to roughly $150 of recoverable metal at current prices. The important part '
+             'is where you sell it: dental alloy also contains palladium and platinum, which can be '
+             '20\u201330% of its precious value, and a general cash-for-gold buyer assays only for '
+             'gold and pays nothing for the rest. Use a refiner that handles dental scrap.'),
+            ('Is gold-filled jewelry worth anything as scrap?',
+             'Yes, but not much, and it is not the same as gold-plated. Gold-filled is stamped GF, '
+             'usually as a fraction: 1/20 14K means a bonded 14K layer that is 5% of the total '
+             'weight, so the piece is 2.9% pure gold. That is recoverable, but most counter buyers '
+             'refuse gold-filled because processing it is not worth their time \u2014 a refiner will '
+             'take it in quantity, generally with a lot fee. Gold-plated (GP, GEP, HGE) is microns '
+             'over base metal and has no recoverable value at all.'),
             ('Do pawn shops pay well for gold?',
              'No, but they are fast. Pawn shops typically pay 40–70% of melt value because '
              'they are pricing for speed and for the risk of holding stock. If you can wait a few '

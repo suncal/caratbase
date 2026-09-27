@@ -1157,6 +1157,7 @@ TOOL_PAGES = {
   'gemstone.html': 'gemstone value ruby sapphire emerald pearl calculator',
   'metals.html': 'gold price calculator scrap silver platinum per gram karat',
   'scrap-gold-calculator.html': 'scrap gold calculator melt value pennyweight dwt sell gold pawn shop refiner offer check 10k 14k 18k silver 925',
+  'class-ring-value-calculator.html': 'class ring value calculator 10k 14k gold jostens balfour valadium lustrium siladium celestrium base metal worth scrap',
   'jewelry-price-index.html': 'jewelry price index open data gold silver platinum per gram diamond price per carat resale ratios csv json',
   'budget.html': 'budget calculator what my money buys engagement ring',
   'stamp.html': 'hallmark lookup stamp meaning 925 750 585 417 gf',
@@ -1230,7 +1231,7 @@ def main():
             'size.html','ring-size.html','measure.html','compare.html','lab-vs-natural.html',
             'engagement-ring-budget.html','diamond-price-per-carat.html','diamond-color-chart.html',
             'diamond-clarity-chart.html','birthstones.html','insurance-cost.html','tools.html',
-            'gia-report-value.html','scrap-gold-calculator.html','jewelry-price-index.html',
+            'gia-report-value.html','scrap-gold-calculator.html','class-ring-value-calculator.html','jewelry-price-index.html',
             'widgets.html','about.html','vault.html','methodology.html',
             'disclaimer.html','privacy.html','terms.html']
     def entry(u, pri, freq):

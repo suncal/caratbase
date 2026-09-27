@@ -6,6 +6,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import icons
 import gia
 import scrap
+import classring
 import index_page
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>"
@@ -15,7 +16,7 @@ TOOL_PAGES = {
     'size.html', 'ring-size.html', 'measure.html', 'compare.html',
     'lab-vs-natural.html', 'engagement-ring-budget.html', 'insurance-cost.html',
     'gia-report-value.html', 'diamond-price-per-carat.html',
-    'scrap-gold-calculator.html',
+    'scrap-gold-calculator.html', 'class-ring-value-calculator.html',
 }
 
 
@@ -503,6 +504,9 @@ PAGES['gia-report-value.html'] = gia.page(faq)
 
 # ---------------------------------------------------------------- SCRAP GOLD
 PAGES['scrap-gold-calculator.html'] = scrap.page(faq)
+
+# ---------------------------------------------------------------- CLASS RINGS
+PAGES['class-ring-value-calculator.html'] = classring.page(faq)
 
 # ---------------------------------------------------------------- PRICE INDEX
 PAGES['jewelry-price-index.html'] = index_page.page(faq)
