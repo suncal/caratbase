@@ -23,7 +23,12 @@ function cors(env, request) {
     'Access-Control-Allow-Methods':     'GET,POST,OPTIONS',
     'Access-Control-Allow-Headers':     'content-type',
     'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Max-Age':           '86400'
+    'Access-Control-Max-Age':           '86400',
+    // Allow-Origin is computed from the caller's Origin, so any cacheable response
+    // carrying it MUST vary on Origin. Without this the edge caches one caller's
+    // Allow-Origin and hands it to the next, who fails CORS for no visible reason —
+    // which is exactly how the widget licence endpoint broke the first time it shipped.
+    'Vary':                             'Origin'
   };
 }
 
@@ -355,7 +360,11 @@ async function licenseLookup(request, env, ch) {
   const key = String(url.searchParams.get('key') || '').slice(0, 80);
   const domain = bareHost(url.searchParams.get('domain'));
   const free = { ok: false, plan: 'free', features: [] };
-  const headers = { ...JSON_HEADERS, 'cache-control': 'public, max-age=900', ...ch };
+  // `private` on purpose: the body is origin-specific and so is Allow-Origin, so this must
+  // never sit in a shared cache. Vary: Origin makes that correct in theory, but a single
+  // stale pre-Vary entry poisons every caller for the whole TTL, and the loader already
+  // caches the answer for six hours in localStorage — an edge cache buys us nothing here.
+  const headers = { ...JSON_HEADERS, 'cache-control': 'private, max-age=300', ...ch };
 
   if (!key || !domain) return new Response(JSON.stringify(free), { headers });
 
