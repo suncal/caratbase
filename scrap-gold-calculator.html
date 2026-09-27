@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scrap Gold Calculator — What a Buyer Will Really Pay</title>
+<meta name="description" content="Work out the melt value of scrap gold or silver in grams, pennyweight or troy ounces, see what each kind of buyer pays, and check whether an offer is fair.">
+<link rel="canonical" href="https://caratbase.com/scrap-gold-calculator.html">
+<meta property="og:title" content="Scrap Gold Calculator — What a Buyer Will Really Pay"><meta property="og:description" content="Work out the melt value of scrap gold or silver in grams, pennyweight or troy ounces, see what each kind of buyer pays, and check whether an offer is fair."><meta property="og:url" content="https://caratbase.com/scrap-gold-calculator.html">
+<meta property="og:image" content="https://caratbase.com/assets/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/style.css?v=4e3d8cd3">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much do gold buyers pay for scrap gold?","acceptedAnswer":{"@type":"Answer","text":"A share of melt value, and the share depends entirely on who you sell to. Refiners buying in bulk pay roughly 85\u201395%, reputable mail-in buyers about 75\u201388%, a local gold buyer or jeweler 60\u201380%, and a pawn shop 40\u201370%. Nobody pays 100% of melt \u2014 the spread covers testing, refining and their risk. Getting three quotes on the same lot routinely moves the result by 30 percentage points of melt."}},{"@type":"Question","name":"What is a pennyweight and why do gold buyers use it?","acceptedAnswer":{"@type":"Answer","text":"A pennyweight (dwt) is 1.55517 grams, and 20 of them make a troy ounce. It is the traditional unit of the US jewelry trade. It matters when selling because the same money expressed per pennyweight looks about 55% larger than per gram. A quote of $85 per dwt is worth less than one of $60 per gram: on a 20 g necklace that is $1,093 against $1,200. Always ask which unit a quote is in."}},{"@type":"Question","name":"How do I calculate the melt value of scrap gold?","acceptedAnswer":{"@type":"Answer","text":"Multiply the weight in grams by the purity of the karat, then by the current gold price per gram. 14K is 58.5% gold, 18K is 75%, 10K is 41.7%, 22K is 91.6%. So 20 g of 14K contains 11.7 g of pure gold. The calculator on this page does it at live spot prices and also converts pennyweight and troy ounces."}},{"@type":"Question","name":"Is it better to sell gold jewelry as scrap or as jewelry?","acceptedAnswer":{"@type":"Answer","text":"Melt value is the floor, not the price. Anything signed, period, or set with a decent stone is usually worth more intact than melted, and a scrap buyer pays for the metal only \u2014 any diamond in the setting is upside they keep. Scrap plain, broken, unfashionable or unmarked pieces; get anything else valued as jewelry first."}},{"@type":"Question","name":"Do pawn shops pay well for gold?","acceptedAnswer":{"@type":"Answer","text":"No, but they are fast. Pawn shops typically pay 40\u201370% of melt value because they are pricing for speed and for the risk of holding stock. If you can wait a few days, a reputable mail-in buyer or a refiner will usually pay 20 to 40 percentage points more of melt for exactly the same metal."}}]},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://caratbase.com/"},{"@type":"ListItem","position":2,"name":"Scrap Gold Calculator","item":"https://caratbase.com/scrap-gold-calculator.html"}]},{"@context":"https://schema.org","@type":"WebApplication","name":"Scrap Gold Calculator","url":"https://caratbase.com/scrap-gold-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","description":"Work out the melt value of scrap gold or silver in grams, pennyweight or troy ounces, see what each kind of buyer pays, and check whether an offer is fair.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"CaratBase","url":"https://caratbase.com/"}}]</script>
+</head>
+<body>
+<header class="site-head"><div class="wrap head-in">
+  <a href="index.html" class="logo"></a><nav class="nav"></nav>
+</div></header>
+<main class="wrap">
+  <div class="tool-hero narrow">
+    <div class="eyebrow">Scrap gold</div>
+    <h1>What your scrap gold is really worth</h1>
+    <p class="lede">Melt value is what the metal is worth. Nobody pays it. Weigh your lot, see the melt figure and what a refiner, a mail-in buyer, a local jeweler and a pawn shop each pay against it — then put any offer you have been given through the checker, because a price quoted per pennyweight is not what it looks like.</p>
+  </div>
+
+  <section class="console">
+    <div class="console-head"><span class="name"><span class="dot"></span> Scrap value</span><span class="status">melt &middot; and what you will be offered</span></div>
+    <div class="console-body">
+      <div class="console-in">
+        <h3>What you are selling</h3>
+        <div class="grid g2" style="gap:12px">
+          <div class="field"><label>Weight</label><input type="number" id="sW" value="20" step="0.01" min="0"></div>
+          <div class="field"><label>Weighed in</label><select id="sU"></select></div>
+        </div>
+        <div class="field"><label>Karat or purity</label><select id="sK"></select></div>
+        <p class="small">Weigh only the metal. Stones, clasps of a different metal and spring bars are not paid for, and a buyer will deduct them.</p>
+      </div>
+      <div class="console-out" id="sOut"><div class="lab">Waiting for input</div></div>
+    </div>
+  </section>
+
+  <div id="sChannels" class="grid g2" style="margin-top:22px"></div>
+
+  <section class="section" style="padding-top:44px">
+    <div class="panel" style="border-color:var(--gold-2)">
+      <div class="eyebrow">Check an offer</div>
+      <h2 style="font-size:24px;margin:6px 0 10px">Someone quoted you a price. Is it any good?</h2>
+      <p class="small" style="margin-bottom:16px">Enter the number you were given exactly as they said it &mdash; including the unit. This converts it back into a share of melt, which is the only figure that lets you compare two offers.</p>
+      <div class="grid g3" style="gap:12px">
+        <div class="field"><label>They offered</label><input type="number" id="oAmt" value="85" step="0.01" min="0"></div>
+        <div class="field"><label>Per</label><select id="oU"></select></div>
+        <div class="field"><label>For karat</label><select id="oK"></select></div>
+      </div>
+      <div id="oOut" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <section class="section narrow">
+    <h2>The pennyweight trap</h2>
+    <p>A pennyweight is 1.55517 grams. Twenty of them make a troy ounce. It is the traditional unit of the US jewelry trade, and it is still how a lot of gold buyers quote &mdash; which matters, because the same money expressed per pennyweight looks about <strong>55% larger</strong> than it does per gram.</p>
+    <p>Nothing requires a buyer to quote in a unit you understand. A shop can weigh in pennyweights, price in pennyweights and post per-pennyweight rates in the window, entirely legally. If you are mentally comparing that against a per-gram number from somewhere else, you are not comparing anything.</p>
+    <div class="panel" style="margin-top:18px">
+      <div class="eyebrow">Worked example &mdash; one 20 g 14K necklace</div>
+      <p style="margin-top:8px">Shop A offers <strong>$60 per gram</strong>. That is 20 &times; $60 = <strong>$1,200</strong>.</p>
+      <p style="margin-top:6px">Shop B offers <strong>$85 per pennyweight</strong>, which sounds far better. But 20 g is 12.86 dwt, so the check is 12.86 &times; $85 = <strong>$1,093</strong>.</p>
+      <p style="margin-top:6px">The offer that sounded about 40% richer pays <strong>$107 less</strong>. Same necklace, same day.</p>
+    </div>
+    <p style="margin-top:18px">So before anything else: ask whether the quote is per gram, per pennyweight or per troy ounce, and watch the scale with the unit indicator visible. Then put both numbers through the checker above.</p>
+    <table class="tbl"><thead><tr><th>Unit</th><th>In grams</th><th>Also</th></tr></thead><tbody><tr><td><strong>1 pennyweight (dwt)</strong></td><td>1.55517 g</td><td>1/20 troy ounce</td></tr><tr><td><strong>1 troy ounce (ozt)</strong></td><td>31.1035 g</td><td>20 dwt</td></tr><tr><td><strong>1 gram</strong></td><td>0.643 dwt</td><td>0.0322 ozt</td></tr><tr><td><strong>1 ordinary ounce (avoirdupois)</strong></td><td>28.3495 g</td><td>Not what gold is priced in</td></tr></tbody></table>
+  </section>
+
+  <section class="section narrow">
+    <h2>What each kind of buyer pays</h2>
+    <p>Melt value is what the metal in your jewelry is worth at today's spot price. Nobody pays it. Everyone in the chain takes a cut for testing, refining, holding stock and the risk that your 14K is not 14K. The size of that cut is the whole decision.</p>
+    <table class="tbl"><thead><tr><th>Who you sell to</th><th class="num">Share of melt</th><th>What you are trading away</th></tr></thead><tbody><tr><td><strong>Refiner, direct</strong></td><td class="num">85&ndash;95%</td><td>Best rate, and the one most sellers never try. Refiners want volume, so small lots may be refused or charged a lot fee. Worth it once you are into several ounces.</td></tr><tr><td><strong>Reputable mail-in buyer</strong></td><td class="num">75&ndash;88%</td><td>Low overhead, so rates beat the high street. You post the gold and wait a few days. Use one that shows you the assay and returns the lot free if you decline.</td></tr><tr><td><strong>Local gold buyer or jeweler</strong></td><td class="num">60&ndash;80%</td><td>Instant money and you watch the scale. The spread pays for the shopfront. This is where the pennyweight quote below is most likely to appear.</td></tr><tr><td><strong>Pawn shop</strong></td><td class="num">40&ndash;70%</td><td>The fastest and the lowest. A pawn shop prices for the risk that you never come back for it. Take this only if you need the money today.</td></tr></tbody></table>
+    <p style="margin-top:14px">The single most valuable thing you can do is get three quotes. The spread between the best and worst offer on the same lot is routinely 30 percentage points of melt, which on a few hundred dollars of gold is real money for an afternoon's work.</p>
+  </section>
+
+  <section class="section narrow">
+    <h2>Before you hand anything over</h2>
+    <p><strong>Know the melt value first.</strong> Walking in with a number is the difference between negotiating and accepting. That is what the calculator at the top is for.</p>
+    <p><strong>Watch the weighing.</strong> The scale should face you, with the unit &mdash; g or dwt &mdash; visible next to the number. Ask them to weigh each karat separately; mixing 10K in with 18K and paying the whole lot at the low rate is the oldest deduction there is.</p>
+    <p><strong>Separate the karats yourself.</strong> Sort by stamp before you go. If a piece is unstamped, expect it to be tested and priced conservatively, or set it aside.</p>
+    <p><strong>Do not scrap what is worth more whole.</strong> A signed piece, a period item, or anything with a decent stone in it is usually worth more as jewelry than as metal. Melt is the floor, not the price. If it might be the former, <a href="value.html">value it as a piece first</a>.</p>
+    <p><strong>Keep the stones.</strong> Ask for them back in writing before you leave the item. A scrap buyer values the metal; any diamond in the setting is upside they are not paying you for.</p>
+  </section>
+
+</main>
+<footer class="site-foot"><div class="wrap foot-in">
+  <div>&copy; <span id="yr"></span> CaratBase &mdash; independent jewelry valuation reference.</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <a href="methodology.html">How we value</a><a href="widgets.html">Widgets</a><a href="disclaimer.html">Disclaimer</a>
+    <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</div><div class="wrap"><p class="disclaimer">CaratBase is not a licensed appraiser and does not buy or sell jewelry. Figures are estimates for information only, not an appraisal, an offer or financial advice.</p></div></footer>
+<script src="assets/data.js?v=4e3d8cd3"></script>
+<script src="assets/analytics.js?v=4e3d8cd3"></script>
+<script src="assets/spot.js?v=4e3d8cd3"></script>
+<script src="assets/ticker.js?v=4e3d8cd3"></script>
+<script src="assets/logo.js?v=4e3d8cd3"></script>
+<script src="assets/nav.js?v=4e3d8cd3"></script>
+<script src="assets/partners.js?v=4e3d8cd3"></script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var UNITS = [["Grams (g)", "g", 1.0], ["Pennyweight (dwt)", "dwt", 1.55517], ["Troy ounces (ozt)", "ozt", 31.1034768]];
+  var CHANNELS = [["Refiner, direct", 0.85, 0.95], ["Reputable mail-in buyer", 0.75, 0.88], ["Local gold buyer or jeweler", 0.6, 0.8], ["Pawn shop", 0.4, 0.7]];
+  var KARATS = ['24K','22K','18K','14K','10K','9K','Platinum','Silver 925'];
+
+  function fillUnits(el){
+    el.innerHTML = UNITS.map(function(u, i){ return '<option value="'+i+'">'+u[0]+'</option>'; }).join('');
+  }
+  function fillKarats(el){
+    el.innerHTML = KARATS.map(function(k){
+      return '<option'+(k==='14K'?' selected':'')+'>'+k+'</option>'; }).join('');
+  }
+  fillUnits($('sU')); fillUnits($('oU')); fillKarats($('sK')); fillKarats($('oK'));
+  $('oU').value = '1';   /* default the checker to pennyweight — the unit people get caught by */
+
+  /* Melt value of one gram at the given purity, using the live spot prices. */
+  function perGram(karat){
+    if(karat === 'Platinum')   return METAL_SPOT.platinum * 0.95;
+    if(karat === 'Silver 925') return METAL_SPOT.silver   * 0.925;
+    return METAL_SPOT.gold * (KARAT_PURITY[karat] || 0);
+  }
+
+  function calc(){
+    var u = UNITS[parseInt($('sU').value, 10)] || UNITS[0];
+    var grams = (parseFloat($('sW').value) || 0) * u[2];
+    var k = $('sK').value;
+    var melt = grams * perGram(k);
+
+    if(!melt){ $('sOut').innerHTML = '<div class="lab">Enter a weight</div>'; $('sChannels').innerHTML=''; return; }
+
+    var best = CHANNELS[0], worst = CHANNELS[CHANNELS.length-1];
+    $('sOut').innerHTML =
+      '<div class="lab">Melt value — what the metal is worth</div>' +
+      '<div class="big">' + fmt(melt) + '</div>' +
+      '<div class="sub">' + grams.toFixed(2) + ' g of ' + k + ' · ' + fmt(perGram(k)) + '/g · ' +
+        fmt(perGram(k) * 1.55517) + '/dwt</div>' +
+      '<div class="split">' +
+        '<div><div class="lab">Best realistic offer</div><div class="v">' + fmt(melt*best[2]) + '</div></div>' +
+        '<div><div class="lab">Worst</div><div class="v">' + fmt(melt*worst[1]) + '</div></div>' +
+      '</div>' +
+      '<div class="note">Nobody pays melt. The spread between the best and worst offer on this lot is ' +
+        fmt(melt*best[2] - melt*worst[1]) + '. Get three quotes.</div>';
+
+    $('sChannels').innerHTML = CHANNELS.map(function(c){
+      return '<div class="panel"><div class="eyebrow">' + c[0] + '</div>' +
+        '<div style="font-family:var(--serif);font-size:30px;font-weight:700;color:var(--gold-2);margin:8px 0 4px">' +
+        fmt(melt*c[1]) + '–' + fmt(melt*c[2]) + '</div>' +
+        '<p class="small">' + Math.round(c[1]*100) + '–' + Math.round(c[2]*100) + '% of melt</p></div>';
+    }).join('');
+
+    if(window.cbTrack) cbTrack('tool_use', {tool:'scrap_gold', karat:k, unit:u[1]});
+  }
+
+  /* The offer checker: turn "$85 a pennyweight" back into a share of melt. */
+  function checkOffer(){
+    var amt = parseFloat($('oAmt').value) || 0;
+    var u = UNITS[parseInt($('oU').value, 10)] || UNITS[0];
+    var k = $('oK').value;
+    var meltPerUnit = perGram(k) * u[2];
+    if(!amt || !meltPerUnit){ $('oOut').innerHTML = ''; return; }
+
+    var share = amt / meltPerUnit;
+    var pct = Math.round(share * 100);
+    var verdict, cls;
+    if(share >= 0.85){ verdict = 'Strong. That is refiner territory — take it.'; cls = 'pill pill-ice'; }
+    else if(share >= 0.72){ verdict = 'Fair. In line with a good mail-in buyer or a decent local shop.'; cls = 'pill pill-ice'; }
+    else if(share >= 0.60){ verdict = 'Low but not unreasonable for an over-the-counter offer. Worth one more quote.'; cls = 'pill'; }
+    else if(share >= 0.40){ verdict = 'Pawn-shop level. You are paying a lot for speed. Get two more quotes first.'; cls = 'pill'; }
+    else { verdict = 'Poor. Walk away and get other quotes before agreeing to anything.'; cls = 'pill'; }
+
+    /* Restate the same offer in the other units — this is where the trap shows up. */
+    var perG = amt / u[2];
+    var others = UNITS.filter(function(x){ return x[1] !== u[1]; }).map(function(x){
+      return fmt(perG * x[2]) + ' per ' + x[1];
+    }).join(' · ');
+
+    $('oOut').innerHTML =
+      '<span class="' + cls + '">' + pct + '% of melt</span>' +
+      '<p style="margin-top:10px"><strong>' + fmt(amt) + ' per ' + u[1] + '</strong> for ' + k +
+      ' is <strong>' + pct + '% of melt value</strong>. ' + verdict + '</p>' +
+      '<p class="small" style="margin-top:8px">The same offer stated differently: ' + others +
+      '. Melt itself is ' + fmt(meltPerUnit) + ' per ' + u[1] + '.</p>';
+    if(window.cbTrack) cbTrack('offer_check', {pct:pct, unit:u[1]});
+  }
+
+  ['sW','sU','sK'].forEach(function(id){ $(id).addEventListener('input', calc); });
+  ['oAmt','oU','oK'].forEach(function(id){ $(id).addEventListener('input', checkOffer); });
+
+  /* Spot arrives asynchronously; reprice when it lands. */
+  document.addEventListener('cb:spot', function(){ calc(); checkOffer(); });
+  calc(); checkOffer();
+})();
+
+</script>
+</body></html>

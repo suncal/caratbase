@@ -10,6 +10,7 @@
       ['gia-report-value.html','From a GIA report'],
       ['gemstone.html', 'Gemstones & pearls'],
       ['metals.html',   'Gold & metal prices'],
+      ['scrap-gold-calculator.html','Scrap gold & offers'],
       ['budget.html',   'What my budget buys']]},
     {label:'Buy',     items:[
       ['compare.html',                'Compare two diamonds'],
@@ -148,10 +149,10 @@
   const me=document.querySelector('script[src*="assets/nav.js"]'); const root=me?me.src.replace(/assets\/nav\.js.*$/,''):'/';
   const L=(u,t)=>`<a href="${root}${u}">${t}</a>`;
   const cols=[
-    ['Value',['value.html','Diamond & jewelry'],['gia-report-value.html','From a GIA report'],['gemstone.html','Gemstones & pearls'],['metals.html','Gold & metal prices'],['stamp.html','Hallmark lookup'],['vault.html','My vault']],
+    ['Value',['value.html','Diamond & jewelry'],['gia-report-value.html','From a GIA report'],['gemstone.html','Gemstones & pearls'],['metals.html','Gold & metal prices'],['scrap-gold-calculator.html','Scrap gold & offers'],['stamp.html','Hallmark lookup'],['vault.html','My vault']],
     ['Buy',['budget.html','What my budget buys'],['compare.html','Compare two diamonds'],['lab-vs-natural.html','Lab-grown vs natural'],['engagement-ring-budget.html','How much to spend'],['diamond-price-per-carat.html','Price per carat'],['diamond-color-chart.html','Color chart'],['diamond-clarity-chart.html','Clarity chart']],
     ['Measure',['ring-size.html','Ring sizer'],['measure.html','From a photo'],['size.html','Carat size chart'],['ring-size/','Ring size charts'],['diamond/','Sizes by carat & shape']],
-    ['Reference',['birthstones.html','Birthstones'],['insurance-cost.html','Insurance cost'],['hallmark/','Hallmarks explained'],['gold-price/','Gold price by karat'],['gemstone/','Gemstone values'],['widgets.html','Free widgets'],['methodology.html','How we value'],['about.html','About']],
+    ['Reference',['birthstones.html','Birthstones'],['insurance-cost.html','Insurance cost'],['hallmark/','Hallmarks explained'],['gold-price/','Gold price by karat'],['gemstone/','Gemstone values'],['widgets.html','Free widgets'],['jewelry-price-index.html','Price index (open data)'],['methodology.html','How we value'],['about.html','About']],
   ];
   const map=document.createElement('div'); map.className='wrap';
   map.innerHTML='<div class="foot-map"><div><div class="tag">CaratBase</div><p>The independent jewelry reference. Every number shown working; no account, no tracking.</p></div>'

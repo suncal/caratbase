@@ -86,8 +86,10 @@ jobs:
 
       - name: Sync data.js seeds and rebuild price-dependent pages
         run: |
+          python3 tools/history.py
           python3 tools/sync_prices.py
           python3 tools/genpages.py
+          python3 tools/schema.py
           bash scripts/bump-assets.sh
 
       - name: Commit if changed

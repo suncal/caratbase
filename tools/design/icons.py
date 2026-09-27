@@ -32,6 +32,7 @@ FAMILIES = [
    ('gia-report-value.html','diamond','Value it from a GIA report','Your report states what the diamond is and never what it is worth. Enter the grades for retail and resale — plus which of them are quietly costing you.','Read my report', False),
    ('gemstone.html','gems','Gemstones &amp; pearls','Ruby, sapphire, emerald, tanzanite and more. Treatment matters more than size, and this shows you by how much.','Value a gemstone', False),
    ('metals.html','gold','Gold &amp; metal prices','Live spot per gram, every karat, and what a scrap buyer will really offer.',"Today's prices", False),
+   ('scrap-gold-calculator.html','gold','Scrap gold &amp; offer checker','Melt value in grams, pennyweight or troy ounces — what each kind of buyer pays, and whether the offer in front of you is fair.','Check an offer', False),
    ('stamp.html','stamp','Hallmark lookup','925, 750, 585, GF, EPNS — what the stamp inside the band means, and whether there is any metal value.','Decode a stamp', False),
    ('vault.html','vault','My vault','Every piece you value, saved on your own device, with a running total as prices move.','Open my vault', False)]),
  ('Buy the right stone', 'Before the counter, not after.', [

@@ -5,8 +5,51 @@ import pathlib, json, sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import icons
 import gia
+import scrap
+import index_page
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>"
+
+TOOL_PAGES = {
+    'value.html', 'gemstone.html', 'metals.html', 'budget.html', 'stamp.html',
+    'size.html', 'ring-size.html', 'measure.html', 'compare.html',
+    'lab-vs-natural.html', 'engagement-ring-budget.html', 'insurance-cost.html',
+    'gia-report-value.html', 'diamond-price-per-carat.html',
+    'scrap-gold-calculator.html',
+}
+
+
+def page_schema(name, title, desc, schema=None):
+    """BreadcrumbList for every page, plus WebApplication for the calculators.
+
+    Breadcrumbs put the trail under the search result instead of a bare URL, and
+    WebApplication marks a tool as a free tool rather than an article. Both are
+    worth CTR at positions where nobody clicks on a plain blue link."""
+    graph = []
+    if schema:
+        graph += schema if isinstance(schema, list) else [schema]
+    graph.append({
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://caratbase.com/"},
+            {"@type": "ListItem", "position": 2, "name": title.split(' — ')[0].split(' | ')[0],
+             "item": "https://caratbase.com/" + name},
+        ]})
+    if name in TOOL_PAGES:
+        graph.append({
+            "@context": "https://schema.org", "@type": "WebApplication",
+            "name": title.split(' — ')[0].split(' | ')[0],
+            "url": "https://caratbase.com/" + name,
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "Requires JavaScript",
+            "description": desc,
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+            "publisher": {"@type": "Organization", "name": "CaratBase",
+                          "url": "https://caratbase.com/"},
+        })
+    return graph
+
 
 def shell(name, title, desc, eyebrow, h1, lede, body, script='', scripts=(), schema=None, extra_head=''):
     # desc goes into double-quoted meta attributes; prose legitimately contains
@@ -15,7 +58,9 @@ def shell(name, title, desc, eyebrow, h1, lede, body, script='', scripts=(), sch
     if len(title) > 65 and title.endswith(' | CaratBase'):
         title = title[:-len(' | CaratBase')]
     sc = ''.join(f'<script src="assets/{s}"></script>\n' for s in ('data.js','analytics.js','spot.js','ticker.js','logo.js','nav.js','partners.js') + tuple(scripts))
-    schema_tag = f'<script type="application/ld+json">{json.dumps(schema)}</script>' if schema else ''
+    schema_tag = ('<script type="application/ld+json">'
+                  + json.dumps(page_schema(name, title, desc, schema), separators=(',', ':'))
+                  + '</script>')
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -455,6 +500,12 @@ PAGES['insurance-cost.html'] = dict(
 
 # ---------------------------------------------------------------- GIA REPORT
 PAGES['gia-report-value.html'] = gia.page(faq)
+
+# ---------------------------------------------------------------- SCRAP GOLD
+PAGES['scrap-gold-calculator.html'] = scrap.page(faq)
+
+# ---------------------------------------------------------------- PRICE INDEX
+PAGES['jewelry-price-index.html'] = index_page.page(faq)
 
 # ---------------------------------------------------------------- TOOLS INDEX
 PAGES['tools.html'] = dict(
