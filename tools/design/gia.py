@@ -80,6 +80,7 @@ BODY = '''
 
   <div id="gNotes" style="margin-top:22px"></div>
   <div id="gPartner" style="margin-top:22px"></div>
+  <div id="gBuyers" style="margin-top:22px"></div>
 
   <section class="section narrow" style="padding-top:44px">
     <h2>What a GIA report will not do</h2>
@@ -227,6 +228,15 @@ SCRIPT = r'''
         {carat: o.carat, shape: shape, color: o.color, clarity: o.clarity},
         {title: 'What this specification costs today',
          sub: 'Your report describes one stone. This is the live market for stones graded like it — useful whether you are checking what you paid or what to ask for.'});
+    }
+    if(typeof Partners !== 'undefined' && !$('gBuyers').innerHTML){
+      Partners.mount('gBuyers', 'buyers', {
+        title: 'If you are selling rather than checking',
+        intro: 'A GIA report is the single thing that makes a diamond easy to sell, because the '
+             + 'buyer does not have to take your word for the grades. Approach all three — the '
+             + 'spread between them on an identical stone is routinely thousands.',
+        footer: 'Whatever you are offered, compare it against the resale range above rather than '
+              + 'against what the stone cost.'});
     }
     if(window.cbTrack) cbTrack('tool_use', {tool:'gia_report', shape:shape, fluo:o.fluorescence});
   }

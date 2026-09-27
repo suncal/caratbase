@@ -36,6 +36,14 @@ const PARTNERS = {
   ],
 
   /* People SELLING. Never one buyer — the spread between them is the whole point. */
+  /* Sell-side. This is where the site's differentiator points: every page that prints an
+     honest resale figure manufactures a seller, and a seller converts harder than a
+     browser. Published rates when these were checked (2026-09-27):
+       Diamond Banc  10% of the funded amount, capped at $250 per completed referral
+       myGemma       5%, 30-day cookie
+       Worthy        via FlexOffers, 7-day cookie, rate not published
+     To switch one on, paste its tracking URL into `aff` — nothing else needs changing,
+     and the disclosure appears automatically. */
   buyers: [
     {name:'Worthy',          url:'https://www.worthy.com',        aff:'',
      note:'Auctions your piece to a network of dealers, so buyers compete. 18% commission, 2–4 weeks.'},
@@ -45,7 +53,7 @@ const PARTNERS = {
      note:'Buys outright and also lends against jewelry if you want it back.'}
   ],
 
-  /* Scrap gold and silver. */
+  /* Scrap gold and silver. Mounted anywhere we print a melt figure. */
   metalBuyers: [
     {name:'CashforGoldUSA',  url:'https://cashforgoldusa.com',    aff:'',
      note:'Insured shipping, pays on approval. Compare its offer against the figure above before accepting.'}

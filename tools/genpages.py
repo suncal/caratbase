@@ -619,7 +619,18 @@ def build_gold():
     <h2>Scrap value is the floor, not the answer</h2>
     <p>If the piece holds a diamond, carries a maker's mark, or has any antique interest, scrap
     is the worst price it can fetch. Melting an Art Deco setting for its metal destroys most of
-    what it was worth.</p>""",
+    what it was worth.</p>
+
+    <h2>Selling it</h2>
+    <p>Melt value is not what you will be handed. A refiner pays roughly 85&ndash;95% of it, a
+    mail-in buyer 75&ndash;88%, a local jeweler 60&ndash;80% and a pawn shop 40&ndash;70% &mdash;
+    and a price quoted per pennyweight is not what it looks like next to one quoted per gram.
+    The <a href="../../scrap-gold-calculator.html">scrap gold page</a> has the full payout ladder
+    and a checker that turns any offer back into a share of melt. If what you have is a
+    <a href="../../class-ring-value-calculator.html">class ring</a>, check the stamp first: about
+    half of them are base metal under a trade name.</p>
+    <p>The spot price used here is published daily, with history, on the
+    <a href="../../jewelry-price-index.html">jewelry price index</a>.</p>""",
           cta_h='Weigh it and find out exactly',
           cta_p=f'Enter the weight in grams, ounces, pennyweight or tola and get the {k} value '
                 f'at the live price — or estimate the weight from the ring size if you have no scales.',

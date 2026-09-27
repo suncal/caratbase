@@ -138,8 +138,12 @@ BODY = '''
     <h2>What each kind of buyer pays</h2>
     <p>Melt value is what the metal in your jewelry is worth at today's spot price. Nobody pays it. Everyone in the chain takes a cut for testing, refining, holding stock and the risk that your 14K is not 14K. The size of that cut is the whole decision.</p>
     ''' + _channel_table() + '''
+    <p style="margin-top:14px">The spot price every figure here is built from is published, with history, on our <a href="jewelry-price-index.html">jewelry price index</a> &mdash; free to reuse if you need it elsewhere. A <a href="class-ring-value-calculator.html">class ring</a> is the most common single item people bring to a scrap buyer, and has its own page.</p>
     <p style="margin-top:14px">The single most valuable thing you can do is get three quotes. The spread between the best and worst offer on the same lot is routinely 30 percentage points of melt, which on a few hundred dollars of gold is real money for an afternoon's work.</p>
   </section>
+
+  <div id="sLead" style="margin-top:22px"></div>
+  <div id="sBuyers" style="margin-top:22px"></div>
 
   <section class="section narrow">
     <h2>Dental gold</h2>
@@ -290,6 +294,21 @@ SCRIPT = r'''
     if(window.cbTrack) cbTrack('offer_check', {pct:pct, unit:u[1]});
   }
 
+  if(typeof Partners !== 'undefined'){
+    Partners.mount('sBuyers', 'metalBuyers', {
+      title: 'Where to actually sell it',
+      intro: 'Compare any offer against the melt figure above before you accept it. Mail-in '
+           + 'buyers beat the high street on rate but you wait a few days for the money.',
+      footer: 'Whatever you are offered, put it through the checker above first. A price per '
+            + 'pennyweight is not what it looks like.'});
+  }
+  if(typeof Lead !== 'undefined'){
+    Lead.render('sLead', {}, {
+      eyebrow: 'Before you sell',
+      title: 'Know the number before you walk in',
+      after: 'The buyers below are the usual next step.'});
+  }
+
   ['sW','sU','sK'].forEach(function(id){ $(id).addEventListener('input', calc); });
   ['oAmt','oU','oK'].forEach(function(id){ $(id).addEventListener('input', checkOffer); });
 
@@ -365,4 +384,5 @@ def page(faq):
         ]),
         body=BODY,
         script=SCRIPT,
+        scripts=('vault.js', 'lead.js'),
     )

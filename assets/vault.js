@@ -1,4 +1,6 @@
 /* CaratBase — the vault: saved pieces, kept on-device */
+/* `const` at the top level of a classic script is script-scoped, not a window property,
+   so `window.Vault` is undefined even where this file is loaded. Exported below. */
 const Vault = {
   key:'cb_vault',
   all(){ try{ return JSON.parse(localStorage.getItem(this.key)||'[]') }catch{ return [] } },
@@ -88,3 +90,5 @@ const Vault = {
   document.addEventListener('cb:spot', render);  // live metal prices arrived
   if(window.cbTrack) cbTrack('tool_use',{tool:'vault_view',pieces:Vault.count()});
 })();
+
+window.Vault = Vault;

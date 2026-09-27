@@ -81,6 +81,8 @@ BODY = '''
 
   <div id="cVerdict" style="margin-top:22px"></div>
 
+  <div id="cBuyers" style="margin-top:22px"></div>
+
   <section class="section narrow" style="padding-top:44px">
     <h2>First, check it is actually gold</h2>
     <p>This is where most of the disappointment lives. Class ring makers sold enormous numbers of rings in alloys with invented names that sound precious and are not. If the inside of your band carries one of these, the ring is a stainless-steel-family alloy and has no scrap value at all.</p>
@@ -100,6 +102,7 @@ BODY = '''
     <p>A class ring is the hardest kind of jewelry to resell intact. It carries someone else's school, someone else's year and frequently someone else's initials, so the second-hand market for it is almost exactly nobody. Antique and estate buyers who would pay a premium for a signed period piece have no interest in a 1998 high school ring.</p>
     <p>So the metal is the price. That is not a bad outcome &mdash; class rings are unusually heavy for their size, and a men's 10K ring at 16&nbsp;g carries real weight compared with a modern hollow chain. It just means the number is set by the scale and the karat, not by sentiment or by what it cost new.</p>
     ''' + _weight_table() + '''
+    <p style="margin-top:14px">The gold price behind that figure updates daily and is published on our <a href="jewelry-price-index.html">jewelry price index</a>, so you can check it against anyone else's number before you go.</p>
     <p style="margin-top:14px">Once you know the melt figure, who you sell to decides the rest: a refiner pays 85&ndash;95% of it, a pawn shop 40&ndash;70%. The difference on a single ring is often a hundred dollars or more. The <a href="scrap-gold-calculator.html">scrap gold page</a> has the full payout ladder and a checker for any offer you are given.</p>
   </section>
 
@@ -180,6 +183,14 @@ SCRIPT = r'''
       fmt(melt) + '.</p></div></div>';
 
     if(window.cbTrack) cbTrack('tool_use', {tool:'class_ring', metal:m[0], grams:g});
+  }
+
+  if(typeof Partners !== 'undefined'){
+    Partners.mount('cBuyers', 'metalBuyers', {
+      title: 'Selling it as scrap',
+      intro: 'A class ring is scrap, so the melt figure above is the whole negotiation. '
+           + 'Compare at least three offers against it.',
+      footer: 'If the ring is base metal, none of this applies — there is nothing to sell.'});
   }
 
   $('cGuess').addEventListener('change', function(){
