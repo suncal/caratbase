@@ -181,7 +181,12 @@ SHELL = '''<!doctype html>
     <a href="{up}widgets.html">Widgets</a><a href="{up}methodology.html">How we value</a><a href="{up}disclaimer.html">Disclaimer</a>
     <a href="{up}privacy.html">Privacy</a><a href="{up}terms.html">Terms</a></div>
 </div><div class="wrap"><p class="disclaimer">{footnote}</p></div></footer>
-<script src="{up}assets/data.js"></script>
+<!-- data.js is the valuation engine and the long-tail pages do not run it: their
+     numbers are computed at build time, and nothing they load (analytics, partners,
+     logo, nav, and the search/motion nav pulls in) touches a single one of its
+     globals. It was 26.6 KB of dead weight on 227 pages, and on a site Google gives
+     80 crawl requests a quarter, 62% of them already spent on page resources, that
+     is budget we were burning to no purpose. The tool pages still load it. -->
 <script src="{up}assets/analytics.js"></script>
 <script src="{up}assets/partners.js"></script>
 <script src="{up}assets/logo.js"></script>

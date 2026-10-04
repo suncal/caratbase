@@ -27,7 +27,7 @@ function cors(env, request) {
     // Allow-Origin is computed from the caller's Origin, so any cacheable response
     // carrying it MUST vary on Origin. Without this the edge caches one caller's
     // Allow-Origin and hands it to the next, who fails CORS for no visible reason —
-    // which is exactly how the widget licence endpoint broke the first time it shipped.
+    // which is exactly how the widget license endpoint broke the first time it shipped.
     'Vary':                             'Origin'
   };
 }
