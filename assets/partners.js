@@ -90,9 +90,13 @@ const PARTNERS = {
  * Until then every link is the plain Blue Nile URL — useful, untracked, undisclosed. */
 const BLUE_NILE = {
   template: 'a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates',   /* approved 2026-09-15; parameter form, appended to any bluenile.com URL */
+  /* Blue Nile's October 2026 redesign renamed two shape values and silently DROPS an
+     unrecognised one from the query string — the link still returns 200, it just lands
+     on an unfiltered search. Pear and Heart are '-shaped'; the other eight stay '-cut'.
+     Verified by clicking each shape in their own filter panel and reading the URL. */
   shape:   {Round:'round-cut', Oval:'oval-cut', Princess:'princess-cut', Cushion:'cushion-cut',
-            Emerald:'emerald-cut', Pear:'pear-cut', Marquise:'marquise-cut', Radiant:'radiant-cut',
-            Asscher:'asscher-cut', Heart:'heart-cut'},
+            Emerald:'emerald-cut', Pear:'pear-shaped', Marquise:'marquise-cut', Radiant:'radiant-cut',
+            Asscher:'asscher-cut', Heart:'heart-shaped'},
   colors:  ['K','J','I','H','G','F','E','D'],
   clarity: ['SI2','SI1','VS2','VS1','VVS2','VVS1','IF','FL'],
 

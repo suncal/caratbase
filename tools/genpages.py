@@ -660,9 +660,17 @@ def build_gold():
     return urls
 
 # ================================================================ DIAMOND CARAT x SHAPE
+# Blue Nile's October 2026 redesign renamed two shape values and silently DROPS an
+# unrecognised one from the query string — the link still returns 200, it just lands on
+# an unfiltered search, which is the worst kind of breakage because nothing reports it.
+# Pear and Heart are '-shaped'; the other eight stay '-cut'. Checked against their own
+# filter panel. There is deliberately no automated guard: their server returns 200 and
+# echoes the value back even for nonsense like 'banana-cut', so only a real browser can
+# tell a working filter from a dropped one. After any Blue Nile redesign, open
+# bluenile.com/diamonds, click each shape, and read the value out of the address bar.
 BN_SHAPE = {'Round':'round-cut','Oval':'oval-cut','Princess':'princess-cut','Cushion':'cushion-cut',
-            'Emerald':'emerald-cut','Pear':'pear-cut','Marquise':'marquise-cut','Radiant':'radiant-cut',
-            'Asscher':'asscher-cut','Heart':'heart-cut'}
+            'Emerald':'emerald-cut','Pear':'pear-shaped','Marquise':'marquise-cut','Radiant':'radiant-cut',
+            'Asscher':'asscher-cut','Heart':'heart-shaped'}
 BN_AFF = 'a_aid=o3pbbkxavl0np&utm_source=pap&utm_medium=affiliates'   # keep identical to BLUE_NILE.template in assets/partners.js
 BN_COLORS  = ['K','J','I','H','G','F','E','D']
 BN_CLARITY = ['SI2','SI1','VS2','VS1','VVS2','VVS1','IF','FL']
