@@ -1,5 +1,9 @@
 # CaratBase — Phase 1  ·  LIVE
 
+[![Live demo](https://img.shields.io/badge/live-demo-0E6B52)](https://caratbase.com/) [![Stars](https://img.shields.io/github/stars/suncal/caratbase?style=social)](https://github.com/suncal/caratbase/stargazers)
+
+![screenshot](docs/hero.png)
+
 - **Site:** https://caratbase.com  (HTTPS enforced, www redirects to apex)
 - **Analytics Worker:** https://caratbase-analytics.sunnyatlanta20.workers.dev
 - **Dashboard:** /dashboard.html — open it, paste the Worker URL and the key from `.dashkey`
@@ -129,3 +133,9 @@ Neither ads nor the big affiliate networks will approve a site with no traffic.
 
 Partner clicks fire a `partner_click` analytics event, so which routes actually earn is
 measurable before any money changes hands.
+
+---
+
+**If this is useful to you, a ⭐ on the repo helps other people find it.** Issues and pull requests are welcome.
+
+Built by [Priyankar "Sunny" Chakraborty](https://github.com/suncal) · [everbuiltstudio.com](https://everbuiltstudio.com)
