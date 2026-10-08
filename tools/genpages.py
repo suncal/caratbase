@@ -191,6 +191,15 @@ SHELL = '''<!doctype html>
 <script src="{up}assets/partners.js"></script>
 <script src="{up}assets/logo.js"></script>
 <script src="{up}assets/nav.js"></script>
+<script>
+/* One line of prose when a Blue Nile promotion is running, nothing when it is not —
+   see PROMOS in partners.js. Asscher pages get the Royal Asscher partnership instead. */
+document.addEventListener('DOMContentLoaded', function(){{
+  if(typeof Partners === 'undefined') return;
+  var box = document.getElementById('bnPromo');
+  if(box) Partners.mountPromo(box, box.dataset.where || 'diamond');
+}});
+</script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 </body></html>
 '''
@@ -682,7 +691,8 @@ def bn_link(shape, ct, color='G', clarity='VS2', lab=False, label=''):
          f"&Clarity={','.join(BN_CLARITY[BN_CLARITY.index(clarity):])}")
     url = 'https://www.bluenile.com' + ('/diamonds/lab-grown-diamonds' if lab else '/diamonds') + '?' + q + '&' + BN_AFF
     spec = json.dumps({'shape':shape,'carat':ct,'color':color,'clarity':clarity,'lab':lab})
-    sub = f"{'Lab-grown' if lab else 'Natural'} · {color} color and up, {clarity} and up · filtered at Blue Nile"
+    sub = (f"{'Lab-grown' if lab else 'Natural'} · pre-filtered to {color} and up, {clarity} and up — "
+           f"the point where tint and inclusions stop being visible · live stock at Blue Nile")
     return (f'<a href="{url}" data-bn=\'{spec}\' target="_blank" rel="sponsored noopener noreferrer" class="bn-cta">'
             f'<span class="bn-mark">Blue Nile</span><span class="bn-txt"><b>{label}</b><small>{sub}</small></span>'
             f'<span class="bn-arrow">→</span></a>')
@@ -837,7 +847,8 @@ def build_diamonds():
     <p>Above about G color and VS2 clarity, almost nothing you pay for is visible without a loupe.
     Cut is the one grade worth protecting: a badly cut {s.lower()} looks dull whatever else is true of it.</p>
     {stone_cards(slug.split('/')[1], ctxt, s)}
-    {bn_link(s, c, 'G', 'VS2', False, f'See all {ctxt} ct {s.lower()} diamonds at this grade')}
+    {bn_link(s, c, 'G', 'VS2', False, f'Our pick of {ctxt} ct {s.lower()} diamonds worth paying for')}
+    <div id="bnPromo" data-where="{'shape-asscher' if s == 'Asscher' else 'diamond'}"></div>
 
     <h2>The price step just below {ctxt} carat</h2>
     {cliff}
@@ -848,7 +859,7 @@ def build_diamonds():
     <p>The lab-grown figure is not a typo. Lab-grown prices fell by roughly 85% between 2022 and
     2025 and resale is 5–12% of retail, so the saving is real at the counter and is gone the day
     after. Buy lab-grown to wear it; never as a store of value.</p>
-    {bn_link(s, c, 'G', 'VS2', True, f'See lab-grown {ctxt} ct {s.lower()} diamonds')}
+    {bn_link(s, c, 'G', 'VS2', True, f'The same selection, lab-grown')}
     <p class="bn-note bn-disc">Links to Blue Nile earn CaratBase a commission if you buy. It costs you nothing and does not
     change the figures on this page — every number here comes from our own model, not from the retailer.</p>
 

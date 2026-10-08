@@ -946,3 +946,31 @@ html{scrollbar-color:#CFC8BA transparent;scroll-behavior:smooth}
 .ld-intent{padding:8px 14px;font-size:13px;border-radius:999px}
 .ld-intent.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 @media (prefers-reduced-motion:no-preference){.ld-intent{transition:background .18s,color .18s,border-color .18s}}
+
+/* ---------- Blue Nile promotion line ----------
+   A sentence, not a banner. It sits under the deep link where a buying decision is
+   already in progress, and partners.js stops rendering it the day the offer ends. */
+.bn-promo{
+  margin:12px 0 0;
+  padding:11px 14px;
+  background:var(--panel-2);
+  border-left:3px solid var(--bn,#14274F);
+  border-radius:0 8px 8px 0;
+  font-size:14px;
+  line-height:1.6;
+  color:var(--ink-2);
+}
+.bn-promo-tag{
+  display:inline-block;
+  margin-right:8px;
+  padding:1px 7px;
+  border-radius:3px;
+  background:var(--bn,#14274F);
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  vertical-align:1px;
+}
+.bn-promo a{color:var(--bn,#14274F);font-weight:600;white-space:nowrap}

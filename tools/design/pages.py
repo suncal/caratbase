@@ -275,6 +275,7 @@ PAGES['engagement-ring-budget.html'] = dict(
       <div class="console-out" id="cOut"><div class="lab">Waiting for input</div></div>
     </div>
   </section>
+  <div id="bnPromo" data-where="engagement"></div>
   <h2 style="margin-top:36px">What the sensible figure buys</h2>
   <p class="small" style="margin-bottom:12px">Priced with our model at today's rates. Natural stones resell for 25–40% of retail; lab-grown for 5–12%.</p>
   <div class="grid g3" id="buys"></div>
@@ -303,6 +304,7 @@ PAGES['engagement-ring-budget.html'] = dict(
     if(window.cbTrack) cbTrack('tool_use',{tool:'ring_budget',inc,sav,cur:C});
   }
   ['inc','sav','cur'].forEach(id=>$(id).addEventListener('input',calc)); calc();
+  if(typeof Partners!=='undefined') Partners.mountPromo('bnPromo','engagement');
 })();''')
 
 # ---------------------------------------------------------------- PRICE PER CARAT

@@ -161,6 +161,50 @@ const ADS = {
   provider: 'none'          /* 'adsense' | 'raptive' | 'mediavine' | 'none' */
 };
 
+
+/* ---------- Promotions ----------
+   Heath's note was: no banners, but find a way to mention a sale in the text. So these
+   render as one line of prose where a buying decision is already being made, and nowhere
+   else — same rule as the rest of the Blue Nile placement.
+
+   Every entry carries an end date and simply stops rendering after it. That is the whole
+   point: a promo line is only an asset while it is true, and a site that still advertises
+   a sale that ended three weeks ago looks worse than one that never mentioned it. Nothing
+   has to be remembered or cleaned up.
+
+   `where` is the page context, passed by whoever mounts it. */
+const PROMOS = [
+  {
+    id: 'fall-edit', priority: 2, from: '2026-10-05', to: '2026-10-19',
+    where: ['diamond', 'budget'],
+    text: 'Blue Nile has <strong>30% off selected diamonds</strong> until 19 October.',
+    cta: 'See what is included',
+    url: 'https://www.bluenile.com/jewelry/todays-jewelry-deals'
+  },
+  {
+    id: 'engagement-gwp', priority: 1, from: '2026-10-05', to: '2026-10-19',
+    where: ['budget', 'engagement'],
+    text: 'Until 19 October, Blue Nile add a <strong>diamond pendant free</strong> on engagement rings over $1,500, '
+        + 'and <strong>diamond studs</strong> as well over $10,000.',
+    cta: 'See the terms',
+    url: 'https://www.bluenile.com/engagement-rings'
+  },
+  {
+    id: 'james-allen', priority: 3, from: '2026-10-05', to: '2026-10-19',
+    where: ['diamond', 'budget'],
+    text: 'The James Allen collection is <strong>up to 50% off</strong> at Blue Nile until 19 October.',
+    cta: 'See the collection',
+    url: 'https://www.bluenile.com/jewelry/by-james-allen?isOnSale=yes'
+  },
+  {
+    id: 'royal-asscher', priority: 1, from: '2026-10-05', to: '2026-12-31',
+    where: ['shape-asscher'],
+    text: 'Blue Nile now carry <strong>Royal Asscher</strong>, cut by the family that patented the shape in 1902.',
+    cta: 'See the collection',
+    url: 'https://www.bluenile.com/jewelry/collections/royal-asscher'
+  }
+];
+
 /* ---------- helpers ---------- */
 const Partners = {
   link(p){ return p.aff || p.url; },
@@ -224,6 +268,33 @@ const Partners = {
       border-top:1px solid var(--line)">Some links above earn CaratBase a commission if you
       buy. It costs you nothing and does not change what we recommend — every option here
       would be listed either way.</p>`;
+  },
+
+  /* Live promotions for one page context, as a line of prose. Returns '' when there is
+     nothing running, so a page that mounts it simply shows nothing out of season. */
+  promos(where){
+    const today = new Date().toISOString().slice(0, 10);
+    return PROMOS
+      .filter(p => p.where.indexOf(where) !== -1 && p.from <= today && today <= p.to)
+      .sort((a, b) => (a.priority || 9) - (b.priority || 9));
+  },
+
+  mountPromo(el, where){
+    const node = typeof el === 'string' ? document.getElementById(el) : el;
+    if(!node) return;
+    const live = this.promos(where).slice(0, 1);
+    if(!live.length){ node.innerHTML = ''; return; }
+    node.innerHTML = live.map(p => {
+      const href = BLUE_NILE.active() ? BLUE_NILE.wrap(p.url) : p.url;
+      return `<p class="bn-promo"><span class="bn-promo-tag">Offer</span> ${p.text}
+        <a href="${href}" data-bn-item="1" target="_blank"
+           rel="sponsored noopener noreferrer" data-promo="${p.id}">${p.cta} &rarr;</a></p>`;
+    }).join('');
+    node.querySelectorAll('[data-promo]').forEach(a =>
+      a.addEventListener('click', () => {
+        if(window.cbTrack) cbTrack('promo_click',
+          {promo: a.dataset.promo, page: location.pathname});
+      }));
   },
 
   /* Mount into a container and record clicks, so we learn which routes actually pay. */
