@@ -9,6 +9,7 @@ import scrap
 import classring
 import index_page
 import study_fluorescence
+import study_cliff
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>"
 
@@ -331,7 +332,8 @@ PAGES['diamond-price-per-carat.html'] = dict(
     <h2>How to use this</h2>
     <p>Decide the visible size you want in millimeters — the <a href="size.html">size chart</a> shows every weight to scale — then buy the weight just under the nearest step. A 0.90 ct round is 6.27 mm across; a 1.00 ct is 6.50 mm. Nobody can see 0.23 mm on a hand, and the price difference is about a quarter of the stone.</p>
     <p>Per-carat figures move with color and clarity in the same proportions at every weight, so the shape of the curve is the same whatever grade you buy. See the <a href="diamond-color-chart.html">color chart</a> and <a href="diamond-clarity-chart.html">clarity chart</a> for those multipliers.</p>
-  </section>''',
+  </section>
+  <p class="small" style="margin-top:14px">We measured every one of these steps and what stepping back buys you: <a href="carat-cliff-study.html">the carat cliff</a>.</p>''',
   script=r'''
 (function(){
   const $=id=>document.getElementById(id); const money=n=>'$'+Math.round(n).toLocaleString('en-US');
@@ -517,6 +519,7 @@ PAGES['jewelry-price-index.html'] = index_page.page(faq)
 
 # ---------------------------------------------------------------- RESEARCH
 PAGES['diamond-fluorescence-study.html'] = study_fluorescence.page(faq)
+PAGES['carat-cliff-study.html'] = study_cliff.page(faq)
 
 # ---------------------------------------------------------------- TOOLS INDEX
 PAGES['tools.html'] = dict(
