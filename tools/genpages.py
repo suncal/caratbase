@@ -852,6 +852,8 @@ def build_diamonds():
 
     <h2>The price step just below {ctxt} carat</h2>
     {cliff}
+    <p class="small">We measured the step at every magic weight, and at the one carat line the saving is
+    large enough to buy two color grades: <a href="../../carat-cliff-study.html">the carat cliff</a>.</p>
 
     <h2>The same money, spent differently</h2>
     <p>At about {money(this_mid)}, these are the honest alternatives to this exact stone.</p>
