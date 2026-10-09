@@ -8,6 +8,7 @@ import gia
 import scrap
 import classring
 import index_page
+import study_fluorescence
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 ICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><polygon points='19.32,18.72 14,20.32 8.68,18.72 6.32,13.84 8.68,8.96 14,7.36 19.32,8.96 21.68,13.84' fill='%23C9A961' fill-opacity='.2' stroke='%23C9A961' stroke-width='1.4'/><polygon points='16.42,15.06 14,15.79 11.58,15.06 10.5,12.84 11.58,10.62 14,9.89 16.42,10.62 17.5,12.84' fill='%23C9A961' stroke='%238A6420'/></svg>"
 
@@ -373,7 +374,8 @@ PAGES['diamond-color-chart.html'] = dict(
     <h2>Which color to buy</h2>
     <p><strong>White gold or platinum:</strong> G or H. The metal is cold and white, so a warmer stone shows against it — but G and H do not. <strong>Yellow or rose gold:</strong> I or J. The metal warms every stone, so a colorless one gains nothing and a near-colorless one loses nothing. Spending on D–F in yellow gold is paying for a difference the setting erases.</p>
     <p><strong>Larger stones show more color</strong> because there is more material for light to travel through. Above 2 carats, go one grade higher than you would at 1 carat. <strong>Elongated shapes</strong> (oval, pear, marquise) concentrate color at the tips; step cuts (emerald, Asscher) hide less than brilliants. Fluorescence, listed on the certificate, can make an I–K stone look a grade whiter in daylight; it is a discount on the certificate and an upgrade on the hand.</p>
-  </section>''',
+  </section>
+  <p class="small" style="margin-top:14px">Fluorescence shifts these grades too, and not in the direction most people expect: see <a href="diamond-fluorescence-study.html">where fluorescence stops being a fault</a>.</p>''',
   script=r'''
 (function(){
   const $=id=>document.getElementById(id); const money=n=>'$'+Math.round(n).toLocaleString('en-US');
@@ -512,6 +514,9 @@ PAGES['class-ring-value-calculator.html'] = classring.page(faq)
 
 # ---------------------------------------------------------------- PRICE INDEX
 PAGES['jewelry-price-index.html'] = index_page.page(faq)
+
+# ---------------------------------------------------------------- RESEARCH
+PAGES['diamond-fluorescence-study.html'] = study_fluorescence.page(faq)
 
 # ---------------------------------------------------------------- TOOLS INDEX
 PAGES['tools.html'] = dict(

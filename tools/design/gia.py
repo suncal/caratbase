@@ -97,7 +97,7 @@ BODY = '''
     <p class="small" style="margin-top:14px">Effects above are typical retail adjustments on an otherwise identical stone, and the calculator applies them. Individual stones vary: a small minority of very strongly fluorescent diamonds look hazy or oily in daylight, which is discounted much harder than the table suggests. That is visible to the eye, so look at the stone.</p>
     <div class="panel" style="margin-top:20px">
       <div class="eyebrow">The number worth remembering</div>
-      <p style="margin-top:8px">A D color with strong blue fluorescence can price like a non-fluorescent stone several grades lower. If you are buying, that is the cheapest way to own a top color grade. If you are selling, it is the most common reason an offer comes in under what you expected.</p>
+      <p style="margin-top:8px">A D color with strong blue fluorescence can price like a non-fluorescent stone several grades lower. We put numbers against every color grade in a separate piece: <a href="diamond-fluorescence-study.html">where fluorescence stops being a fault</a>. If you are buying, that is the cheapest way to own a top color grade. If you are selling, it is the most common reason an offer comes in under what you expected.</p>
     </div>
   </section>
 
