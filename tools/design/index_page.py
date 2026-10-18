@@ -38,6 +38,16 @@ BODY = '''
     <div class="panel" id="ixChart" style="padding:22px"></div>
   </section>
 
+  <section class="section narrow">
+    <h2>If you want to own metal rather than sell it</h2>
+    <p>Everything else on this site is about what jewelry you already have is worth. If you are here for the
+    spot price because you are thinking about holding gold or silver instead, jewelry is an expensive way to do
+    it &mdash; you pay for the making and get paid only for the metal. Vaulted bullion bought close to spot is the
+    other end of that trade. This is a pointer, not a recommendation to buy: metal prices fall as well as rise,
+    as the chart above will eventually show.</p>
+    <div id="ixBullion" style="margin-top:14px"></div>
+  </section>
+
   <section class="section">
     <h2>Diamond price per carat</h2>
     <p class="small" style="margin-bottom:14px">Retail price per carat for a natural round brilliant at G color, VS2 clarity, before the color, clarity, cut and shape multipliers. Price per carat climbs with weight, which is why one large stone costs far more than two of half the size.</p>
@@ -180,6 +190,7 @@ SCRIPT = r'''
   });
 
   render(); chart();
+  if(typeof Partners !== 'undefined') Partners.mount('ixBullion', 'bullion', {});
   document.addEventListener('cb:spot', render);
 })();
 '''

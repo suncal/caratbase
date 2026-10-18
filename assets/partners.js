@@ -59,6 +59,17 @@ const PARTNERS = {
      note:'Insured shipping, pays on approval. Compare its offer against the figure above before accepting.'}
   ],
 
+  /* Owning metal rather than selling it. Only mounted on the price index: our gold
+     readers are overwhelmingly sellers (about 7 to 1 by search intent), and a "buy gold"
+     link on a scrap or karat page is noise to someone weighing a broken chain.
+     BullionVault pays 25% of its dealing commission (0.5% under $75k) and possibly storage.
+     To activate: aff = 'https://www.bullionvaultaffiliate.com/<username>/en_US'
+     (their email shows en_GB; confirm the US locale code when the account is set up). */
+  bullion: [
+    {name:'BullionVault',    url:'https://www.bullionvault.com',  aff:'',
+     note:'Buy physical gold and silver at close to spot and keep it in a professional vault — New York, Toronto, London, Zurich or Singapore. Around 0.5% to deal and 0.12% a year to store gold, published openly.'}
+  ],
+
   /* Colored stones — a report is often worth more than it costs. Not affiliate; these
      are simply the right places to send someone. */
   labs: [
