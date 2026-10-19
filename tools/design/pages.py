@@ -80,6 +80,7 @@ def shell(name, title, desc, eyebrow, h1, lede, body, script='', scripts=(), sch
 <link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="{ICON}">
 {schema_tag}{extra_head}
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "d15a5ec302b940da872c6f967c87f9ba"}}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 <header class="site-head"><div class="wrap head-in">
