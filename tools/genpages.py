@@ -1303,3 +1303,7 @@ def main():
 if __name__ == '__main__':
     print('Generating long-tail pages...\n')
     main()
+    # JARVIS pages: re-add sitemap-jarvis.xml to the index this just rewrote
+    jarvis = ROOT / 'jarvis_pages.py'
+    if jarvis.exists():
+        import runpy; runpy.run_path(str(jarvis), run_name='__main__')
