@@ -1,0 +1,31 @@
+# CaratBase
+
+> CaratBase is a free, independent jewelry valuation reference. It shows what a diamond, gemstone or piece of gold jewelry is actually worth — both the retail figure a jeweler would charge and the resale range you would realistically be offered when you sell. No account, no sign-up, $0.
+
+CaratBase does not buy or sell jewelry and is not a licensed appraiser. Figures are estimates for information, not an appraisal or an offer.
+
+## Tools
+- [Value my diamond & jewelry](https://caratbase.com/value.html): center stone, side stones and metal priced as a whole piece, with retail and resale.
+- [GIA report value](https://caratbase.com/gia-report-value.html): enter the grades from a grading report to get retail and resale, and see which grades cost the most.
+- [Gemstone values](https://caratbase.com/gemstone.html): ruby, sapphire, emerald, tanzanite and more; treatment matters more than size.
+- [Gold & metal prices](https://caratbase.com/metals.html): live spot per gram for every karat, refreshed automatically.
+- [Scrap gold calculator](https://caratbase.com/scrap-gold-calculator.html): melt value in grams, pennyweight or troy ounces and whether an offer is fair.
+- [Class ring value](https://caratbase.com/class-ring-value-calculator.html): check the stamp and weight for the real melt figure.
+- [Hallmark lookup](https://caratbase.com/stamp.html): what 925, 750, 585, GF, EPNS and other stamps mean.
+- [Diamond budget calculator](https://caratbase.com/budget.html): the biggest stone a budget buys, four ways, with resale.
+- [Compare two diamonds](https://caratbase.com/compare.html): size, price, resale and price per carat side by side.
+- [Lab-grown vs natural](https://caratbase.com/lab-vs-natural.html): cost today and value in five years.
+- [Ring size converter](https://caratbase.com/ring-size.html) and [Measure from a photo](https://caratbase.com/measure.html).
+- [My vault](https://caratbase.com/vault.html): saved pieces stay on the user's own device.
+
+## Reference
+- [Diamond price per carat](https://caratbase.com/diamond-price-per-carat.html), [color chart](https://caratbase.com/diamond-color-chart.html), [clarity chart](https://caratbase.com/diamond-clarity-chart.html), [carat size chart](https://caratbase.com/size.html)
+- [Birthstones by month](https://caratbase.com/birthstones.html), [Jewelry insurance cost](https://caratbase.com/insurance-cost.html), [Engagement ring budget](https://caratbase.com/engagement-ring-budget.html)
+- Long-tail pages: [diamonds by carat and shape](https://caratbase.com/diamond/), [ring sizes](https://caratbase.com/ring-size/), [hallmarks](https://caratbase.com/hallmark/), [gold by karat](https://caratbase.com/gold-price/), [gemstones](https://caratbase.com/gemstone/)
+
+## Method
+- [How we value](https://caratbase.com/methodology.html): per-carat curve with jumps at popular weights, multipliers for color, clarity, cut and shape against a G/VS2/Very Good round baseline, a lab-grown factor and an uncertified discount. Resale currently 25–40% of retail for natural diamonds and 5–12% for lab-grown.
+- Limits: a price model cannot see damage, fluorescence, brand or antique value. For insurance, probate or legal use, get a certified appraisal.
+
+## About
+- [About](https://caratbase.com/about.html) · [Free widgets](https://caratbase.com/widgets.html) · Contact: hello@caratbase.com
