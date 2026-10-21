@@ -1,0 +1,37 @@
+{
+ "path": "/independent-jeweler-marketing-leads/",
+ "title": "Independent Jeweler Marketing Leads",
+ "h1": "Independent Jeweler Marketing Leads",
+ "description": "CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers. First 3 leads are free, then $40 per accepted lead, with",
+ "html": "<h1>Independent Jeweler Marketing Leads</h1>\n<p>CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers. First 3 leads are free, then $40 per accepted lead, with an optional $29/month valuation widget for your website.</p>\n<h2>What you get</h2>\n<p>• First 3 leads free • $40 per accepted lead • $29/month valuation widget</p>\n<h2>Why CaratBase</h2>\n<p>Get high‑intent customers looking to sell gold, get an appraisal, or buy an engagement ring. Expand your reach in Atlanta and beyond with proven local leads.</p>\n<h2>FAQ</h2>\n<p><b>How do I get started with CaratBase?</b> Sign up on our website, receive your first 3 free leads, and start accepting leads at $40 each.</p>\n<p><b>What is the valuation widget?</b> An optional $29/month add‑on that lets visitors on your site request a free gold valuation.</p>\n<p><b>Next step:</b> Sign up now to receive your first 3 free leads and grow your local customer base.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I get started with CaratBase?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sign up on our website, receive your first 3 free leads, and start accepting leads at $40 each."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What is the valuation widget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An optional $29/month add‑on that lets visitors on your site request a free gold valuation."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "independent jeweler marketing leads"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "de2435d613",
+ "source": "seo"
+}
