@@ -1,0 +1,37 @@
+{
+ "path": "/atlanta-jewelry-appraisal-leads/",
+ "title": "Atlanta Jewelry Appraisal Leads",
+ "h1": "Atlanta Jewelry Appraisal Leads",
+ "description": "CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers in Atlanta. First three leads are free, then $40 per",
+ "html": "<h1>Atlanta Jewelry Appraisal Leads</h1>\n<p>CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers in Atlanta. First three leads are free, then $40 per accepted lead.</p>\n<h2>What you get</h2>\n<p>• First 3 leads free • $40 per accepted lead • Optional $29/month valuation widget</p>\n<h2>Why CaratBase</h2>\n<p>Get high‑quality, ready‑to‑sell prospects without the hassle of traditional marketing. Our leads are verified and local, ensuring a higher conversion rate for your business.</p>\n<h2>FAQ</h2>\n<p><b>How do I receive the leads?</b> Leads are delivered directly to your email or CRM via our integration system.</p>\n<p><b>Can I cancel the subscription?</b> Yes, you can cancel at any time with no long‑term commitment.</p>\n<p><b>Next step:</b> Sign up now to receive your first three free leads and start growing your Atlanta clientele.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How do I receive the leads?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Leads are delivered directly to your email or CRM via our integration system."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I cancel the subscription?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can cancel at any time with no long‑term commitment."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "atlanta jewelry appraisal leads"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "d964df7f4b",
+ "source": "seo"
+}
