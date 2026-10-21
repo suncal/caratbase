@@ -1,0 +1,37 @@
+{
+ "path": "/jewelry-lead-generation-services/",
+ "title": "CaratBase Jewelry Lead Generation Services – First 3 Leads Free",
+ "h1": "jewelry lead generation services",
+ "description": "CaratBase delivers verified local leads to independent jewellers, estate buyers, and appraisers looking for sellers of gold, appraisal requests, or",
+ "html": "<h1>jewelry lead generation services</h1>\n<p>CaratBase delivers verified local leads to independent jewellers, estate buyers, and appraisers looking for sellers of gold, appraisal requests, or engagement rings. The first three leads are free, then you pay $40 per accepted lead.</p>\n<h2>What you get</h2>\n<p>First 3 leads free; $40 per accepted lead thereafter; optional valuation widget for your website at $29/month</p>\n<h2>Why CaratBase</h2>\n<p>Leads are screened and verified, ensuring you only contact prospects ready to sell or buy. We start in Atlanta and are expanding to other metro areas, so you can grow with us.</p>\n<h2>FAQ</h2>\n<p><b>How are the leads verified?</b> CaratBase matches each inquiry to a local address and confirms intent before delivering the lead.</p>\n<p><b>Can I cancel the valuation widget anytime?</b> Yes, the $29/month widget can be paused or cancelled with no penalty.</p>\n<p><b>Next step:</b> Sign up now to claim your three free leads and start generating qualified jewelry sales opportunities.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How are the leads verified?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "CaratBase matches each inquiry to a local address and confirms intent before delivering the lead."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I cancel the valuation widget anytime?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, the $29/month widget can be paused or cancelled with no penalty."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "jewelry lead generation services"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "d76d3086ee",
+ "source": "seo"
+}
