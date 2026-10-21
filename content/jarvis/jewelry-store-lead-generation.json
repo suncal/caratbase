@@ -1,0 +1,37 @@
+{
+ "path": "/jewelry-store-lead-generation/",
+ "title": "Jewelry Store Lead Generation – Get Verified Local Leads",
+ "h1": "Jewelry Store Lead Generation",
+ "description": "CaratBase delivers verified local leads to independent jewellers, estate buyers, and appraisers looking for customers who want to sell gold, get",
+ "html": "<h1>Jewelry Store Lead Generation</h1>\n<p>CaratBase delivers verified local leads to independent jewellers, estate buyers, and appraisers looking for customers who want to sell gold, get appraisals, or buy engagement rings. The first three leads are free, then you pay $40 per accepted lead.</p>\n<h2>What you get</h2>\n<p>• First 3 leads free • $40 per accepted lead thereafter • Optional valuation widget for your website at $29/month</p>\n<h2>Why CaratBase</h2>\n<p>Leads are pre‑qualified and sourced from people actively searching for jewelry services in your metro area, ensuring higher conversion rates. CaratBase launches in Atlanta and scales to surrounding metros, giving you early‑market advantage.</p>\n<h2>FAQ</h2>\n<p><b>How are the leads verified?</b> Leads are screened through a short qualification process that confirms intent to sell, appraise, or purchase jewelry before they are delivered to you.</p>\n<p><b>Can I cancel the valuation widget at any time?</b> Yes, the $29/month widget subscription can be paused or cancelled month‑to‑month with no long‑term contract.</p>\n<p><b>Next step:</b> Sign up now to claim your three free leads and start growing your jewelry business.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How are the leads verified?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Leads are screened through a short qualification process that confirms intent to sell, appraise, or purchase jewelry before they are delivered to you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I cancel the valuation widget at any time?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, the $29/month widget subscription can be paused or cancelled month‑to‑month with no long‑term contract."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "jewelry store lead generation"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "df4c7cb558",
+ "source": "seo"
+}
