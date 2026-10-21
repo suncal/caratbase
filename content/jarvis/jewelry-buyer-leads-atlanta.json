@@ -1,0 +1,38 @@
+{
+ "path": "/jewelry-buyer-leads-atlanta/",
+ "title": "Jewelry Buyer Leads",
+ "h1": "Jewelry Buyer Leads Atlanta",
+ "description": "CaratBase delivers verified local leads to independent jewellers, estate buyers, and appraisers in Atlanta. The service provides people looking to sell",
+ "html": "<h1>Jewelry Buyer Leads Atlanta</h1>\n<p>CaratBase delivers verified local leads to independent jewellers, estate buyers, and appraisers in Atlanta. The service provides people looking to sell gold, get an appraisal, or buy an engagement ring with trusted local professionals.</p>\n<h2>What you get</h2>\n<p>First 3 leads free, $40 per accepted lead, optional valuation widget for $29/month</p>\n<h2>Why CaratBase</h2>\n<p>CaratBase helps independent jewellers and estate buyers find new customers and grow their business. By providing verified local leads, CaratBase saves time and increases sales opportunities.</p>\n<h2>FAQ</h2>\n<p><b>How much does the service cost?</b> First 3 leads are free, then $40 per accepted lead</p>\n<p><b>Is the valuation widget required?</b> No, the valuation widget is optional and costs $29/month</p>\n<p><b>Next step:</b> Sign up for CaratBase to start receiving verified jewelry buyer leads in Atlanta today</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How much does the service cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "First 3 leads are free, then $40 per accepted lead"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is the valuation widget required?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No, the valuation widget is optional and costs $29/month"
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "jewelry buyer leads atlanta",
+  "jewelry buyer lead service"
+ ],
+ "updated": "2026-10-21",
+ "draft_id": "de35ddca9a",
+ "source": "seo"
+}
