@@ -1,9 +1,9 @@
 {
  "path": "/engagement-ring-shopper-leads/",
- "title": "Get Verified Engagement Ring Shopper Leads",
+ "title": "Engagement Ring Shopper Leads",
  "h1": "Engagement Ring Shopper Leads",
- "description": "CaratBase delivers verified local leads to independent jewellers, estate buyers and appraisers. First 3 leads are free, then $40 per accepted lead.",
- "html": "<h1>Engagement Ring Shopper Leads</h1>\n<p>CaratBase delivers verified local leads to independent jewellers, estate buyers and appraisers. First 3 leads are free, then $40 per accepted lead.</p>\n<h2>What you get</h2>\n<p>• First 3 leads free • $40 per accepted lead • Optional $29/month valuation widget</p>\n<h2>Why CaratBase</h2>\n<p>Independent jewellers can focus on sales while CaratBase supplies ready‑to‑buy customers. The leads are locally verified, ensuring high conversion rates.</p>\n<h2>FAQ</h2>\n<p><b>How do I receive the leads?</b> Leads are delivered directly to your email or CRM via our API.</p>\n<p><b>Is there a minimum commitment?</b> No, you pay only for the leads you accept; the first 3 are free.</p>\n<p><b>Next step:</b> Sign up now to start receiving verified engagement ring shopper leads.</p>",
+ "description": "CaratBase sends engagement ring shopper leads to independent jewelers, estate buyers and appraisers. First 3 leads free, then $40 per accepted lead.",
+ "html": "<h1>Engagement Ring Shopper Leads</h1>\n<p>CaratBase sends engagement ring shopper leads to independent jewelers, estate buyers and appraisers. The first 3 leads are free, then $40 per accepted lead.</p>\n<h2>What you get</h2>\n<ul><li>First 3 leads free</li><li>$40 per accepted lead</li><li>Optional Pro website widget, $12/month</li></ul>\n<h2>Why CaratBase</h2>\n<p>Independent jewelers can focus on sales while CaratBase sends local engagement ring shoppers their way, starting in Atlanta.</p>\n<h2>FAQ</h2>\n<p><b>Is there a minimum commitment?</b> No. You pay only for the leads you accept; the first 3 are free.</p><p><b>How much does it cost?</b> The first 3 leads are free. After that, each accepted lead costs $40. A Pro website widget is optional at $12/month.</p>\n<h2>Next Step</h2><p>Learn more at <a href=\"https://caratbase.com\">caratbase.com</a>.</p>",
  "ld": [
   {
    "@context": "https://schema.org",
@@ -11,18 +11,18 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "How do I receive the leads?",
+     "name": "Is there a minimum commitment?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Leads are delivered directly to your email or CRM via our API."
+      "text": "No. You pay only for the leads you accept; the first 3 are free."
      }
     },
     {
      "@type": "Question",
-     "name": "Is there a minimum commitment?",
+     "name": "How much does it cost?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No, you pay only for the leads you accept; the first 3 are free."
+      "text": "The first 3 leads are free. After that, each accepted lead costs $40. A Pro website widget is optional at $12/month."
      }
     }
    ]

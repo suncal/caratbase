@@ -1,9 +1,9 @@
 {
  "path": "/local-jewelry-buyer-leads/",
- "title": "Get Verified Local Jewelry Buyer Leads – CaratBase",
+ "title": "Get Local Jewelry Buyer Leads – CaratBase",
  "h1": "Local Jewelry Buyer Leads",
- "description": "CaratBase connects independent jewellers with verified local buyers, sellers, and appraisers ready to trade gold, get appraisals, or purchase engagement",
- "html": "<h1>Local Jewelry Buyer Leads</h1>\n<p>CaratBase connects independent jewellers with verified local buyers, sellers, and appraisers ready to trade gold, get appraisals, or purchase engagement rings. Start with three free leads and only pay $40 for each accepted lead.</p>\n<h2>What you get</h2>\n<p>First 3 leads free; $40 per accepted lead; optional valuation widget for $29/month</p>\n<h2>Why CaratBase</h2>\n<p>Leads are screened and verified, ensuring you spend time only on serious prospects. Our Atlanta launch proves the model works, and we’re expanding to more metros.</p>\n<h2>FAQ</h2>\n<p><b>How are the leads verified?</b> CaratBase uses a combination of phone verification, address checks, and intent signals to confirm each prospect’s interest before delivering the lead.</p>\n<p><b>Can I cancel the valuation widget at any time?</b> Yes, the $29/month widget can be cancelled month‑to‑month with no early‑termination fees.</p>\n<p><b>Next step:</b> Sign up now to claim your three free local jewelry buyer leads.</p>",
+ "description": "CaratBase connects independent jewelers with local people looking to sell gold, get appraisals or buy engagement rings. First 3 free, then $40.",
+ "html": "<h1>Local Jewelry Buyer Leads</h1>\n<p>CaratBase connects independent jewelers with local people looking to sell gold, get appraisals, or buy engagement rings. The first 3 leads are free, then $40 per accepted lead.</p>\n<h2>What you get</h2>\n<p>First 3 leads free; $40 per accepted lead; optional Pro website widget for $12/month</p>\n<h2>Why CaratBase</h2>\n<p>CaratBase is starting in Atlanta and plans to expand to more metros.</p>\n<h2>FAQ</h2>\n<p><b>How much does it cost?</b> The first 3 leads are free. After that, each accepted lead costs $40. A Pro website widget is optional at $12/month.</p><p><b>Can I cancel the Pro widget at any time?</b> Yes. The Pro widget can be cancelled whenever, and it drops back to the free version.</p>\n<h2>Next Step</h2><p>Learn more at <a href=\"https://caratbase.com\">caratbase.com</a>.</p>",
  "ld": [
   {
    "@context": "https://schema.org",
@@ -11,18 +11,18 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "How are the leads verified?",
+     "name": "How much does it cost?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "CaratBase uses a combination of phone verification, address checks, and intent signals to confirm each prospect’s interest before delivering the lead."
+      "text": "The first 3 leads are free. After that, each accepted lead costs $40. A Pro website widget is optional at $12/month."
      }
     },
     {
      "@type": "Question",
-     "name": "Can I cancel the valuation widget at any time?",
+     "name": "Can I cancel the Pro widget at any time?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, the $29/month widget can be cancelled month‑to‑month with no early‑termination fees."
+      "text": "Yes. The Pro widget can be cancelled whenever, and it drops back to the free version."
      }
     }
    ]

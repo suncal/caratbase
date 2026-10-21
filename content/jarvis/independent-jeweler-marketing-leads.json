@@ -2,8 +2,8 @@
  "path": "/independent-jeweler-marketing-leads/",
  "title": "Independent Jeweler Marketing Leads",
  "h1": "Independent Jeweler Marketing Leads",
- "description": "CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers. First 3 leads are free, then $40 per accepted lead, with",
- "html": "<h1>Independent Jeweler Marketing Leads</h1>\n<p>CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers. First 3 leads are free, then $40 per accepted lead, with an optional $29/month valuation widget for your website.</p>\n<h2>What you get</h2>\n<p>• First 3 leads free • $40 per accepted lead • $29/month valuation widget</p>\n<h2>Why CaratBase</h2>\n<p>Get high‑intent customers looking to sell gold, get an appraisal, or buy an engagement ring. Expand your reach in Atlanta and beyond with proven local leads.</p>\n<h2>FAQ</h2>\n<p><b>How do I get started with CaratBase?</b> Sign up on our website, receive your first 3 free leads, and start accepting leads at $40 each.</p>\n<p><b>What is the valuation widget?</b> An optional $29/month add‑on that lets visitors on your site request a free gold valuation.</p>\n<p><b>Next step:</b> Sign up now to receive your first 3 free leads and grow your local customer base.</p>",
+ "description": "CaratBase sends leads to independent jewelers, estate buyers and appraisers. First 3 leads free, then $40 per accepted lead, with an optional $12/month Pro widget.",
+ "html": "<h1>Independent Jeweler Marketing Leads</h1>\n<p>CaratBase sends leads to independent jewelers, estate buyers, and appraisers. The first 3 leads are free, then $40 per accepted lead. A Pro website widget is optional at $12/month.</p>\n<h2>What you get</h2>\n<ul><li>First 3 leads free</li><li>$40 per accepted lead</li><li>Optional Pro website widget, $12/month</li></ul>\n<h2>Why CaratBase</h2>\n<p>Leads come from people looking to sell gold, get an appraisal, or buy an engagement ring. CaratBase is starting in Atlanta, with other metros planned.</p>\n<h2>FAQ</h2>\n<p><b>How do I get started with CaratBase?</b> Visit caratbase.com. The first 3 leads are free, then each accepted lead costs $40.</p><p><b>What is the Pro website widget?</b> An optional $12/month widget for your website. Free widgets are also available on the widgets page.</p>\n<h2>Next Step</h2><p>Learn more at <a href=\"https://caratbase.com\">caratbase.com</a>.</p>",
  "ld": [
   {
    "@context": "https://schema.org",
@@ -14,15 +14,15 @@
      "name": "How do I get started with CaratBase?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Sign up on our website, receive your first 3 free leads, and start accepting leads at $40 each."
+      "text": "Visit caratbase.com. The first 3 leads are free, then each accepted lead costs $40."
      }
     },
     {
      "@type": "Question",
-     "name": "What is the valuation widget?",
+     "name": "What is the Pro website widget?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "An optional $29/month add‑on that lets visitors on your site request a free gold valuation."
+      "text": "An optional $12/month widget for your website. Free widgets are also available on the widgets page."
      }
     }
    ]

@@ -2,8 +2,8 @@
  "path": "/atlanta-jewelry-appraisal-leads/",
  "title": "Atlanta Jewelry Appraisal Leads",
  "h1": "Atlanta Jewelry Appraisal Leads",
- "description": "CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers in Atlanta. First three leads are free, then $40 per",
- "html": "<h1>Atlanta Jewelry Appraisal Leads</h1>\n<p>CaratBase delivers verified local leads to independent jewelers, estate buyers, and appraisers in Atlanta. First three leads are free, then $40 per accepted lead.</p>\n<h2>What you get</h2>\n<p>• First 3 leads free • $40 per accepted lead • Optional $29/month valuation widget</p>\n<h2>Why CaratBase</h2>\n<p>Get high‑quality, ready‑to‑sell prospects without the hassle of traditional marketing. Our leads are verified and local, ensuring a higher conversion rate for your business.</p>\n<h2>FAQ</h2>\n<p><b>How do I receive the leads?</b> Leads are delivered directly to your email or CRM via our integration system.</p>\n<p><b>Can I cancel the subscription?</b> Yes, you can cancel at any time with no long‑term commitment.</p>\n<p><b>Next step:</b> Sign up now to receive your first three free leads and start growing your Atlanta clientele.</p>",
+ "description": "CaratBase sends local leads to independent jewelers, estate buyers and appraisers in Atlanta. First 3 leads free, then $40 per accepted lead.",
+ "html": "<h1>Atlanta Jewelry Appraisal Leads</h1>\n<p>CaratBase sends local leads to independent jewelers, estate buyers, and appraisers in Atlanta. The first 3 leads are free, then $40 per accepted lead.</p>\n<h2>What you get</h2>\n<ul><li>First 3 leads free</li><li>$40 per accepted lead</li><li>Optional Pro website widget, $12/month</li></ul>\n<h2>Why CaratBase</h2>\n<p>Independent jewelers can get appraisal and gold-sale inquiries from the Atlanta area without running their own advertising.</p>\n<h2>FAQ</h2>\n<p><b>How much does it cost?</b> The first 3 leads are free. After that, each accepted lead costs $40. A Pro website widget is optional at $12/month.</p><p><b>Is CaratBase only in Atlanta?</b> CaratBase is starting in Atlanta and plans to expand to other metros.</p>\n<h2>Next Step</h2><p>Learn more at <a href=\"https://caratbase.com\">caratbase.com</a>.</p>",
  "ld": [
   {
    "@context": "https://schema.org",
@@ -11,18 +11,18 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "How do I receive the leads?",
+     "name": "How much does it cost?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Leads are delivered directly to your email or CRM via our integration system."
+      "text": "The first 3 leads are free. After that, each accepted lead costs $40. A Pro website widget is optional at $12/month."
      }
     },
     {
      "@type": "Question",
-     "name": "Can I cancel the subscription?",
+     "name": "Is CaratBase only in Atlanta?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes, you can cancel at any time with no long‑term commitment."
+      "text": "CaratBase is starting in Atlanta and plans to expand to other metros."
      }
     }
    ]
