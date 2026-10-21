@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://caratbase.com/sitemap-core.xml</loc><lastmod>2026-10-20</lastmod></sitemap>
-  <sitemap><loc>https://caratbase.com/sitemap-ring-size.xml</loc><lastmod>2026-10-20</lastmod></sitemap>
-  <sitemap><loc>https://caratbase.com/sitemap-hallmark.xml</loc><lastmod>2026-10-20</lastmod></sitemap>
-  <sitemap><loc>https://caratbase.com/sitemap-gold-price.xml</loc><lastmod>2026-10-20</lastmod></sitemap>
-  <sitemap><loc>https://caratbase.com/sitemap-diamond.xml</loc><lastmod>2026-10-20</lastmod></sitemap>
-  <sitemap><loc>https://caratbase.com/sitemap-gemstone.xml</loc><lastmod>2026-10-20</lastmod></sitemap>
+  <sitemap><loc>https://caratbase.com/sitemap-core.xml</loc><lastmod>2026-10-21</lastmod></sitemap>
+  <sitemap><loc>https://caratbase.com/sitemap-ring-size.xml</loc><lastmod>2026-10-21</lastmod></sitemap>
+  <sitemap><loc>https://caratbase.com/sitemap-hallmark.xml</loc><lastmod>2026-10-21</lastmod></sitemap>
+  <sitemap><loc>https://caratbase.com/sitemap-gold-price.xml</loc><lastmod>2026-10-21</lastmod></sitemap>
+  <sitemap><loc>https://caratbase.com/sitemap-diamond.xml</loc><lastmod>2026-10-21</lastmod></sitemap>
+  <sitemap><loc>https://caratbase.com/sitemap-gemstone.xml</loc><lastmod>2026-10-21</lastmod></sitemap>
   <!-- jarvis --><sitemap><loc>https://caratbase.com/sitemap-jarvis.xml</loc><lastmod>2026-10-21</lastmod></sitemap><!-- /jarvis -->
 </sitemapindex>
