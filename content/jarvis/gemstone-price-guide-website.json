@@ -1,0 +1,29 @@
+{
+ "path": "/gemstone-price-guide-website/",
+ "title": "Gemstone Price Guide Website",
+ "h1": "Gemstone Price Guide Website",
+ "description": "You can use CaratBase as a gemstone price guide website to value your gemstones and jewelry. On this site, you can access various tools, including a",
+ "html": "<h1>Gemstone Price Guide Website</h1>\n<p>You can use CaratBase as a gemstone price guide website to value your gemstones and jewelry. On this site, you can access various tools, including a gemstone price guide, to help you determine the value of your gemstones.</p>\n<h2>How it Works for Gemstone Pricing</h2>\n<p>To use the gemstone price guide on CaratBase, you can visit the gemstone page and select the type of gemstone you want to value. CaratBase has a database of 21 gem types and 250+ reference pages to help you determine the value of your gemstone. You can also use other tools, such as the gold and metal prices calculator, to get a more accurate estimate.</p>\n<h2>What You Get and Costs</h2>\n<p>CaratBase offers free diamond, gold, and jewelry calculators, including the gemstone price guide, at no cost ($0). Additionally, CaratBase provides widgets, including a ring sizer and diamond size chart, for free with a 'Powered by CaratBase' line. For a custom widget without attribution, you can upgrade to Widget Pro for $12/month per domain.</p>\n<h2>FAQ</h2>\n<p><b>What is the resale value of a natural diamond?</b> The resale value of a natural diamond is roughly 25-40% of retail. <b>Can I use CaratBase to value lab-grown diamonds?</b> Yes, CaratBase can be used to value lab-grown diamonds, with a resale value of roughly 5-12% of retail. <b>How many ring sizes are available on CaratBase?</b> CaratBase has 37 ring sizes available in 5 systems.</p>\n<p><a href=\"/gemstone.html\">Get started with the gemstone price guide</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the resale value of a natural diamond?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The resale value of a natural diamond is roughly 25-40% of retail. **Can I use CaratBase to value lab-grown diamonds?** Yes, CaratBase can be used to value lab-grown diamonds, with a resale value of roughly 5-12% of retail. **How many ring sizes are available on CaratBase?** CaratBase has 37 ring sizes available in 5 systems."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "gemstone price guide website"
+ ],
+ "updated": "2026-10-25",
+ "draft_id": "d7d8ef046e",
+ "source": "seo"
+}
