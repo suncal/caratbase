@@ -1,0 +1,29 @@
+{
+ "path": "/diamond-comparison-website/",
+ "title": "Diamond Comparison Website",
+ "h1": "Diamond Comparison Website",
+ "description": "You're looking for a diamond comparison website to help you make an informed decision when buying or selling diamonds. On this site, you can use various",
+ "html": "<h1>Diamond Comparison Website</h1>\n<p>You're looking for a diamond comparison website to help you make an informed decision when buying or selling diamonds. On this site, you can use various tools to compare diamonds, estimate their value, and research market prices, all for free, with no account required.</p>\n<h2>How to Compare Diamonds</h2>\n<p>To compare diamonds, you can use the diamond comparison tool, which allows you to input parameters such as carat weight, cut, color, and clarity. You can also use the GIA report value tool to estimate the value of a diamond based on its GIA report. Additionally, you can research market prices for natural and lab-grown diamonds, with resale values ranging from 25-40% and 5-12% of retail, respectively.</p>\n<h2>What You Get</h2>\n<p>On this site, you get access to over 250 reference pages, 37 ring sizes in 5 systems, and information on 21 gem types. You can also use the widgets, such as the ring sizer and diamond size chart, for free, with a 'Powered by CaratBase' attribution, or upgrade to Widget Pro for $12/month per domain.</p>\n<h2>FAQ</h2>\n<p><b>What is the resale value of a diamond?</b> The resale value of a natural diamond is roughly 25-40% of retail, while lab-grown diamonds have a resale value of around 5-12%. <b>Can I use the tools for free?</b> Yes, all the tools on this site are free to use, with no account required. <b>How many ring sizes are available?</b> There are 37 ring sizes available in 5 systems.</p>\n<p><a href=\"/compare.html\">Start comparing diamonds now</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the resale value of a diamond?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The resale value of a natural diamond is roughly 25-40% of retail, while lab-grown diamonds have a resale value of around 5-12%. **Can I use the tools for free?** Yes, all the tools on this site are free to use, with no account required. **How many ring sizes are available?** There are 37 ring sizes available in 5 systems."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "diamond comparison website"
+ ],
+ "updated": "2026-10-25",
+ "draft_id": "d5e0723932",
+ "source": "seo"
+}
