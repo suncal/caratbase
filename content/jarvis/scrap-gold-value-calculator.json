@@ -1,0 +1,29 @@
+{
+ "path": "/scrap-gold-value-calculator/",
+ "title": "Scrap Gold Value Calculator",
+ "h1": "Scrap Gold Value Calculator",
+ "description": "You can use the scrap gold value calculator on this site to determine the value of your scrap gold. The calculator uses a price model to estimate the",
+ "html": "<h1>Scrap Gold Value Calculator</h1>\n<p>You can use the scrap gold value calculator on this site to determine the value of your scrap gold. The calculator uses a price model to estimate the value of your scrap gold based on its weight, purity, and current gold prices.</p>\n<h2>How it Works</h2>\n<p>The calculator is free to use, with no account or payment required, at $0 cost. You can enter the details of your scrap gold to get an estimate of its value.</p>\n<h2>Tools and Resources</h2>\n<p>This site offers a range of tools, including diamond and jewelry calculators, gemstone and metal price guides, and a hallmark lookup tool. You can also access 250+ reference pages and use the calculator to estimate the value of 21 gem types.</p>\n<h2>FAQ</h2>\n<p><b>What is the value of my scrap gold?</b> The value of your scrap gold depends on its weight, purity, and current gold prices. <b>Is the calculator an appraisal?</b> No, the calculator is not an appraisal and does not buy or sell jewelry. <b>Can I use the calculator for other types of jewelry?</b> Yes, the site also offers calculators for diamonds, jewelry, and other types of gemstones.</p>\n<p>Now that you know how the scrap gold value calculator works, you can use it to estimate the value of your scrap gold. Click <a href=\"https://caratbase.com/scrap-gold-value-calculator/\">here</a> to access the calculator and start estimating the value of your scrap gold.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the value of my scrap gold?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The value of your scrap gold depends on its weight, purity, and current gold prices. **Is the calculator an appraisal?** No, the calculator is not an appraisal and does not buy or sell jewelry. **Can I use the calculator for other types of jewelry?** Yes, the site also offers calculators for diamonds, jewelry, and other types of gemstones."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "scrap gold value calculator"
+ ],
+ "updated": "2026-10-26",
+ "draft_id": "d7156e4150",
+ "source": "seo"
+}
