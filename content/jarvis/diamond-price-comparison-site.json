@@ -1,0 +1,29 @@
+{
+ "path": "/diamond-price-comparison-site/",
+ "title": "Diamond Price Comparison Site",
+ "h1": "Diamond Price Comparison Site",
+ "description": "You're looking for a reliable diamond price comparison site to help you make an informed decision, and CaratBase is here to provide you with the tools you",
+ "html": "<h1>Diamond Price Comparison Site</h1>\n<p>You're looking for a reliable diamond price comparison site to help you make an informed decision, and CaratBase is here to provide you with the tools you need. On this site, you can use various calculators to compare diamond prices, value your jewelry, and get an estimate of its worth.</p>\n<h2>How it Works for Diamond Price Comparison</h2>\n<p>To compare diamond prices, you can use the diamond value calculator, which provides an estimate based on a price model. You can also use the GIA report value tool to get an idea of your diamond's worth. Additionally, you can compare diamonds using the compare diamonds tool, which allows you to input different characteristics and see how they affect the price. The site also offers information on lab-grown diamonds, which typically resale for 5-12% of retail, and natural diamonds, which resale for roughly 25-40% of retail.</p>\n<h2>What You Get and What it Costs</h2>\n<p>The diamond price comparison tools on CaratBase are free to use, with no payment required. The site offers 250+ reference pages, 37 ring sizes in 5 systems, and information on 21 gem types. For jewelers, the site also offers widgets, including a ring sizer and diamond size chart, which can be used for free with a 'Powered by CaratBase' line, or as Widget Pro for $12/month per domain.</p>\n<h2>FAQ</h2>\n<p><b>What is the resale value of a diamond?</b> The resale value of a diamond is roughly 25-40% of retail for natural diamonds and 5-12% for lab-grown diamonds. <b>Can I use the site's tools for free?</b> Yes, the diamond price comparison tools on CaratBase are free to use. <b>Are the site's estimates accurate?</b> The figures come from a price model, but the site is not an appraisal and does not buy or sell jewelry, so the estimates should not be taken as a professional assessment.</p>\n<p>Next, you can start using the diamond price comparison tools on CaratBase to get an estimate of your diamond's worth and make an informed decision. <a href=\"/\">Get started with diamond price comparison</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the resale value of a diamond?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The resale value of a diamond is roughly 25-40% of retail for natural diamonds and 5-12% for lab-grown diamonds. **Can I use the site's tools for free?** Yes, the diamond price comparison tools on CaratBase are free to use. **Are the site's estimates accurate?** The figures come from a price model, but the site is not an appraisal and does not buy or sell jewelry, so the estimates should not be taken as a professional assessment."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "diamond price comparison site"
+ ],
+ "updated": "2026-10-26",
+ "draft_id": "d6752eeb65",
+ "source": "seo"
+}
