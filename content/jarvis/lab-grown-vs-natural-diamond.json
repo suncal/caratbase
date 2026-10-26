@@ -1,0 +1,46 @@
+{
+ "path": "/lab-grown-vs-natural-diamond/",
+ "title": "Lab Grown vs Natural Diamond",
+ "h1": "Lab Grown vs Natural Diamond",
+ "description": "Lab‑grown and natural diamonds differ in price and resale value. Use CaratBase to compare them instantly and see how much each could be worth.",
+ "html": "<h1>Lab Grown vs Natural Diamond</h1>\n<p>Lab‑grown and natural diamonds differ in price and resale value. Use CaratBase to compare them instantly and see how much each could be worth.</p>\n<h2>How it works for a lab‑grown vs natural diamond comparison</h2>\n<ol><li>Open the <b>Lab Grown vs Natural Diamond</b> page.</li><li>Enter the carat, cut, color, and clarity for the diamond you want to compare.</li><li>Click “Compare” to see the retail price, resale range (5‑12% for lab‑grown, 25‑40% for natural), and the value difference.</li><li>Review the charts and tables that explain the price model and market trends.</li><li>Save the comparison to your <b>My Vault</b> on your device for later reference.</li></ol>\n<h2>What you get / what it costs / limits</h2>\n<ul><li>Free use of the calculator – no account required.</li><li>250+ reference pages, 37 ring sizes in 5 systems, 21 gem types.</li><li>No licensing or appraisal services; just a price model.</li><li>Widgets (ring sizer, diamond size chart, gold calculator) available for free with a “Powered by CaratBase” line.</li><li>Widget Pro: $12/month per domain – no attribution, custom call to action.</li><li>Leads for independent jewelers: first 3 free, then $40 per accepted lead (Atlanta only).</li></ul>\n<h2>FAQ</h2>\n<p><b>Question?</b> How accurate is the resale estimate? The resale ranges are based on market data: 25‑40% for natural diamonds and 5‑12% for lab‑grown.</p>\n<p><b>Question?</b> Do I need to create an account to use the calculator? No. The tool is free and works without an account.</p>\n<p><b>Question?</b> Can I use the calculator on my website? Yes. Embed the free widgets or upgrade to Widget Pro for a branded experience.</p>\n<p><a href=\"https://caratbase.com/lab-grown-vs-natural-diamond/\">Start comparing your diamond today</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "How accurate is the resale estimate? The resale ranges are based on market data: 25‑40% for natural diamonds and 5‑12% for lab‑grown."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Do I need to create an account to use the calculator? No. The tool is free and works without an account."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Can I use the calculator on my website? Yes. Embed the free widgets or upgrade to Widget Pro for a branded experience."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "lab grown vs natural diamond",
+  "lab grown diamond value calculator"
+ ],
+ "updated": "2026-10-26",
+ "draft_id": "d6a2ec843d",
+ "source": "seo"
+}
