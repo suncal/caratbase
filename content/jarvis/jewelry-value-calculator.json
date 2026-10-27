@@ -1,0 +1,45 @@
+{
+ "path": "/jewelry-value-calculator/",
+ "title": "Jewelry Value Calculator",
+ "h1": "Jewelry Value Calculator",
+ "description": "You can use the jewelry value calculator on this site to estimate the value of your diamond, gold, or jewelry. To get started, simply select the type of",
+ "html": "<h1>Jewelry Value Calculator</h1>\n<p>You can use the jewelry value calculator on this site to estimate the value of your diamond, gold, or jewelry. To get started, simply select the type of item you want to value and enter its details, such as carat weight, metal type, and gemstone, and you will get an estimated value based on a price model.</p>\n<h2>How it Works for Valuing Jewelry</h2>\n<p>To value your jewelry, you can use the various tools available on this site, including the diamond value calculator, GIA report value calculator, and gemstone calculator. You can also check the current prices of gold and other metals, and use the scrap gold calculator to determine the value of your old or broken jewelry. The site also provides a vault to save your items and compare different diamonds.</p>\n<h2>What You Get and What it Costs</h2>\n<p>The jewelry value calculator and other tools on this site are free to use, with no account or payment required. For jewelers, the site also offers widgets, including a ring sizer and gold calculator, which can be used for free with a 'Powered by CaratBase' attribution, or for $12/month per domain without attribution.</p>\n<h2>FAQ</h2>\n<p><b>What is the resale value of a diamond?</b> The resale value of a natural diamond is roughly 25-40% of its retail value, while lab-grown diamonds typically resell for 5-12% of their retail value. <b>Can I save my calculations?</b> Yes, you can save your items in the vault on your device. <b>Are the calculations accurate?</b> The figures come from a price model and are not a licensed appraisal, but the site provides 250+ reference pages and data on 21 gem types and 37 ring sizes in 5 systems to help you make an informed estimate.</p>\n<p><a href=\"https://caratbase.com/value.html\">Get started with the jewelry value calculator</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the resale value of a diamond?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The resale value of a natural diamond is roughly 25-40% of its retail value, while lab-grown diamonds typically resell for 5-12% of their retail value."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I save my calculations?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can save your items in the vault on your device."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are the calculations accurate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The figures come from a price model and are not a licensed appraisal, but the site provides 250+ reference pages and data on 21 gem types and 37 ring sizes in 5 systems to help you make an informed estimate."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "jewelry value calculator"
+ ],
+ "updated": "2026-10-27",
+ "draft_id": "d24b34063e",
+ "source": "seo"
+}
