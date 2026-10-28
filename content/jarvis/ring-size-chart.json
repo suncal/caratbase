@@ -1,0 +1,45 @@
+{
+ "path": "/ring-size-chart/",
+ "title": "Ring Size Chart – Find Your Exact Ring Size Quickly",
+ "h1": "Ring Size Chart – Find Your Exact Ring Size Quickly",
+ "description": "The free ring‑size chart shows 37 sizes in 5 systems. Use the on‑page widget to confirm your size.",
+ "html": "<h1>Ring Size Chart – Find Your Exact Ring Size Quickly</h1>\n<p>The free ring‑size chart shows 37 sizes in 5 systems. Use the on‑page widget to confirm your size.</p>\n<h2>How to Use the Chart</h2>\n<ol><li>Open the <b>Ring Size</b> page.</li><li>Pick the sizing system you use (U.S., UK, European, Japanese, or Chinese).</li><li>Compare your finger or an existing ring to the chart.</li><li>For extra precision, click the <b>Ring‑Sizer widget</b> on the page to measure directly.</li></ol>\n<h2>What You Get</h2>\n<ul><li>Free chart with <b>37 ring sizes</b> in <b>5 systems</b>.</li><li>No account or payment needed – the tool is <b>$0</b>.</li><li>Part of a library of <b>250+ reference pages</b> (gemstone, metal, and diamond calculators).</li><li>The free widget shows “Powered by CaratBase”.</li><li>Save your size on your device with <b>My Vault</b> at no cost.</li></ul>\n<h2>FAQ</h2>\n<p><b>How accurate is the chart for different countries?</b> It lists exact conversions for U.S., UK, European, Japanese, and Chinese sizes, so you can trust the numbers for those systems.</p>\n<p><b>Can I save my size for later?</b> Yes. Use <b>My Vault</b> to store the size on your device without any cost.</p>\n<p><b>Is this an official appraisal of my ring?</b> No. The chart and widget provide sizing information only; they are not a licensed appraisal and do not buy or sell jewelry.</p>\n<p><b>What if I need a custom widget for my jeweler site?</b> Upgrade to <b>Widget Pro</b> for <b>$12 / month per domain</b>. It removes the attribution line and adds a custom call‑to‑action.</p>\n<p><b>Where can I see other jewelry calculators?</b> Explore the full toolbox at <b><a href=\"/\">CaratBase Tools</a></b>, including diamond value, gold price, and gemstone calculators.</p>\n<p>---</p>\n<p><b>Next step:</b> View the full ring‑size chart and start measuring → <a href=\"/ring-size.html\">Ring Size Chart</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How accurate is the chart for different countries?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It lists exact conversions for U.S., UK, European, Japanese, and Chinese sizes, so you can trust the numbers for those systems."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I save my size for later?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Use **My Vault** to store the size on your device without any cost."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is this an official appraisal of my ring?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The chart and widget provide sizing information only; they are not a licensed appraisal and do not buy or sell jewelry."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "ring size chart"
+ ],
+ "updated": "2026-10-28",
+ "draft_id": "dc7d6c2a93",
+ "source": "seo"
+}
