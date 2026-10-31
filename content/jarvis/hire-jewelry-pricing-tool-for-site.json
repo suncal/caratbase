@@ -1,0 +1,45 @@
+{
+ "path": "/hire-jewelry-pricing-tool-for-site/",
+ "title": "Hire jewelry pricing tool for site",
+ "h1": "Hire jewelry pricing tool for site",
+ "description": "You can embed CaratBase’s free diamond, gold and jewelry calculators on your website. The widget works without an account and costs nothing to add.",
+ "html": "<h1>Hire jewelry pricing tool for site</h1>\n<p>You can embed CaratBase’s free diamond, gold and jewelry calculators on your website. The widget works without an account and costs nothing to add.</p>\n<h2>How to add the widget</h2>\n<ol><li>Go to the <b>Widgets</b> page and choose the calculator you need (diamond value, metal price, ring‑size lookup, etc.).</li><li>Copy the embed code shown for that tool.</li><li>Paste the code into the HTML of the page where you want the calculator to appear.</li><li>The tool loads instantly with a “Powered by CaratBase” line and begins providing estimates.</li></ol>\n<h2>What you receive</h2>\n<ul><li>Free access to all calculators, with no user accounts or hidden fees.</li><li>More than 250 reference pages, 37 ring sizes across 5 sizing systems, and information on 21 gemstone types.</li><li>An optional <b>Widget Pro</b> upgrade for <b>$12 / month per domain</b> that removes the attribution line and routes inquiries directly to you.</li></ul>\n<p>The calculator shows an estimated resale value based on the data you enter, such as GIA report number, weight, cut, or metal type. It does not buy or sell jewelry.</p>\n<h2>FAQ</h2>\n<p><b>Do I need to create an account or pay for the basic widget?</b> No. The standard widgets are free and require no registration.</p>\n<p><b>Can the widget provide an official appraisal?</b> No. The values are estimates from CaratBase’s price model and are not a licensed appraisal.</p>\n<p><b>What does Widget Pro change?</b> For $12 per month per domain, the “Powered by CaratBase” line is removed and any inquiry is sent straight to the contact information you provide.</p>\n<h2>Next step</h2>\n<p>Add a free CaratBase jewelry pricing widget to your site today by visiting the <b><a href=\"/widgets.html\">Widgets page</a></b> and copying the embed code you need.</p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need to create an account or pay for the basic widget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The standard widgets are free and require no registration."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can the widget provide an official appraisal?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The values are estimates from CaratBase’s price model and are not a licensed appraisal."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does Widget Pro change?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For $12 per month per domain, the “Powered by CaratBase” line is removed and any inquiry is sent straight to the contact information you provide."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "hire jewelry pricing tool for site"
+ ],
+ "updated": "2026-10-31",
+ "draft_id": "da44f12ee5",
+ "source": "seo"
+}
