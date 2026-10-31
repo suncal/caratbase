@@ -1,0 +1,45 @@
+{
+ "path": "/order-custom-jewelry-widget/",
+ "title": "Order Custom Jewelry Widget",
+ "h1": "Order Custom Jewelry Widget",
+ "description": "Get a ready‑to‑use jewelry calculator for your site. No account, no setup fee, just a simple embed that shows your customers how much a piece is worth.",
+ "html": "<h1>Order Custom Jewelry Widget</h1>\n<p>Get a ready‑to‑use jewelry calculator for your site. No account, no setup fee, just a simple embed that shows your customers how much a piece is worth.</p>\n<h2>How it works for a jewelry retailer</h2>\n<ol><li>Visit the <b>Order Custom Jewelry Widget</b> page.</li><li>Choose the calculator type (diamond, gold, ring size, etc.).</li><li>Copy the single line of code.</li><li>Paste it into your website’s HTML where you want the widget to appear.</li><li>Your visitors can now instantly see values, sizes, or prices without leaving your site.</li></ol>\n<h2>What you get / what it costs</h2>\n<ul><li>Free widgets with a “Powered by CaratBase” line.</li><li>Pro widgets (no attribution, custom call‑to‑action button, inquiries go straight to you) at <b>$12/month per domain</b>.</li><li>No hidden fees.</li><li>No need for a user account or special software.</li></ul>\n<h2>FAQ</h2>\n<p><b>Question?</b> *Can I use the widget on any website?* Yes. The code works on any HTML‑based site.</p>\n<p><b>Question?</b> *Do I need to pay for each visitor?* No. The cost is a flat monthly fee; each visitor is free.</p>\n<p><b>Question?</b> *What happens if I want a custom look?* The Pro widget lets you add a custom call‑to‑action button and removes the attribution line.</p>\n<p>Ready to give your customers instant value? <a href=\"https://caratbase.com/order-custom-jewelry-widget/\">Order your custom jewelry widget now</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Can I use the widget on any website?* Yes. The code works on any HTML‑based site."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Do I need to pay for each visitor?* No. The cost is a flat monthly fee; each visitor is free."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*What happens if I want a custom look?* The Pro widget lets you add a custom call‑to‑action button and removes the attribution line."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "order custom jewelry widget"
+ ],
+ "updated": "2026-10-31",
+ "draft_id": "d3a539af1b",
+ "source": "seo"
+}
