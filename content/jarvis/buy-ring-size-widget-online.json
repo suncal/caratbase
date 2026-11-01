@@ -1,0 +1,45 @@
+{
+ "path": "/buy-ring-size-widget-online/",
+ "title": "Buy a Ring Size Widget Online",
+ "h1": "Buy a Ring Size Widget Online",
+ "description": "You can add a ring‑sizer widget to your site for $12/month. The free version shows a “Powered by CaratBase” line; the Pro version removes it and lets you",
+ "html": "<h1>Buy a Ring Size Widget Online</h1>\n<p>You can add a ring‑sizer widget to your site for $12/month. The free version shows a “Powered by CaratBase” line; the Pro version removes it and lets you add a custom call‑to‑action button.</p>\n<h2>How to Get the Widget</h2>\n<ol><li>Visit the <b>Widgets</b> page.</li><li>Select “Ring Sizer.”</li><li>Choose the $12/month plan.</li><li>Copy the short code that appears.</li><li>Paste the code into any page of your website where you want the ring‑sizer to appear.</li></ol>\n<p>The widget can be used on any number of pages. Inquiries are routed to the contact details you provide on the site.</p>\n<h2>What You Receive</h2>\n<ul><li>$12/month per domain.</li><li>No attribution line with the Pro version.</li><li>Custom call‑to‑action button.</li><li>The widget works on any page of your website.</li></ul>\n<h2>FAQ</h2>\n<p><b>Do I need an account to use the widget?</b> No. The widget itself does not require a user account.</p>\n<p><b>Can I embed the widget on any page?</b> Yes. The code works on any page of your website, regardless of platform.</p>\n<p><b>Will the widget display my brand?</b> With Widget Pro, the widget shows your logo and custom call‑to‑action, removing the “Powered by CaratBase” line.</p>\n<p><a href=\"https://caratbase.com/widgets.html\">Get your ring‑sizer widget today</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need an account to use the widget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The widget itself does not require a user account."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I embed the widget on any page?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. The code works on any page of your website, regardless of platform."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will the widget display my brand?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "With Widget Pro, the widget shows your logo and custom call‑to‑action, removing the “Powered by CaratBase” line."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "buy ring size widget online"
+ ],
+ "updated": "2026-11-01",
+ "draft_id": "d00f807cfb",
+ "source": "seo"
+}
