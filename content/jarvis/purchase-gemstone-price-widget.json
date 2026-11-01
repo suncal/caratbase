@@ -1,0 +1,45 @@
+{
+ "path": "/purchase-gemstone-price-widget/",
+ "title": "Purchase Gemstone Price Widget",
+ "h1": "Purchase Gemstone Price Widget",
+ "description": "You can purchase a gemstone price widget from CaratBase to add to your website, allowing your customers to easily calculate the value of gemstones. On",
+ "html": "<h1>Purchase Gemstone Price Widget</h1>\n<p>You can purchase a gemstone price widget from CaratBase to add to your website, allowing your customers to easily calculate the value of gemstones. On this site, you can buy the Widget Pro for $12/month per domain, which gives you a customizable widget with no attribution and allows inquiries to go directly to you.</p>\n<h2>How it Works for Your Jewelry Business</h2>\n<p>The gemstone price widget is one of the tools available on CaratBase, which also offers calculators for diamonds, gold, and jewelry. You can use the widget to provide your customers with accurate prices for 21 gem types. The widget is easy to add to your website and can help you provide a better experience for your customers. You can also use other tools on the site, such as the ring size chart and gold calculator, to help your customers make informed purchasing decisions.</p>\n<h2>What You Get and What it Costs</h2>\n<p>The Widget Pro costs $12/month per domain and gives you a customizable widget with no attribution. You also get access to 250+ reference pages, 37 ring sizes in 5 systems, and prices for 21 gem types. The figures come from a price model and are not a licensed appraisal.</p>\n<h2>FAQ</h2>\n<p><b>What is the cost of the Widget Pro?</b> The Widget Pro costs $12/month per domain. <b>Can I use the widget for free?</b> Yes, there is a free version of the widget available, but it includes a 'Powered by CaratBase' line. <b>How many gem types are included in the widget?</b> The widget includes prices for 21 gem types.</p>\n<p><a href=\"/widgets.html\">Learn more about the gemstone price widget and purchase it here</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the cost of the Widget Pro?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Widget Pro costs $12/month per domain."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use the widget for free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, there is a free version of the widget available, but it includes a 'Powered by CaratBase' line."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How many gem types are included in the widget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The widget includes prices for 21 gem types."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "purchase gemstone price widget"
+ ],
+ "updated": "2026-11-01",
+ "draft_id": "de39cff762",
+ "source": "seo"
+}
