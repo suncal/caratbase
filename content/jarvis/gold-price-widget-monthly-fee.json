@@ -1,0 +1,45 @@
+{
+ "path": "/gold-price-widget-monthly-fee/",
+ "title": "Gold Price Widget Monthly Fee",
+ "h1": "Gold Price Widget Monthly Fee",
+ "description": "You're looking for a gold price widget with a clear monthly fee, and you've found it on CaratBase. Here, you can get a free gold calculator widget with a",
+ "html": "<h1>Gold Price Widget Monthly Fee</h1>\n<p>You're looking for a gold price widget with a clear monthly fee, and you've found it on CaratBase. Here, you can get a free gold calculator widget with a 'Powered by CaratBase' line, or upgrade to Widget Pro for $12/month per domain, which removes the attribution and allows custom calls to action.</p>\n<h2>How it Works for Your Jewelry Business</h2>\n<p>To get started, you can choose the free gold calculator widget, which comes with a 'Powered by CaratBase' line. If you prefer a more customized solution, you can upgrade to Widget Pro for $12/month per domain. This allows you to remove the attribution, customize the call to action, and have inquiries go directly to your jewelry business. You can use the widget on your website to provide value to your customers and establish your business as a trusted resource.</p>\n<h2>What You Get and What it Costs</h2>\n<p>With CaratBase, you get access to a range of free calculators, including diamond, gold, and jewelry calculators, as well as tools for valuing gemstones, scrap gold, and more. The Widget Pro service costs $12/month per domain, and provides a customized gold price widget with no attribution.</p>\n<h2>FAQ</h2>\n<p><b>What is the monthly fee for the gold price widget?</b> The monthly fee for Widget Pro is $12/month per domain. <b>Can I use the gold price widget for free?</b> Yes, you can use the free gold calculator widget, which comes with a 'Powered by CaratBase' line. <b>What are the benefits of upgrading to Widget Pro?</b> Upgrading to Widget Pro removes the attribution, allows custom calls to action, and has inquiries go directly to your jewelry business.</p>\n<p><a href=\"/widgets.html\">Get your gold price widget now</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is the monthly fee for the gold price widget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The monthly fee for Widget Pro is $12/month per domain."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use the gold price widget for free?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, you can use the free gold calculator widget, which comes with a 'Powered by CaratBase' line."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What are the benefits of upgrading to Widget Pro?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Upgrading to Widget Pro removes the attribution, allows custom calls to action, and has inquiries go directly to your jewelry business."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "gold price widget monthly fee"
+ ],
+ "updated": "2026-11-02",
+ "draft_id": "d26ac9d513",
+ "source": "seo"
+}
