@@ -1,0 +1,45 @@
+{
+ "path": "/jewelry-pricing-widget-cost/",
+ "title": "Jewelry Pricing Widget Cost",
+ "h1": "Jewelry Pricing Widget Cost",
+ "description": "CaratBase offers free jewelry pricing widgets that let you display instant price estimates on your site. The widgets are easy to embed and cost nothing.",
+ "html": "<h1>Jewelry Pricing Widget Cost</h1>\n<p>CaratBase offers free jewelry pricing widgets that let you display instant price estimates on your site. The widgets are easy to embed and cost nothing.</p>\n<h2>How the Jewelry Pricing Widget Works</h2>\n<ol><li>Go to <b>/widgets.html</b> and pick the widget you need (ring sizer, gold calculator, etc.).</li><li>Copy the code snippet shown.</li><li>Paste it into the page of your website where you want the widget to appear.</li><li>The widget loads immediately and shows real‑time pricing based on CaratBase’s data model.</li></ol>\n<h2>What You Get / Costs</h2>\n<ul><li><b>Free</b> to use on any number of pages.</li><li>The free widget includes a “Powered by CaratBase” line.</li><li><b>Widget Pro</b> is available for $12/month per domain. It removes the “Powered by CaratBase” line and lets you add a custom call‑to‑action button.</li></ul>\n<h2>FAQ</h2>\n<p><b>Do I need to create an account to use the widgets?</b> No. The widgets run directly from CaratBase’s servers; you only need the code snippet.</p>\n<p><b>Will my customers see the “Powered by CaratBase” line?</b> Yes, if you use the free version. The pro version removes the line.</p>\n<p><b>Can I customize the widget’s appearance?</b> The free widget uses CaratBase’s default styling. The pro version lets you set a custom call‑to‑action button.</p>\n<p><a href=\"https://caratbase.com/widgets.html\">Get your free jewelry pricing widget now → /widgets.html</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do I need to create an account to use the widgets?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. The widgets run directly from CaratBase’s servers; you only need the code snippet."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will my customers see the “Powered by CaratBase” line?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, if you use the free version. The pro version removes the line."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I customize the widget’s appearance?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The free widget uses CaratBase’s default styling. The pro version lets you set a custom call‑to‑action button."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "jewelry pricing widget cost"
+ ],
+ "updated": "2026-11-03",
+ "draft_id": "d2907fb29c",
+ "source": "seo"
+}
