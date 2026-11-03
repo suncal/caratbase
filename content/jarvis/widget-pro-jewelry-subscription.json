@@ -1,0 +1,45 @@
+{
+ "path": "/widget-pro-jewelry-subscription/",
+ "title": "Widget Pro Jewelry Subscription",
+ "h1": "Widget Pro Jewelry Subscription",
+ "description": "Get a professional‑grade jewelry calculator on your site without the hassle. The subscription gives you a widget that looks like yours, no branding, and",
+ "html": "<h1>Widget Pro Jewelry Subscription</h1>\n<p>Get a professional‑grade jewelry calculator on your site without the hassle. The subscription gives you a widget that looks like yours, no branding, and sends inquiries straight to you.</p>\n<h2>How it works for a jewelry retailer</h2>\n<ol><li>Sign up for the $12/month plan at the <b>Widget Pro Jewelry Subscription</b> page.</li><li>Add the provided code to your product pages.</li><li>Customers use the calculator to estimate diamond, gold, or gemstone value.</li><li>When they click “Get a quote,” the request lands in your inbox, ready for follow‑up.</li></ol>\n<h2>What you get / cost</h2>\n<ul><li>Monthly fee: <b>$12</b> per domain</li><li>No attribution line on the widget</li><li>Custom call‑to‑action button that directs inquiries to you</li><li>Unlimited usage on your site</li><li>No account creation or data storage on CaratBase</li></ul>\n<h2>FAQ</h2>\n<p><b>Question?</b> *Does the widget require a user account?* No. The widget runs entirely on your site; users never create an account.</p>\n<p><b>Question?</b> *Can I change the look of the widget?* Yes. The code can be styled with your CSS to match your brand.</p>\n<p><b>Question?</b> *What happens after a customer submits a request?* The inquiry is sent directly to the email address you set in the widget settings.</p>\n<p><a href=\"https://caratbase.com/widget-pro-jewelry-subscription/\">Start your Widget Pro subscription today</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Does the widget require a user account?* No. The widget runs entirely on your site; users never create an account."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Can I change the look of the widget?* Yes. The code can be styled with your CSS to match your brand."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*What happens after a customer submits a request?* The inquiry is sent directly to the email address you set in the widget settings."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "widget pro jewelry subscription"
+ ],
+ "updated": "2026-11-03",
+ "draft_id": "d929be3153",
+ "source": "seo"
+}
