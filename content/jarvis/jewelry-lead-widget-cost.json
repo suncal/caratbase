@@ -1,0 +1,45 @@
+{
+ "path": "/jewelry-lead-widget-cost/",
+ "title": "Jewelry lead widget cost",
+ "h1": "Jewelry lead widget cost",
+ "description": "Yes, CaratBase sells a lead‑generation widget for jewelers. It costs $12 per month per domain and removes the “Powered by CaratBase” attribution.",
+ "html": "<h1>Jewelry lead widget cost</h1>\n<p>Yes, CaratBase sells a lead‑generation widget for jewelers. It costs <b>$12 per month per domain</b> and removes the “Powered by CaratBase” attribution.</p>\n<h2>How it works for a jeweler who wants the widget on his site</h2>\n<ol><li>Visit the <b>Widgets</b> page and choose <b>Widget Pro</b>.</li><li>Enter the domain where the widget will be placed.</li><li>Pay the $12 /month subscription.</li><li>Copy the provided code snippet and embed it on the site.</li><li>Leads from visitors are sent directly to the jeweler; CaratBase does not handle the inquiry.</li></ol>\n<h2>What you get and the cost</h2>\n<ul><li>Monthly fee: <b>$12</b> for each domain that hosts the widget.</li><li>No “Powered by CaratBase” line on the widget.</li><li>Direct lead delivery to the jeweler’s contact method.</li><li>No additional fees, no account creation required for the end‑user.</li></ul>\n<h2>FAQ</h2>\n<p><b>What does the $12/month cover?</b> It covers the widget code, removal of attribution, and routing of lead information straight to you.</p>\n<p><b>Can I use the widget on multiple domains?</b> Each domain needs its own $12 /month subscription.</p>\n<p><b>Is there a free version of the widget?</b> A basic widget is free but always displays “Powered by CaratBase.” The paid version removes that line.</p>\n<p><b>Do I need to sign up for a CaratBase account?</b> No. The widget is purchased per domain without creating a user account.</p>\n<p><b>Will CaratBase sell or buy the jewelry leads?</b> No. Leads are sent directly to the jeweler; CaratBase does not buy or sell jewelry.</p>\n<p><a href=\"/widgets.html\">Get the Widget Pro for $12/month</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What does the $12/month cover?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It covers the widget code, removal of attribution, and routing of lead information straight to you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use the widget on multiple domains?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Each domain needs its own $12 /month subscription."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is there a free version of the widget?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A basic widget is free but always displays “Powered by CaratBase.” The paid version removes that line."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "jewelry lead widget cost"
+ ],
+ "updated": "2026-11-03",
+ "draft_id": "d078a856a9",
+ "source": "seo"
+}
