@@ -1,0 +1,45 @@
+{
+ "path": "/buy-gemstone-price-calculator/",
+ "title": "Buy Gemstone Price Calculator",
+ "h1": "Buy Gemstone Price Calculator",
+ "description": "Yes, this is the free tool you need to estimate how much a gemstone will cost you. Enter the stone’s type, carat weight and other details, and CaratBase",
+ "html": "<h1>Buy Gemstone Price Calculator</h1>\n<p>Yes, this is the free tool you need to estimate how much a gemstone will cost you. Enter the stone’s type, carat weight and other details, and CaratBase instantly shows a market‑based price range.</p>\n<h2>How it works for a single gemstone purchase</h2>\n<ol><li>Open the <b>Gemstone Calculator</b> page.</li><li>Choose the gem type from the 21 options (e.g., sapphire, emerald).</li><li>Enter the carat weight and any clarity or color grades you have.</li><li>Click <b>Calculate</b> to see the estimated price based on current market data.</li></ol>\n<h2>What you get and the cost</h2>\n<ul><li>The calculator is completely free; no account or payment is required.</li><li>Results are based on CaratBase’s price model, not a licensed appraisal.</li><li>You can save the calculation locally with <b>My Vault</b> for later reference.</li></ul>\n<h2>FAQ</h2>\n<p><b>How accurate is the price estimate?</b> The estimate reflects current market trends for natural and lab‑grown stones, using a model that tracks resale percentages (natural 25‑40 %, lab‑grown 5‑12 %). It is not a formal appraisal.</p>\n<p><b>Can I use the calculator on my own website?</b> Yes. CaratBase offers free widgets (e.g., gemstone calculator) that you can embed with a “Powered by CaratBase” line. For a widget without attribution, the Widget Pro plan is $12 /month per domain.</p>\n<p><b>Do I need to create an account to keep my results?</b> No. You can store calculations on your device via <b>My Vault</b> without signing up.</p>\n<p><a href=\"/gemstone.html\">Start calculating your gemstone price now</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "How accurate is the price estimate?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The estimate reflects current market trends for natural and lab‑grown stones, using a model that tracks resale percentages (natural 25‑40 %, lab‑grown 5‑12 %). It is not a formal appraisal."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I use the calculator on my own website?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. CaratBase offers free widgets (e.g., gemstone calculator) that you can embed with a “Powered by CaratBase” line. For a widget without attribution, the Widget Pro plan is $12 /month per domain."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to create an account to keep my results?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. You can store calculations on your device via **My Vault** without signing up."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "buy gemstone price calculator"
+ ],
+ "updated": "2026-11-04",
+ "draft_id": "d7c8721e77",
+ "source": "seo"
+}
