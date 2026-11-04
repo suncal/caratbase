@@ -1,0 +1,45 @@
+{
+ "path": "/order-jewelry-pricing-widget/",
+ "title": "Order Jewelry Pricing Widget",
+ "h1": "Order Jewelry Pricing Widget",
+ "description": "Get a custom jewelry pricing widget for your site. It’s free to use, or upgrade to Widget Pro for no attribution and direct inquiries to you.",
+ "html": "<h1>Order Jewelry Pricing Widget</h1>\n<p>Get a custom jewelry pricing widget for your site. It’s free to use, or upgrade to Widget Pro for no attribution and direct inquiries to you.</p>\n<h2>How it works for a jewelry retailer</h2>\n<ol><li>Visit <b>/widgets.html</b> and choose the free “Powered by CaratBase” widget or the pro version.</li><li>Copy the embed code into your page.</li><li>Your customers can instantly calculate diamond, gold, and gemstone prices.</li><li>If you select Widget Pro, the widget shows a custom call‑to‑action button that sends inquiries straight to your contact form.</li></ol>\n<p>The widget is built from CaratBase’s 250+ reference pages and 37 ring sizes across 5 systems. No account is required.</p>\n<h2>What you get / cost / limits</h2>\n<ul><li><b>Free version</b>: $0, includes a “Powered by CaratBase” line.</li><li><b>Widget Pro</b>: $12 / month per domain, no attribution, custom call‑to‑action.</li><li>No hidden fees.</li><li>The widget is fully responsive and works on all devices.</li></ul>\n<h2>FAQ</h2>\n<p><b>Question?</b> *Can I use the widget on a mobile site?* Yes. The widget is responsive and works on smartphones and tablets.</p>\n<p><b>Question?</b> *Do I need to sign up for an account?* No. You can embed the widget immediately without creating an account.</p>\n<p><b>Question?</b> *Will the widget show my brand name?* The free widget includes a “Powered by CaratBase” line. Widget Pro removes this line and lets you add your own branding.</p>\n<p><a href=\"https://caratbase.com/order-jewelry-pricing-widget/\">Order your jewelry pricing widget now</a></p>",
+ "ld": [
+  {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Can I use the widget on a mobile site?* Yes. The widget is responsive and works on smartphones and tablets."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Do I need to sign up for an account?* No. You can embed the widget immediately without creating an account."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Question?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "*Will the widget show my brand name?* The free widget includes a “Powered by CaratBase” line. Widget Pro removes this line and lets you add your own branding."
+     }
+    }
+   ]
+  }
+ ],
+ "keywords": [
+  "order jewelry pricing widget"
+ ],
+ "updated": "2026-11-04",
+ "draft_id": "d8fa908421",
+ "source": "seo"
+}
